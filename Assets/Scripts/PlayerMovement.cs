@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,16 +13,20 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     private Vector3 moveDirection = Vector3.zero;
     private PlayerManager playerManager;
+    private GameObject player;
+    private Gun weapon;
 
     public GameObject bullet;
     public GameObject gun;
     public float shotCooldown;
-    Gun weapon = new Gun();
+    
     public int magazineSize = 10;
         public int magazines = 3;
 
 
     private void Start() {
+        addGunToPlayer();
+
         controller = GetComponent<CharacterController>();
         mainCamera = FindObjectOfType<Camera>();
         playerManager = GetComponent<PlayerManager>();
@@ -29,6 +34,12 @@ public class PlayerMovement : MonoBehaviour
         weapon.bulletsRemaining = magazineSize;
         weapon.magazinesRemaining = magazines;
         weapon.initBulletUi();
+    }
+
+    private void addGunToPlayer()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        weapon = player.AddComponent<Gun>();
     }
 
     private void Update() {
