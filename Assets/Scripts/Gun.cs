@@ -36,19 +36,12 @@ public class Gun : MonoBehaviour {
     {
         if (magazinesRemaining > 0 && !reloading)
         {
-            if(reloadAmmoTextField != null)
-            {
-                Destroy(reloadAmmoTextField);
-            }
+            removeTextUi();
             reloading = true;
-            Text reloadText = (Text)Resources.Load("Prefabs/MunitionText", typeof(Text));
+            Text reloadText = GameObject.Find("MunitionText").GetComponent<Text>();
             reloadText.text = "reloading...";
-            Text reloadTextField = Instantiate(reloadText, reloadText.transform.position, Quaternion.identity);
-            reloadTextField.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
-            Debug.Log("before Wait");
             yield return new WaitForSecondsRealtime(2);
-            Debug.Log("after Wait");
-            Destroy(reloadTextField);
+            reloadText.text = "";
             magazinesRemaining -= 1;
             bulletsRemaining = magazineSize;
             UpdateAmmoUi();
@@ -58,12 +51,11 @@ public class Gun : MonoBehaviour {
 
     public void ReloadText()
     {
-        if (!reloaded)
+        if (!reloaded && !reloading)
         {
-            Text reloadAmmoText = (Text)Resources.Load("Prefabs/MunitionText", typeof(Text));
+            removeTextUi();
+            Text reloadAmmoText = GameObject.Find("MunitionText").GetComponent<Text>();
             reloadAmmoText.text = "press R to reload";
-            reloadAmmoTextField = Instantiate(reloadAmmoText, reloadAmmoText.transform.position, Quaternion.identity);
-            reloadAmmoTextField.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
             reloaded = true;
         }
     }
@@ -71,10 +63,9 @@ public class Gun : MonoBehaviour {
     {
         if (!outOfAmmo)
         {
-            Text outOfAmmoText = (Text)Resources.Load("Prefabs/MunitionText", typeof(Text));
+            removeTextUi();
+            Text outOfAmmoText = GameObject.Find("MunitionText").GetComponent<Text>();
             outOfAmmoText.text = "out of ammunition";
-            Text outOfAmmoTextField = Instantiate(outOfAmmoText, outOfAmmoText.transform.position, Quaternion.identity);
-            outOfAmmoTextField.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
             outOfAmmo = true;
         }
     }
@@ -92,6 +83,16 @@ public class Gun : MonoBehaviour {
             }
         }
     reloaded = false;
+    }
+    private void removeTextUi()
+    {
+        for (int i=0; i< canvas.transform.childCount; i++)
+        {
+            if(canvas.transform.GetChild(i).tag == "ReloadingStateSprite")
+            {
+                canvas.transform.GetChild(i).gameObject.GetComponent<Text>().text = "";
+            }
+        }
     }
 
     private List<GameObject> GetBullets()
