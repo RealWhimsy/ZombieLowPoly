@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         setWeaponStats();
         mainCamera = FindObjectOfType<Camera>();
         playerManager = GetComponent<PlayerManager>();
-        firstGun = new Weapon(currentWeapon, magazines, magazineSize);
+        firstGun = new Weapon(currentWeapon, magazines, magazineSize, shotCooldown, bullet);
         weaponLogic.bulletsRemaining = firstGun.magazineSize;
         weaponLogic.magazinesRemaining = firstGun.magazines;
         weaponLogic.initBulletUi();
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     currentWeapon = getWeapon(weaponPickup);
                     setWeaponStats();
-                    secondGun = new Weapon(currentWeapon, magazines, magazineSize);
+                    secondGun = new Weapon(currentWeapon, magazines, magazineSize, shotCooldown, bullet);
                     firstGun.weapon.SetActive(false);
                     secondGun.weapon.SetActive(true);
                     weaponLogic.bulletsRemaining = secondGun.magazineSize;
@@ -126,9 +126,9 @@ public class PlayerMovement : MonoBehaviour
 
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
-        if (Input.GetMouseButtonDown(0) && !weaponLogic.reloading)
+        if (Input.GetMouseButton(0) && !weaponLogic.reloading)
         {
-            if (weaponLogic.bulletsRemaining > 0 && (Time.time - shotTime > shotCooldown))
+            if (weaponLogic.bulletsRemaining > 0 && (Time.time - shotTime > getEquipedGun().shotCooldown))
             {
                 weaponLogic.bulletsRemaining -= 1;
                 weaponLogic.ReduceBulletUi();
@@ -147,7 +147,6 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(weaponLogic.Reload(current.maxMagazineSize));
             }
         }
-        //Test Weapon change until weapon pickup is implemented
         if (Input.GetKeyDown("t"))
         {
             switchWeapon();
@@ -206,7 +205,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Shoot()
     {
-        Transform playerBullet = Instantiate(bullet.transform, bulletSpawner.transform.position, bulletSpawner.transform.rotation);
+        Transform playerBullet = Instantiate(getEquipedGun().bullet.transform, bulletSpawner.transform.position, bulletSpawner.transform.rotation);
         Bullet bulletScript = playerBullet.GetComponent<Bullet>();
         bulletScript.setDamage(playerManager.damage);
     }
@@ -228,21 +227,66 @@ public class PlayerMovement : MonoBehaviour
     {
         if(currentWeapon.name == "w_DesertEagle")
         {
-            magazineSize = 9;
+            magazineSize = 12;
             magazines = 3;
             shotCooldown = (float)0.7;
             weaponLogic.bulletsRemaining = magazineSize;
             weaponLogic.magazinesRemaining = magazines;
-            bullet = Resources.Load("Prefabs/Bullet") as GameObject;
+            bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
         }
         if (currentWeapon.name == "w_ak47")
         {
-            magazineSize = 25;
+            magazineSize = 15;
             magazines = 3;
             shotCooldown = (float)0.3;
             weaponLogic.bulletsRemaining = magazineSize;
             weaponLogic.magazinesRemaining = magazines;
-            bullet = Resources.Load("Prefabs/Bullet") as GameObject;
+            bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
+        }
+        if (currentWeapon.name == "w_ak47_double_drum")
+        {
+            magazineSize = 30;
+            magazines = 2;
+            shotCooldown = (float)0.3;
+            weaponLogic.bulletsRemaining = magazineSize;
+            weaponLogic.magazinesRemaining = magazines;
+            bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
+        }
+        if (currentWeapon.name == "w_python")
+        {
+            magazineSize = 9;
+            magazines = 4;
+            shotCooldown = (float)0.6;
+            weaponLogic.bulletsRemaining = magazineSize;
+            weaponLogic.magazinesRemaining = magazines;
+            bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
+        }
+        if (currentWeapon.name == "w_rpg")
+        {
+            magazineSize = 5;
+            magazines = 0;
+            shotCooldown = (float)2;
+            weaponLogic.bulletsRemaining = magazineSize;
+            weaponLogic.magazinesRemaining = magazines;
+            bullet = Resources.Load("Prefabs/projectile_rpg") as GameObject;
+        }
+        if (currentWeapon.name == "w_spas")
+        {
+            magazineSize = 8;
+            magazines = 3;
+            shotCooldown = (float)1;
+            weaponLogic.bulletsRemaining = magazineSize;
+            weaponLogic.magazinesRemaining = magazines;
+            bullet = Resources.Load("Prefabs/shotgun_shell") as GameObject;
+        }
+        if (currentWeapon.name == "w_svd")
+        {
+            magazineSize = 5;
+            magazines = 3;
+            shotCooldown = (float)1.5;
+            weaponLogic.bulletsRemaining = magazineSize;
+            weaponLogic.magazinesRemaining = magazines;
+            bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
         }
     }
     private GameObject getActiveWeapon()
