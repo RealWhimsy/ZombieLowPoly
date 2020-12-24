@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         { 
             if (weaponPickup != null && weaponPickup.tag == "weapon")
             {
-                if (secondGun != null)
+                if (!ReferenceEquals(secondGun, null))
                 {
 
                 }
@@ -154,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void switchWeapon()
     {
-        if (!ReferenceEquals(secondGun, null))
+        if (!ReferenceEquals(secondGun, null) && !weaponLogic.reloading)
         {
             if (firstWeapon)
             {
