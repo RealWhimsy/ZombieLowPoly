@@ -15,14 +15,18 @@ public class PlayerMovement : MonoBehaviour
     private PlayerManager playerManager;
     private GameObject player;
     private Gun weaponLogic;
-    private GameObject currentWeapon;
     private GameObject weaponHand;
+    private bool firstWeapon;
+    private Weapon firstGun;
+    private Weapon secondGun;
+    private GameObject currentWeapon;
+    private GameObject weaponPickup;
+    private bool onWeapon;
 
     private GameObject bullet;
     public GameObject bulletSpawner;
     public float shotCooldown;
     private float shotTime;
-    
     public int magazineSize;
         public int magazines;
 
@@ -34,11 +38,13 @@ public class PlayerMovement : MonoBehaviour
         shotTime = Time.time;
         weaponHand = GameObject.FindGameObjectWithTag("WeaponHand");
         currentWeapon = getActiveWeapon();
+        firstWeapon = true;
         setWeaponStats();
         mainCamera = FindObjectOfType<Camera>();
         playerManager = GetComponent<PlayerManager>();
-        weaponLogic.bulletsRemaining = magazineSize;
-        weaponLogic.magazinesRemaining = magazines;
+        firstGun = new Weapon(currentWeapon, magazines, magazineSize);
+        weaponLogic.bulletsRemaining = firstGun.magazineSize;
+        weaponLogic.magazinesRemaining = firstGun.magazines;
         weaponLogic.initBulletUi();
     }
 
@@ -54,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
             BaseMovement();
             MouseMovement();
             AmmoTracker();
-            onWeaponChange();
+            PickupWeapon();
         }
     }
 
@@ -70,6 +76,45 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("vertical", moveZ);
     }
 
+    private void PickupWeapon()
+    {
+        if (onWeapon && Input.GetKeyDown("e"))
+        { 
+            if (weaponPickup != null && weaponPickup.tag == "weapon")
+            {
+                if (secondGun != null)
+                {
+
+                }
+                else
+                {
+                    currentWeapon = getWeapon(weaponPickup);
+                    setWeaponStats();
+                    secondGun = new Weapon(currentWeapon, magazines, magazineSize);
+                    firstGun.weapon.SetActive(false);
+                    secondGun.weapon.SetActive(true);
+                    weaponLogic.bulletsRemaining = secondGun.magazineSize;
+                    weaponLogic.magazinesRemaining = secondGun.magazines;
+                    weaponLogic.UpdateAmmoUi();
+                    Destroy(weaponPickup);
+                    firstWeapon = false;
+                }
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        weaponPickup = collider.gameObject;
+        onWeapon = true;
+       
+    }
+    private void OnTriggerExit()
+    {
+       onWeapon = false;
+
+    }
+
     private void MouseMovement() {
         Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
         Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
@@ -81,31 +126,84 @@ public class PlayerMovement : MonoBehaviour
 
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !weaponLogic.reloading)
         {
             if (weaponLogic.bulletsRemaining > 0 && (Time.time - shotTime > shotCooldown))
             {
                 weaponLogic.bulletsRemaining -= 1;
                 weaponLogic.ReduceBulletUi();
+                reduceActiveWeaponMunition("magazineSize");
                 Shoot();
                 shotTime = Time.time;
             }
-
         }
-        if (Input.GetKeyDown("r"))
+        if (Input.GetKeyDown("r") && getEquipedGun().magazineSize != getEquipedGun().maxMagazineSize)
         {
-            if (magazines > 0)
+            Weapon current = getEquipedGun();
+            if (current.magazines > 0)
             {
-                StartCoroutine(weaponLogic.Reload(magazineSize));
+                reduceActiveWeaponMunition("magazines");
+                getEquipedGun().magazineSize = getEquipedGun().maxMagazineSize;
+                StartCoroutine(weaponLogic.Reload(current.maxMagazineSize));
             }
         }
         //Test Weapon change until weapon pickup is implemented
         if (Input.GetKeyDown("t"))
         {
-            weaponHand.transform.Find("w_ak47").gameObject.SetActive(true);
-            weaponHand.transform.Find("w_DesertEagle").gameObject.SetActive(false);
+            switchWeapon();
         }
     }
+    private void switchWeapon()
+    {
+        if (!ReferenceEquals(secondGun, null))
+        {
+            if (firstWeapon)
+            {
+                firstGun.weapon.SetActive(false);
+                secondGun.weapon.SetActive(true);
+                weaponLogic.bulletsRemaining = secondGun.magazineSize;
+                weaponLogic.magazinesRemaining = secondGun.magazines;
+                weaponLogic.UpdateAmmoUi();
+                firstWeapon = false;
+            }
+            else
+            {
+                secondGun.weapon.SetActive(false);
+                firstGun.weapon.SetActive(true);
+                weaponLogic.bulletsRemaining = firstGun.magazineSize;
+                weaponLogic.magazinesRemaining = firstGun.magazines;
+                weaponLogic.UpdateAmmoUi();
+                firstWeapon = true;
+            }
+        }
+    }
+
+    private void reduceActiveWeaponMunition(String magOrMagSize)
+    {
+
+        Weapon current = getEquipedGun();
+        if (magOrMagSize == "magazines")
+        {
+            current.magazines -= 1;
+        }
+        if (magOrMagSize == "magazineSize")
+        {
+            current.magazineSize -= 1;
+        }
+    }
+
+    private Weapon getEquipedGun()
+    {
+        if (firstWeapon)
+        {
+            return firstGun;
+        }
+        else
+        {
+            return secondGun;
+        }
+    }
+
     void Shoot()
     {
         Transform playerBullet = Instantiate(bullet.transform, bulletSpawner.transform.position, bulletSpawner.transform.rotation);
@@ -126,18 +224,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void onWeaponChange()
-    {
-        if (!weaponHand.transform.Find(currentWeapon.name).gameObject.activeSelf)
-        {
-            currentWeapon = getActiveWeapon();
-            setWeaponStats();
-            weaponLogic.UpdateAmmoUi();
-
-
-        }
-    }
-
     private void setWeaponStats()
     {
         if(currentWeapon.name == "w_DesertEagle")
@@ -152,7 +238,7 @@ public class PlayerMovement : MonoBehaviour
         if (currentWeapon.name == "w_ak47")
         {
             magazineSize = 25;
-            magazines = 2;
+            magazines = 3;
             shotCooldown = (float)0.3;
             weaponLogic.bulletsRemaining = magazineSize;
             weaponLogic.magazinesRemaining = magazines;
@@ -170,4 +256,16 @@ public class PlayerMovement : MonoBehaviour
         }
         return null;
     }
+    
+    private GameObject getWeapon(GameObject weapon)
+        {
+            for (int i = 0; i < weaponHand.transform.childCount; i++)
+            {
+                if (weaponHand.transform.GetChild(i).gameObject.name == weapon.name)
+                {
+                    return weaponHand.transform.GetChild(i).gameObject;
+                }
+            }
+        return null;
+        }
 }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 
-public class Gun : MonoBehaviour { 
+public class Gun : MonoBehaviour {
 
     public int bulletsRemaining;
     public int magazinesRemaining;
@@ -18,8 +18,6 @@ public class Gun : MonoBehaviour {
 
     public void UpdateAmmoUi()
     {
-        canvas = GameObject.FindGameObjectWithTag("Canvas");
-
         List<GameObject> renderedBullets = GetBullets();
 
         if (renderedBullets.Count != bulletsRemaining)
@@ -30,27 +28,33 @@ public class Gun : MonoBehaviour {
             }
             initBulletUi();
         }
+        if (bulletsRemaining <= 0 && magazinesRemaining <= 0)
+        {
+            removeTextUi();
+            Text outOfAmmoText = GameObject.Find("MunitionText").GetComponent<Text>();
+            outOfAmmoText.text = "out of ammunition";
+        }
+
+        if (bulletsRemaining <= 0 && magazinesRemaining > 0)
+        {
+            removeTextUi();
+            Text reloadAmmoText = GameObject.Find("MunitionText").GetComponent<Text>();
+            reloadAmmoText.text = "press R to reload";
+        }
     }
 
     public IEnumerator Reload(int magazineSize)
     {
         if (magazinesRemaining > 0 && !reloading)
         {
-            if(reloadAmmoTextField != null)
-            {
-                Destroy(reloadAmmoTextField);
-            }
+            removeTextUi();
             reloading = true;
-            Text reloadText = (Text)Resources.Load("Prefabs/MunitionText", typeof(Text));
+            Text reloadText = GameObject.Find("MunitionText").GetComponent<Text>();
             reloadText.text = "reloading...";
-            Text reloadTextField = Instantiate(reloadText, reloadText.transform.position, Quaternion.identity);
-            reloadTextField.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
-            Debug.Log("before Wait");
             yield return new WaitForSecondsRealtime(2);
-            Debug.Log("after Wait");
-            Destroy(reloadTextField);
-            magazinesRemaining -= 1;
+            reloadText.text = "";
             bulletsRemaining = magazineSize;
+            magazinesRemaining -= 1;
             UpdateAmmoUi();
             reloading = false;
         }
@@ -58,12 +62,11 @@ public class Gun : MonoBehaviour {
 
     public void ReloadText()
     {
-        if (!reloaded)
+        if (!reloaded && !reloading)
         {
-            Text reloadAmmoText = (Text)Resources.Load("Prefabs/MunitionText", typeof(Text));
+            removeTextUi();
+            Text reloadAmmoText = GameObject.Find("MunitionText").GetComponent<Text>();
             reloadAmmoText.text = "press R to reload";
-            reloadAmmoTextField = Instantiate(reloadAmmoText, reloadAmmoText.transform.position, Quaternion.identity);
-            reloadAmmoTextField.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
             reloaded = true;
         }
     }
@@ -71,10 +74,9 @@ public class Gun : MonoBehaviour {
     {
         if (!outOfAmmo)
         {
-            Text outOfAmmoText = (Text)Resources.Load("Prefabs/MunitionText", typeof(Text));
+            removeTextUi();
+            Text outOfAmmoText = GameObject.Find("MunitionText").GetComponent<Text>();
             outOfAmmoText.text = "out of ammunition";
-            Text outOfAmmoTextField = Instantiate(outOfAmmoText, outOfAmmoText.transform.position, Quaternion.identity);
-            outOfAmmoTextField.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
             outOfAmmo = true;
         }
     }
@@ -91,15 +93,25 @@ public class Gun : MonoBehaviour {
                 break;
             }
         }
-    reloaded = false;
+        reloaded = false;
+    }
+    private void removeTextUi()
+    {
+        for (int i = 0; i < canvas.transform.childCount; i++)
+        {
+            if (canvas.transform.GetChild(i).tag == "ReloadingStateSprite")
+            {
+                canvas.transform.GetChild(i).gameObject.GetComponent<Text>().text = "";
+            }
+        }
     }
 
     private List<GameObject> GetBullets()
     {
         List<GameObject> result = new List<GameObject>();
-        for(int i=0; i < canvas.transform.childCount; i++)
+        for (int i = 0; i < canvas.transform.childCount; i++)
         {
-            if(canvas.transform.GetChild(i).gameObject.tag == "BulletSprite")
+            if (canvas.transform.GetChild(i).gameObject.tag == "BulletSprite")
             {
                 result.Add(canvas.transform.GetChild(i).gameObject);
             }
@@ -109,7 +121,9 @@ public class Gun : MonoBehaviour {
 
     public void initBulletUi()
     {
-        GameObject bulletUi = (GameObject) Resources.Load("Prefabs/BulletSprite", typeof(GameObject));
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
+        removeTextUi();
+        GameObject bulletUi = (GameObject)Resources.Load("Prefabs/BulletSprite", typeof(GameObject));
 
         for (int i = 0; i < bulletsRemaining; i++)
         {
