@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3430500383793801150}
   - component: {fileID: 3430500383792801150}
   - component: {fileID: 1790326502517672277}
+  - component: {fileID: -1499590313096807851}
   m_Layer: 0
   m_Name: w_svd
   m_TagString: weapon
@@ -93,3 +94,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: -0.08088466, y: -0.004710638, z: 0.47028962}
+--- !u!114 &-1499590313096807851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3430500383794740158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ef942c5eb7c804b972944df8aa3890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usedGun: 0
+  magazines: 0
+  magazineSize: 0

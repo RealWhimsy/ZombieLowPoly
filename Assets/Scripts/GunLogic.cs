@@ -28,6 +28,7 @@ public class Gun : MonoBehaviour {
             }
             initBulletUi();
         }
+        if(bulletsRemaining > 0 || magazinesRemaining > 0) { outOfAmmo = false; }
         if (bulletsRemaining <= 0 && magazinesRemaining <= 0)
         {
             removeTextUi();
@@ -124,12 +125,20 @@ public class Gun : MonoBehaviour {
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         removeTextUi();
         GameObject bulletUi = (GameObject)Resources.Load("Prefabs/BulletSprite", typeof(GameObject));
+        double height = -107;
+        int p = 0;
 
         for (int i = 0; i < bulletsRemaining; i++)
         {
-
-            GameObject bullet = Instantiate(bulletUi, new Vector3(-293 + i * 9, -107, 0), Quaternion.identity);
+            if (i % 20 == 0 && i != 0)
+            {
+                
+                height += 25.6;
+                p = 0;
+            }
+            GameObject bullet = Instantiate(bulletUi, new Vector3(-293 + p * 9, (float)height, 0), Quaternion.identity);
             bullet.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+            p++;
         }
     }
 }
