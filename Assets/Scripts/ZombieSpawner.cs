@@ -12,7 +12,6 @@ public class ZombieSpawner : MonoBehaviour
 
     public float initialSpawnDelay = 0f;
     public float timeBetweenRespawns = 10f;
-    public GameObject zombie;
 
     PlayerManager playerManager;
 
