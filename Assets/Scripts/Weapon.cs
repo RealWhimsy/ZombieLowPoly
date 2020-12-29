@@ -11,7 +11,9 @@ public class Weapon : MonoBehaviour
     public int maxMagazines;
     public float shotCooldown;
     public GameObject bullet;
-    public Weapon(GameObject weapon, int magazines, int magazineSize, float shotCooldown, GameObject bullet)
+    public int damage;
+    public bool meleeWeapon;
+    public Weapon(GameObject weapon, int magazines, int magazineSize, float shotCooldown, GameObject bullet, int damage, bool meleeWeapon)
     {
         this.weapon = weapon;
         this.magazines = magazines;
@@ -20,5 +22,7 @@ public class Weapon : MonoBehaviour
         this.maxMagazineSize = magazineSize;
         this.shotCooldown = shotCooldown;
         this.bullet = bullet;
+        this.damage = damage;
+        this.meleeWeapon = meleeWeapon;
     }
 }

@@ -32,20 +32,28 @@ public class PlayerMovement : MonoBehaviour
     public int magazineSize;
         public int magazines;
     private float bulletSpread;
+    private int damage;
+    private int meleeDamage;
+    private GameObject meleeArea;
+    private bool melee;
 
 
     private void Start() {
-        addGunToPlayer();
 
+        addGunToPlayer();
         controller = GetComponent<CharacterController>();
         shotTime = Time.time;
+        meleeDamage = 20;
+        melee = false;
+        meleeArea = (GameObject) GameObject.Find("MeleeArea");
+        meleeArea.SetActive(false);
         weaponHand = GameObject.FindGameObjectWithTag("WeaponHand");
         currentWeapon = getActiveWeapon();
         firstWeapon = true;
         setWeaponStats();
         mainCamera = FindObjectOfType<Camera>();
         playerManager = GetComponent<PlayerManager>();
-        firstGun = new Weapon(currentWeapon, magazines, magazineSize, shotCooldown, bullet);
+        firstGun = new Weapon(currentWeapon, magazines, magazineSize, shotCooldown, bullet, damage, melee);
         weaponLogic.bulletsRemaining = firstGun.magazineSize;
         weaponLogic.magazinesRemaining = firstGun.magazines;
         weaponLogic.initBulletUi();
@@ -105,19 +113,27 @@ public class PlayerMovement : MonoBehaviour
                         setWeaponStats();
                         if (firstWeapon) { 
                             firstGun.weapon.SetActive(false); 
-                            firstGun = new Weapon(currentWeapon, magazines, magazineSize, shotCooldown, bullet); 
+                            firstGun = new Weapon(currentWeapon, magazines, magazineSize, shotCooldown, bullet, damage, melee); 
                             firstGun.weapon.SetActive(true);
                             weaponLogic.bulletsRemaining = firstGun.magazineSize;
                             weaponLogic.magazinesRemaining = firstGun.magazines;
                         } 
                         else {
                             secondGun.weapon.SetActive(false); 
-                            secondGun = new Weapon(currentWeapon, magazines, magazineSize, shotCooldown, bullet); 
+                            secondGun = new Weapon(currentWeapon, magazines, magazineSize, shotCooldown, bullet, damage, melee); 
                             secondGun.weapon.SetActive(true);
                             weaponLogic.bulletsRemaining = secondGun.magazineSize;
                             weaponLogic.magazinesRemaining = secondGun.magazines;
                         }
-                        weaponLogic.UpdateAmmoUi();
+                        if (!melee)
+                        {
+                            weaponLogic.UpdateAmmoUi();
+                        }
+                        else
+                        {
+                            weaponLogic.removeUi();
+                        }
+                        
                     }
                     if (weaponPickup.GetComponent<BulletContainer>().GetUsedGun())
                     {
@@ -128,20 +144,34 @@ public class PlayerMovement : MonoBehaviour
                         if (firstWeapon)
                             {
                                 firstGun.weapon.SetActive(false);
-                                firstGun = new Weapon(currentWeapon, magazines, magazineSize, shotCooldown, bullet);
+                                firstGun = new Weapon(currentWeapon, magazines, magazineSize, shotCooldown, bullet, damage, melee);
                                 firstGun.weapon.SetActive(true);
                                 weaponLogic.bulletsRemaining = firstGun.magazineSize;
                                 weaponLogic.magazinesRemaining = firstGun.magazines;
+                            if (!melee)
+                            {
                                 weaponLogic.UpdateAmmoUi();
+                            }
+                            else
+                            {
+                                weaponLogic.removeUi();
+                            }
                         }
                             else
                             {
                                 secondGun.weapon.SetActive(false);
-                                secondGun = new Weapon(currentWeapon, magazines, magazineSize, shotCooldown, bullet);
+                                secondGun = new Weapon(currentWeapon, magazines, magazineSize, shotCooldown, bullet, damage, melee);
                                 secondGun.weapon.SetActive(true);
                                 weaponLogic.bulletsRemaining = secondGun.magazineSize;
                                 weaponLogic.magazinesRemaining = secondGun.magazines;
+                            if (!melee)
+                            {
                                 weaponLogic.UpdateAmmoUi();
+                            }
+                            else
+                            {
+                                weaponLogic.removeUi();
+                            }
                         }
                             
                             
@@ -154,12 +184,19 @@ public class PlayerMovement : MonoBehaviour
 
                     currentWeapon = getWeapon(weaponPickup);
                     setWeaponStats();
-                    secondGun = new Weapon(currentWeapon, magazines, magazineSize, shotCooldown, bullet);
+                    secondGun = new Weapon(currentWeapon, magazines, magazineSize, shotCooldown, bullet, damage, melee);
                     firstGun.weapon.SetActive(false);
                     secondGun.weapon.SetActive(true);
                     weaponLogic.bulletsRemaining = secondGun.magazineSize;
                     weaponLogic.magazinesRemaining = secondGun.magazines;
-                    weaponLogic.UpdateAmmoUi();
+                    if (!melee)
+                    {
+                        weaponLogic.UpdateAmmoUi();
+                    }
+                    else
+                    {
+                        weaponLogic.removeUi();
+                    }
                     Destroy(weaponPickup);
                     firstWeapon = false;
                 }
@@ -194,13 +231,21 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetMouseButton(0) && !weaponLogic.reloading)
         {
-            if (weaponLogic.bulletsRemaining > 0 && (Time.time - shotTime > getEquipedGun().shotCooldown))
+            if (weaponLogic.bulletsRemaining > 0 && (Time.time - shotTime > getEquipedGun().shotCooldown) || melee)
             {
-                weaponLogic.bulletsRemaining -= 1;
-                weaponLogic.ReduceBulletUi();
-                reduceActiveWeaponMunition("magazineSize");
-                Shoot();
-                shotTime = Time.time;
+                if (melee)
+                {
+                    Shoot();
+                    shotTime = Time.time;
+                }
+                else
+                {
+                    weaponLogic.bulletsRemaining -= 1;
+                    weaponLogic.ReduceBulletUi();
+                    reduceActiveWeaponMunition("magazineSize");
+                    Shoot();
+                    shotTime = Time.time;
+                }
             }
         }
         if (Input.GetKeyDown("r") && getEquipedGun().magazineSize != getEquipedGun().maxMagazineSize)
@@ -212,6 +257,10 @@ public class PlayerMovement : MonoBehaviour
                 getEquipedGun().magazineSize = getEquipedGun().maxMagazineSize;
                 StartCoroutine(weaponLogic.Reload(current.maxMagazineSize));
             }
+        }
+        if (Input.GetKeyDown("q"))
+        {
+            meleeAttack();
         }
         if (Input.GetKeyDown("2"))
         {
@@ -231,6 +280,23 @@ public class PlayerMovement : MonoBehaviour
         {
             switchWeapon();
         }
+
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("m_fight_attack_A") && !anim.IsInTransition(0))
+        {
+            meleeArea.SetActive(false);
+        }
+    }
+    private void meleeAttack()
+    {
+        if (!melee)
+        {
+            meleeDamage = 20;
+        }
+        anim.SetTrigger("melee");
+        meleeArea.SetActive(true);
+        meleeArea.GetComponent<MeleeAttack>().setDamage(meleeDamage);
+        
+
     }
     private void switchWeapon()
     {
@@ -238,20 +304,37 @@ public class PlayerMovement : MonoBehaviour
         {
             if (firstWeapon)
             {
+                
                 firstGun.weapon.SetActive(false);
                 secondGun.weapon.SetActive(true);
+                melee = secondGun.meleeWeapon;
                 weaponLogic.bulletsRemaining = secondGun.magazineSize;
                 weaponLogic.magazinesRemaining = secondGun.magazines;
-                weaponLogic.UpdateAmmoUi();
+                if (!melee)
+                {
+                    weaponLogic.UpdateAmmoUi();
+                }
+                else
+                {
+                    weaponLogic.removeUi();
+                }
                 firstWeapon = false;
             }
             else
             {
                 secondGun.weapon.SetActive(false);
                 firstGun.weapon.SetActive(true);
+                melee = firstGun.meleeWeapon;
                 weaponLogic.bulletsRemaining = firstGun.magazineSize;
                 weaponLogic.magazinesRemaining = firstGun.magazines;
-                weaponLogic.UpdateAmmoUi();
+                if (!melee)
+                {
+                    weaponLogic.UpdateAmmoUi();
+                }
+                else
+                {
+                    weaponLogic.removeUi();
+                }
                 firstWeapon = true;
             }
         }
@@ -285,21 +368,28 @@ public class PlayerMovement : MonoBehaviour
 
     void Shoot()
     {
-        float randSpread = Random.Range((float)-bulletSpread, (float)bulletSpread);
-        Quaternion spread = Quaternion.Euler(0, 0 + randSpread, 0);
-        Transform playerBullet = Instantiate(getEquipedGun().bullet.transform, bulletSpawner.transform.position, bulletSpawner.transform.rotation * spread);
-        Bullet bulletScript = playerBullet.GetComponent<Bullet>();
-        bulletScript.setDamage(playerManager.damage);
+        if (melee)
+        {
+            meleeAttack();
+        }
+        else
+        {
+            float randSpread = Random.Range((float)-bulletSpread, (float)bulletSpread);
+            Quaternion spread = Quaternion.Euler(0, 0 + randSpread, 0);
+            Transform playerBullet = Instantiate(getEquipedGun().bullet.transform, bulletSpawner.transform.position, bulletSpawner.transform.rotation * spread);
+            Bullet bulletScript = playerBullet.GetComponent<Bullet>();
+            bulletScript.setDamage(getEquipedGun().damage);
+        }
     }
 
     private void AmmoTracker()
     {
-        if (weaponLogic.bulletsRemaining <= 0 && weaponLogic.magazinesRemaining <= 0)
+        if (weaponLogic.bulletsRemaining <= 0 && weaponLogic.magazinesRemaining <= 0 && !melee)
         {
             weaponLogic.OutOfAmmoText();
         }
 
-        if (weaponLogic.bulletsRemaining <= 0 && weaponLogic.magazinesRemaining > 0)
+        if (weaponLogic.bulletsRemaining <= 0 && weaponLogic.magazinesRemaining > 0 && !melee)
         {
             weaponLogic.ReloadText();
         }
@@ -338,6 +428,8 @@ public class PlayerMovement : MonoBehaviour
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
             bulletSpread = 5;
+            damage = 35;
+            melee = false;
         }
         if (currentWeapon.name == "w_ak47")
         {
@@ -348,6 +440,8 @@ public class PlayerMovement : MonoBehaviour
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
             bulletSpread = 15;
+            damage = 25;
+            melee = false;
         }
         if (currentWeapon.name == "w_python")
         {
@@ -358,6 +452,8 @@ public class PlayerMovement : MonoBehaviour
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
             bulletSpread = 5;
+            damage = 40;
+            melee = false;
         }
         if (currentWeapon.name == "w_mac10")
         {
@@ -367,7 +463,9 @@ public class PlayerMovement : MonoBehaviour
             weaponLogic.bulletsRemaining = magazineSize;
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
-            bulletSpread = 35;
+            bulletSpread = 20;
+            damage = 15;
+            melee = false;
         }
         if (currentWeapon.name == "w_rpg")
         {
@@ -378,6 +476,8 @@ public class PlayerMovement : MonoBehaviour
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/projectile_rpg") as GameObject;
             bulletSpread = 1;
+            damage = 100;
+            melee = false;
         }
         if (currentWeapon.name == "w_spas")
         {
@@ -388,6 +488,8 @@ public class PlayerMovement : MonoBehaviour
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/shotgun_shell") as GameObject;
             bulletSpread = 1;
+            damage = 85;
+            melee = false;
         }
         if (currentWeapon.name == "w_svd")
         {
@@ -398,6 +500,8 @@ public class PlayerMovement : MonoBehaviour
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
             bulletSpread = 1;
+            damage = 85;
+            melee = false;
         }
         if (currentWeapon.name == "w_p90")
         {
@@ -408,6 +512,8 @@ public class PlayerMovement : MonoBehaviour
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
             bulletSpread = 30;
+            damage = 20;
+            melee = false;
         }
         if (currentWeapon.name == "w_m4_custom")
         {
@@ -418,6 +524,8 @@ public class PlayerMovement : MonoBehaviour
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
             bulletSpread = 15;
+            damage = 35;
+            melee = false;
         }
         if (currentWeapon.name == "w_aug")
         {
@@ -428,6 +536,8 @@ public class PlayerMovement : MonoBehaviour
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
             bulletSpread = 10;
+            damage = 35;
+            melee = false;
         }
         if (currentWeapon.name == "w_scar")
         {
@@ -438,6 +548,8 @@ public class PlayerMovement : MonoBehaviour
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
             bulletSpread = 10;
+            damage = 40;
+            melee = false;
         }
         if (currentWeapon.name == "w_awp")
         {
@@ -448,6 +560,8 @@ public class PlayerMovement : MonoBehaviour
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
             bulletSpread = 1;
+            damage = 100;
+            melee = false;
         }
         if (currentWeapon.name == "w_twobarrel")
         {
@@ -458,6 +572,8 @@ public class PlayerMovement : MonoBehaviour
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
             bulletSpread = 1;
+            damage = 90;
+            melee = false;
         }
         if (currentWeapon.name == "w_m249")
         {
@@ -468,6 +584,31 @@ public class PlayerMovement : MonoBehaviour
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
             bulletSpread = 20;
+            damage = 15;
+            melee = false;
         }
+        if (currentWeapon.name == "w_rambo_knife")
+        {
+            magazineSize = 0;
+            magazines = 0;
+            shotCooldown = (float)2;
+            weaponLogic.bulletsRemaining = magazineSize;
+            weaponLogic.magazinesRemaining = magazines;
+            meleeDamage = 100;
+            melee = true;
+
+        }
+        if (currentWeapon.name == "w_policebatton")
+        {
+            magazineSize = 0;
+            magazines = 0;
+            shotCooldown = (float)2;
+            weaponLogic.bulletsRemaining = magazineSize;
+            weaponLogic.magazinesRemaining = magazines;
+            meleeDamage = 100;
+            melee = true;
+
+        }
+        
     }
 }

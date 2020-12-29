@@ -106,7 +106,16 @@ public class Gun : MonoBehaviour {
             }
         }
     }
+    public void removeUi()
+    {
+        removeTextUi();
+        List<GameObject> renderedBullets = GetBullets();
+        foreach (GameObject bullet in renderedBullets)
+        {
+            Destroy(bullet);
+        }
 
+    }
     private List<GameObject> GetBullets()
     {
         List<GameObject> result = new List<GameObject>();

@@ -10,6 +10,7 @@ TagManager:
   - WeaponHand
   - ReloadingStateSprite
   - weapon
+  - Explosion
   layers:
   - Default
   - TransparentFX
