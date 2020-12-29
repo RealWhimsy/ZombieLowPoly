@@ -107,9 +107,9 @@ NavMeshSettings:
     serializedVersion: 2
     agentTypeID: 0
     agentRadius: 0.1
-    agentHeight: 7
+    agentHeight: 2
     agentSlope: 49.5
-    agentClimb: 5
+    agentClimb: 2
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
@@ -7303,6 +7303,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f64f280b7e6d0439190adef3ad3d38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zombiePrefabs:
+  - {fileID: 126992, guid: 516338ba8ab816e48a51eff6e8e2f4bf, type: 3}
+  - {fileID: 126776, guid: 3402e08dfce460e41a1c882959093bb1, type: 3}
+  - {fileID: 171506, guid: 2fc5c9ca302edf647b81862df624d3f9, type: 3}
+  - {fileID: 195430, guid: 221e8732a55dbba408f72fe0290ebc8c, type: 3}
+  - {fileID: 133696, guid: f3f50aa19e3e1a74587d2254af2fc0d4, type: 3}
+  - {fileID: 106246, guid: 29f85684ea083d842b25c112bad5e8a4, type: 3}
+  - {fileID: 158876, guid: 0acb0fb6b483a2a43834369eb93299ed, type: 3}
+  - {fileID: 155686, guid: b4ef6b0175e17234bb20175520ffb4eb, type: 3}
+  - {fileID: 190720, guid: 3de28f243de74af479aaf834c0570d58, type: 3}
+  - {fileID: 144502, guid: 90cad25c702ebdb48b42a67396f57304, type: 3}
+  - {fileID: 193508, guid: e7d16897c7e623049889ee327d7ec1c9, type: 3}
+  - {fileID: 140806, guid: e9ba2677fd8e8c74aa0b91971286ab13, type: 3}
+  - {fileID: 119662, guid: a5dadc47e554b324a87386cea088486c, type: 3}
+  - {fileID: 174124, guid: 153fa01c5b4861646930d507a2320118, type: 3}
+  - {fileID: 164708, guid: 965d3ca33dddc614695187e54026ba0e, type: 3}
+  - {fileID: 146448, guid: dc1fc76610eebf640999c1900c654825, type: 3}
+  - {fileID: 148744, guid: a867d4e67c7bbe8409bed204bab3953b, type: 3}
+  - {fileID: 110650, guid: f764cac7cb2c0aa45aea768e665e40d7, type: 3}
+  - {fileID: 151748, guid: 5435ed64d041f7846b217b4c39d1f417, type: 3}
+  - {fileID: 166564, guid: c54f52a5df45af949803688189314bd8, type: 3}
   initialSpawnDelay: 0
   timeBetweenRespawns: 10
   zombie: {fileID: 5052753939108805442, guid: dac60dcf013aeec4e92641f18f52e1bc, type: 3}

@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ZombieSpawner : MonoBehaviour
 {
-    GameObject[] zombieSpawners;
+    private GameObject[] zombieSpawners;
+    public GameObject[] zombiePrefabs;
+
+    private System.Random random = new System.Random();
 
     public float initialSpawnDelay = 0f;
     public float timeBetweenRespawns = 10f;
@@ -20,7 +24,6 @@ public class ZombieSpawner : MonoBehaviour
         InvokeRepeating("SpawnZombie", initialSpawnDelay, timeBetweenRespawns);
 
         playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
-        
     }
 
     void Update()
@@ -36,9 +39,12 @@ public class ZombieSpawner : MonoBehaviour
     {
         foreach (GameObject spawner in zombieSpawners)
         {
-            GameObject spawnedZombie = Instantiate(zombie);
+            // get a random zombie out of all the prefabs
+            int index = random.Next(zombiePrefabs.Length);
 
-            spawnedZombie.transform.position = spawner.transform.position;
+            GameObject spawnedZombie = Instantiate(zombiePrefabs[index], spawner.transform);
+
+            //spawnedZombie.transform.position = spawner.transform.position;
         }
     }
 }
