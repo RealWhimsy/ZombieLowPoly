@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.AI;
 
 public class ZombieSpawner : MonoBehaviour
 {
@@ -9,11 +10,16 @@ public class ZombieSpawner : MonoBehaviour
     public GameObject[] zombiePrefabs;
 
     private System.Random random = new System.Random();
+    private PlayerManager playerManager;
+    private GameObject player;
 
     public float initialSpawnDelay = 0f;
     public float timeBetweenRespawns = 10f;
 
-    PlayerManager playerManager;
+    // Minimum and maximum distances between player and spawnpoint. 
+    // Zombies will not spawn if player is too close or too far
+    public float minDistance;
+    public float maxDistance;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +28,9 @@ public class ZombieSpawner : MonoBehaviour
 
         InvokeRepeating("SpawnZombie", initialSpawnDelay, timeBetweenRespawns);
 
-        playerManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        playerManager = player.GetComponent<PlayerManager>();
     }
 
     void Update()
@@ -41,9 +49,19 @@ public class ZombieSpawner : MonoBehaviour
             // get a random zombie out of all the prefabs
             int index = random.Next(zombiePrefabs.Length);
 
-            GameObject spawnedZombie = Instantiate(zombiePrefabs[index], spawner.transform);
+            float distance = Vector3.Distance(player.transform.position, spawner.transform.position);
 
-            //spawnedZombie.transform.position = spawner.transform.position;
+            if (distance >= minDistance && distance <= maxDistance)
+            {
+                GameObject spawnedZombie = Instantiate(zombiePrefabs[index], spawner.transform);
+
+                /* 
+                 * For some reason the zombies would be placed randomly around the spawner with Instantiate
+                 * The two lines below warp the zombie to where it is supposed to be after spawning
+                 */
+                NavMeshAgent agent = spawnedZombie.GetComponent<NavMeshAgent>();
+                agent.Warp(spawner.transform.position);
+            }
         }
     }
 }
