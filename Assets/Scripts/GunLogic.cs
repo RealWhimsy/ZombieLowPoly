@@ -107,16 +107,16 @@ public class Gun : MonoBehaviour {
             }
         }
     }
-    private void removeTextUi()
+  
+    public void removeUi()
     {
-        for (int i=0; i< canvas.transform.childCount; i++)
+        List<GameObject> renderedBullets = GetBullets();
+        removeTextUi();
+        foreach (GameObject bullet in renderedBullets)
         {
-            if(canvas.transform.GetChild(i).tag == "ReloadingStateSprite")
-            {
-                canvas.transform.GetChild(i).gameObject.GetComponent<Text>().text = "";
-            }
+            Destroy(bullet);
         }
-    }
+
 
     }
     private List<GameObject> GetBullets()
