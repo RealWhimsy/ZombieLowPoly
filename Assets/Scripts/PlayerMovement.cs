@@ -8,8 +8,6 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 0;
     public Animator anim;
 
-    private Camera mainCamera;
-
     private CharacterController controller;
     private Vector3 moveDirection = Vector3.zero;
     private PlayerManager playerManager;
@@ -19,16 +17,16 @@ public class PlayerMovement : MonoBehaviour
     public GameObject bullet;
     public GameObject gun;
     public float shotCooldown;
-    
+
     public int magazineSize = 10;
-        public int magazines = 3;
+    public int magazines = 3;
 
 
-    private void Start() {
+    private void Start()
+    {
         addGunToPlayer();
 
         controller = GetComponent<CharacterController>();
-        mainCamera = FindObjectOfType<Camera>();
         playerManager = GetComponent<PlayerManager>();
         Debug.Log(weapon.bulletsRemaining);
         weapon.bulletsRemaining = magazineSize;
@@ -42,7 +40,8 @@ public class PlayerMovement : MonoBehaviour
         weapon = player.AddComponent<Gun>();
     }
 
-    private void Update() {
+    private void Update()
+    {
         if (!playerManager.isDead())
         {
             BaseMovement();
@@ -51,11 +50,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void BaseMovement() {
+    private void BaseMovement()
+    {
         float moveX = Input.GetAxis("Horizontal");
         float moveZ = Input.GetAxis("Vertical");
-        
-        moveDirection = new Vector3(moveX,0,moveZ);
+
+        moveDirection = new Vector3(moveX, 0, moveZ);
         moveDirection *= moveSpeed;
         controller.Move(moveDirection);
 
@@ -63,17 +63,16 @@ public class PlayerMovement : MonoBehaviour
         anim.SetFloat("vertical", moveZ);
     }
 
-    private void MouseMovement() {
-        Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
-        Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-        float rayLength;
+    private void MouseMovement()
+    {
 
-        if(groundPlane.Raycast(cameraRay, out rayLength)) {
-            Vector3 pointToLook = cameraRay.GetPoint(rayLength);
-            Debug.DrawLine(cameraRay.origin, pointToLook, Color.blue);
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 
+            Camera.main.transform.position.y - transform.position.y));
+        Vector3 lookDirection = new Vector3(worldPos.x, transform.position.y, worldPos.z);
 
-            transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
-        }
+        transform.LookAt(lookDirection);
+        Debug.DrawLine(Camera.main.transform.position, lookDirection, Color.red);
+
         if (Input.GetMouseButtonDown(0))
         {
             if (weapon.bulletsRemaining > 0)
