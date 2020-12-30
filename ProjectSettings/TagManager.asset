@@ -6,7 +6,6 @@ TagManager:
   tags:
   - ZombieSpawn
   - Canvas
-  - ZombiePrefab
   layers:
   - Default
   - TransparentFX
