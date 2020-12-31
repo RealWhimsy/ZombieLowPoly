@@ -25,6 +25,7 @@ public class Bullet : MonoBehaviour, IDamageDealer
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerManager = player.GetComponent<PlayerManager>();
+        damage = playerManager.damage;
         rb = GetComponent<Rigidbody>();
         rb.AddForce(new Vector3(0, bulletSpeed, 0));
     }
@@ -43,25 +44,10 @@ public class Bullet : MonoBehaviour, IDamageDealer
     void OnTriggerEnter (Collider collision)
     {
         IDamageable damageable = collision.gameObject.GetComponent(typeof(IDamageable)) as IDamageable;
-        if (damageable != null && gameObject.tag != "Explosion")
+        if (damageable != null)
         {
             print(damage + " damage taken");
             damageable.TakeDamage(this);
-        }
-        if(gameObject.tag == "Explosion")
-        {
-            GameObject expl = (GameObject)Resources.Load("Prefabs/pf_vfx-inf_psys_demo_oneshot_comicExplosion3-x5", typeof(GameObject));
-            Instantiate(expl, gameObject.transform.position, Quaternion.identity);
-            Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 1.5f);
-            foreach (var hitCollider in hitColliders)
-            {
-                IDamageable damageItem = hitCollider.gameObject.GetComponent(typeof(IDamageable)) as IDamageable;
-                if (damageItem != null)
-                {
-                    print(damage + " damage done");
-                    damageItem.TakeDamage(this);
-                }
-            }
         }
         Destroy(this.gameObject);
 
