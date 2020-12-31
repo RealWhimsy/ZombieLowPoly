@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private GameObject currentWeapon;
     private GameObject weaponPickup;
     private bool onWeapon;
+    private Camera mainCamera;
 
     private GameObject bullet;
     public GameObject bulletSpawner;
