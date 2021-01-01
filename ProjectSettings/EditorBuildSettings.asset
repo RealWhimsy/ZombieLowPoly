@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 70a95996c3873644582d5120166e1daa
+  - enabled: 1
+    path: Assets/Scenes/Playground.unity
+    guid: 5a26a41c07b293040bb9462beb494891
+  - enabled: 1
+    path: Assets/Scenes/Desert.unity
+    guid: 339248774c49adb4096ee9fb955b4049
+  - enabled: 1
+    path: Assets/Scenes/Pirate Bay.unity
+    guid: d2d6459ae144f414297668a41b454912
+  - enabled: 1
+    path: Assets/Scenes/CIty.unity
+    guid: b7e679706a1450946852f6ae0ee539f2
   m_configObjects: {}
