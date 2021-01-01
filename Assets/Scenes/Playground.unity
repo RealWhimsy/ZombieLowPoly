@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44664752, g: 0.4964931, b: 0.5748605, a: 1}
+  m_IndirectSpecularColor: {r: 0.44664782, g: 0.49649352, b: 0.57486135, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2683,7 +2683,7 @@ RectTransform:
   m_LocalScale: {x: 1.036, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1377220852}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5780,6 +5780,7 @@ RectTransform:
   m_Children:
   - {fileID: 1894822587}
   - {fileID: 1366116681}
+  - {fileID: 505769293}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6731,7 +6732,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 1
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
   m_AllowMSAA: 0
@@ -7947,7 +7948,8 @@ MonoBehaviour:
   - {fileID: 166564, guid: c54f52a5df45af949803688189314bd8, type: 3}
   initialSpawnDelay: 0
   timeBetweenRespawns: 10
-  zombie: {fileID: 5052753939108805442, guid: dac60dcf013aeec4e92641f18f52e1bc, type: 3}
+  minDistance: 0
+  maxDistance: 0
 --- !u!4 &1848499788
 Transform:
   m_ObjectHideFlags: 0
