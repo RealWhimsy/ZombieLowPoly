@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Camera mainCamera;
 
+
     private GameObject bullet;
     public GameObject bulletSpawner;
     public float shotCooldown;
