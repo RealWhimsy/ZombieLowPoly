@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +9,13 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 0;
     public Animator anim;
+    
 
     private CharacterController controller;
     private Vector3 moveDirection = Vector3.zero;
     private PlayerManager playerManager;
     private GameObject player;
+
     private Gun weaponLogic;
     private GameObject weaponHand;
     private bool firstWeapon;
@@ -25,14 +27,20 @@ public class PlayerMovement : MonoBehaviour
 
     private Camera mainCamera;
 
+    private AudioSource gunShotAudioSource;
+    public AudioClip[] gunShotSoundsArray;
 
     private GameObject bullet;
     public GameObject bulletSpawner;
+
     public float shotCooldown;
     private float shotTime;
+
     public int magazineSize;
     public int magazines;
+
     private float bulletSpread;
+
     private int damage;
     private int meleeDamage;
     private GameObject meleeArea;
@@ -54,11 +62,14 @@ public class PlayerMovement : MonoBehaviour
         setWeaponStats();
         mainCamera = FindObjectOfType<Camera>();
         playerManager = GetComponent<PlayerManager>();
-
         firstGun = new Weapon(currentWeapon, magazines, magazineSize, shotCooldown, bullet, damage, melee);
         weaponLogic.bulletsRemaining = firstGun.magazineSize;
         weaponLogic.magazinesRemaining = firstGun.magazines;
         weaponLogic.initBulletUi();
+        gunShotAudioSource = GetComponent<AudioSource>();
+        if(gunShotAudioSource == null) {
+            Debug.LogError("No AudioSource found!");
+        }
     }
 
     private void addGunToPlayer()
@@ -249,6 +260,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown("r") && getEquipedGun().magazineSize != getEquipedGun().maxMagazineSize)
         {
             Weapon current = getEquipedGun();
+            gunShotAudioSource.clip = gunShotSoundsArray[1];
+            gunShotAudioSource.PlayOneShot(gunShotAudioSource.clip);
             if (current.magazines > 0)
             {
                 reduceActiveWeaponMunition("magazines");
@@ -302,7 +315,6 @@ public class PlayerMovement : MonoBehaviour
         {
             if (firstWeapon)
             {
-                
                 firstGun.weapon.SetActive(false);
                 secondGun.weapon.SetActive(true);
                 melee = secondGun.meleeWeapon;
@@ -372,11 +384,15 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            gunShotAudioSource.clip = gunShotSoundsArray[0];
+            gunShotAudioSource.PlayOneShot(gunShotAudioSource.clip);
+            gunShotAudioSource.clip = gunShotSoundsArray[2];
+            gunShotAudioSource.PlayDelayed((float) 0.4);
             float randSpread = Random.Range((float)-bulletSpread, (float)bulletSpread);
             Quaternion spread = Quaternion.Euler(0, 0 + randSpread, 0);
             Transform playerBullet = Instantiate(getEquipedGun().bullet.transform, bulletSpawner.transform.position, bulletSpawner.transform.rotation * spread);
             Bullet bulletScript = playerBullet.GetComponent<Bullet>();
-            bulletScript.setDamage(getEquipedGun().damage);
+            bulletScript.setDamage(getEquipedGun().damage);        
         }
     }
 
@@ -421,25 +437,32 @@ public class PlayerMovement : MonoBehaviour
         {
             magazineSize = 12;
             magazines = 3;
-            shotCooldown = (float)0.7;
+            shotCooldown = (float)0.6;
             weaponLogic.bulletsRemaining = magazineSize;
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
             bulletSpread = 5;
             damage = 35;
             melee = false;
+            gunShotSoundsArray[0] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Deagle_shot");
+            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Pistol_reload"); 
+            gunShotSoundsArray[2] = (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Pistol_shell");
+            
         }
         if (currentWeapon.name == "w_ak47")
         {
             magazineSize = 30;
             magazines = 3;
-            shotCooldown = (float)0.3;
+            shotCooldown = (float)0.2;
             weaponLogic.bulletsRemaining = magazineSize;
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
             bulletSpread = 15;
             damage = 25;
             melee = false;
+            gunShotSoundsArray[0] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/AK47_shot");
+            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Rifle_reload_1");
+            gunShotSoundsArray[2] = (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell");            
         }
         if (currentWeapon.name == "w_python")
         {
@@ -452,6 +475,9 @@ public class PlayerMovement : MonoBehaviour
             bulletSpread = 5;
             damage = 40;
             melee = false;
+            gunShotSoundsArray[0] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Revolver_shot");
+            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Revolver_reload");
+            gunShotSoundsArray[2] = (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Pistol_shell");  
         }
         if (currentWeapon.name == "w_mac10")
         {
@@ -464,6 +490,9 @@ public class PlayerMovement : MonoBehaviour
             bulletSpread = 20;
             damage = 15;
             melee = false;
+            gunShotSoundsArray[0] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Mac10_shot");
+            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/weapons/SMG_reload");
+            gunShotSoundsArray[2] = (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Pistol_shell");
         }
         if (currentWeapon.name == "w_rpg")
         {
@@ -488,18 +517,25 @@ public class PlayerMovement : MonoBehaviour
             bulletSpread = 1;
             damage = 85;
             melee = false;
+            gunShotSoundsArray[0] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Spas_shot");
+            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Shotgun_reload_2");
+            gunShotSoundsArray[2] = (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Shotgun_shell");  
         }
         if (currentWeapon.name == "w_svd")
         {
             magazineSize = 10;
             magazines = 3;
-            shotCooldown = (float)1.5;
+            shotCooldown = (float)0.9;
             weaponLogic.bulletsRemaining = magazineSize;
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
             bulletSpread = 1;
             damage = 85;
             melee = false;
+            gunShotSoundsArray[0] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/SVD_shot");
+            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Shotgun_reload");
+            gunShotSoundsArray[2] = (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell");
+            
         }
         if (currentWeapon.name == "w_p90")
         {
@@ -512,42 +548,54 @@ public class PlayerMovement : MonoBehaviour
             bulletSpread = 30;
             damage = 20;
             melee = false;
+            gunShotSoundsArray[0] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/P90_shot");
+            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/weapons/SMG_reload");
+            gunShotSoundsArray[2] = (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Pistol_shell");
         }
         if (currentWeapon.name == "w_m4_custom")
         {
             magazineSize = 30;
             magazines = 3;
-            shotCooldown = (float)0.3;
+            shotCooldown = (float)0.2;
             weaponLogic.bulletsRemaining = magazineSize;
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
             bulletSpread = 15;
             damage = 35;
             melee = false;
+            gunShotSoundsArray[0] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/M4_shot");
+            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Rifle_reload_1");
+            gunShotSoundsArray[2] = (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell"); 
         }
         if (currentWeapon.name == "w_aug")
         {
             magazineSize = 30;
             magazines = 3;
-            shotCooldown = (float)0.3;
+            shotCooldown = (float)0.23;
             weaponLogic.bulletsRemaining = magazineSize;
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
             bulletSpread = 10;
             damage = 35;
             melee = false;
+            gunShotSoundsArray[0] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/AUG_shot");
+            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Rifle_reload_1");
+            gunShotSoundsArray[2] = (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell"); 
         }
         if (currentWeapon.name == "w_scar")
         {
             magazineSize = 20;
             magazines = 3;
-            shotCooldown = (float)0.3;
+            shotCooldown = (float)0.23;
             weaponLogic.bulletsRemaining = magazineSize;
             weaponLogic.magazinesRemaining = magazines;
             bullet = Resources.Load("Prefabs/rifle_shell") as GameObject;
             bulletSpread = 10;
             damage = 40;
             melee = false;
+            gunShotSoundsArray[0] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Scar_shot");
+            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Rifle_reload_1");
+            gunShotSoundsArray[2] = (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell"); 
         }
         if (currentWeapon.name == "w_awp")
         {
@@ -560,6 +608,9 @@ public class PlayerMovement : MonoBehaviour
             bulletSpread = 1;
             damage = 100;
             melee = false;
+            gunShotSoundsArray[0] = (AudioClip) Resources.Load("Sounds_Ingame/Sniper/Sniper Single Shot 2");
+            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/Sniper/Sniper Reload");
+            gunShotSoundsArray[2] = (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell"); 
         }
         if (currentWeapon.name == "w_twobarrel")
         {
@@ -572,6 +623,9 @@ public class PlayerMovement : MonoBehaviour
             bulletSpread = 1;
             damage = 90;
             melee = false;
+            gunShotSoundsArray[0] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/twobarrel_shot");
+            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Shotgun_reload_2");
+            gunShotSoundsArray[2] = (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Shotgun_shell"); 
         }
         if (currentWeapon.name == "w_m249")
         {
@@ -584,6 +638,9 @@ public class PlayerMovement : MonoBehaviour
             bulletSpread = 20;
             damage = 15;
             melee = false;
+            gunShotSoundsArray[0] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/M249_shot");
+            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Rifle_reload_1");
+            gunShotSoundsArray[2] = (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell");
         }
         if (currentWeapon.name == "w_rambo_knife")
         {
