@@ -6,6 +6,11 @@ TagManager:
   tags:
   - ZombieSpawn
   - Canvas
+  - BulletSprite
+  - WeaponHand
+  - ReloadingStateSprite
+  - weapon
+  - Explosion
   layers:
   - Default
   - TransparentFX
