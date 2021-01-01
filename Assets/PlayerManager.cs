@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
 
     public int maxHealth = 200;
     public int armor = 5;
+    public int damage = 35;
     public HealthBar healthBar;
 
     int currentHealth;
