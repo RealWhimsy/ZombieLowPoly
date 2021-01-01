@@ -108,17 +108,6 @@ public class Gun : MonoBehaviour {
         }
     }
 
-    private void removeTextUi()
-    {
-        for (int i=0; i< canvas.transform.childCount; i++)
-        {
-            if(canvas.transform.GetChild(i).tag == "ReloadingStateSprite")
-            {
-                canvas.transform.GetChild(i).gameObject.GetComponent<Text>().text = "";
-            }
-        }
-    }
-
   
     public void removeUi()
     {
