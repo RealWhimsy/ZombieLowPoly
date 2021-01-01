@@ -107,6 +107,7 @@ public class Gun : MonoBehaviour {
             }
         }
     }
+
     private void removeTextUi()
     {
         for (int i=0; i< canvas.transform.childCount; i++)
@@ -117,6 +118,18 @@ public class Gun : MonoBehaviour {
             }
         }
     }
+
+  
+    public void removeUi()
+    {
+        List<GameObject> renderedBullets = GetBullets();
+        removeTextUi();
+        foreach (GameObject bullet in renderedBullets)
+        {
+            Destroy(bullet);
+        }
+
+
 
     }
     private List<GameObject> GetBullets()

@@ -22,18 +22,15 @@ public class PlayerMovement : MonoBehaviour
     private GameObject currentWeapon;
     private GameObject weaponPickup;
     private bool onWeapon;
-<<<<<<< HEAD
-    private Camera mainCamera;
 
-=======
->>>>>>> parent of 6bf80cd... Revert "Merge branch 'dev' into main_menu"
+    private Camera mainCamera;
 
     private GameObject bullet;
     public GameObject bulletSpawner;
     public float shotCooldown;
     private float shotTime;
     public int magazineSize;
-        public int magazines;
+    public int magazines;
     private float bulletSpread;
     private int damage;
     private int meleeDamage;
