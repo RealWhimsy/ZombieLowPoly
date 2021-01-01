@@ -14,17 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private PlayerManager playerManager;
     private GameObject player;
-
-    private Gun weaponLogic;
-    private GameObject weaponHand;
-    private bool firstWeapon;
-    private Weapon firstGun;
-    private Weapon secondGun;
-    private GameObject currentWeapon;
-    private GameObject weaponPickup;
-    private bool onWeapon;
-    private Camera mainCamera;
-
+    private Gun weapon;
 
     public GameObject bullet;
     public GameObject gun;
@@ -40,9 +30,10 @@ public class PlayerMovement : MonoBehaviour
         controller = GetComponent<CharacterController>();
         mainCamera = FindObjectOfType<Camera>();
         playerManager = GetComponent<PlayerManager>();
-        weaponLogic.bulletsRemaining = magazineSize;
-        weaponLogic.magazinesRemaining = magazines;
-        weaponLogic.initBulletUi();
+        Debug.Log(weapon.bulletsRemaining);
+        weapon.bulletsRemaining = magazineSize;
+        weapon.magazinesRemaining = magazines;
+        weapon.initBulletUi();
     }
 
     private void addGunToPlayer()
