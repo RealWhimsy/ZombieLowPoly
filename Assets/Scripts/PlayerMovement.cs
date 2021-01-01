@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private GameObject currentWeapon;
     private GameObject weaponPickup;
     private bool onWeapon;
+
     private Camera mainCamera;
 
     private GameObject bullet;
@@ -29,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     public float shotCooldown;
     private float shotTime;
     public int magazineSize;
-        public int magazines;
+    public int magazines;
     private float bulletSpread;
     private int damage;
     private int meleeDamage;
@@ -52,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
         setWeaponStats();
         mainCamera = FindObjectOfType<Camera>();
         playerManager = GetComponent<PlayerManager>();
+
         firstGun = new Weapon(currentWeapon, magazines, magazineSize, shotCooldown, bullet, damage, melee);
         weaponLogic.bulletsRemaining = firstGun.magazineSize;
         weaponLogic.magazinesRemaining = firstGun.magazines;
