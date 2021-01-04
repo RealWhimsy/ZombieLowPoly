@@ -649,10 +649,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  gameSoundsArray:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   bulletSpawner: {fileID: 144471391}
   shotCooldown: 0.7
   magazineSize: 10
@@ -16587,7 +16583,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_TargetDisplay: 1
+  m_TargetDisplay: 0
 --- !u!224 &1721791571
 RectTransform:
   m_ObjectHideFlags: 0
