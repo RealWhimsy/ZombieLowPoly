@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Camera mainCamera;
 
-    private AudioSource gunShotAudioSource;
+    private AudioSource audioSource;
     public AudioClip[] gunShotSoundsArray;
 
     private GameObject bullet;
@@ -66,8 +66,8 @@ public class PlayerMovement : MonoBehaviour
         weaponLogic.bulletsRemaining = firstGun.magazineSize;
         weaponLogic.magazinesRemaining = firstGun.magazines;
         weaponLogic.initBulletUi();
-        gunShotAudioSource = GetComponent<AudioSource>();
-        if(gunShotAudioSource == null) {
+        audioSource = GetComponent<AudioSource>();
+        if(audioSource == null) {
             Debug.LogError("No AudioSource found!");
         }
     }
@@ -104,8 +104,10 @@ public class PlayerMovement : MonoBehaviour
     
     private void PickupWeapon()
     {
+        
         if (onWeapon && Input.GetKeyDown("e"))
         { 
+            SoundManager.PlaySound(SoundManager.Sound.WeaponSwitch);
             if (weaponPickup != null && weaponPickup.tag == "weapon")
             {
                 if (!ReferenceEquals(secondGun, null))
@@ -260,8 +262,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown("r") && getEquipedGun().magazineSize != getEquipedGun().maxMagazineSize)
         {
             Weapon current = getEquipedGun();
-            gunShotAudioSource.clip = gunShotSoundsArray[1];
-            gunShotAudioSource.PlayOneShot(gunShotAudioSource.clip);
+            audioSource.clip = gunShotSoundsArray[1];
+            audioSource.PlayOneShot(audioSource.clip);
             if (current.magazines > 0)
             {
                 reduceActiveWeaponMunition("magazines");
@@ -313,6 +315,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!ReferenceEquals(secondGun, null) && !weaponLogic.reloading)
         {
+            SoundManager.PlaySound(SoundManager.Sound.WeaponSwitch);
             if (firstWeapon)
             {
                 firstGun.weapon.SetActive(false);
@@ -384,10 +387,10 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            gunShotAudioSource.clip = gunShotSoundsArray[0];
-            gunShotAudioSource.PlayOneShot(gunShotAudioSource.clip);
-            gunShotAudioSource.clip = gunShotSoundsArray[2];
-            gunShotAudioSource.PlayDelayed((float) 0.4);
+            audioSource.clip = gunShotSoundsArray[0];
+            audioSource.PlayOneShot(audioSource.clip);
+            audioSource.clip = gunShotSoundsArray[2];
+            audioSource.PlayDelayed((float) 0.4);
             float randSpread = Random.Range((float)-bulletSpread, (float)bulletSpread);
             Quaternion spread = Quaternion.Euler(0, 0 + randSpread, 0);
             Transform playerBullet = Instantiate(getEquipedGun().bullet.transform, bulletSpawner.transform.position, bulletSpawner.transform.rotation * spread);
@@ -549,7 +552,7 @@ public class PlayerMovement : MonoBehaviour
             damage = 20;
             melee = false;
             gunShotSoundsArray[0] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/P90_shot");
-            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/weapons/SMG_reload");
+            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/SMG_reload");
             gunShotSoundsArray[2] = (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Pistol_shell");
         }
         if (currentWeapon.name == "w_m4_custom")
@@ -608,8 +611,8 @@ public class PlayerMovement : MonoBehaviour
             bulletSpread = 1;
             damage = 100;
             melee = false;
-            gunShotSoundsArray[0] = (AudioClip) Resources.Load("Sounds_Ingame/Sniper/Sniper Single Shot 2");
-            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/Sniper/Sniper Reload");
+            gunShotSoundsArray[0] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/AWP_shot");
+            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Sniper_reload");
             gunShotSoundsArray[2] = (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell"); 
         }
         if (currentWeapon.name == "w_twobarrel")
@@ -639,7 +642,7 @@ public class PlayerMovement : MonoBehaviour
             damage = 15;
             melee = false;
             gunShotSoundsArray[0] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/M249_shot");
-            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Rifle_reload_1");
+            gunShotSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Shotgun_reload");
             gunShotSoundsArray[2] = (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell");
         }
         if (currentWeapon.name == "w_rambo_knife")
