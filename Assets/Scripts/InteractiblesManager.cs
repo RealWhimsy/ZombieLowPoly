@@ -24,7 +24,7 @@ public class InteractiblesManager : MonoBehaviour
 
     private GameObject SelectInteractible()
     {
-        interactible = new GameObject();
+        //interactible = new GameObject();
         switch (GameAssets.i.GenerateRandomNumber(0,2))
         {
             case 0:
