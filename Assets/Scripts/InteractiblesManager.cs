@@ -4,14 +4,7 @@ using UnityEngine;
 
 public class InteractiblesManager : MonoBehaviour
 {
-
-    private System.Random rand = new System.Random();
     private GameObject interactible;
-
-    public void Start()
-    {
-        Random.InitState(System.DateTime.Now.Millisecond);
-    }
 
     public void SpawnInteractible()
     {
