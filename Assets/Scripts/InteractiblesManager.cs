@@ -6,14 +6,16 @@ public class InteractiblesManager : MonoBehaviour
 {
 
     private System.Random rand = new System.Random();
-    private int selector = -1;
-    private int propability = -1;
     private GameObject interactible;
+
+    public void Start()
+    {
+        Random.InitState(System.DateTime.Now.Millisecond);
+    }
 
     public void SpawnInteractible()
     {
-        propability = rand.Next(0, 3);
-        if(propability == 2)
+        if(GameAssets.i.GenerateRandomNumber(0,3) == 2)
         {
             Instantiate(SelectInteractible(), transform.position, transform.rotation);
         }
@@ -23,8 +25,7 @@ public class InteractiblesManager : MonoBehaviour
     private GameObject SelectInteractible()
     {
         interactible = new GameObject();
-        selector = rand.Next(0, 3);
-        switch (selector)
+        switch (GameAssets.i.GenerateRandomNumber(0,2))
         {
             case 0:
                 interactible = Resources.Load("Prefabs/box_ammo") as GameObject;
