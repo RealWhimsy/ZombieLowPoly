@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,14 +8,26 @@ using UnityEngine.UI;
 
 public class Gun : MonoBehaviour {
 
-    public int bulletsRemaining;
     public int magazinesRemaining;
     public GameObject canvas;
     public bool reloading = false;
     public bool outOfAmmo = false;
     public bool reloaded = false;
     public Text reloadAmmoTextField;
-    // Start is called before the first frame update
+
+    private GameObject player;
+    private PlayerManager playerManager;
+    private int bulletsRemaining;
+
+
+
+    private void Start()
+    {
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerManager = player.GetComponent<PlayerManager>();
+        bulletsRemaining = playerManager.GetActiveWeapon().ShotsInCurrentMag;
+    }
 
     public void UpdateAmmoUi()
     {
@@ -84,8 +97,6 @@ public class Gun : MonoBehaviour {
     }
     public void ReduceBulletUi()
     {
-        canvas = GameObject.FindGameObjectWithTag("Canvas");
-
         for (int i = 1; i < canvas.transform.childCount; i++)
         {
             GameObject lastBullet = canvas.transform.GetChild(canvas.transform.childCount - i).gameObject;
@@ -101,7 +112,7 @@ public class Gun : MonoBehaviour {
     {
         for (int i = 0; i < canvas.transform.childCount; i++)
         {
-            if (canvas.transform.GetChild(i).tag == "ReloadingStateSprite")
+            if (canvas.transform.GetChild(i).CompareTag("ReloadingStateSprite"))
             {
                 canvas.transform.GetChild(i).gameObject.GetComponent<Text>().text = "";
             }
@@ -136,7 +147,6 @@ public class Gun : MonoBehaviour {
 
     public void initBulletUi()
     {
-        canvas = GameObject.FindGameObjectWithTag("Canvas");
         removeTextUi();
         GameObject bulletUi = (GameObject)Resources.Load("Prefabs/BulletSprite", typeof(GameObject));
         double height = -107;
