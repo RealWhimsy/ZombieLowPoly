@@ -16,10 +16,12 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     float currentTriggerStayTime;
     Animator anim;
     NavMeshAgent agent;
-    
+
+    InteractiblesManager interactiblesManager;
+    bool interactiblesTrigger = false;
+
 
     int currentHealth;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,7 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
         agent = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
         currentTriggerStayTime = damageFrequency;
+        interactiblesManager = GetComponent<InteractiblesManager>();
         /*audioSource = GetComponent<AudioSource>();
         if(audioSource == null) {
             Debug.LogError("No AudioSource found!");
@@ -41,6 +44,13 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
         {
             anim.SetBool("isDead", true);
             agent.isStopped = true;
+            if(interactiblesTrigger == false)
+            {
+                interactiblesManager.SpawnInteractible();
+                interactiblesTrigger = true;
+                
+            }
+
         }
 
       
