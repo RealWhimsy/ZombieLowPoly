@@ -27,16 +27,16 @@ public class PlayerWeaponInteraction : MonoBehaviour
 
             switch (weaponPickup.name)
             {
-                case Const.WeaponNames.DEAGLE:
-                    PickUpWeapon(Const.WeaponNames.DEAGLE);
+                case Const.WeaponNames.Deagle:
+                    PickUpWeapon(Const.WeaponNames.Deagle);
                     break;
 
-                case Const.WeaponNames.AK47:
-                    PickUpWeapon(Const.WeaponNames.AK47);
+                case Const.WeaponNames.Ak47:
+                    PickUpWeapon(Const.WeaponNames.Ak47);
                     break;
             }
 
-            EventManager.TriggerEvent(Const.Events.WEAPON_SWAPPED);
+            EventManager.TriggerEvent(Const.Events.WeaponSwapped);
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -56,13 +56,13 @@ public class PlayerWeaponInteraction : MonoBehaviour
         playerManager.ActiveWeaponIndex++;
 
         // Reset back to first weapon if Array is out of bounds, or not all slots are filled with weapons
-        if (playerManager.ActiveWeaponIndex > Const.MAX_WEAPON_INDEX ||
+        if (playerManager.ActiveWeaponIndex > Const.MaxWeaponIndex ||
             playerManager.ActiveWeaponIndex >= playerManager.CurrentlyEquippedWeapons)
         {
             playerManager.ActiveWeaponIndex = 0;
         }
 
-        EventManager.TriggerEvent(Const.Events.WEAPON_SWAPPED);
+        EventManager.TriggerEvent(Const.Events.WeaponSwapped);
     }
 
     /**
@@ -71,7 +71,7 @@ public class PlayerWeaponInteraction : MonoBehaviour
      */
     private void PickUpWeapon(string weaponName)
     {
-        for (int i = 0; i <= Const.MAX_WEAPON_INDEX; i++)
+        for (int i = 0; i <= Const.MaxWeaponIndex; i++)
         {
             if (playerManager.WeaponArray[i] is null)
             {
@@ -80,7 +80,7 @@ public class PlayerWeaponInteraction : MonoBehaviour
                 playerManager.CurrentlyEquippedWeapons++;
                 RenderNewWeapon();
                 Destroy(weaponPickup);
-                EventManager.TriggerEvent(Const.Events.WEAPON_PICKED_UP);
+                EventManager.TriggerEvent(Const.Events.WeaponPickedUp);
                 return;
             }
         }
@@ -95,7 +95,7 @@ public class PlayerWeaponInteraction : MonoBehaviour
         Destroy(weaponPickup);
         
         // Broadcast Event
-        EventManager.TriggerEvent(Const.Events.WEAPON_PICKED_UP);
+        EventManager.TriggerEvent(Const.Events.WeaponPickedUp);
     }
 
     private void RenderNewWeapon()

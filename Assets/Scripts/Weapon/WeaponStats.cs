@@ -7,13 +7,13 @@ public static class WeaponStats
 {
     public static Dictionary<string, Weapon> weaponStatDict = new Dictionary<string, Weapon>()
     {
-        [Const.WeaponNames.DEAGLE] = new Weapon("w_DesertEagle", 3, 12, 0.6f,
+        [Const.WeaponNames.Deagle] = new Weapon("w_DesertEagle", 3, 12, 0.6f,
             Resources.Load("Prefabs/rifle_shell") as GameObject, 35, 5, false,
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Deagle_shot"),
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Pistol_reload"),
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Pistol_shell")),
 
-        [Const.WeaponNames.AK47] = new Weapon("w_ak47", 3, 30, 0.2f,
+        [Const.WeaponNames.Ak47] = new Weapon("w_ak47", 3, 30, 0.2f,
             Resources.Load("Prefabs/rifle_shell") as GameObject, 25, 15, false,
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/AK47_shot"),
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Rifle_reload_1"),

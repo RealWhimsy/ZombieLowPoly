@@ -12,7 +12,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
     int currentHealth;
     bool dead = false;
     
-    private Weapon[] weaponArray = new Weapon[Const.MAX_NUM_WEAPONS];
+    private Weapon[] weaponArray = new Weapon[Const.MaxNumWeapons];
     private Weapon activeWeapon;
     private int activeWeaponIndex;
     private int currentlyEquippedWeapons;
@@ -31,9 +31,9 @@ public class PlayerManager : MonoBehaviour, IDamageable
 
     private void PrepareWeaponArray()
     {
-        weaponArray[Const.FIRST_WEAPON_INDEX] = new Weapon(WeaponStats.weaponStatDict[Const.WeaponNames.DEAGLE]);
-        weaponArray[Const.FIRST_WEAPON_INDEX].Name = Const.WeaponNames.DEAGLE;
-        activeWeaponIndex = Const.FIRST_WEAPON_INDEX;
+        weaponArray[Const.FirstWeaponIndex] = new Weapon(WeaponStats.weaponStatDict[Const.WeaponNames.Deagle]);
+        weaponArray[Const.FirstWeaponIndex].Name = Const.WeaponNames.Deagle;
+        activeWeaponIndex = Const.FirstWeaponIndex;
         currentlyEquippedWeapons = 1;
     }
 

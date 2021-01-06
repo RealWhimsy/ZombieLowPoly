@@ -26,7 +26,7 @@ public class WeaponBehaviour : MonoBehaviour
         weapon = playerManager.GetActiveWeapon();
         weaponSoundSource = gameObject.AddComponent<AudioSource>();
         
-        EventManager.StartListening(Const.Events.WEAPON_SWAPPED, HandleWeaponSwap);
+        EventManager.StartListening(Const.Events.WeaponSwapped, HandleWeaponSwap);
 
         shotTime = Time.time;
     }
@@ -83,8 +83,6 @@ public class WeaponBehaviour : MonoBehaviour
     {
         if (weapon.ShotsInCurrentMag != weapon.MaxMagazineSize)
         {
-            // audioSource.clip = gunShotSoundsArray[1];
-            // audioSource.PlayOneShot(audioSource.clip);
             if (weapon.Magazines > 0)
             {
                 weapon.Magazines--;
@@ -103,7 +101,7 @@ public class WeaponBehaviour : MonoBehaviour
     {
         SoundManagerRework.Instance.PlayEffectOneShot(playerManager.GetActiveWeapon().ShotSound);
         SoundManagerRework.Instance.PlayEffectDelayed(playerManager.GetActiveWeapon().ShellSound, 0.4f);
-        EventManager.TriggerEvent(Const.Events.SHOT_FIRED);
+        EventManager.TriggerEvent(Const.Events.ShotFired);
         AmmoTracker();
     }
     

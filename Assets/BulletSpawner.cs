@@ -15,8 +15,8 @@ public class BulletSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.StartListening(Const.Events.SHOT_FIRED, Shoot);
-        EventManager.StartListening(Const.Events.WEAPON_SWAPPED, HandleWeaponSwap);
+        EventManager.StartListening(Const.Events.ShotFired, Shoot);
+        EventManager.StartListening(Const.Events.WeaponSwapped, HandleWeaponSwap);
 
     }
 
