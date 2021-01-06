@@ -3369,6 +3369,7 @@ GameObject:
   - component: {fileID: 3739037243814170299}
   - component: {fileID: 2825183191086362622}
   - component: {fileID: 4250473947783195122}
+  - component: {fileID: 7809926565211311451}
   m_Layer: 0
   m_Name: TT_zombie_M_09_broken
   m_TagString: Untagged
@@ -3496,6 +3497,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.4, z: 1}
   m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!114 &7809926565211311451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7293db65e0724e4bb6818c5a587e941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &169506
 GameObject:
   m_ObjectHideFlags: 0

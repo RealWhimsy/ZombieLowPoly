@@ -397,6 +397,7 @@ GameObject:
   - component: {fileID: 8985589370038197729}
   - component: {fileID: -3105825369995612414}
   - component: {fileID: -7066528405853611347}
+  - component: {fileID: 4123363431789037545}
   m_Layer: 0
   m_Name: TT_zombie_F_06
   m_TagString: Untagged
@@ -518,6 +519,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.4, z: 1}
   m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!114 &4123363431789037545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7293db65e0724e4bb6818c5a587e941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &106530
 GameObject:
   m_ObjectHideFlags: 0

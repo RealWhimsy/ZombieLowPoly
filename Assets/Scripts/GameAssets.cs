@@ -22,4 +22,12 @@ public class GameAssets : MonoBehaviour
         public SoundManager.Sound sound;
         public AudioClip audioClip;
     }
+
+    private System.Random random = new System.Random();
+
+    public int GenerateRandomNumber(int min, int max)
+    {
+        int randInt = random.Next(min, max + 1);
+        return randInt;
+    }
 }

@@ -10054,7 +10054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 200
   armor: 5
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1597300931}
 --- !u!65 &1114790816
 BoxCollider:
   m_ObjectHideFlags: 0
