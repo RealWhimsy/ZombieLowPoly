@@ -2,10 +2,17 @@
 public static class Const
 {
 
+    /******************************************************************
+     * Constants in C# are named in PascalCase, not in SCREAMING_CAPS *
+     ******************************************************************/
+    
+    // General Constants
     public const int FirstWeaponIndex = 0;
     public const int SecondWeaponIndex = 1;
     public const int MaxWeaponIndex = 1;
     public const int MaxNumWeapons = MaxWeaponIndex + 1;
+    
+    // Event names
     public static class Events
     {
         public const string ShotFired = "SHOT_FIRED";
@@ -13,6 +20,7 @@ public static class Const
         public const string WeaponPickedUp = "WEAPON_PICKED_UP";
     }
 
+    // Weapon names
     public static class WeaponNames
     {
         public const string Deagle = "w_DesertEagle";

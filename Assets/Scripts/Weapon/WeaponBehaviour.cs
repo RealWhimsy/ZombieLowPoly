@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 
 public class WeaponBehaviour : MonoBehaviour
 {
@@ -15,8 +11,6 @@ public class WeaponBehaviour : MonoBehaviour
 
     private float shotTime;
 
-    private AudioSource weaponSoundSource;
-
     private void Start()
     {
         AddGunToPlayer();
@@ -24,8 +18,7 @@ public class WeaponBehaviour : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerManager = player.GetComponent<PlayerManager>();
         weapon = playerManager.GetActiveWeapon();
-        weaponSoundSource = gameObject.AddComponent<AudioSource>();
-        
+
         EventManager.StartListening(Const.Events.WeaponSwapped, HandleWeaponSwap);
 
         shotTime = Time.time;
@@ -87,20 +80,16 @@ public class WeaponBehaviour : MonoBehaviour
             {
                 weapon.Magazines--;
                 weapon.Reload();
+                SoundManagerRework.Instance.PlayEffectOneShot(weapon.ReloadSound);
                 StartCoroutine(ammoUi.Reload(weapon.MaxMagazineSize));
             }
         }
     }
-
-    private void HandlePickup()
-    {
-    }
     
-
     private void Shoot()
     {
-        SoundManagerRework.Instance.PlayEffectOneShot(playerManager.GetActiveWeapon().ShotSound);
-        SoundManagerRework.Instance.PlayEffectDelayed(playerManager.GetActiveWeapon().ShellSound, 0.4f);
+        SoundManagerRework.Instance.PlayEffectOneShot(weapon.ShotSound);
+        SoundManagerRework.Instance.PlayEffectDelayed(weapon.ShellSound, 0.4f);
         EventManager.TriggerEvent(Const.Events.ShotFired);
         AmmoTracker();
     }
