@@ -89,7 +89,7 @@ public class Weapon
         set => maxMagazineSize = value;
     }
 
-    public int MAXMagazines
+    public int MaxMagazines
     {
         get => maxMagazines;
         set => maxMagazines = value;
@@ -130,4 +130,10 @@ public class Weapon
         get => name;
         set => name = value;
     }
+
+    public AudioClip ShotSound => shotSound;
+
+    public AudioClip ReloadSound => reloadSound;
+
+    public AudioClip ShellSound => shellSound;
 }

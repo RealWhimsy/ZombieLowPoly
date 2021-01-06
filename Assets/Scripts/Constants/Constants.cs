@@ -11,6 +11,7 @@ public static class Const
     {
         public const String SHOT_FIRED = "SHOT_FIRED";
         public const String WEAPON_SWAPPED = "WEAPON_SWAPPED";
+        public const String WEAPON_PICKED_UP = "WEAPON_PICKED_UP";
     }
 
     public static class WeaponNames

@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
     private Weapon[] weaponArray = new Weapon[Const.MAX_NUM_WEAPONS];
     private Weapon activeWeapon;
     private int activeWeaponIndex;
+    private int currentlyEquippedWeapons;
 
     Animator anim;
 
@@ -31,7 +32,9 @@ public class PlayerManager : MonoBehaviour, IDamageable
     private void PrepareWeaponArray()
     {
         weaponArray[Const.FIRST_WEAPON_INDEX] = new Weapon(WeaponStats.weaponStatDict[Const.WeaponNames.DEAGLE]);
+        weaponArray[Const.FIRST_WEAPON_INDEX].Name = Const.WeaponNames.DEAGLE;
         activeWeaponIndex = Const.FIRST_WEAPON_INDEX;
+        currentlyEquippedWeapons = 1;
     }
 
     // Update is called once per frame
@@ -66,10 +69,6 @@ public class PlayerManager : MonoBehaviour, IDamageable
     public Weapon GetActiveWeapon()
     {
         return weaponArray[activeWeaponIndex];
-        
-        // Should never reach the code below
-        print("Weapon Index " + activeWeaponIndex + " has no assigned weapon");
-        return null;
     }
 
     public int ActiveWeaponIndex
@@ -82,5 +81,11 @@ public class PlayerManager : MonoBehaviour, IDamageable
     {
         get => weaponArray;
         set => weaponArray = value;
+    }
+
+    public int CurrentlyEquippedWeapons
+    {
+        get => currentlyEquippedWeapons;
+        set => currentlyEquippedWeapons = value;
     }
 }

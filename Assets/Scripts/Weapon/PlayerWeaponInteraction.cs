@@ -8,12 +8,14 @@ public class PlayerWeaponInteraction : MonoBehaviour
     private GameObject weaponPickup;
     private PlayerManager playerManager;
     private bool isOnWeapon;
+    private GameObject weaponHand;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerManager = player.GetComponent<PlayerManager>();
+        weaponHand = GameObject.FindGameObjectWithTag("WeaponHand");
     }
 
     // Update is called once per frame
@@ -40,6 +42,7 @@ public class PlayerWeaponInteraction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             SwitchWeapon();
+            RenderNewWeapon();
         }
     }
 
@@ -52,10 +55,13 @@ public class PlayerWeaponInteraction : MonoBehaviour
     {
         playerManager.ActiveWeaponIndex++;
 
-        if (playerManager.ActiveWeaponIndex > Const.MAX_WEAPON_INDEX)
+        // Reset back to first weapon if Array is out of bounds, or not all slots are filled with weapons
+        if (playerManager.ActiveWeaponIndex > Const.MAX_WEAPON_INDEX ||
+            playerManager.ActiveWeaponIndex >= playerManager.CurrentlyEquippedWeapons)
         {
             playerManager.ActiveWeaponIndex = 0;
         }
+
         EventManager.TriggerEvent(Const.Events.WEAPON_SWAPPED);
     }
 
@@ -71,19 +77,34 @@ public class PlayerWeaponInteraction : MonoBehaviour
             {
                 playerManager.WeaponArray[i] = WeaponStats.weaponStatDict[weaponName];
                 playerManager.ActiveWeaponIndex = i;
+                playerManager.CurrentlyEquippedWeapons++;
+                RenderNewWeapon();
                 Destroy(weaponPickup);
+                EventManager.TriggerEvent(Const.Events.WEAPON_PICKED_UP);
                 return;
             }
         }
-        
+
         // Drop currently equipped gun when both slots are already used
         var currentWeapon = playerManager.GetActiveWeapon();
         DropCurrentWeapon(currentWeapon);
 
         playerManager.WeaponArray[playerManager.ActiveWeaponIndex] = WeaponStats.weaponStatDict[weaponName];
-        
+
         // Destroy weapon on the ground
         Destroy(weaponPickup);
+        
+        // Broadcast Event
+        EventManager.TriggerEvent(Const.Events.WEAPON_PICKED_UP);
+    }
+
+    private void RenderNewWeapon()
+    {
+        foreach (Transform weaponTransform in weaponHand.transform)
+        {
+            weaponTransform.gameObject.SetActive(
+                weaponTransform.gameObject.name.Equals(playerManager.GetActiveWeapon().Name));
+        }
     }
 
     private void DropCurrentWeapon(Weapon weapon)

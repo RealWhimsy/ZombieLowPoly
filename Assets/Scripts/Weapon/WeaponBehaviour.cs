@@ -6,30 +6,25 @@ using UnityEngine.Events;
 
 public class WeaponBehaviour : MonoBehaviour
 {
-    private UnityAction leftClickListener;
-    private UnityAction reloadListener;
-    private UnityAction pickupListener;
-
     private PlayerManager playerManager;
     private GameObject player;
 
-    private Gun weaponLogic;
+    private AmmoUi ammoUi;
 
     private Weapon weapon;
 
     private float shotTime;
 
+    private AudioSource weaponSoundSource;
+
     private void Start()
     {
-        leftClickListener = new UnityAction(HandleLeftClick);
-        reloadListener = new UnityAction(HandleReload);
-        pickupListener = new UnityAction(HandlePickup);
-
         AddGunToPlayer();
 
         player = GameObject.FindGameObjectWithTag("Player");
         playerManager = player.GetComponent<PlayerManager>();
         weapon = playerManager.GetActiveWeapon();
+        weaponSoundSource = gameObject.AddComponent<AudioSource>();
         
         EventManager.StartListening(Const.Events.WEAPON_SWAPPED, HandleWeaponSwap);
 
@@ -62,7 +57,7 @@ public class WeaponBehaviour : MonoBehaviour
     private void AddGunToPlayer()
     {
         var player = GameObject.FindGameObjectWithTag("Player");
-        weaponLogic = player.AddComponent<Gun>();
+        ammoUi = player.AddComponent<AmmoUi>();
     }
 
     private void HandleWeaponSwap()
@@ -72,11 +67,11 @@ public class WeaponBehaviour : MonoBehaviour
 
     private void HandleLeftClick()
     {
-        if (!weaponLogic.reloading)
+        if (!ammoUi.reloading)
         {
             if (weapon.ShotsInCurrentMag > 0 && Time.time - shotTime > weapon.ShotCooldown)
             {
-                weaponLogic.ReduceBulletUi();
+                ammoUi.ReduceBulletUi();
                 weapon.ShotsInCurrentMag--;
                 Shoot();
                 shotTime = Time.time;
@@ -94,7 +89,7 @@ public class WeaponBehaviour : MonoBehaviour
             {
                 weapon.Magazines--;
                 weapon.Reload();
-                StartCoroutine(weaponLogic.Reload(weapon.MaxMagazineSize));
+                StartCoroutine(ammoUi.Reload(weapon.MaxMagazineSize));
             }
         }
     }
@@ -106,16 +101,8 @@ public class WeaponBehaviour : MonoBehaviour
 
     private void Shoot()
     {
-        // if (melee)
-        // {
-        //     meleeAttack();
-        // }
-
-        // audioSource.clip = gunShotSoundsArray[0];
-        // audioSource.PlayOneShot(audioSource.clip);
-        // audioSource.clip = gunShotSoundsArray[2];
-        // audioSource.PlayDelayed((float) 0.4);
-        
+        SoundManagerRework.Instance.PlayEffectOneShot(playerManager.GetActiveWeapon().ShotSound);
+        SoundManagerRework.Instance.PlayEffectDelayed(playerManager.GetActiveWeapon().ShellSound, 0.4f);
         EventManager.TriggerEvent(Const.Events.SHOT_FIRED);
         AmmoTracker();
     }
@@ -124,12 +111,12 @@ public class WeaponBehaviour : MonoBehaviour
     {
         if (weapon.ShotsInCurrentMag <= 0 && weapon.Magazines <= 0)
         {
-            weaponLogic.OutOfAmmoText();
+            ammoUi.OutOfAmmoText();
         }
 
         if (weapon.ShotsInCurrentMag <= 0 && weapon.Magazines > 0)
         {
-            weaponLogic.ReloadText();
+            ammoUi.ReloadText();
         }
     }
 }
