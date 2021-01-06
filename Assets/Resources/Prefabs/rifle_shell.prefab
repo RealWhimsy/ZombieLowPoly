@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba0a7610dda131a4098237ec31f7b3e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 10
+  bulletSpeed: 25
   bulletDistance: 15
 --- !u!135 &8923921525740032338
 SphereCollider:

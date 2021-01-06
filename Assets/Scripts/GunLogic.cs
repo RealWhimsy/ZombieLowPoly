@@ -19,6 +19,8 @@ public class Gun : MonoBehaviour {
     public void UpdateAmmoUi()
     {
         List<GameObject> renderedBullets = GetBullets();
+        List<GameObject> renderedMags = GetMags();
+
 
         if (renderedBullets.Count != bulletsRemaining)
         {
@@ -26,9 +28,22 @@ public class Gun : MonoBehaviour {
             {
                 Destroy(bullet);
             }
+
+            foreach (GameObject mag in renderedMags)
+            {
+                Destroy(mag);
+            }
             initBulletUi();
         }
-        if(bulletsRemaining > 0 || magazinesRemaining > 0) { outOfAmmo = false; }
+        /*if (renderedMags.Count != magazinesRemaining)
+        {
+            foreach (GameObject mag in renderedMags)
+            {
+                Destroy(mag);
+            }
+            initBulletUi();
+        }*/
+        if (bulletsRemaining > 0 || magazinesRemaining > 0) { outOfAmmo = false; }
         if (bulletsRemaining <= 0 && magazinesRemaining <= 0)
         {
             removeTextUi();
@@ -54,7 +69,6 @@ public class Gun : MonoBehaviour {
             reloadText.text = "reloading...";
             yield return new WaitForSecondsRealtime(2);
             reloadText.text = "";
-            magazinesRemaining -= 1;
             bulletsRemaining = magazineSize;
             magazinesRemaining -= 1;
             UpdateAmmoUi();
@@ -97,6 +111,21 @@ public class Gun : MonoBehaviour {
         }
         reloaded = false;
     }
+    public void ReduceMagUi()
+    {
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
+
+        for (int i = 1; i < canvas.transform.childCount; i++)
+        {
+            GameObject lastBullet = canvas.transform.GetChild(canvas.transform.childCount - i).gameObject;
+            if (lastBullet.tag == "MagazineSprite")
+            {
+                Destroy(lastBullet);
+                break;
+            }
+        }
+    }
+
     private void removeTextUi()
     {
         for (int i = 0; i < canvas.transform.childCount; i++)
@@ -112,10 +141,18 @@ public class Gun : MonoBehaviour {
     public void removeUi()
     {
         List<GameObject> renderedBullets = GetBullets();
+
         removeTextUi();
         foreach (GameObject bullet in renderedBullets)
         {
             Destroy(bullet);
+        }
+        List<GameObject> renderedMags = GetMags();
+
+        removeTextUi();
+        foreach (GameObject mag in renderedMags)
+        {
+            Destroy(mag);
         }
 
 
@@ -133,12 +170,24 @@ public class Gun : MonoBehaviour {
         }
         return result;
     }
-
+    private List<GameObject> GetMags()
+    {
+        List<GameObject> result = new List<GameObject>();
+        for (int i = 0; i < canvas.transform.childCount; i++)
+        {
+            if (canvas.transform.GetChild(i).gameObject.tag == "MagazineSprite")
+            {
+                result.Add(canvas.transform.GetChild(i).gameObject);
+            }
+        }
+        return result;
+    }
     public void initBulletUi()
     {
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         removeTextUi();
         GameObject bulletUi = (GameObject)Resources.Load("Prefabs/BulletSprite", typeof(GameObject));
+        GameObject magUi = (GameObject)Resources.Load("Prefabs/MagazineSprite", typeof(GameObject));
         double height = -107;
         int p = 0;
 
@@ -153,6 +202,13 @@ public class Gun : MonoBehaviour {
             GameObject bullet = Instantiate(bulletUi, new Vector3(-293 + p * 9, (float)height, 0), Quaternion.identity);
             bullet.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
             p++;
+        }
+
+        for (int i = 0; i < magazinesRemaining; i++)
+        {
+           
+            GameObject mag = Instantiate(magUi, magUi.transform.position +  new Vector3( i * 15, 0, 0), Quaternion.identity);
+            mag.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         }
     }
 }

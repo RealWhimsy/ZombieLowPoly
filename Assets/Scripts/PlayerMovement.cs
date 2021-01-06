@@ -267,6 +267,7 @@ public class PlayerMovement : MonoBehaviour
             if (current.magazines > 0)
             {
                 reduceActiveWeaponMunition("magazines");
+                weaponLogic.ReduceMagUi();
                 getEquipedGun().magazineSize = getEquipedGun().maxMagazineSize;
                 StartCoroutine(weaponLogic.Reload(current.maxMagazineSize));
             }
