@@ -3811,6 +3811,7 @@ GameObject:
   - component: {fileID: -8770376264923976518}
   - component: {fileID: -5475102208825237626}
   - component: {fileID: 6195201208575101984}
+  - component: {fileID: -5589835359309682489}
   m_Layer: 0
   m_Name: TT_zombie_M_04
   m_TagString: Untagged
@@ -3938,6 +3939,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.4, z: 1}
   m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!114 &-5589835359309682489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7293db65e0724e4bb6818c5a587e941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &174190
 GameObject:
   m_ObjectHideFlags: 0
