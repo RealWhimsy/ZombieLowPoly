@@ -1,10 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour, IDamageDealer
 {
-    int damage;
+    private GameObject player;
+    private PlayerManager playerManager;
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerManager = player.GetComponent<PlayerManager>();
+    }
 
     void OnTriggerEnter(Collider collision)
     {
@@ -12,24 +17,16 @@ public class MeleeAttack : MonoBehaviour, IDamageDealer
         IDamageable damageable = collision.gameObject.GetComponent(typeof(IDamageable)) as IDamageable;
         if (damageable != null)
         {
-            Debug.Log("DAMAGEE" + collision);
+            Debug.Log("DAMAGE" + collision);
             damageable.TakeDamage(this);
         }
         
     }
-    public void setDamage(int damage)
-    {
-        this.damage = damage;
-    }
+   
     int IDamageDealer.damage
     {
-        get { return damage; }
+        get { return playerManager.GetActiveWeapon().Damage; }
         set { }
     }
     public DamageType damageType { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-
-    int getDamage()
-    {
-        return damage;
-    }
 }
