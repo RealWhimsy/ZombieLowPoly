@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CIty.unity
     guid: b7e679706a1450946852f6ae0ee539f2
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 70a95996c3873644582d5120166e1daa
+  - enabled: 1
+    path: Assets/Scenes/CutsceneIntro.unity
+    guid: 3cd68f2d02202074ca4fdedd217d7951
   m_configObjects: {}

@@ -54,6 +54,6 @@ public class MainMenuBehaviour : MonoBehaviour
 
     public void StartGameButton()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Playground");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("CutsceneIntro");
     }
 }
