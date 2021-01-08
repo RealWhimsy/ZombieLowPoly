@@ -19,10 +19,16 @@ public static class WeaponStats
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Rifle_reload_1"),
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell")),
 
-        ["PYTHON"] = new Weapon("w_python", 3, 6, 0.6f, 
+        [Const.WeaponNames.Python] = new Weapon("w_python", 3, 6, 0.6f, 
             Resources.Load("Prefabs/rifle_shell") as GameObject, 40, 5, false,
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Revolver_shot"),
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Revolver_reload"),
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Pistol_shell")),
+        
+        [Const.WeaponNames.Aug] = new Weapon("w_aug", 3, 6, 0.6f, 
+            Resources.Load("Prefabs/rifle_shell") as GameObject, 40, 5, false,
+            (AudioClip) Resources.Load("Sounds_Ingame/Weapons/AK47_shot"),
+            (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Rifle_reload_1"),
+            (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell")),
     };
 }

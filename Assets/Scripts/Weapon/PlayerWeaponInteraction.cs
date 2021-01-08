@@ -34,6 +34,10 @@ public class PlayerWeaponInteraction : MonoBehaviour
                 case Const.WeaponNames.Ak47:
                     PickUpWeapon(Const.WeaponNames.Ak47);
                     break;
+                
+                case Const.WeaponNames.Aug:
+                    PickUpWeapon(Const.WeaponNames.Aug);
+                    break;
             }
 
             EventManager.TriggerEvent(Const.Events.WeaponSwapped);
@@ -94,8 +98,9 @@ public class PlayerWeaponInteraction : MonoBehaviour
         // Destroy weapon on the ground
         Destroy(weaponPickup);
         
-        // Broadcast Event
+        // Broadcast Event and show new weapon
         EventManager.TriggerEvent(Const.Events.WeaponPickedUp);
+        RenderNewWeapon();
     }
 
     private void RenderNewWeapon()
@@ -110,17 +115,16 @@ public class PlayerWeaponInteraction : MonoBehaviour
     private void DropCurrentWeapon(Weapon weapon)
     {
         GameObject weaponPrefab = Resources.Load("Prefabs/" + weapon.Name) as GameObject;
+        
+        GameObject droppedGun = Instantiate(weaponPrefab, player.transform.position + new Vector3(0f, 0.4f, 0f),
+            Quaternion.identity * Quaternion.Euler(0f, 0f, -90f));
 
-        // TODO set correct path to prefab for Instantiate
-        // GameObject droppedGun = Instantiate(weaponPrefab, player.transform.position + new Vector3(0f, 0.4f, 0f),
-        //     Quaternion.identity * Quaternion.Euler(0f, 0f, -90f));
-
-        // droppedGun.GetComponent<BulletContainer>()
-        //     .SetValues(true, weapon.ShotsInCurrentMag, weapon.Magazines);
-        // if (droppedGun.transform.name.Contains("(Clone)"))
-        // {
-        //     droppedGun.transform.name = droppedGun.transform.name.Replace("(Clone)", "").Trim();
-        // }
+        droppedGun.GetComponent<BulletContainer>()
+            .SetValues(true, weapon.ShotsInCurrentMag, weapon.Magazines);
+        if (droppedGun.transform.name.Contains("(Clone)"))
+        {
+            droppedGun.transform.name = droppedGun.transform.name.Replace("(Clone)", "").Trim();
+        }
     }
 
     private void OnTriggerEnter(Collider collider)

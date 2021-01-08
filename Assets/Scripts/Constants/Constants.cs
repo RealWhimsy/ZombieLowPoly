@@ -26,5 +26,7 @@ public static class Const
     {
         public const string Deagle = "w_DesertEagle";
         public const string Ak47 = "w_ak47";
+        public const string Python = "w_python";
+        public const string Aug = "w_aug";
     }
 }
