@@ -16,6 +16,8 @@ public class PlayerManager : MonoBehaviour, IDamageable
     private Weapon activeWeapon;
     private int activeWeaponIndex;
     private int currentlyEquippedWeapons;
+    
+    private static readonly int Melee = Animator.StringToHash("melee");
 
     Animator anim;
 
@@ -26,7 +28,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
         healthBar.SetMaxHealth(maxHealth);
         anim = GetComponent<Animator>();
         PrepareWeaponArray();
-        
+        EventManager.StartListening(Const.Events.MeleeAttack, HandleMeleeAttack);
     }
 
     private void PrepareWeaponArray()
@@ -59,6 +61,11 @@ public class PlayerManager : MonoBehaviour, IDamageable
         healthBar.SetHealth(currentHealth);
 
         Debug.Log("Player took " + finalDamage + " damage. Current Health: " + currentHealth);
+    }
+
+    void HandleMeleeAttack()
+    {
+        anim.SetTrigger(Melee);
     }
 
     public bool isDead()

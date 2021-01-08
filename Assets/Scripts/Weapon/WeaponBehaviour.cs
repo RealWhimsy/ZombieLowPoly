@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class WeaponBehaviour : MonoBehaviour
 {
     private PlayerManager playerManager;
     private GameObject player;
+    private GameObject meleeZone;
 
     private AmmoUi ammoUi;
 
@@ -17,6 +19,7 @@ public class WeaponBehaviour : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player");
         playerManager = player.GetComponent<PlayerManager>();
+        meleeZone = player.transform.Find("MeleeArea").gameObject;
         weapon = playerManager.GetActiveWeapon();
 
         EventManager.StartListening(Const.Events.WeaponSwapped, HandleWeaponSwap);
@@ -38,7 +41,7 @@ public class WeaponBehaviour : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            // TODO melee attack
+            MeleeAttack();
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -62,7 +65,7 @@ public class WeaponBehaviour : MonoBehaviour
     {
         if (!ammoUi.reloading)
         {
-            if (weapon.ShotsInCurrentMag > 0 && Time.time - shotTime > weapon.ShotCooldown)
+            if (weapon.ShotsInCurrentMag > 0 && Time.time - shotTime > weapon.ShotCooldown && !weapon.MeleeWeapon)
             {
                 ammoUi.ReduceBulletUi();
                 weapon.ShotsInCurrentMag--;
@@ -92,6 +95,19 @@ public class WeaponBehaviour : MonoBehaviour
         SoundManagerRework.Instance.PlayEffectDelayed(weapon.ShellSound, 0.4f);
         EventManager.TriggerEvent(Const.Events.ShotFired);
         AmmoTracker();
+    }
+
+    private void MeleeAttack()
+    {
+        meleeZone.SetActive(true);
+        StartCoroutine(waitAndDisableMeleeZone());
+        EventManager.TriggerEvent(Const.Events.MeleeAttack);
+    }
+
+    IEnumerator waitAndDisableMeleeZone()
+    {
+        yield return new WaitForSeconds(1);
+        meleeZone.SetActive(false);
     }
     
     private void AmmoTracker()
