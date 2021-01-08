@@ -7,6 +7,7 @@ public class MainMenuBehaviour : MonoBehaviour
     public GameObject MainMenu;
     public GameObject PlayerSelectionMenu;
     public GameObject ControlsMenu;
+    public GameObject CreditsMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class MainMenuBehaviour : MonoBehaviour
         MainMenu.SetActive(false);
         PlayerSelectionMenu.SetActive(true);
         ControlsMenu.SetActive(false);
+        CreditsMenu.SetActive(false);
     }
 
     public void MainMenuButton()
@@ -25,6 +27,7 @@ public class MainMenuBehaviour : MonoBehaviour
         MainMenu.SetActive(true);
         PlayerSelectionMenu.SetActive(false);
         ControlsMenu.SetActive(false);
+        CreditsMenu.SetActive(false);
     }
 
     public void ControlsMenuButton()
@@ -32,6 +35,15 @@ public class MainMenuBehaviour : MonoBehaviour
         MainMenu.SetActive(false);
         PlayerSelectionMenu.SetActive(false);
         ControlsMenu.SetActive(true);
+        CreditsMenu.SetActive(false);
+    }
+
+    public void CreditsMenuButton()
+    {
+        MainMenu.SetActive(false);
+        PlayerSelectionMenu.SetActive(false);
+        ControlsMenu.SetActive(false);
+        CreditsMenu.SetActive(true);
     }
 
     public void QuitButton()
@@ -42,6 +54,6 @@ public class MainMenuBehaviour : MonoBehaviour
 
     public void StartGameButton()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Playground");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("CutsceneIntro");
     }
 }
