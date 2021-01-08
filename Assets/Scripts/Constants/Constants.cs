@@ -27,6 +27,19 @@ public static class Const
         public const string Deagle = "w_DesertEagle";
         public const string Ak47 = "w_ak47";
         public const string Python = "w_python";
+        public const string Mac10 = "w_mac10";
+        public const string P90 = "w_p90";
         public const string Aug = "w_aug";
+        public const string Scar = "w_scar";
+        public const string M4 = "w_m4_custom";
+        public const string Awp = "w_awp";
+        public const string Svd = "w_svd";
+        public const string TwoBarrel = "w_twobarrel";
+        public const string Spas = "w_spas";
+        public const string M249 = "w_m249";
+        public const string Rpg = "w_rpg";
+        public const string RamboKnife = "w_rambo_knife";
+        public const string PoliceBat = "w_policebatton";
+
     }
 }

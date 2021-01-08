@@ -34,12 +34,17 @@ public class AmmoUi : MonoBehaviour
         var magazinesRemaining = playerManager.GetActiveWeapon().Magazines;
         
         List<GameObject> renderedBullets = GetBullets();
+        List<GameObject> renderedMags = GetMags();
 
         if (renderedBullets.Count != bulletsRemaining)
         {
             foreach (GameObject bullet in renderedBullets)
             {
                 Destroy(bullet);
+            }
+            foreach (GameObject mag in renderedMags)
+            {
+                Destroy(mag);
             }
 
             InitBulletUi();
@@ -65,7 +70,7 @@ public class AmmoUi : MonoBehaviour
 
     public IEnumerator Reload(int magazineSize)
     {
-        if (playerManager.GetActiveWeapon().Magazines > 0 && !reloading)
+        if (!reloading)
         {
             removeTextUi();
             reloading = true;
@@ -112,6 +117,21 @@ public class AmmoUi : MonoBehaviour
         reloaded = false;
     }
 
+    public void ReduceMagUi()
+    {
+        canvas = GameObject.FindGameObjectWithTag("Canvas");
+
+        for (int i = 1; i < canvas.transform.childCount; i++)
+        {
+            GameObject lastBullet = canvas.transform.GetChild(canvas.transform.childCount - i).gameObject;
+            if (lastBullet.tag == "MagazineSprite")
+            {
+                Destroy(lastBullet);
+                break;
+            }
+        }
+    }
+
     private void removeTextUi()
     {
         for (int i = 0; i < canvas.transform.childCount; i++)
@@ -132,6 +152,14 @@ public class AmmoUi : MonoBehaviour
         {
             Destroy(bullet);
         }
+        List<GameObject> renderedMags = GetMags();
+
+        removeTextUi();
+        foreach (GameObject mag in renderedMags)
+        {
+            Destroy(mag);
+        }
+
     }
 
     private List<GameObject> GetBullets()
@@ -148,10 +176,27 @@ public class AmmoUi : MonoBehaviour
         return result;
     }
 
+    private List<GameObject> GetMags()
+    {
+        List<GameObject> result = new List<GameObject>();
+        for (int i = 0; i < canvas.transform.childCount; i++)
+        {
+            if (canvas.transform.GetChild(i).gameObject.tag == "MagazineSprite")
+            {
+                result.Add(canvas.transform.GetChild(i).gameObject);
+            }
+        }
+        return result;
+    }
+
     public void InitBulletUi()
     {
+
+        var magazinesRemaining = playerManager.GetActiveWeapon().Magazines;
+        Debug.Log(magazinesRemaining);
         removeTextUi();
         GameObject bulletUi = (GameObject) Resources.Load("Prefabs/BulletSprite", typeof(GameObject));
+        GameObject magUi = (GameObject)Resources.Load("Prefabs/MagazineSprite", typeof(GameObject));
         double height = -107;
         int p = 0;
 
@@ -167,6 +212,12 @@ public class AmmoUi : MonoBehaviour
                 Instantiate(bulletUi, new Vector3(-293 + p * 9, (float) height, 0), Quaternion.identity);
             bullet.transform.SetParent(canvas.transform, false);
             p++;
+        }
+        for (int i = 0; i < magazinesRemaining; i++)
+        {
+
+            GameObject mag = Instantiate(magUi, magUi.transform.position + new Vector3(i * 15, 0, 0), Quaternion.identity);
+            mag.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         }
     }
 }

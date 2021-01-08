@@ -11,6 +11,7 @@ TagManager:
   - ReloadingStateSprite
   - weapon
   - Explosion
+  - MagazineSprite
   layers:
   - Default
   - TransparentFX
