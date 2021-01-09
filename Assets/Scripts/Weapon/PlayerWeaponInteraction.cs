@@ -38,6 +38,58 @@ public class PlayerWeaponInteraction : MonoBehaviour
                 case Const.WeaponNames.Aug:
                     PickUpWeapon(Const.WeaponNames.Aug);
                     break;
+
+                case Const.WeaponNames.Python:
+                    PickUpWeapon(Const.WeaponNames.Python);
+                    break;
+
+                case Const.WeaponNames.Mac10:
+                    PickUpWeapon(Const.WeaponNames.Mac10);
+                    break;
+
+                case Const.WeaponNames.P90:
+                    PickUpWeapon(Const.WeaponNames.P90);
+                    break;
+
+                case Const.WeaponNames.Scar:
+                    PickUpWeapon(Const.WeaponNames.Scar);
+                    break;
+
+                case Const.WeaponNames.M4:
+                    PickUpWeapon(Const.WeaponNames.M4);
+                    break;
+
+                case Const.WeaponNames.Awp:
+                    PickUpWeapon(Const.WeaponNames.Awp);
+                    break;
+
+                case Const.WeaponNames.Svd:
+                    PickUpWeapon(Const.WeaponNames.Svd);
+                    break;
+
+                case Const.WeaponNames.TwoBarrel:
+                    PickUpWeapon(Const.WeaponNames.TwoBarrel);
+                    break;
+
+                case Const.WeaponNames.Spas:
+                    PickUpWeapon(Const.WeaponNames.Spas);
+                    break;
+
+                case Const.WeaponNames.M249:
+                    PickUpWeapon(Const.WeaponNames.M249);
+                    break;
+
+                case Const.WeaponNames.Rpg:
+                    PickUpWeapon(Const.WeaponNames.Rpg);
+                    break;
+
+                case Const.WeaponNames.RamboKnife:
+                    PickUpWeapon(Const.WeaponNames.RamboKnife);
+                    break;
+
+                case Const.WeaponNames.PoliceBat:
+                    PickUpWeapon(Const.WeaponNames.PoliceBat);
+                    break;
             }
 
             EventManager.TriggerEvent(Const.Events.WeaponSwapped);
