@@ -7,10 +7,12 @@ public class ZombieWaveMechanism : MonoBehaviour
 
     public int waves;
     public int zombiesPerWave;
+    public float timeBetweenWaves;
 
     private int waveCounter;
     private int zombieCounter;
     private int killCounterForWave;
+    private int tickCounter;
 
     // Initialize variables and listeners
     void Start()
@@ -24,23 +26,19 @@ public class ZombieWaveMechanism : MonoBehaviour
 
     }
 
-    void Update()
-    {
-        
-    }
-
     // Resets variables after every wave
     private void ResetVariables()
     {
         if (waveCounter >= waves)
         {
             EventManager.TriggerEvent(Const.Events.StopSpawningZombies);
-
         }
         zombieCounter = 0;
         killCounterForWave = 0;
+        tickCounter = 0;
         waveCounter++;
         Debug.Log(waveCounter + " wave");
+
     }
 
     // Counts killed zombies
@@ -51,7 +49,8 @@ public class ZombieWaveMechanism : MonoBehaviour
         // Triggers event if every zombie of wave is killed
         if (killCounterForWave >= zombiesPerWave)
         {
-            EventManager.TriggerEvent(Const.Events.ResumeSpawningZombies);
+            EventManager.TriggerEvent(Const.Events.WavePassed);
+            InvokeRepeating("Tick", 0f, 1.0f);
         }
     }
 
@@ -65,5 +64,17 @@ public class ZombieWaveMechanism : MonoBehaviour
             EventManager.TriggerEvent(Const.Events.StopSpawningZombies);          
         }
         
+    }
+
+    // Timer between waves
+    private void Tick()
+    {
+        if (tickCounter >= timeBetweenWaves)
+        {
+            EventManager.TriggerEvent(Const.Events.ResumeSpawningZombies);
+            CancelInvoke("Tick");
+        }
+        Debug.Log("Ticker " + tickCounter);
+        tickCounter++;
     }
 }
