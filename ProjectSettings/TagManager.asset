@@ -12,6 +12,7 @@ TagManager:
   - weapon
   - Explosion
   - MagazineSprite
+  - PlayerModel
   layers:
   - Default
   - TransparentFX

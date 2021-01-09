@@ -42,4 +42,9 @@ public static class Const
         public const string PoliceBat = "w_policebatton";
 
     }
+
+    public static class SceneNames
+    {
+        public const string Forest = "Playground";
+    }
 }

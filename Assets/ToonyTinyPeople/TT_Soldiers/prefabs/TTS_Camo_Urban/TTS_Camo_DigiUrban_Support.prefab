@@ -18758,7 +18758,7 @@ GameObject:
   - component: {fileID: 3238134637742899941}
   m_Layer: 0
   m_Name: TTS_Camo_DigiUrban_Support
-  m_TagString: Untagged
+  m_TagString: PlayerModel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18771,7 +18771,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3238134637735489731}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.88, y: 0, z: -10.32}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3238134637735390471}
@@ -18792,7 +18792,7 @@ Animator:
   m_GameObject: {fileID: 3238134637735489731}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 355dee00690527447a793c7124eca10c, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 62de599c20c331b43ae4e784daef22f5, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -18842,7 +18842,7 @@ GameObject:
   - component: {fileID: 3238134637735390381}
   m_Layer: 0
   m_Name: R_hand_container
-  m_TagString: Untagged
+  m_TagString: WeaponHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
