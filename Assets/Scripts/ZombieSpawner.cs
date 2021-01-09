@@ -31,6 +31,9 @@ public class ZombieSpawner : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
 
         playerManager = player.GetComponent<PlayerManager>();
+
+        EventManager.StartListening(Const.Events.StopSpawningZombies, StopSpawningZombies);
+        EventManager.StartListening(Const.Events.ResumeSpawningZombies, ResumeSpawningZombies);
     }
 
     void Update()
@@ -54,14 +57,28 @@ public class ZombieSpawner : MonoBehaviour
             if (distance >= minDistance && distance <= maxDistance)
             {
                 GameObject spawnedZombie = Instantiate(zombiePrefabs[index], spawner.transform);
-
+                EventManager.TriggerEvent(Const.Events.ZombieSpawned);
                 /* 
-                 * For some reason the zombies would be placed randomly around the spawner with Instantiate
-                 * The two lines below warp the zombie to where it is supposed to be after spawning
-                 */
+                    * For some reason the zombies would be placed randomly around the spawner with Instantiate
+                    * The two lines below warp the zombie to where it is supposed to be after spawning
+                    */
                 NavMeshAgent agent = spawnedZombie.GetComponent<NavMeshAgent>();
                 agent.Warp(spawner.transform.position);
             }
         }
+        
+    }
+
+    // Stops spawning zombies
+    private void StopSpawningZombies()
+    {
+        CancelInvoke("SpawnZombie");
+    }
+
+    // Resumes spawning zombies
+    private void ResumeSpawningZombies()
+    {
+        InvokeRepeating("SpawnZombie", initialSpawnDelay, timeBetweenRespawns);
+        EventManager.TriggerEvent(Const.Events.WaveCompleted);
     }
 }
