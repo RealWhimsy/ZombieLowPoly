@@ -51,6 +51,12 @@ public class PlayerManager : MonoBehaviour, IDamageable
 
     public void TakeDamage(IDamageDealer damageDealer)
     {
+        // Do not take damage if source is from the player (prevent friendly fire)
+        if (damageDealer.damageSource == DamageSource.Friendly)
+        {
+            return;
+        }
+        
         int finalDamage = damageDealer.damage - armor;
         if (finalDamage < 0)
         {
