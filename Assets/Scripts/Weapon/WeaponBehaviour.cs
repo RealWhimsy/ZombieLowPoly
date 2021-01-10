@@ -12,6 +12,8 @@ public class WeaponBehaviour : MonoBehaviour
     private Weapon weapon;
 
     private float shotTime;
+    private static readonly int ShootAnimation = Animator.StringToHash("shoot");
+    private static readonly int ReloadAnimation = Animator.StringToHash("reload");
 
     private void Start()
     {
@@ -69,8 +71,14 @@ public class WeaponBehaviour : MonoBehaviour
             {
                 ammoUi.ReduceBulletUi();
                 weapon.ShotsInCurrentMag--;
+                playerManager.anim.SetTrigger(ShootAnimation);
                 Shoot();
+                
                 shotTime = Time.time;
+            }
+            if(weapon.MeleeWeapon)
+            {
+                playerManager.anim.SetTrigger(ShootAnimation);
             }
         }
     }
@@ -82,6 +90,7 @@ public class WeaponBehaviour : MonoBehaviour
             if (weapon.Magazines > 0)
             {
                 weapon.Magazines--;
+                playerManager.anim.SetTrigger(ReloadAnimation);
                 weapon.Reload();
                 SoundManagerRework.Instance.PlayEffectOneShot(weapon.ReloadSound);
                 StartCoroutine(ammoUi.Reload(weapon.MaxMagazineSize));

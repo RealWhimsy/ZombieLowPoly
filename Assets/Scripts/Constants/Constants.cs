@@ -50,4 +50,12 @@ public static class Const
         public const string PoliceBat = "w_policebatton";
 
     }
+
+    public static class WeaponTypes
+    {
+        public const string Pistol = "Pistol";
+        public const string Rifle = "Rifle";
+        public const string Melee = "Melee";
+        public const string Rpg = "Rpg";
+    }
 }

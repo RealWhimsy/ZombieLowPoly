@@ -9,6 +9,12 @@ public class PlayerWeaponInteraction : MonoBehaviour
     private PlayerManager playerManager;
     private bool isOnWeapon;
     private GameObject weaponHand;
+    
+    // Animator hashes
+    private static readonly int HasRpg = Animator.StringToHash("hasRPG");
+    private static readonly int HasMelee = Animator.StringToHash("hasMelee");
+    private static readonly int HasRifle = Animator.StringToHash("hasRifle");
+    private static readonly int HasPistol = Animator.StringToHash("hasPistol");
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +30,8 @@ public class PlayerWeaponInteraction : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && isOnWeapon)
         {
             SoundManager.PlaySound(SoundManager.Sound.WeaponSwitch);
+            
+            
 
             switch (weaponPickup.name)
             {
@@ -162,6 +170,7 @@ public class PlayerWeaponInteraction : MonoBehaviour
             weaponTransform.gameObject.SetActive(
                 weaponTransform.gameObject.name.Equals(playerManager.GetActiveWeapon().Name));
         }
+        SetAnimation();
     }
 
     private void DropCurrentWeapon(Weapon weapon)
@@ -193,6 +202,32 @@ public class PlayerWeaponInteraction : MonoBehaviour
         if (other.gameObject.tag.Equals("weapon"))
         {
             isOnWeapon = false;
+        }
+    }
+
+    private void SetAnimation(){
+        playerManager.anim.SetBool(HasRpg, false);
+        playerManager.anim.SetBool(HasMelee, false);
+        playerManager.anim.SetBool(HasRifle, false);
+        playerManager.anim.SetBool(HasPistol, false);
+
+        switch (playerManager.GetActiveWeapon().WeaponType)
+        {
+            case WeaponType.Pistol:
+                playerManager.anim.SetBool(HasPistol, true);
+                break;
+            case WeaponType.Rifle:
+            case WeaponType.Sniper:
+            case WeaponType.Lmg:
+            case WeaponType.Smg:
+                playerManager.anim.SetBool(HasRifle, true);
+                break;
+            case WeaponType.Rpg:
+                playerManager.anim.SetBool(HasRpg, true);
+                break;
+            case WeaponType.Melee:
+                playerManager.anim.SetBool(HasMelee, true);
+                break;
         }
     }
 }
