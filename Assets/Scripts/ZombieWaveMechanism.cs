@@ -44,6 +44,7 @@ public class ZombieWaveMechanism : MonoBehaviour
         }
         aliveZombiesCounter = 0;
         killCounterForWave = 0;
+        totalSpawnedZombiesCounter = 0;
         waveCounter++;
         wavePassed = false;
     }
@@ -60,7 +61,6 @@ public class ZombieWaveMechanism : MonoBehaviour
     {
         EventManager.TriggerEvent(Const.Events.WaveCompleted);
         StartCoroutine(Tick());
-        ResetVariables();
     }
 
     // Counts spawned zombies
@@ -81,6 +81,7 @@ public class ZombieWaveMechanism : MonoBehaviour
     {
         yield return new WaitForSeconds(timeBetweenWaves);
         EventManager.TriggerEvent(Const.Events.ResumeSpawningZombies);
+        ResetVariables();
     }
 
     public int TotalSpawnedZombiesCounter => totalSpawnedZombiesCounter;
