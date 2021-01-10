@@ -78,7 +78,6 @@ public class ZombieSpawner : MonoBehaviour
     // Resumes spawning zombies
     private void ResumeSpawningZombies()
     {
-        InvokeRepeating("SpawnZombie", initialSpawnDelay, timeBetweenRespawns);
-        EventManager.TriggerEvent(Const.Events.WaveCompleted);
+        InvokeRepeating("SpawnZombie", initialSpawnDelay, timeBetweenRespawns);     
     }
 }
