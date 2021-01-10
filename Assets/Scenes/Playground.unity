@@ -3290,9 +3290,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 284f55b99d122e24a9ab45153d9ec2dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves: 2
+  waves: 3
   zombiesPerWave: 3
-  timeBetweenWaves: 20
+  timeBetweenWaves: 10
 --- !u!114 &529688066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9033,7 +9033,7 @@ MonoBehaviour:
   - {fileID: 148744, guid: a867d4e67c7bbe8409bed204bab3953b, type: 3}
   - {fileID: 110650, guid: f764cac7cb2c0aa45aea768e665e40d7, type: 3}
   - {fileID: 151748, guid: 5435ed64d041f7846b217b4c39d1f417, type: 3}
-  - {fileID: 166564, guid: c54f52a5df45af949803688189314bd8, type: 3}
+  - {fileID: 135148, guid: ebb30f916d75f8e43add69628ba7f4da, type: 3}
   initialSpawnDelay: 0
   timeBetweenRespawns: 10
   minDistance: 5

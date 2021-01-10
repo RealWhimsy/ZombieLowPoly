@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 
     private GameObject waveUI;
     private string waveCompletedText = "Wave clear";
+    private string levelCompletedText = "Level completed";
     private int waveCounter = 1;
     private string waveCountText;
     private string emptyString = "";
@@ -19,6 +20,7 @@ public class UIManager : MonoBehaviour
         ShowWaveText();
         EventManager.StartListening(Const.Events.WavePassed, ShowCompleteText);
         EventManager.StartListening(Const.Events.ResumeSpawningZombies, ShowWaveText);
+        EventManager.StartListening(Const.Events.LevelCompleted, ShowLevelCompletedText);
     }
 
     private void ShowCompleteText()
@@ -33,6 +35,12 @@ public class UIManager : MonoBehaviour
         waveUI.GetComponent<UnityEngine.UI.Text>().text = waveCountText;
         StartCoroutine(waitTime());
         waveCounter++;
+    }
+
+    private void ShowLevelCompletedText()
+    {
+        waveUI.GetComponent<UnityEngine.UI.Text>().text = levelCompletedText;
+        StartCoroutine(waitTime());
     }
 
     IEnumerator waitTime()

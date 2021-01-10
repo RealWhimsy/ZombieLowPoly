@@ -26,6 +26,7 @@ public static class Const
         public const string ZombieKilled = "ZOMBIE_KILLED";
         public const string WaveCompleted = "WAVE_COMPLETED";
         public const string WavePassed = "WAVE_PASSED";
+        public const string LevelCompleted = "LEVEL_COMPLETED";
     }
 
     // Weapon names
