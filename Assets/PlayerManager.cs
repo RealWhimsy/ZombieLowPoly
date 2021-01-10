@@ -19,7 +19,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
     
     private static readonly int Melee = Animator.StringToHash("melee");
 
-    Animator anim;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Awake()
@@ -34,6 +34,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
     private void PrepareWeaponArray()
     {
         weaponArray[Const.FirstWeaponIndex] = new Weapon(WeaponStats.weaponStatDict[Const.WeaponNames.Deagle]);
+        anim.SetBool("hasPistol", true);
         weaponArray[Const.FirstWeaponIndex].Name = Const.WeaponNames.Deagle;
         activeWeaponIndex = Const.FirstWeaponIndex;
         currentlyEquippedWeapons = 1;

@@ -69,8 +69,14 @@ public class WeaponBehaviour : MonoBehaviour
             {
                 ammoUi.ReduceBulletUi();
                 weapon.ShotsInCurrentMag--;
+                playerManager.anim.SetTrigger("shoot");
                 Shoot();
+                
                 shotTime = Time.time;
+            }
+            if(weapon.MeleeWeapon)
+            {
+                playerManager.anim.SetTrigger("shoot");
             }
         }
     }
@@ -82,6 +88,7 @@ public class WeaponBehaviour : MonoBehaviour
             if (weapon.Magazines > 0)
             {
                 weapon.Magazines--;
+                playerManager.anim.SetTrigger("reload");
                 weapon.Reload();
                 SoundManagerRework.Instance.PlayEffectOneShot(weapon.ReloadSound);
                 StartCoroutine(ammoUi.Reload(weapon.MaxMagazineSize));
