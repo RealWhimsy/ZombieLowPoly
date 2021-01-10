@@ -19,6 +19,14 @@ public static class Const
         public const string WeaponSwapped = "WEAPON_SWAPPED";
         public const string WeaponPickedUp = "WEAPON_PICKED_UP";
         public const string MeleeAttack = "MELEE_ATTACK";
+
+        public const string ResumeSpawningZombies = "RESUME_SPAWNING_ZOMBIES";
+        public const string StopSpawningZombies = "STOP_SPAWNING_ZOMBIES";
+        public const string ZombieSpawned = "ZOMBIE_SPAWNED";
+        public const string ZombieKilled = "ZOMBIE_KILLED";
+        public const string WaveCompleted = "WAVE_COMPLETED";
+        public const string WavePassed = "WAVE_PASSED";
+        public const string LevelCompleted = "LEVEL_COMPLETED";
     }
 
     // Weapon names

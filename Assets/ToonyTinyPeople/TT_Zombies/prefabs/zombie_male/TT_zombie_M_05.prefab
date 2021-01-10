@@ -3735,7 +3735,7 @@ GameObject:
   - component: {fileID: 434243272943817349}
   m_Layer: 0
   m_Name: TT_zombie_M_05
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -10,8 +10,8 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     public int damage = 10;
     public float damageFrequency = 0.3f;
     public System.Random ran = new System.Random();
-    //public AudioClip[] hitSoundsArray;
-    //private AudioSource audioSource;
+    
+    private GameObject blood;
 
     float currentTriggerStayTime;
     Animator anim;
@@ -19,22 +19,19 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
 
     InteractiblesManager interactiblesManager;
     bool interactiblesTrigger = false;
+    bool isDeadTrigger = false;
 
 
     int currentHealth;
     // Start is called before the first frame update
     void Start()
     {
+        blood = Resources.Load("Prefabs/Blood") as GameObject;
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
         currentTriggerStayTime = damageFrequency;
         interactiblesManager = GetComponent<InteractiblesManager>();
-        /*audioSource = GetComponent<AudioSource>();
-        if(audioSource == null) {
-            Debug.LogError("No AudioSource found!");
-        }
-        LoadSounds();*/
     }
 
     // Update is called once per frame
@@ -44,25 +41,26 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
         {
             anim.SetBool("isDead", true);
             agent.isStopped = true;
-            if(interactiblesTrigger == false)
+
+            // Trigger for spawning interactibles only one time
+            if (interactiblesTrigger == false)
             {
                 interactiblesManager.SpawnInteractible();
                 interactiblesTrigger = true;
                 
             }
 
+            // Trigger for counting kills
+            if(isDeadTrigger == false)
+            {
+                EventManager.TriggerEvent(Const.Events.ZombieKilled);
+                isDeadTrigger = true;
+            }
+
         }
 
       
     }
-
-    /*private void LoadSounds() {
-        hitSoundsArray[0] = (AudioClip) Resources.Load("Sounds_Ingame/Hits/hit1");
-        hitSoundsArray[1] = (AudioClip) Resources.Load("Sounds_Ingame/Hits/hit2"); 
-        hitSoundsArray[2] = (AudioClip) Resources.Load("Sounds_Ingame/Hits/hit3");
-        hitSoundsArray[3] = (AudioClip) Resources.Load("Sounds_Ingame/Hits/hit4");
-        hitSoundsArray[4] = (AudioClip) Resources.Load("Sounds_Ingame/Hits/dead");
-    }*/
 
     void OnTriggerEnter(Collider collision)
     {
@@ -103,9 +101,7 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
         {
             finalDamage = 0;
         }
-        /*int random = ran.Next(0, hitSoundsArray.Length);
-        audioSource.clip = hitSoundsArray[random];
-        audioSource.PlayOneShot(audioSource.clip);*/
+        Instantiate(blood, transform.position, transform.rotation);
         currentHealth -= finalDamage;
     }
 

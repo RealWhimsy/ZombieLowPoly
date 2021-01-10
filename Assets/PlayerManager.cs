@@ -16,7 +16,8 @@ public class PlayerManager : MonoBehaviour, IDamageable
     private Weapon activeWeapon;
     private int activeWeaponIndex;
     private int currentlyEquippedWeapons;
-    
+    private GameObject blood;
+
     private static readonly int Melee = Animator.StringToHash("melee");
 
     public Animator anim;
@@ -24,6 +25,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
     // Start is called before the first frame update
     void Awake()
     {
+        blood = Resources.Load("Prefabs/Blood") as GameObject;
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         anim = GetComponent<Animator>();
@@ -57,7 +59,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
         {
             finalDamage = 0;
         }
-
+        Instantiate(blood, transform.position, transform.rotation);
         currentHealth -= finalDamage;
         healthBar.SetHealth(currentHealth);
 
