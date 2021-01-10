@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
     {     
         waveUI = GameObject.FindGameObjectWithTag("WaveUI").GetComponent<UnityEngine.UI.Text>();
         ShowWaveText();
-        EventManager.StartListening(Const.Events.WavePassed, ShowCompleteText);
+        EventManager.StartListening(Const.Events.WaveCompleted, ShowCompleteText);
         EventManager.StartListening(Const.Events.ResumeSpawningZombies, ShowWaveText);
         EventManager.StartListening(Const.Events.LevelCompleted, ShowLevelCompletedText);
     }

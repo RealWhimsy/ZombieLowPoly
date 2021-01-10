@@ -193,7 +193,6 @@ public class AmmoUi : MonoBehaviour
     {
 
         var magazinesRemaining = playerManager.GetActiveWeapon().Magazines;
-        Debug.Log(magazinesRemaining);
         removeTextUi();
         GameObject bulletUi = (GameObject) Resources.Load("Prefabs/BulletSprite", typeof(GameObject));
         GameObject magUi = (GameObject)Resources.Load("Prefabs/MagazineSprite", typeof(GameObject));
