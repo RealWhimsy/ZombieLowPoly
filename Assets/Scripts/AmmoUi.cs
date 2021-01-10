@@ -11,6 +11,7 @@ public class AmmoUi : MonoBehaviour
     public bool outOfAmmo;
     public bool reloaded;
     private Text ammoInfoText;
+    private int granades;
 
     private GameObject player;
     private PlayerManager playerManager;
@@ -21,7 +22,6 @@ public class AmmoUi : MonoBehaviour
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         player = GameObject.FindGameObjectWithTag("Player");
         ammoInfoText = GameObject.Find("MunitionText").GetComponent<Text>();
-        
         playerManager = player.GetComponent<PlayerManager>();
         UpdateAmmoUi();
         EventManager.StartListening(Const.Events.WeaponPickedUp, UpdateAmmoUi);
@@ -116,6 +116,18 @@ public class AmmoUi : MonoBehaviour
 
         reloaded = false;
     }
+    public void ReduceGranadeUi(){
+
+        for (int i = 1; i < canvas.transform.childCount; i++)
+        {
+            GameObject lastGranade = canvas.transform.GetChild(canvas.transform.childCount - i).gameObject;
+            if (lastGranade.tag == "GranadeSprite")
+            {
+                Destroy(lastGranade);
+                break;
+            }
+        }
+    }
 
     public void ReduceMagUi()
     {
@@ -191,13 +203,15 @@ public class AmmoUi : MonoBehaviour
 
     public void InitBulletUi()
     {
-
+        granades = playerManager.granades;
         var magazinesRemaining = playerManager.GetActiveWeapon().Magazines;
         removeTextUi();
         GameObject bulletUi = (GameObject) Resources.Load("Prefabs/BulletSprite", typeof(GameObject));
         GameObject magUi = (GameObject)Resources.Load("Prefabs/MagazineSprite", typeof(GameObject));
+        GameObject granadeUi = (GameObject)Resources.Load("Prefabs/GranadeSprite", typeof(GameObject));
         double height = -107;
         int p = 0;
+        int j = 0;
 
         for (int i = 0; i < playerManager.GetActiveWeapon().ShotsInCurrentMag; i++)
         {
@@ -212,11 +226,17 @@ public class AmmoUi : MonoBehaviour
             bullet.transform.SetParent(canvas.transform, false);
             p++;
         }
-        for (int i = 0; i < magazinesRemaining; i++)
+        for (int i = 0; i < magazinesRemaining + granades; i++)
         {
-
+            if(i < magazinesRemaining){
             GameObject mag = Instantiate(magUi, magUi.transform.position + new Vector3(i * 15, 0, 0), Quaternion.identity);
             mag.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+            }
+            else{
+                j += 10;
+                GameObject granade = Instantiate(granadeUi, granadeUi.transform.position + new Vector3(i * 15 + j, 0, 0), Quaternion.identity);
+                granade.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+            }
         }
     }
 }

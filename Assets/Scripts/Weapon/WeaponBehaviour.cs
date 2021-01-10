@@ -46,9 +46,9 @@ public class WeaponBehaviour : MonoBehaviour
             MeleeAttack();
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            // TODO switch weapon
+            ThrowGranade();
         }
     }
 
@@ -111,6 +111,14 @@ public class WeaponBehaviour : MonoBehaviour
         meleeZone.SetActive(true);
         StartCoroutine(waitAndDisableMeleeZone());
         EventManager.TriggerEvent(Const.Events.MeleeAttack);
+    }
+
+    private void ThrowGranade(){
+        if(playerManager.granades != 0){
+            playerManager.granades--;
+            ammoUi.ReduceGranadeUi();
+            EventManager.TriggerEvent(Const.Events.GranadeThrown);
+        }
     }
 
     IEnumerator waitAndDisableMeleeZone()
