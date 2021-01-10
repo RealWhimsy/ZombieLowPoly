@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Random = UnityEngine.Random;
+using System.Collections;
 
 public class BulletSpawner : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class BulletSpawner : MonoBehaviour
     private void OnEnable()
     {
         EventManager.StartListening(Const.Events.ShotFired, Shoot);
-        EventManager.StartListening(Const.Events.GranadeThrown, ThrowGranade);
+        EventManager.StartListening(Const.Events.GranadeThrown, Throw);
         EventManager.StartListening(Const.Events.WeaponSwapped, HandleWeaponSwap);
 
     }
@@ -37,12 +38,17 @@ public class BulletSpawner : MonoBehaviour
         bulletScript.setDamage(weapon.Damage);
     }
 
-    private void ThrowGranade()
+    private IEnumerator ThrowGranade()
     {
+        yield return new WaitForSeconds(0.5f);
         granade = (GameObject) Resources.Load("Prefabs/Granade", typeof(GameObject));
         Transform granadePrefab = Instantiate(granade.transform, transform.position, transform.rotation);
         Granade granadeScript = granadePrefab.GetComponent<Granade>();
         granadeScript.setDamage(100);
+    }
+
+    private void Throw(){
+        StartCoroutine(ThrowGranade());
     }
     
     private void HandleWeaponSwap()

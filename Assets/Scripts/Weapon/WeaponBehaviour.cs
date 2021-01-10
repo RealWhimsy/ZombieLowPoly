@@ -14,6 +14,7 @@ public class WeaponBehaviour : MonoBehaviour
     private float shotTime;
     private static readonly int ShootAnimation = Animator.StringToHash("shoot");
     private static readonly int ReloadAnimation = Animator.StringToHash("reload");
+    private static readonly int ThrowAnimation = Animator.StringToHash("throw");
 
     private void Start()
     {
@@ -115,6 +116,7 @@ public class WeaponBehaviour : MonoBehaviour
 
     private void ThrowGranade(){
         if(playerManager.granades != 0){
+            playerManager.anim.SetTrigger(ThrowAnimation);
             playerManager.granades--;
             ammoUi.ReduceGranadeUi();
             EventManager.TriggerEvent(Const.Events.GranadeThrown);
