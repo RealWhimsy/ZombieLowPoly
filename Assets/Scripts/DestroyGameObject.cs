@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DespawnInteractibles : MonoBehaviour
+public class DestroyGameObject : MonoBehaviour
 {
+    public float destroyAfterTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -12,7 +13,7 @@ public class DespawnInteractibles : MonoBehaviour
 
     IEnumerator SelfDestruct()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(destroyAfterTime);
         Destroy(gameObject);
     }
 }
