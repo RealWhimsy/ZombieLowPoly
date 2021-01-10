@@ -13,6 +13,7 @@ TagManager:
   - Explosion
   - MagazineSprite
   - PlayerModel
+  - PlayerSpawn
   layers:
   - Default
   - TransparentFX
