@@ -13,6 +13,6 @@ public class CameraFollow : MonoBehaviour
 
     private void OnEnable()
     {
-        target = GameObject.Find("PlayerParent").transform;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 }
