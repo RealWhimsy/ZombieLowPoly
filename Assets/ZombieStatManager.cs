@@ -10,6 +10,8 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     public int damage = 10;
     public float damageFrequency = 0.3f;
     public System.Random ran = new System.Random();
+    
+    private GameObject blood;
 
     float currentTriggerStayTime;
     Animator anim;
@@ -24,6 +26,7 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     // Start is called before the first frame update
     void Start()
     {
+        blood = Resources.Load("Prefabs/Blood") as GameObject;
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
@@ -98,6 +101,7 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
         {
             finalDamage = 0;
         }
+        Instantiate(blood, transform.position, transform.rotation);
         currentHealth -= finalDamage;
     }
 
