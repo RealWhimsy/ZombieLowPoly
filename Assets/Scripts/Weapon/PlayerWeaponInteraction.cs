@@ -9,6 +9,12 @@ public class PlayerWeaponInteraction : MonoBehaviour
     private PlayerManager playerManager;
     private bool isOnWeapon;
     private GameObject weaponHand;
+    
+    // Animator hashes
+    private static readonly int HasRpg = Animator.StringToHash("hasRPG");
+    private static readonly int HasMelee = Animator.StringToHash("hasMelee");
+    private static readonly int HasRifle = Animator.StringToHash("hasRifle");
+    private static readonly int HasPistol = Animator.StringToHash("hasPistol");
 
     // Start is called before the first frame update
     void Start()
@@ -31,82 +37,66 @@ public class PlayerWeaponInteraction : MonoBehaviour
             {
                 case Const.WeaponNames.Deagle:
                     PickUpWeapon(Const.WeaponNames.Deagle);
-                    setAnimation();
                     break;
 
                 case Const.WeaponNames.Ak47:
                     PickUpWeapon(Const.WeaponNames.Ak47);
-                    setAnimation();
                     break;
                 
                 case Const.WeaponNames.Aug:
                     PickUpWeapon(Const.WeaponNames.Aug);
-                    setAnimation();
                     break;
 
                 case Const.WeaponNames.Python:
                     PickUpWeapon(Const.WeaponNames.Python);
-                    setAnimation();
                     break;
 
                 case Const.WeaponNames.Mac10:
                     PickUpWeapon(Const.WeaponNames.Mac10);
-                    setAnimation();
                     break;
 
                 case Const.WeaponNames.P90:
                     PickUpWeapon(Const.WeaponNames.P90);
-                    setAnimation();
                     break;
 
                 case Const.WeaponNames.Scar:
                     PickUpWeapon(Const.WeaponNames.Scar);
-                    setAnimation();
                     break;
 
                 case Const.WeaponNames.M4:
                     PickUpWeapon(Const.WeaponNames.M4);
-                    setAnimation();
                     break;
 
                 case Const.WeaponNames.Awp:
                     PickUpWeapon(Const.WeaponNames.Awp);
-                    setAnimation();
                     break;
 
                 case Const.WeaponNames.Svd:
                     PickUpWeapon(Const.WeaponNames.Svd);
-                    setAnimation();
                     break;
 
                 case Const.WeaponNames.TwoBarrel:
                     PickUpWeapon(Const.WeaponNames.TwoBarrel);
-                    setAnimation();
                     break;
 
                 case Const.WeaponNames.Spas:
                     PickUpWeapon(Const.WeaponNames.Spas);
-                    setAnimation();
                     break;
 
                 case Const.WeaponNames.M249:
                     PickUpWeapon(Const.WeaponNames.M249);
-                    setAnimation();
                     break;
 
                 case Const.WeaponNames.Rpg:
                     PickUpWeapon(Const.WeaponNames.Rpg);
-                    setAnimation();
                     break;
 
                 case Const.WeaponNames.RamboKnife:
                     PickUpWeapon(Const.WeaponNames.RamboKnife);
-                    setAnimation();
                     break;
 
                 case Const.WeaponNames.PoliceBat:
                     PickUpWeapon(Const.WeaponNames.PoliceBat);
-                    setAnimation();
                     break;
             }
 
@@ -117,7 +107,6 @@ public class PlayerWeaponInteraction : MonoBehaviour
         {
             SwitchWeapon();
             RenderNewWeapon();
-            setAnimation();
         }
     }
 
@@ -181,6 +170,7 @@ public class PlayerWeaponInteraction : MonoBehaviour
             weaponTransform.gameObject.SetActive(
                 weaponTransform.gameObject.name.Equals(playerManager.GetActiveWeapon().Name));
         }
+        SetAnimation();
     }
 
     private void DropCurrentWeapon(Weapon weapon)
@@ -215,50 +205,29 @@ public class PlayerWeaponInteraction : MonoBehaviour
         }
     }
 
-    private void setAnimation(){
-        String weaponType = getWeaponType();
-        playerManager.anim.SetBool("hasRPG", false);
-        playerManager.anim.SetBool("hasMelee", false);
-        playerManager.anim.SetBool("hasRifle", false);
-        playerManager.anim.SetBool("hasPistol", false);
+    private void SetAnimation(){
+        playerManager.anim.SetBool(HasRpg, false);
+        playerManager.anim.SetBool(HasMelee, false);
+        playerManager.anim.SetBool(HasRifle, false);
+        playerManager.anim.SetBool(HasPistol, false);
 
-        if (weaponType == "Pistol")
+        switch (playerManager.GetActiveWeapon().WeaponType)
         {
-            playerManager.anim.SetBool("hasPistol", true);
+            case WeaponType.Pistol:
+                playerManager.anim.SetBool(HasPistol, true);
+                break;
+            case WeaponType.Rifle:
+            case WeaponType.Sniper:
+            case WeaponType.Lmg:
+            case WeaponType.Smg:
+                playerManager.anim.SetBool(HasRifle, true);
+                break;
+            case WeaponType.Rpg:
+                playerManager.anim.SetBool(HasRpg, true);
+                break;
+            case WeaponType.Melee:
+                playerManager.anim.SetBool(HasMelee, true);
+                break;
         }
-        if (weaponType == "Rifle")
-        {
-            playerManager.anim.SetBool("hasRifle", true);
-        }
-        if (weaponType == "Rpg")
-        {
-            playerManager.anim.SetBool("hasRPG", true);
-        }
-        if (weaponType == "Melee")
-        {
-            playerManager.anim.SetBool("hasMelee", true);
-        }
-
-    }
-    public string getWeaponType()
-    {
-        var currentWeapon = playerManager.GetActiveWeapon();
-        Debug.Log(currentWeapon.Name);
-
-        if(currentWeapon.Name == "w_DesertEagle" || currentWeapon.Name == "w_python")
-        {
-            return "Pistol";
-        }
-        if (currentWeapon.Name == "w_rambo_knife" || currentWeapon.Name == "w_policebatton")
-        {
-            return "Melee";
-        }
-        if (currentWeapon.Name == "w_rpg")
-        {
-            return "Rpg";
-        }
-
-        return "Rifle";
-
     }
 }
