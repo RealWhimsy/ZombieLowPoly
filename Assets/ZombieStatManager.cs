@@ -10,6 +10,8 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     public int damage = 10;
     public float damageFrequency = 0.3f;
     public System.Random ran = new System.Random();
+
+    private GameObject blood;
     //public AudioClip[] hitSoundsArray;
     //private AudioSource audioSource;
 
@@ -25,6 +27,7 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     // Start is called before the first frame update
     void Start()
     {
+        blood = Resources.Load("Prefabs/Blood") as GameObject;
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
@@ -103,6 +106,7 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
         {
             finalDamage = 0;
         }
+        Instantiate(blood, transform.position, transform.rotation);
         /*int random = ran.Next(0, hitSoundsArray.Length);
         audioSource.clip = hitSoundsArray[random];
         audioSource.PlayOneShot(audioSource.clip);*/
