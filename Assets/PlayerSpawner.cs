@@ -14,7 +14,7 @@ public class PlayerSpawner : MonoBehaviour
     
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        var playerSpawn = GameObject.Find("PlayerSpawn");
+        var playerSpawn = GameObject.FindGameObjectWithTag("PlayerSpawn");
 
         if (playerSpawn != null)
         {
@@ -22,6 +22,7 @@ public class PlayerSpawner : MonoBehaviour
             transform.rotation = playerSpawn.transform.rotation;
         }
 
+        // Add all "combat scripts" to the player if the first combat scene is loaded
         if (scene.name.Equals(Const.SceneNames.Forest))
         {
             playerManager = gameObject.AddComponent<PlayerManager>();
