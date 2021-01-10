@@ -8049,7 +8049,7 @@ PrefabInstance:
     - target: {fileID: 3480697154167105111, guid: 4e451444125e7e34b91e206fe9c75743,
         type: 3}
       propertyPath: m_Name
-      value: Jonny's lost brother
+      value: DebugJonny
       objectReference: {fileID: 0}
     - target: {fileID: 3480697154167105111, guid: 4e451444125e7e34b91e206fe9c75743,
         type: 3}
@@ -8202,8 +8202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fd3998e368663c4daf4fccbeb187b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
-  armor: 5
   healthBar: {fileID: 1894822589}
 --- !u!65 &1730169978
 BoxCollider:

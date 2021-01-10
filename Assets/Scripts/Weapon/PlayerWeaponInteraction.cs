@@ -16,6 +16,7 @@ public class PlayerWeaponInteraction : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerManager = player.GetComponent<PlayerManager>();
         weaponHand = GameObject.FindGameObjectWithTag("WeaponHand");
+        RenderNewWeapon();
     }
 
     // Update is called once per frame
