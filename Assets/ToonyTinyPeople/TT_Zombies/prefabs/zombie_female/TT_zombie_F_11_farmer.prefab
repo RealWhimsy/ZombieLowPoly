@@ -515,7 +515,7 @@ GameObject:
   - component: {fileID: -1606392272637931245}
   m_Layer: 0
   m_Name: TT_zombie_F_11_farmer
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
