@@ -3404,6 +3404,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TTS_Camo_DigiDesert_Sniper
       objectReference: {fileID: 0}
+    - target: {fileID: 8995665267770391739, guid: 59336600a3c101645967e09d88f81493,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 544633456ad232546bfd01663fc7f30e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59336600a3c101645967e09d88f81493, type: 3}
 --- !u!1 &1346625999
