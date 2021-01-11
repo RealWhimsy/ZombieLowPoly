@@ -7,7 +7,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
 
     public int maxHealth = 200;
     public int armor = 5;
-    public int granades = 2;
+    public int grenades = 2;
     public HealthBar healthBar;
 
     int currentHealth;

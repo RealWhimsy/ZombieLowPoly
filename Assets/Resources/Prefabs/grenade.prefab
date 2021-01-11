@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 2203971203327710954}
   - component: {fileID: 2203971203331102410}
   - component: {fileID: 2203971203330003978}
-  - component: {fileID: 7713348735155202692}
   - component: {fileID: 5019230744628032546}
   - component: {fileID: 8787945844987270246}
+  - component: {fileID: 8729367449011374274}
   m_Layer: 0
-  m_Name: granade
+  m_Name: grenade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,18 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &7713348735155202692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2203971203328002762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bd05be4bc3df1e429babf3c838a2d6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &5019230744628032546
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -123,3 +111,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.27476102, y: 0.22859797, z: 0.20464945}
   m_Center: {x: -0.00000020116568, y: 0.013237685, z: 0.0009769723}
+--- !u!114 &8729367449011374274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2203971203328002762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bd05be4bc3df1e429babf3c838a2d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

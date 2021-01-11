@@ -49,7 +49,7 @@ public class WeaponBehaviour : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.G))
         {
-            ThrowGranade();
+            ThrowGrenade();
         }
     }
 
@@ -114,12 +114,12 @@ public class WeaponBehaviour : MonoBehaviour
         EventManager.TriggerEvent(Const.Events.MeleeAttack);
     }
 
-    private void ThrowGranade(){
-        if(playerManager.granades != 0){
+    private void ThrowGrenade(){
+        if(playerManager.grenades != 0){
             playerManager.anim.SetTrigger(ThrowAnimation);
-            playerManager.granades--;
-            ammoUi.ReduceGranadeUi();
-            EventManager.TriggerEvent(Const.Events.GranadeThrown);
+            playerManager.grenades--;
+            ammoUi.ReduceGrenadeUi();
+            EventManager.TriggerEvent(Const.Events.GrenadeThrown);
         }
     }
 

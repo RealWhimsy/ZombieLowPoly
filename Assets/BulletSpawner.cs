@@ -7,7 +7,7 @@ public class BulletSpawner : MonoBehaviour
     private GameObject player;
     private PlayerManager playerManager;
     private Weapon weapon;
-    private GameObject granade;
+    private GameObject grenade;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -18,7 +18,7 @@ public class BulletSpawner : MonoBehaviour
     private void OnEnable()
     {
         EventManager.StartListening(Const.Events.ShotFired, Shoot);
-        EventManager.StartListening(Const.Events.GranadeThrown, Throw);
+        EventManager.StartListening(Const.Events.GrenadeThrown, Throw);
         EventManager.StartListening(Const.Events.WeaponSwapped, HandleWeaponSwap);
 
     }
@@ -38,17 +38,17 @@ public class BulletSpawner : MonoBehaviour
         bulletScript.setDamage(weapon.Damage);
     }
 
-    private IEnumerator ThrowGranade()
+    private IEnumerator ThrowGrenade()
     {
         yield return new WaitForSeconds(0.5f);
-        granade = (GameObject) Resources.Load("Prefabs/Granade", typeof(GameObject));
-        Transform granadePrefab = Instantiate(granade.transform, transform.position, transform.rotation);
-        Granade granadeScript = granadePrefab.GetComponent<Granade>();
-        granadeScript.setDamage(100);
+        grenade = (GameObject) Resources.Load("Prefabs/Grenade", typeof(GameObject));
+        Transform grenadePrefab = Instantiate(grenade.transform, transform.position, transform.rotation);
+        Grenade grenadeScript = grenadePrefab.GetComponent<Grenade>();
+        grenadeScript.setDamage(100);
     }
 
     private void Throw(){
-        StartCoroutine(ThrowGranade());
+        StartCoroutine(ThrowGrenade());
     }
     
     private void HandleWeaponSwap()

@@ -16,7 +16,7 @@ public static class Const
     public static class Events
     {
         public const string ShotFired = "SHOT_FIRED";
-        public const string GranadeThrown = "GRANADE_THROWN";
+        public const string GrenadeThrown = "GRENADE_THROWN";
         public const string WeaponSwapped = "WEAPON_SWAPPED";
         public const string WeaponPickedUp = "WEAPON_PICKED_UP";
         public const string MeleeAttack = "MELEE_ATTACK";

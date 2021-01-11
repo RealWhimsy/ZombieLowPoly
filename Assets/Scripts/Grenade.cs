@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Granade : MonoBehaviour, IDamageDealer
+public class Grenade : MonoBehaviour, IDamageDealer
 {
     
     float explosionTime = 2;

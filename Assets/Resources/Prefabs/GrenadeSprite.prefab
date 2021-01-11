@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8032729039529466422}
   - component: {fileID: 8032729039529466417}
   m_Layer: 5
-  m_Name: GranadeSprite
-  m_TagString: GranadeSprite
+  m_Name: GrenadeSprite
+  m_TagString: GrenadeSprite
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
