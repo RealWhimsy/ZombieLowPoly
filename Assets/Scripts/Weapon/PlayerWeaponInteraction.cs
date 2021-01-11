@@ -29,7 +29,7 @@ public class PlayerWeaponInteraction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && isOnWeapon)
         {
-            SoundManager.PlaySound(SoundManager.Sound.WeaponSwitch);
+            // TODO Trigger event for sound
             
             
 
@@ -118,7 +118,7 @@ public class PlayerWeaponInteraction : MonoBehaviour
     private void SwitchWeapon()
     {
         playerManager.ActiveWeaponIndex++;
-
+        SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.WeaponPickup) as AudioClip);
         // Reset back to first weapon if Array is out of bounds, or not all slots are filled with weapons
         if (playerManager.ActiveWeaponIndex > Const.MaxWeaponIndex ||
             playerManager.ActiveWeaponIndex >= playerManager.CurrentlyEquippedWeapons)
@@ -135,6 +135,7 @@ public class PlayerWeaponInteraction : MonoBehaviour
      */
     private void PickUpWeapon(string weaponName)
     {
+        SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.WeaponPickup) as AudioClip);
         for (int i = 0; i <= Const.MaxWeaponIndex; i++)
         {
             if (playerManager.WeaponArray[i] is null)

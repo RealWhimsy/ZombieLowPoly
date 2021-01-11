@@ -3271,11 +3271,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 529688059}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b564bcf94ab6c94c83af4f4e73eeba4, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d9b4a4b735bb6241811f403cbff251c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EffectsSource: {fileID: 529688063}
-  MusicSource: {fileID: 529688062}
+  EffectsSource: {fileID: 1730169974}
+  MusicSource: {fileID: 1358196295}
   LowPitchRange: 0.95
   HighPitchRange: 1.05
 --- !u!114 &529688065
