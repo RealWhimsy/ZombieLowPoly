@@ -8,13 +8,9 @@ public class MainMenuBehaviour : MonoBehaviour
     public GameObject PlayerSelectionMenu;
     public GameObject ControlsMenu;
     public GameObject CreditsMenu;
-    public GameObject[] playerModels;
-    
-    private GameObject playerParent;
     // Start is called before the first frame update
     void Start()
     {
-        playerParent = GameObject.Find("PlayerParent");
         MainMenuButton();
     }
 
@@ -56,9 +52,8 @@ public class MainMenuBehaviour : MonoBehaviour
         Application.Quit();
     }
 
-    public void StartGameButton(int prefabIndex)
+    public void StartGameButton()
     {
-        GameObject playerModel = Instantiate(playerModels[prefabIndex], playerParent.transform, false);
         UnityEngine.SceneManagement.SceneManager.LoadScene("CutsceneIntro");
     }
 }

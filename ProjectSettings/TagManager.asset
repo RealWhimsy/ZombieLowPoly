@@ -15,8 +15,6 @@ TagManager:
   - WaveUI
   - Enemy
   - Manager
-  - PlayerModel
-  - PlayerSpawn
   layers:
   - Default
   - TransparentFX

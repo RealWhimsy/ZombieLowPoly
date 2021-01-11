@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
@@ -9,10 +8,5 @@ public class CameraFollow : MonoBehaviour
 
     private void LateUpdate() {
         transform.position = target.position + cameraOffset;    
-    }
-
-    private void OnEnable()
-    {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 }

@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     private PlayerManager playerManager;
     private GameObject player;
     private GameObject meleeArea;
-    private GameObject playerModel;
     
 
 
@@ -19,13 +18,6 @@ public class PlayerMovement : MonoBehaviour
         meleeArea = GameObject.Find("MeleeArea");
         meleeArea.SetActive(false);
         playerManager = GetComponent<PlayerManager>();
-        
-        Transform playerModelTransform = transform.Find("PlayerModel");
-        if (playerModelTransform != null)
-        {
-            playerModel = playerModelTransform.gameObject;
-            anim = playerModel.GetComponent<Animator>();
-        }
     }
 
     private void Update()
