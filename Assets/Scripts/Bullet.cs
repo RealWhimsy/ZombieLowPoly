@@ -52,6 +52,7 @@ public class Bullet : MonoBehaviour, IDamageDealer
         {
             GameObject expl = (GameObject)Resources.Load("Prefabs/pf_vfx-inf_psys_demo_oneshot_comicExplosion3-x5", typeof(GameObject));
             Instantiate(expl, gameObject.transform.position, Quaternion.identity);
+            SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.Explosion) as AudioClip);
             Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 1.5f);
             foreach (var hitCollider in hitColliders)
             {

@@ -64,6 +64,7 @@ public static class Const
         public const string WeaponPickup = "Sounds_Ingame/Using/Weapon_switch";
         public const string AmmoEmpty = "Sounds_Ingame/Using/Ammo_empty";
         public const string AmmoPickup = "Sounds_Ingame/Using/Ammo_pickup";
+        public const string Explosion = "Sounds_Ingame/Weapons/Explosion";
         public static readonly string[] Hits = {
             "Sounds_Ingame/Hits/hit1",
             "Sounds_Ingame/Hits/hit2",
