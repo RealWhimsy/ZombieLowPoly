@@ -70,7 +70,7 @@ public class WeaponBehaviour : MonoBehaviour
         {
             if (weapon.ShotsInCurrentMag > 0 && Time.time - shotTime > weapon.ShotCooldown && !weapon.MeleeWeapon)
             {
-                ammoUi.ReduceBulletUi();
+                ammoUi.ReduceAmmoUi(Const.Tags.BulletSprite);
                 weapon.ShotsInCurrentMag--;
                 playerManager.anim.SetTrigger(ShootAnimation);
                 Shoot();
@@ -118,7 +118,7 @@ public class WeaponBehaviour : MonoBehaviour
         if(playerManager.grenades != 0){
             playerManager.anim.SetTrigger(ThrowAnimation);
             playerManager.grenades--;
-            ammoUi.ReduceGrenadeUi();
+            ammoUi.ReduceAmmoUi(Const.Tags.GrenadeSprite);
             EventManager.TriggerEvent(Const.Events.GrenadeThrown);
         }
     }

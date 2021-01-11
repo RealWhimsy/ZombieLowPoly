@@ -59,4 +59,11 @@ public static class Const
         public const string Melee = "Melee";
         public const string Rpg = "Rpg";
     }
+
+    public static class Tags
+    {
+        public const string BulletSprite = "BulletSprite";
+        public const string GrenadeSprite = "GrenadeSprite";
+        public const string MagazineSprite = "MagazineSprite";
+    }
 }

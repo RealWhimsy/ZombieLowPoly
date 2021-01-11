@@ -107,43 +107,14 @@ public class AmmoUi : MonoBehaviour
         }
     }
 
-    public void ReduceBulletUi()
+    public void ReduceAmmoUi(string uiTag)
     {
-        for (int i = 1; i < canvas.transform.childCount; i++)
+        for (var i = 1; i < canvas.transform.childCount; i++)
         {
-            GameObject lastBullet = canvas.transform.GetChild(canvas.transform.childCount - i).gameObject;
-            if (lastBullet.tag == "BulletSprite")
+            GameObject lastUiElement = canvas.transform.GetChild(canvas.transform.childCount - i).gameObject;
+            if (lastUiElement.CompareTag(uiTag))
             {
-                Destroy(lastBullet);
-                break;
-            }
-        }
-
-        reloaded = false;
-    }
-    public void ReduceGrenadeUi(){
-
-        for (int i = 1; i < canvas.transform.childCount; i++)
-        {
-            GameObject lastGrenade = canvas.transform.GetChild(canvas.transform.childCount - i).gameObject;
-            if (lastGrenade.tag == "GrenadeSprite")
-            {
-                Destroy(lastGrenade);
-                break;
-            }
-        }
-    }
-
-    public void ReduceMagUi()
-    {
-        canvas = GameObject.FindGameObjectWithTag("Canvas");
-
-        for (int i = 1; i < canvas.transform.childCount; i++)
-        {
-            GameObject lastBullet = canvas.transform.GetChild(canvas.transform.childCount - i).gameObject;
-            if (lastBullet.tag == "MagazineSprite")
-            {
-                Destroy(lastBullet);
+                Destroy(lastUiElement);
                 break;
             }
         }
