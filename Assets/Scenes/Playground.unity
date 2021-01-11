@@ -3552,17 +3552,17 @@ PrefabInstance:
     - target: {fileID: 1960261472269686755, guid: d00509726a752574f95878e21a8c0b99,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 66.44722
+      value: -13.452782
       objectReference: {fileID: 0}
     - target: {fileID: 1960261472269686755, guid: d00509726a752574f95878e21a8c0b99,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3600013
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 1960261472269686755, guid: d00509726a752574f95878e21a8c0b99,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.260735
+      value: 18.370735
       objectReference: {fileID: 0}
     - target: {fileID: 1960261472269686755, guid: d00509726a752574f95878e21a8c0b99,
         type: 3}
@@ -8415,6 +8415,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1848499788}
   - component: {fileID: 1848499787}
+  - component: {fileID: 1848499789}
+  - component: {fileID: 1848499790}
   m_Layer: 0
   m_Name: ZombieSpawner
   m_TagString: Untagged
@@ -8478,6 +8480,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1848499789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848499786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 284f55b99d122e24a9ab45153d9ec2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waves: 3
+  zombiesPerWave: 3
+  timeBetweenWaves: 10
+--- !u!114 &1848499790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848499786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a709566ec7da8d94ca154a0831566270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1854363119
 PrefabInstance:
   m_ObjectHideFlags: 0
