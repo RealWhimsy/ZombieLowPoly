@@ -87,9 +87,9 @@ public static class WeaponStats
 
         [Const.WeaponNames.Rpg] = new Weapon("w_rpg", 5, 1, 0.4f,
             Resources.Load("Prefabs/projectile_rpg") as GameObject, 200, 5, false, WeaponType.Rpg,
-            (AudioClip) Resources.Load("Sounds_Ingame/Weapons/AK47_shot"),
-            (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Rifle_reload_1"),
-            (AudioClip) Resources.Load("Sounds_Ingame/Bullets/projectile_rpg")),
+            (AudioClip) Resources.Load("Sounds_Ingame/Weapons/RPG_shot"),
+            (AudioClip) Resources.Load("Sounds_Ingame/Weapons/RPG_reload"),
+            (AudioClip) Resources.Load("Sounds_Ingame/Bullets/none")),
 
         [Const.WeaponNames.RamboKnife] = new Weapon("w_rambo_knife", 0, 0, 0.5f,
             Resources.Load("Prefabs/rifle_shell") as GameObject, 70, 1, true, WeaponType.Melee,

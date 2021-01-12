@@ -15,14 +15,6 @@ public class GameAssets : MonoBehaviour
         }
     }
 
-    public SoundAudioClip[] soundAudioClipArray;
-
-    [System.Serializable]
-    public class SoundAudioClip {
-        public SoundManager.Sound sound;
-        public AudioClip audioClip;
-    }
-
     private System.Random random = new System.Random();
 
     public int GenerateRandomNumber(int min, int max)

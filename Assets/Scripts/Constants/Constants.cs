@@ -1,17 +1,15 @@
-﻿
-public static class Const
+﻿public static class Const
 {
-
     /******************************************************************
      * Constants in C# are named in PascalCase, not in SCREAMING_CAPS *
      ******************************************************************/
-    
+
     // General Constants
     public const int FirstWeaponIndex = 0;
     public const int SecondWeaponIndex = 1;
     public const int MaxWeaponIndex = 1;
     public const int MaxNumWeapons = MaxWeaponIndex + 1;
-    
+
     // Event names
     public static class Events
     {
@@ -48,7 +46,6 @@ public static class Const
         public const string Rpg = "w_rpg";
         public const string RamboKnife = "w_rambo_knife";
         public const string PoliceBat = "w_policebatton";
-
     }
 
 
@@ -58,6 +55,44 @@ public static class Const
         public const string Rifle = "Rifle";
         public const string Melee = "Melee";
         public const string Rpg = "Rpg";
+    }
+
+
+    public static class SFX
+    {
+        public const string WeaponPickup = "Sounds_Ingame/Using/Weapon_switch";
+        public const string AmmoEmpty = "Sounds_Ingame/Using/Ammo_empty";
+        public const string AmmoPickup = "Sounds_Ingame/Using/Ammo_pickup";
+        public const string Explosion = "Sounds_Ingame/Weapons/Explosion";
+
+        public static readonly string[] Hits =
+        {
+            "Sounds_Ingame/Hits/hit1",
+            "Sounds_Ingame/Hits/hit2",
+            "Sounds_Ingame/Hits/hit3",
+            "Sounds_Ingame/Hits/hit4"
+        };
+
+        public static readonly string[] Zombies =
+        {
+            "Sounds_Ingame/Zombies/z1",
+            "Sounds_Ingame/Zombies/z2",
+            "Sounds_Ingame/Zombies/z3",
+            "Sounds_Ingame/Zombies/z4",
+            "Sounds_Ingame/Zombies/z5",
+            "Sounds_Ingame/Zombies/z6",
+            "Sounds_Ingame/Zombies/z7",
+            "Sounds_Ingame/Zombies/z8"
+        };
+
+        public static readonly string[] Steps =
+        {
+            "Sounds_Ingame/Steps/s1",
+            "Sounds_Ingame/Steps/s2",
+            "Sounds_Ingame/Steps/s3",
+            "Sounds_Ingame/Steps/s4",
+            "Sounds_Ingame/Steps/s5"
+        };
     }
 
     public static class SceneNames
