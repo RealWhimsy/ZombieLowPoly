@@ -1,12 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour, IDamageable
 {
 
-    public int maxHealth = 200;
-    public int armor = 5;
+    private int maxHealth;
+    private int armor;
     public HealthBar healthBar;
 
     int currentHealth;
@@ -26,11 +28,22 @@ public class PlayerManager : MonoBehaviour, IDamageable
     void Awake()
     {
         blood = Resources.Load("Prefabs/Blood") as GameObject;
+        maxHealth = 200;
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-        anim = GetComponent<Animator>();
+        armor = 5;
+        anim = GameObject.FindGameObjectWithTag("PlayerModel").GetComponent<Animator>();
         PrepareWeaponArray();
         EventManager.StartListening(Const.Events.MeleeAttack, HandleMeleeAttack);
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindHealthBar();
     }
 
     private void PrepareWeaponArray()
@@ -41,6 +54,12 @@ public class PlayerManager : MonoBehaviour, IDamageable
         activeWeaponIndex = Const.FirstWeaponIndex;
         currentlyEquippedWeapons = 1;
     }
+
+    private void FindHealthBar()
+    {
+        healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
+    }
+    
 
     // Update is called once per frame
     void Update()

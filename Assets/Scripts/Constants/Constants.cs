@@ -51,6 +51,7 @@ public static class Const
 
     }
 
+
     public static class WeaponTypes
     {
         public const string Pistol = "Pistol";
@@ -58,6 +59,7 @@ public static class Const
         public const string Melee = "Melee";
         public const string Rpg = "Rpg";
     }
+
 
     public static class SFX
     {
@@ -89,5 +91,9 @@ public static class Const
             "Sounds_Ingame/Steps/s4",
             "Sounds_Ingame/Steps/s5"
         };
+
+    public static class SceneNames
+    {
+        public const string Forest = "Playground";
     }
 }

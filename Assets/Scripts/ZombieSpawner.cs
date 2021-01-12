@@ -32,7 +32,7 @@ public class ZombieSpawner : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerManager = player.GetComponent<PlayerManager>();
         
-        waveMechanism = GameObject.FindGameObjectWithTag("Manager").GetComponent<ZombieWaveMechanism>();
+        waveMechanism = GetComponent<ZombieWaveMechanism>();
 
         EventManager.StartListening(Const.Events.StopSpawningZombies, StopSpawningZombies);
         EventManager.StartListening(Const.Events.ResumeSpawningZombies, ResumeSpawningZombies);
