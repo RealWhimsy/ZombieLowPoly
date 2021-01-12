@@ -7408,10 +7408,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b564bcf94ab6c94c83af4f4e73eeba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EffectsSource: {fileID: 777679274}
-  MusicSource: {fileID: 777679273}
-  LowPitchRange: 0.95
-  HighPitchRange: 1.05
 --- !u!114 &777679276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13670,6 +13666,40 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1341935188}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1604293003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1960261471642554729, guid: d00509726a752574f95878e21a8c0b99,
+    type: 3}
+  m_PrefabInstance: {fileID: 1927850965}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1604293005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604293003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9b4a4b735bb6241811f403cbff251c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EffectsSource: {fileID: 1604293007}
+  MusicSource: {fileID: 1604293006}
+  LowPitchRange: 0.95
+  HighPitchRange: 1.05
+--- !u!82 &1604293006 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1960261471642554727, guid: d00509726a752574f95878e21a8c0b99,
+    type: 3}
+  m_PrefabInstance: {fileID: 1927850965}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1604293007 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1960261471642554726, guid: d00509726a752574f95878e21a8c0b99,
+    type: 3}
+  m_PrefabInstance: {fileID: 1927850965}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1608142781
 GameObject:
   m_ObjectHideFlags: 0
@@ -16162,7 +16192,8 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1597300931}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1960261471642554725, guid: d00509726a752574f95878e21a8c0b99, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d00509726a752574f95878e21a8c0b99, type: 3}
 --- !u!1001 &1928976471
 PrefabInstance:
