@@ -44,7 +44,7 @@ public class BulletSpawner : MonoBehaviour
         grenade = (GameObject) Resources.Load("Prefabs/Grenade", typeof(GameObject));
         Transform grenadePrefab = Instantiate(grenade.transform, transform.position, transform.rotation);
         Grenade grenadeScript = grenadePrefab.GetComponent<Grenade>();
-        grenadeScript.setDamage(100);
+        grenadeScript.setDamage(Const.Granade.GranadeDamage);
     }
 
     private void Throw(){

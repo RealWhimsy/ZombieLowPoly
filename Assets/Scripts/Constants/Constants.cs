@@ -52,6 +52,11 @@ public static class Const
 
     }
 
+    public static class Granade
+    {
+        public const int GranadeDamage = 100;
+    }
+
     public static class WeaponTypes
     {
         public const string Pistol = "Pistol";
