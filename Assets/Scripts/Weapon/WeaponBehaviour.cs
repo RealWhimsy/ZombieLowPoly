@@ -66,9 +66,15 @@ public class WeaponBehaviour : MonoBehaviour
 
     private void HandleLeftClick()
     {
+        if (playerManager.GetActiveWeapon().MeleeWeapon)
+        {
+            MeleeAttack();
+            return;
+        }
+        
         if (!ammoUi.reloading)
         {
-            if (weapon.ShotsInCurrentMag > 0 && Time.time - shotTime > weapon.ShotCooldown && !weapon.MeleeWeapon)
+            if (weapon.ShotsInCurrentMag > 0 && Time.time - shotTime > weapon.ShotCooldown)
             {
                 ammoUi.ReduceAmmoUi(Const.Tags.BulletSprite);
                 weapon.ShotsInCurrentMag--;

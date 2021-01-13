@@ -16,4 +16,10 @@ public interface IDamageDealer
         set;
     }
 
+    DamageSource damageSource
+    {
+        get;
+        set;
+    }
+
 }

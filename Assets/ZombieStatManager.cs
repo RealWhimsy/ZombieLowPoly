@@ -122,6 +122,12 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
 
     public void TakeDamage(IDamageDealer damageDealer)
     {
+        // Do not take damage if source is from another enemy (prevent friendly fire)
+        if (damageDealer.damageSource == DamageSource.Enemy)
+        {
+            return;
+        }
+        
         int finalDamage = damageDealer.damage - armor;
         if (finalDamage < 0)
         {
@@ -139,5 +145,9 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     }
     public DamageType damageType { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
-
+    public DamageSource damageSource
+    {
+        get => DamageSource.Enemy;
+        set {}
+    }
 }

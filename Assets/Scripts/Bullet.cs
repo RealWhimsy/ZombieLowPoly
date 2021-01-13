@@ -21,6 +21,13 @@ public class Bullet : MonoBehaviour, IDamageDealer
     }
     public DamageType damageType { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
+    public DamageSource damageSource
+    {
+        get => DamageSource.Friendly;
+        
+        set{}
+    }
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
