@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 public class PlayerManager : MonoBehaviour, IDamageable
 {
 
-    private int maxHealth;
-    private int armor;
+    public int maxHealth = 200;
+    public int armor = 5;
+    public int grenades = 2;
+
     public HealthBar healthBar;
 
     int currentHealth;

@@ -15,6 +15,7 @@ TagManager:
   - WaveUI
   - Enemy
   - Manager
+  - GranadeSprite
   - PlayerModel
   - PlayerSpawn
   layers:

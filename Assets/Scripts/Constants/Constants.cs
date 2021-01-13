@@ -14,6 +14,7 @@
     public static class Events
     {
         public const string ShotFired = "SHOT_FIRED";
+        public const string GrenadeThrown = "GRENADE_THROWN";
         public const string WeaponSwapped = "WEAPON_SWAPPED";
         public const string WeaponPickedUp = "WEAPON_PICKED_UP";
         public const string MeleeAttack = "MELEE_ATTACK";
@@ -48,6 +49,10 @@
         public const string PoliceBat = "w_policebatton";
     }
 
+    public static class Granade
+    {
+        public const int GranadeDamage = 100;
+    }
 
     public static class WeaponTypes
     {
@@ -57,6 +62,12 @@
         public const string Rpg = "Rpg";
     }
 
+    public static class Tags
+    {
+        public const string BulletSprite = "BulletSprite";
+        public const string GrenadeSprite = "GrenadeSprite";
+        public const string MagazineSprite = "MagazineSprite";
+    }
 
     public static class SFX
     {
