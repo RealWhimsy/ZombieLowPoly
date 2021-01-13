@@ -1,17 +1,15 @@
-﻿
-public static class Const
+﻿public static class Const
 {
-
     /******************************************************************
      * Constants in C# are named in PascalCase, not in SCREAMING_CAPS *
      ******************************************************************/
-    
+
     // General Constants
     public const int FirstWeaponIndex = 0;
     public const int SecondWeaponIndex = 1;
     public const int MaxWeaponIndex = 1;
     public const int MaxNumWeapons = MaxWeaponIndex + 1;
-    
+
     // Event names
     public static class Events
     {
@@ -49,7 +47,6 @@ public static class Const
         public const string Rpg = "w_rpg";
         public const string RamboKnife = "w_rambo_knife";
         public const string PoliceBat = "w_policebatton";
-
     }
 
     public static class Granade
@@ -70,5 +67,21 @@ public static class Const
         public const string BulletSprite = "BulletSprite";
         public const string GrenadeSprite = "GrenadeSprite";
         public const string MagazineSprite = "MagazineSprite";
+    }
+
+    public static class SFX
+    {
+        public const string WeaponPickup = "Sounds_Ingame/Using/Weapon_switch";
+        public const string AmmoEmpty = "Sounds_Ingame/Using/Ammo_empty";
+        public const string AmmoPickup = "Sounds_Ingame/Using/Ammo_pickup";
+        public const string Explosion = "Sounds_Ingame/Weapons/Explosion";
+        public const string FootSteps = "Sounds_Ingame/Steps/Ground_running";
+        public const string Hits = "Sounds_Ingame/Hits";
+        public const string Zombies = "Sounds_Ingame/Zombies";
+    }
+
+    public static class SceneNames
+    {
+        public const string Forest = "Playground";
     }
 }

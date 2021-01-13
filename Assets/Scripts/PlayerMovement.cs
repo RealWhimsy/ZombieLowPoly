@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private PlayerManager playerManager;
     private GameObject player;
     private GameObject meleeArea;
+    private GameObject playerModel;
+    private AudioSource footSteps;
     
 
 
@@ -18,6 +20,14 @@ public class PlayerMovement : MonoBehaviour
         meleeArea = GameObject.Find("MeleeArea");
         meleeArea.SetActive(false);
         playerManager = GetComponent<PlayerManager>();
+        footSteps = GetComponent<AudioSource>();
+        
+        Transform playerModelTransform = transform.Find("PlayerModel");
+        if (playerModelTransform != null)
+        {
+            playerModel = playerModelTransform.gameObject;
+            anim = playerModel.GetComponent<Animator>();
+        }
     }
 
     private void Update()
@@ -40,6 +50,11 @@ public class PlayerMovement : MonoBehaviour
 
         anim.SetFloat("horizontal", moveX);
         anim.SetFloat("vertical", moveZ);
+
+        if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
+            footSteps.Play();
+        else if (!Input.GetButton("Horizontal") && !Input.GetButton("Vertical") && footSteps.isPlaying)
+            footSteps.Stop();
     }
     
     private void MouseMovement()

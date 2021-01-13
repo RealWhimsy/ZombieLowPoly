@@ -16,6 +16,8 @@ TagManager:
   - Enemy
   - Manager
   - GranadeSprite
+  - PlayerModel
+  - PlayerSpawn
   layers:
   - Default
   - TransparentFX
