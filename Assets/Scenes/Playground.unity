@@ -3531,40 +3531,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fd7e9c4494dadd46930fbd7ceafa4df, type: 3}
---- !u!1 &748647038 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1960261471642554729, guid: d00509726a752574f95878e21a8c0b99,
-    type: 3}
-  m_PrefabInstance: {fileID: 758076074}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &748647040 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1960261471642554727, guid: d00509726a752574f95878e21a8c0b99,
-    type: 3}
-  m_PrefabInstance: {fileID: 758076074}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &748647041 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1960261471642554726, guid: d00509726a752574f95878e21a8c0b99,
-    type: 3}
-  m_PrefabInstance: {fileID: 758076074}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &748647042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 748647038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d9b4a4b735bb6241811f403cbff251c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EffectsSource: {fileID: 748647041}
-  MusicSource: {fileID: 748647040}
-  LowPitchRange: 0.95
-  HighPitchRange: 1.05
 --- !u!4 &749428273 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4385080170327957909, guid: ff62b58c5a9ea164fa8ddf8038e10cd1,
@@ -3578,6 +3544,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1960261471642554729, guid: d00509726a752574f95878e21a8c0b99,
+        type: 3}
+      propertyPath: m_TagString
+      value: Manager
+      objectReference: {fileID: 0}
     - target: {fileID: 1960261472269686755, guid: d00509726a752574f95878e21a8c0b99,
         type: 3}
       propertyPath: m_RootOrder
