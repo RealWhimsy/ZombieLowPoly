@@ -12,6 +12,9 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     public System.Random ran = new System.Random();
     
     private GameObject blood;
+    private AudioClip[] hitMarker;
+    private AudioClip[] zombieSounds;
+    private AudioSource zombieAudio;
 
     float currentTriggerStayTime;
     Animator anim;
@@ -20,6 +23,7 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     InteractiblesManager interactiblesManager;
     bool interactiblesTrigger = false;
     bool isDeadTrigger = false;
+    bool playSound = false;
 
 
     int currentHealth;
@@ -27,6 +31,11 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     void Start()
     {
         blood = Resources.Load("Prefabs/Blood") as GameObject;
+
+        zombieAudio = GetComponent<AudioSource>();
+        hitMarker = Resources.LoadAll<AudioClip>(Const.SFX.Hits);
+        zombieSounds = Resources.LoadAll<AudioClip>(Const.SFX.Zombies);
+
         anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
@@ -41,6 +50,7 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
         {
             anim.SetBool("isDead", true);
             agent.isStopped = true;
+            zombieAudio.Stop();
 
             // Trigger for spawning interactibles only one time
             if (interactiblesTrigger == false)
@@ -59,7 +69,22 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
 
         }
 
+        if(playSound == false)
+        {
+            playSound = true;
+            StartCoroutine(PlayIdleSounds());
+        }
+
       
+    }
+
+    IEnumerator PlayIdleSounds()
+    {
+        float time = (float) GameAssets.i.GenerateRandomNumber(0, 6);
+        yield return new WaitForSeconds(time);
+        zombieAudio.clip = zombieSounds[GameAssets.i.GenerateRandomNumber(0, zombieSounds.Length-1)];
+        zombieAudio.PlayOneShot(zombieAudio.clip);
+        playSound = false;
     }
 
     void OnTriggerEnter(Collider collision)
@@ -101,6 +126,7 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
         {
             finalDamage = 0;
         }
+        SoundManagerRework.Instance.RandomSoundEffect(hitMarker);
         Instantiate(blood, transform.position, transform.rotation);
         currentHealth -= finalDamage;
     }
