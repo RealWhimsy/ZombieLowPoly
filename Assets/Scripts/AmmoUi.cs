@@ -11,6 +11,7 @@ public class AmmoUi : MonoBehaviour
     public bool outOfAmmo;
     public bool reloaded;
     private Text ammoInfoText;
+    private int grenades;
 
     private GameObject player;
     private PlayerManager playerManager;
@@ -21,7 +22,6 @@ public class AmmoUi : MonoBehaviour
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         player = GameObject.FindGameObjectWithTag("Player");
         ammoInfoText = GameObject.Find("MunitionText").GetComponent<Text>();
-        
         playerManager = player.GetComponent<PlayerManager>();
         UpdateAmmoUi();
         EventManager.StartListening(Const.Events.WeaponPickedUp, UpdateAmmoUi);
@@ -35,6 +35,7 @@ public class AmmoUi : MonoBehaviour
         
         List<GameObject> renderedBullets = GetBullets();
         List<GameObject> renderedMags = GetMags();
+        List<GameObject> renderedGrenades = GetGrenades();
 
         if (renderedBullets.Count != bulletsRemaining)
         {
@@ -45,6 +46,10 @@ public class AmmoUi : MonoBehaviour
             foreach (GameObject mag in renderedMags)
             {
                 Destroy(mag);
+            }
+            foreach (GameObject grenade in renderedGrenades)
+            {
+                Destroy(grenade);
             }
 
             InitBulletUi();
@@ -102,31 +107,14 @@ public class AmmoUi : MonoBehaviour
         }
     }
 
-    public void ReduceBulletUi()
+    public void ReduceAmmoUi(string uiTag)
     {
-        for (int i = 1; i < canvas.transform.childCount; i++)
+        for (var i = 1; i < canvas.transform.childCount; i++)
         {
-            GameObject lastBullet = canvas.transform.GetChild(canvas.transform.childCount - i).gameObject;
-            if (lastBullet.tag == "BulletSprite")
+            GameObject lastUiElement = canvas.transform.GetChild(canvas.transform.childCount - i).gameObject;
+            if (lastUiElement.CompareTag(uiTag))
             {
-                Destroy(lastBullet);
-                break;
-            }
-        }
-
-        reloaded = false;
-    }
-
-    public void ReduceMagUi()
-    {
-        canvas = GameObject.FindGameObjectWithTag("Canvas");
-
-        for (int i = 1; i < canvas.transform.childCount; i++)
-        {
-            GameObject lastBullet = canvas.transform.GetChild(canvas.transform.childCount - i).gameObject;
-            if (lastBullet.tag == "MagazineSprite")
-            {
-                Destroy(lastBullet);
+                Destroy(lastUiElement);
                 break;
             }
         }
@@ -189,16 +177,30 @@ public class AmmoUi : MonoBehaviour
         return result;
     }
 
+    private List<GameObject> GetGrenades()
+    {
+        List<GameObject> result = new List<GameObject>();
+        for (int i = 0; i < canvas.transform.childCount; i++)
+        {
+            if (canvas.transform.GetChild(i).gameObject.tag == "GrenadeSprite")
+            {
+                result.Add(canvas.transform.GetChild(i).gameObject);
+            }
+        }
+        return result;
+    }
+
     public void InitBulletUi()
     {
-
+        grenades = playerManager.grenades;
         var magazinesRemaining = playerManager.GetActiveWeapon().Magazines;
-        Debug.Log(magazinesRemaining);
         removeTextUi();
         GameObject bulletUi = (GameObject) Resources.Load("Prefabs/BulletSprite", typeof(GameObject));
         GameObject magUi = (GameObject)Resources.Load("Prefabs/MagazineSprite", typeof(GameObject));
+        GameObject grenadeUi = (GameObject)Resources.Load("Prefabs/GrenadeSprite", typeof(GameObject));
         double height = -107;
         int p = 0;
+        int j = 0;
 
         for (int i = 0; i < playerManager.GetActiveWeapon().ShotsInCurrentMag; i++)
         {
@@ -213,11 +215,17 @@ public class AmmoUi : MonoBehaviour
             bullet.transform.SetParent(canvas.transform, false);
             p++;
         }
-        for (int i = 0; i < magazinesRemaining; i++)
+        for (int i = 0; i < magazinesRemaining + grenades; i++)
         {
-
+            if(i < magazinesRemaining){
             GameObject mag = Instantiate(magUi, magUi.transform.position + new Vector3(i * 15, 0, 0), Quaternion.identity);
             mag.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+            }
+            else{
+                j += 10;
+                GameObject grenade = Instantiate(grenadeUi, grenadeUi.transform.position + new Vector3(i * 15 + j, 0, 0), Quaternion.identity);
+                grenade.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+            }
         }
     }
 }

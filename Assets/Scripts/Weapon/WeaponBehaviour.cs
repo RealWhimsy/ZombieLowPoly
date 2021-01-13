@@ -12,6 +12,9 @@ public class WeaponBehaviour : MonoBehaviour
     private Weapon weapon;
 
     private float shotTime;
+    private static readonly int ShootAnimation = Animator.StringToHash("shoot");
+    private static readonly int ReloadAnimation = Animator.StringToHash("reload");
+    private static readonly int ThrowAnimation = Animator.StringToHash("throw");
 
     private void Start()
     {
@@ -44,9 +47,9 @@ public class WeaponBehaviour : MonoBehaviour
             MeleeAttack();
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.G))
         {
-            // TODO switch weapon
+            ThrowGrenade();
         }
     }
 
@@ -73,10 +76,16 @@ public class WeaponBehaviour : MonoBehaviour
         {
             if (weapon.ShotsInCurrentMag > 0 && Time.time - shotTime > weapon.ShotCooldown)
             {
-                ammoUi.ReduceBulletUi();
+                ammoUi.ReduceAmmoUi(Const.Tags.BulletSprite);
                 weapon.ShotsInCurrentMag--;
+                playerManager.anim.SetTrigger(ShootAnimation);
                 Shoot();
+                
                 shotTime = Time.time;
+            }
+            if(weapon.MeleeWeapon)
+            {
+                playerManager.anim.SetTrigger(ShootAnimation);
             }
         }
     }
@@ -88,6 +97,7 @@ public class WeaponBehaviour : MonoBehaviour
             if (weapon.Magazines > 0)
             {
                 weapon.Magazines--;
+                playerManager.anim.SetTrigger(ReloadAnimation);
                 weapon.Reload();
                 SoundManagerRework.Instance.PlayEffectOneShot(weapon.ReloadSound);
                 StartCoroutine(ammoUi.Reload(weapon.MaxMagazineSize));
@@ -108,6 +118,15 @@ public class WeaponBehaviour : MonoBehaviour
         meleeZone.SetActive(true);
         StartCoroutine(waitAndDisableMeleeZone());
         EventManager.TriggerEvent(Const.Events.MeleeAttack);
+    }
+
+    private void ThrowGrenade(){
+        if(playerManager.grenades != 0){
+            playerManager.anim.SetTrigger(ThrowAnimation);
+            playerManager.grenades--;
+            ammoUi.ReduceAmmoUi(Const.Tags.GrenadeSprite);
+            EventManager.TriggerEvent(Const.Events.GrenadeThrown);
+        }
     }
 
     IEnumerator waitAndDisableMeleeZone()

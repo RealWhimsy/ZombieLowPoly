@@ -12,6 +12,12 @@ TagManager:
   - weapon
   - Explosion
   - MagazineSprite
+  - WaveUI
+  - Enemy
+  - Manager
+  - GranadeSprite
+  - PlayerModel
+  - PlayerSpawn
   layers:
   - Default
   - TransparentFX
