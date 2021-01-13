@@ -71,7 +71,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !dead)
         {
             dead = true;
             anim.SetBool(IsDead, true);
