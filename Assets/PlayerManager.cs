@@ -25,6 +25,9 @@ public class PlayerManager : MonoBehaviour, IDamageable
     private static readonly int Melee = Animator.StringToHash("melee");
 
     public Animator anim;
+    private static readonly int Shoot = Animator.StringToHash("shoot");
+    private static readonly int IsDead = Animator.StringToHash("isDead");
+    private static readonly int HasPistol = Animator.StringToHash("hasPistol");
 
     // Start is called before the first frame update
     void Awake()
@@ -36,6 +39,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
         anim = GameObject.FindGameObjectWithTag("PlayerModel").GetComponent<Animator>();
         PrepareWeaponArray();
         EventManager.StartListening(Const.Events.MeleeAttack, HandleMeleeAttack);
+        FindHealthBar();
     }
 
     private void OnEnable()
@@ -51,7 +55,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
     private void PrepareWeaponArray()
     {
         weaponArray[Const.FirstWeaponIndex] = new Weapon(WeaponStats.weaponStatDict[Const.WeaponNames.Deagle]);
-        anim.SetBool("hasPistol", true);
+        anim.SetBool(HasPistol, true);
         weaponArray[Const.FirstWeaponIndex].Name = Const.WeaponNames.Deagle;
         activeWeaponIndex = Const.FirstWeaponIndex;
         currentlyEquippedWeapons = 1;
@@ -60,6 +64,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
     private void FindHealthBar()
     {
         healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
+        healthBar.SetMaxHealth(maxHealth);
     }
     
 
@@ -69,7 +74,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
         if (currentHealth <= 0)
         {
             dead = true;
-            anim.SetBool("isDead", true);
+            anim.SetBool(IsDead, true);
         }
     }
 
@@ -95,7 +100,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
 
     void HandleMeleeAttack()
     {
-        anim.SetTrigger(Melee);
+        anim.SetTrigger(Shoot);
     }
 
     public bool isDead()

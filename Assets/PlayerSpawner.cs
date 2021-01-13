@@ -29,6 +29,7 @@ public class PlayerSpawner : MonoBehaviour
             playerMovement = gameObject.AddComponent<PlayerMovement>();
             gameObject.AddComponent<PlayerWeaponInteraction>();
             gameObject.AddComponent<WeaponBehaviour>();
+            transform.Find("MeleeArea").gameObject.SetActive(true);
 
             GameObject.Find("BulletSpawner").AddComponent<BulletSpawner>();
 
