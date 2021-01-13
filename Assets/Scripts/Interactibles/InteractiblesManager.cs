@@ -1,36 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InteractiblesManager : MonoBehaviour
 {
-    private GameObject interactible;
+    private static GameObject _interactible;
 
-    public void SpawnInteractible()
+    public static void SpawnInteractible(Vector3 position, Quaternion rotation)
     {
         if(GameAssets.i.GenerateRandomNumber(0,3) == 2)
         {
-            Instantiate(SelectInteractible(), transform.position, transform.rotation);
+            Instantiate(SelectInteractible(), position, rotation);
         }
         
     }
 
-    private GameObject SelectInteractible()
+    private static GameObject SelectInteractible()
     {
         //interactible = new GameObject();
         switch (GameAssets.i.GenerateRandomNumber(0,2))
         {
             case 0:
-                interactible = Resources.Load("Prefabs/box_ammo") as GameObject;
+                _interactible = Resources.Load("Prefabs/box_ammo") as GameObject;
                 break;
             case 1:
-                interactible = Resources.Load("Prefabs/box_med") as GameObject;
+                _interactible = Resources.Load("Prefabs/box_med") as GameObject;
                 break;
             case 2:
-                interactible = Resources.Load("Prefabs/box_supply") as GameObject;
+                _interactible = Resources.Load("Prefabs/box_supply") as GameObject;
                 break;
         }
-        return interactible;
+        return _interactible;
     }
 
     

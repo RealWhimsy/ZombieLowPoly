@@ -21,12 +21,15 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     NavMeshAgent agent;
 
     InteractiblesManager interactiblesManager;
-    bool interactiblesTrigger = false;
-    bool isDeadTrigger = false;
-    bool playSound = false;
+    bool interactiblesTrigger;
+    bool isDeadTrigger;
+    bool playSound;
 
 
     int currentHealth;
+
+    private static readonly int IsDead = Animator.StringToHash("isDead");
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +43,6 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
         agent = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
         currentTriggerStayTime = damageFrequency;
-        interactiblesManager = GetComponent<InteractiblesManager>();
     }
 
     // Update is called once per frame
@@ -48,16 +50,15 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     {
         if (currentHealth <= 0)
         {
-            anim.SetBool("isDead", true);
+            anim.SetBool(IsDead, true);
             agent.isStopped = true;
             zombieAudio.Stop();
 
             // Trigger for spawning interactibles only one time
             if (interactiblesTrigger == false)
             {
-                interactiblesManager.SpawnInteractible();
+                InteractiblesManager.SpawnInteractible(transform.position, transform.rotation);
                 interactiblesTrigger = true;
-                
             }
 
             // Trigger for counting kills
