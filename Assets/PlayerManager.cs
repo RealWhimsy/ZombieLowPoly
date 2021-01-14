@@ -39,6 +39,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
         anim = GameObject.FindGameObjectWithTag("PlayerModel").GetComponent<Animator>();
         PrepareWeaponArray();
         EventManager.StartListening(Const.Events.MeleeAttack, HandleMeleeAttack);
+        EventManager.StartListening(Const.Events.InteractibleCollected, AddSupplies);
         FindHealthBar();
     }
 
@@ -65,6 +66,33 @@ public class PlayerManager : MonoBehaviour, IDamageable
     {
         healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
         healthBar.SetMaxHealth(maxHealth);
+    }
+
+    // Adds magazines, grenades and health to player if interactible box was collected
+    private void AddSupplies()
+    {
+        int pickUpMagazines = 1;
+        int pickUpGrenades = 1;
+        int pickUpHealth = 20;
+        if(GameAssets.i.GenerateRandomNumber(0,1) == 1)
+        {
+            pickUpMagazines = 2;
+            pickUpHealth = 40;
+        }
+
+        grenades += pickUpGrenades;
+        if (grenades >= Const.Grenade.MaxGrenades)
+        {
+            grenades = 5;
+        }
+        currentHealth += pickUpHealth;
+        if(currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        healthBar.SetHealth(currentHealth);
+        GetActiveWeapon().Magazines += pickUpMagazines;
+        EventManager.TriggerEvent(Const.Events.UpdateAmmoUi);
     }
     
 
@@ -94,8 +122,6 @@ public class PlayerManager : MonoBehaviour, IDamageable
         Instantiate(blood, transform.position, transform.rotation);
         currentHealth -= finalDamage;
         healthBar.SetHealth(currentHealth);
-
-        Debug.Log("Player took " + finalDamage + " damage. Current Health: " + currentHealth);
     }
 
     void HandleMeleeAttack()
