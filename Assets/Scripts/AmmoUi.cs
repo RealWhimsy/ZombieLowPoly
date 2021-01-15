@@ -15,6 +15,9 @@ public class AmmoUi : MonoBehaviour
 
     private GameObject player;
     private PlayerManager playerManager;
+    private int magazinesRemaining;
+    private int bulletsRemaining;
+    private int extraMags;
 
 
     private void Start()
@@ -26,34 +29,33 @@ public class AmmoUi : MonoBehaviour
         UpdateAmmoUi();
         EventManager.StartListening(Const.Events.WeaponPickedUp, UpdateAmmoUi);
         EventManager.StartListening(Const.Events.WeaponSwapped, UpdateAmmoUi);
+        EventManager.StartListening(Const.Events.UpdateAmmoUi, UpdateAmmoUi);
     }
 
     public void UpdateAmmoUi()
     {
-        var bulletsRemaining = playerManager.GetActiveWeapon().ShotsInCurrentMag;
-        var magazinesRemaining = playerManager.GetActiveWeapon().Magazines;
+        bulletsRemaining = playerManager.GetActiveWeapon().ShotsInCurrentMag;
+        magazinesRemaining = playerManager.GetActiveWeapon().Magazines;
+        grenades = playerManager.grenades;
         
         List<GameObject> renderedBullets = GetBullets();
         List<GameObject> renderedMags = GetMags();
         List<GameObject> renderedGrenades = GetGrenades();
 
-        if (renderedBullets.Count != bulletsRemaining)
+        foreach (GameObject bullet in renderedBullets)
         {
-            foreach (GameObject bullet in renderedBullets)
-            {
-                Destroy(bullet);
-            }
-            foreach (GameObject mag in renderedMags)
-            {
-                Destroy(mag);
-            }
-            foreach (GameObject grenade in renderedGrenades)
-            {
-                Destroy(grenade);
-            }
-
-            InitBulletUi();
+            Destroy(bullet);
         }
+        foreach (GameObject mag in renderedMags)
+        {
+            Destroy(mag);
+        }
+        foreach (GameObject grenade in renderedGrenades)
+        {
+            Destroy(grenade);
+        }
+
+        InitBulletUi(grenades, magazinesRemaining);
 
         if (bulletsRemaining > 0 || magazinesRemaining > 0)
         {
@@ -155,7 +157,7 @@ public class AmmoUi : MonoBehaviour
         List<GameObject> result = new List<GameObject>();
         for (int i = 0; i < canvas.transform.childCount; i++)
         {
-            if (canvas.transform.GetChild(i).gameObject.CompareTag("BulletSprite"))
+            if (canvas.transform.GetChild(i).gameObject.CompareTag(Const.Tags.BulletSprite))
             {
                 result.Add(canvas.transform.GetChild(i).gameObject);
             }
@@ -169,7 +171,7 @@ public class AmmoUi : MonoBehaviour
         List<GameObject> result = new List<GameObject>();
         for (int i = 0; i < canvas.transform.childCount; i++)
         {
-            if (canvas.transform.GetChild(i).gameObject.tag == "MagazineSprite")
+            if (canvas.transform.GetChild(i).gameObject.tag == Const.Tags.MagazineSprite)
             {
                 result.Add(canvas.transform.GetChild(i).gameObject);
             }
@@ -182,7 +184,7 @@ public class AmmoUi : MonoBehaviour
         List<GameObject> result = new List<GameObject>();
         for (int i = 0; i < canvas.transform.childCount; i++)
         {
-            if (canvas.transform.GetChild(i).gameObject.tag == "GrenadeSprite")
+            if (canvas.transform.GetChild(i).gameObject.tag == Const.Tags.GrenadeSprite)
             {
                 result.Add(canvas.transform.GetChild(i).gameObject);
             }
@@ -190,14 +192,12 @@ public class AmmoUi : MonoBehaviour
         return result;
     }
 
-    public void InitBulletUi()
+    public void InitBulletUi(int grenades, int magazinesRemaining)
     {
-        grenades = playerManager.grenades;
-        var magazinesRemaining = playerManager.GetActiveWeapon().Magazines;
         removeTextUi();
-        GameObject bulletUi = (GameObject) Resources.Load("Prefabs/BulletSprite", typeof(GameObject));
-        GameObject magUi = (GameObject)Resources.Load("Prefabs/MagazineSprite", typeof(GameObject));
-        GameObject grenadeUi = (GameObject)Resources.Load("Prefabs/GrenadeSprite", typeof(GameObject));
+        GameObject bulletUi = (GameObject) Resources.Load(Const.UI.BulletUiSprite, typeof(GameObject));
+        GameObject magUi = (GameObject)Resources.Load(Const.UI.MagazineUiSprite, typeof(GameObject));
+        GameObject grenadeUi = (GameObject)Resources.Load(Const.UI.GrenadeUiSprite, typeof(GameObject));
         double height = -107;
         int p = 0;
         int j = 0;

@@ -47,6 +47,7 @@ public class Grenade : MonoBehaviour, IDamageDealer
         {
             GameObject expl = (GameObject) Resources.Load("Prefabs/pf_vfx-inf_psys_demo_oneshot_comicExplosion3-x5",
                 typeof(GameObject));
+            SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.Explosion) as AudioClip);
             Instantiate(expl, gameObject.transform.position, Quaternion.identity);
             Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 1.5f);
             foreach (var hitCollider in hitColliders)
