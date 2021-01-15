@@ -210,7 +210,7 @@ public class AmmoUi : MonoBehaviour
         bulletUiRT.sizeDelta = new Vector2 (uiBoxWidth * 0.145f, uiBoxWidth * 0.49f);
         grenadeUiRT.sizeDelta = new Vector2 (uiBoxWidth * 0.48f, uiBoxWidth * 0.51f);
         magUiRT.sizeDelta = new Vector2 (uiBoxWidth * 0.32f, uiBoxWidth * 0.49f);
-        double height = healthbar.transform.localPosition.y + healthbarRT.rect.height * 1.7;
+        double height = healthbar.transform.localPosition.y + healthbarRT.rect.height * 2.1;
         int p = 0;
         float j = 0;
 
