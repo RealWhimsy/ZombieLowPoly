@@ -73,17 +73,17 @@ public class PlayerManager : MonoBehaviour, IDamageable
     {
         int pickUpMagazines = 1;
         int pickUpGrenades = 1;
-        int pickUpHealth = 20;
+        int pickUpHealth = maxHealth / 10;
         if(GameAssets.i.GenerateRandomNumber(0,1) == 1)
         {
             pickUpMagazines = 2;
-            pickUpHealth = 40;
+            pickUpHealth = maxHealth / 5;
         }
 
         grenades += pickUpGrenades;
         if (grenades >= Const.Grenade.MaxGrenades)
         {
-            grenades = 5;
+            grenades = Const.Grenade.MaxGrenades;
         }
         currentHealth += pickUpHealth;
         if(currentHealth >= maxHealth)
