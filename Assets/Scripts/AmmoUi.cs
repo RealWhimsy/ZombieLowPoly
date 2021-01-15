@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class AmmoUi : MonoBehaviour
 {
-    public GameObject canvas;
+    public GameObject playerStatsBox;
     public bool reloading;
     public bool outOfAmmo;
     public bool reloaded;
@@ -22,7 +22,7 @@ public class AmmoUi : MonoBehaviour
 
     private void Start()
     {
-        canvas = GameObject.FindGameObjectWithTag("Canvas");
+        playerStatsBox = GameObject.FindGameObjectWithTag("PlayerStatsUi");
         player = GameObject.FindGameObjectWithTag("Player");
         ammoInfoText = GameObject.Find("MunitionText").GetComponent<Text>();
         playerManager = player.GetComponent<PlayerManager>();
@@ -111,9 +111,9 @@ public class AmmoUi : MonoBehaviour
 
     public void ReduceAmmoUi(string uiTag)
     {
-        for (var i = 1; i < canvas.transform.childCount; i++)
+        for (var i = 1; i < playerStatsBox.transform.childCount; i++)
         {
-            GameObject lastUiElement = canvas.transform.GetChild(canvas.transform.childCount - i).gameObject;
+            GameObject lastUiElement = playerStatsBox.transform.GetChild(playerStatsBox.transform.childCount - i).gameObject;
             if (lastUiElement.CompareTag(uiTag))
             {
                 Destroy(lastUiElement);
@@ -124,11 +124,11 @@ public class AmmoUi : MonoBehaviour
 
     private void removeTextUi()
     {
-        for (int i = 0; i < canvas.transform.childCount; i++)
+        for (int i = 0; i < playerStatsBox.transform.childCount; i++)
         {
-            if (canvas.transform.GetChild(i).CompareTag("ReloadingStateSprite"))
+            if (playerStatsBox.transform.GetChild(i).CompareTag("ReloadingStateSprite"))
             {
-                canvas.transform.GetChild(i).gameObject.GetComponent<Text>().text = "";
+                playerStatsBox.transform.GetChild(i).gameObject.GetComponent<Text>().text = "";
             }
         }
     }
@@ -155,11 +155,11 @@ public class AmmoUi : MonoBehaviour
     private List<GameObject> GetBullets()
     {
         List<GameObject> result = new List<GameObject>();
-        for (int i = 0; i < canvas.transform.childCount; i++)
+        for (int i = 0; i < playerStatsBox.transform.childCount; i++)
         {
-            if (canvas.transform.GetChild(i).gameObject.CompareTag(Const.Tags.BulletSprite))
+            if (playerStatsBox.transform.GetChild(i).gameObject.CompareTag(Const.Tags.BulletSprite))
             {
-                result.Add(canvas.transform.GetChild(i).gameObject);
+                result.Add(playerStatsBox.transform.GetChild(i).gameObject);
             }
         }
 
@@ -169,11 +169,11 @@ public class AmmoUi : MonoBehaviour
     private List<GameObject> GetMags()
     {
         List<GameObject> result = new List<GameObject>();
-        for (int i = 0; i < canvas.transform.childCount; i++)
+        for (int i = 0; i < playerStatsBox.transform.childCount; i++)
         {
-            if (canvas.transform.GetChild(i).gameObject.tag == Const.Tags.MagazineSprite)
+            if (playerStatsBox.transform.GetChild(i).gameObject.tag == Const.Tags.MagazineSprite)
             {
-                result.Add(canvas.transform.GetChild(i).gameObject);
+                result.Add(playerStatsBox.transform.GetChild(i).gameObject);
             }
         }
         return result;
@@ -182,11 +182,11 @@ public class AmmoUi : MonoBehaviour
     private List<GameObject> GetGrenades()
     {
         List<GameObject> result = new List<GameObject>();
-        for (int i = 0; i < canvas.transform.childCount; i++)
+        for (int i = 0; i < playerStatsBox.transform.childCount; i++)
         {
-            if (canvas.transform.GetChild(i).gameObject.tag == Const.Tags.GrenadeSprite)
+            if (playerStatsBox.transform.GetChild(i).gameObject.tag == Const.Tags.GrenadeSprite)
             {
-                result.Add(canvas.transform.GetChild(i).gameObject);
+                result.Add(playerStatsBox.transform.GetChild(i).gameObject);
             }
         }
         return result;
@@ -198,7 +198,7 @@ public class AmmoUi : MonoBehaviour
         GameObject bulletUi = (GameObject) Resources.Load(Const.UI.BulletUiSprite, typeof(GameObject));
         GameObject magUi = (GameObject)Resources.Load(Const.UI.MagazineUiSprite, typeof(GameObject));
         GameObject grenadeUi = (GameObject)Resources.Load(Const.UI.GrenadeUiSprite, typeof(GameObject));
-        double height = -107;
+        double height = -80;
         int p = 0;
         int j = 0;
 
@@ -206,25 +206,25 @@ public class AmmoUi : MonoBehaviour
         {
             if (i % 20 == 0 && i != 0)
             {
-                height += 25.6;
+                height += 51.2;
                 p = 0;
             }
 
             GameObject bullet =
-                Instantiate(bulletUi, new Vector3(-293 + p * 9, (float) height, 0), Quaternion.identity);
-            bullet.transform.SetParent(canvas.transform, false);
+                Instantiate(bulletUi, new Vector3(-340 + p * 18, (float) height, 0), Quaternion.identity);
+            bullet.transform.SetParent(playerStatsBox.transform, false);
             p++;
         }
         for (int i = 0; i < magazinesRemaining + grenades; i++)
         {
             if(i < magazinesRemaining){
-            GameObject mag = Instantiate(magUi, magUi.transform.position + new Vector3(i * 15, 0, 0), Quaternion.identity);
-            mag.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+            GameObject mag = Instantiate(magUi, magUi.transform.position + new Vector3(i * 30, 0, 0), Quaternion.identity);
+            mag.transform.SetParent(playerStatsBox.transform, false);
             }
             else{
-                j += 10;
-                GameObject grenade = Instantiate(grenadeUi, grenadeUi.transform.position + new Vector3(i * 15 + j, 0, 0), Quaternion.identity);
-                grenade.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+                j += 20;
+                GameObject grenade = Instantiate(grenadeUi, grenadeUi.transform.position + new Vector3(i * 30 + j, 0, 0), Quaternion.identity);
+                grenade.transform.SetParent(playerStatsBox.transform, false);
             }
         }
     }

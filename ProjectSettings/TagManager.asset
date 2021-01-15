@@ -18,6 +18,7 @@ TagManager:
   - GranadeSprite
   - PlayerModel
   - PlayerSpawn
+  - PlayerStatsUi
   layers:
   - Default
   - TransparentFX
