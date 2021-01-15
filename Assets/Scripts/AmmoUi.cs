@@ -40,9 +40,9 @@ public class AmmoUi : MonoBehaviour
         magazinesRemaining = playerManager.GetActiveWeapon().Magazines;
         grenades = playerManager.grenades;
         
-        List<GameObject> renderedBullets = GetBullets();
-        List<GameObject> renderedMags = GetMags();
-        List<GameObject> renderedGrenades = GetGrenades();
+        List<GameObject> renderedBullets = GetUiElement(Const.Tags.BulletSprite);
+        List<GameObject> renderedMags = GetUiElement(Const.Tags.MagazineSprite);
+        List<GameObject> renderedGrenades = GetUiElement(Const.Tags.GrenadeSprite);
 
         foreach (GameObject bullet in renderedBullets)
         {
@@ -138,13 +138,13 @@ public class AmmoUi : MonoBehaviour
 
     public void removeUi()
     {
-        List<GameObject> renderedBullets = GetBullets();
+        List<GameObject> renderedBullets = GetUiElement(Const.Tags.BulletSprite);
         removeTextUi();
         foreach (GameObject bullet in renderedBullets)
         {
             Destroy(bullet);
         }
-        List<GameObject> renderedMags = GetMags();
+        List<GameObject> renderedMags = GetUiElement(Const.Tags.MagazineSprite);
 
         removeTextUi();
         foreach (GameObject mag in renderedMags)
@@ -154,43 +154,17 @@ public class AmmoUi : MonoBehaviour
 
     }
 
-    private List<GameObject> GetBullets()
+    private List<GameObject> GetUiElement(string uiTag)
     {
         List<GameObject> result = new List<GameObject>();
         for (int i = 0; i < playerStatsBox.transform.childCount; i++)
         {
-            if (playerStatsBox.transform.GetChild(i).gameObject.CompareTag(Const.Tags.BulletSprite))
+            if (playerStatsBox.transform.GetChild(i).gameObject.CompareTag(uiTag))
             {
                 result.Add(playerStatsBox.transform.GetChild(i).gameObject);
             }
         }
 
-        return result;
-    }
-
-    private List<GameObject> GetMags()
-    {
-        List<GameObject> result = new List<GameObject>();
-        for (int i = 0; i < playerStatsBox.transform.childCount; i++)
-        {
-            if (playerStatsBox.transform.GetChild(i).gameObject.tag == Const.Tags.MagazineSprite)
-            {
-                result.Add(playerStatsBox.transform.GetChild(i).gameObject);
-            }
-        }
-        return result;
-    }
-
-    private List<GameObject> GetGrenades()
-    {
-        List<GameObject> result = new List<GameObject>();
-        for (int i = 0; i < playerStatsBox.transform.childCount; i++)
-        {
-            if (playerStatsBox.transform.GetChild(i).gameObject.tag == Const.Tags.GrenadeSprite)
-            {
-                result.Add(playerStatsBox.transform.GetChild(i).gameObject);
-            }
-        }
         return result;
     }
 
