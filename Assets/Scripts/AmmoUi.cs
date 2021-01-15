@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class AmmoUi : MonoBehaviour
 {
-    public GameObject playerStatsBox;
     public bool reloading;
     public bool outOfAmmo;
     public bool reloaded;
@@ -14,6 +13,8 @@ public class AmmoUi : MonoBehaviour
     private int grenades;
 
     private GameObject player;
+    private GameObject playerStatsBox;
+    private GameObject healthbar;
     private PlayerManager playerManager;
     private int magazinesRemaining;
     private int bulletsRemaining;
@@ -23,6 +24,7 @@ public class AmmoUi : MonoBehaviour
     private void Start()
     {
         playerStatsBox = GameObject.FindGameObjectWithTag("PlayerStatsUi");
+        healthbar = GameObject.FindGameObjectWithTag("Healthbar");
         player = GameObject.FindGameObjectWithTag("Player");
         ammoInfoText = GameObject.Find("MunitionText").GetComponent<Text>();
         playerManager = player.GetComponent<PlayerManager>();
@@ -198,32 +200,42 @@ public class AmmoUi : MonoBehaviour
         GameObject bulletUi = (GameObject) Resources.Load(Const.UI.BulletUiSprite, typeof(GameObject));
         GameObject magUi = (GameObject)Resources.Load(Const.UI.MagazineUiSprite, typeof(GameObject));
         GameObject grenadeUi = (GameObject)Resources.Load(Const.UI.GrenadeUiSprite, typeof(GameObject));
-        double height = -80;
+        RectTransform healthbarRT = (RectTransform)healthbar.transform;
+        RectTransform playerStatsBoxRT = (RectTransform)playerStatsBox.transform;
+        RectTransform bulletUiRT = (RectTransform)bulletUi.transform;
+        RectTransform grenadeUiRT = (RectTransform)grenadeUi.transform;
+        RectTransform magUiRT = (RectTransform)magUi.transform;
+        float uiBoxWidth = playerStatsBoxRT.rect.width;
+        healthbarRT.sizeDelta = new Vector2 (uiBoxWidth * 2f, uiBoxWidth * 0.32f);
+        bulletUiRT.sizeDelta = new Vector2 (uiBoxWidth * 0.145f, uiBoxWidth * 0.49f);
+        grenadeUiRT.sizeDelta = new Vector2 (uiBoxWidth * 0.48f, uiBoxWidth * 0.51f);
+        magUiRT.sizeDelta = new Vector2 (uiBoxWidth * 0.32f, uiBoxWidth * 0.49f);
+        double height = healthbar.transform.localPosition.y + healthbarRT.rect.height * 1.7;
         int p = 0;
-        int j = 0;
+        float j = 0;
 
         for (int i = 0; i < playerManager.GetActiveWeapon().ShotsInCurrentMag; i++)
         {
             if (i % 20 == 0 && i != 0)
             {
-                height += 51.2;
+                height += bulletUiRT.rect.height;
                 p = 0;
             }
 
             GameObject bullet =
-                Instantiate(bulletUi, new Vector3(-340 + p * 18, (float) height, 0), Quaternion.identity);
+                Instantiate(bulletUi, new Vector3(healthbar.transform.localPosition.x - healthbarRT.rect.width * 0.4f + p * bulletUiRT.rect.width * 1.2f, (float) height, 0), Quaternion.identity);
             bullet.transform.SetParent(playerStatsBox.transform, false);
             p++;
         }
         for (int i = 0; i < magazinesRemaining + grenades; i++)
         {
             if(i < magazinesRemaining){
-            GameObject mag = Instantiate(magUi, magUi.transform.position + new Vector3(i * 30, 0, 0), Quaternion.identity);
+            GameObject mag = Instantiate(magUi, new Vector3((healthbar.transform.localPosition.x + healthbarRT.rect.width * 0.7f) + i * bulletUiRT.rect.width * 2f,  healthbar.transform.localPosition.y, 0), Quaternion.identity);
             mag.transform.SetParent(playerStatsBox.transform, false);
             }
             else{
-                j += 20;
-                GameObject grenade = Instantiate(grenadeUi, grenadeUi.transform.position + new Vector3(i * 30 + j, 0, 0), Quaternion.identity);
+                j += grenadeUiRT.rect.width * 0.4f;
+                GameObject grenade = Instantiate(grenadeUi, new Vector3((healthbar.transform.localPosition.x + healthbarRT.rect.width * 0.7f) + (i * bulletUiRT.rect.width * 2f + j),  healthbar.transform.localPosition.y, 0), Quaternion.identity);
                 grenade.transform.SetParent(playerStatsBox.transform, false);
             }
         }
