@@ -1597,19 +1597,12 @@ MonoBehaviour:
 
     PICK UP WEAPON
 
-    THROW GRENADE
+    SWITCH WEAPON
 
-    MELEE
+    THROW
+    GRENADE
 
-    EQUIP
-    KNIFE
-
-    EQUIP 1ST WEAPON
-
-    EQUIP 2ND WEAPON
-
-
-'
+    MELEE'
 --- !u!222 &818945742
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3014,18 +3007,11 @@ MonoBehaviour:
 
     E
 
+    TAB
+
     G
 
-    Q
-
-    1
-
-    2
-
-    3
-
-
-'
+    Q'
 --- !u!222 &1213645925
 CanvasRenderer:
   m_ObjectHideFlags: 0
