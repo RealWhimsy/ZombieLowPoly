@@ -39,6 +39,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
         anim = GameObject.FindGameObjectWithTag("PlayerModel").GetComponent<Animator>();
         PrepareWeaponArray();
         EventManager.StartListening(Const.Events.MeleeAttack, HandleMeleeAttack);
+        EventManager.StartListening(Const.Events.InteractibleCollected, AddSupplies);
         FindHealthBar();
     }
 
@@ -66,12 +67,39 @@ public class PlayerManager : MonoBehaviour, IDamageable
         healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
         healthBar.SetMaxHealth(maxHealth);
     }
+
+    // Adds magazines, grenades and health to player if interactible box was collected
+    private void AddSupplies()
+    {
+        int pickUpMagazines = 1;
+        int pickUpGrenades = 1;
+        int pickUpHealth = maxHealth / 10;
+        if(GameAssets.i.GenerateRandomNumber(0,1) == 1)
+        {
+            pickUpMagazines = 2;
+            pickUpHealth = maxHealth / 5;
+        }
+
+        grenades += pickUpGrenades;
+        if (grenades >= Const.Grenade.MaxGrenades)
+        {
+            grenades = Const.Grenade.MaxGrenades;
+        }
+        currentHealth += pickUpHealth;
+        if(currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        healthBar.SetHealth(currentHealth);
+        GetActiveWeapon().Magazines += pickUpMagazines;
+        EventManager.TriggerEvent(Const.Events.UpdateAmmoUi);
+    }
     
 
     // Update is called once per frame
     void Update()
     {
-        if (currentHealth <= 0 && !dead)
+        if (currentHealth <= 0)
         {
             dead = true;
             anim.SetBool(IsDead, true);
@@ -94,8 +122,6 @@ public class PlayerManager : MonoBehaviour, IDamageable
         Instantiate(blood, transform.position, transform.rotation);
         currentHealth -= finalDamage;
         healthBar.SetHealth(currentHealth);
-
-        Debug.Log("Player took " + finalDamage + " damage. Current Health: " + currentHealth);
     }
 
     void HandleMeleeAttack()
