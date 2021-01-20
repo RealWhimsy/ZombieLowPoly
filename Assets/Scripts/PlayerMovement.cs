@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     private GameObject meleeArea;
     private GameObject playerModel;
     private AudioSource footSteps;
-    
+    private static readonly int IsMoving = Animator.StringToHash("isMoving");
 
 
     private void Start() {
@@ -50,17 +50,17 @@ public class PlayerMovement : MonoBehaviour
         moveDirection *= moveSpeed;
         controller.Move(moveDirection);
 
-        anim.SetFloat("horizontal", moveX);
-        anim.SetFloat("vertical", moveZ);
-
         if (moveDirection != Vector3.zero && !isMoving)
         {
             isMoving = true;
             footSteps.Play();
-        } else if (moveDirection == Vector3.zero && isMoving)
+            anim.SetBool(IsMoving, true);
+        } 
+        else if (moveDirection == Vector3.zero && isMoving)
         {
             isMoving = false;
             footSteps.Stop();
+            anim.SetBool(IsMoving, false);
         }
     }
     

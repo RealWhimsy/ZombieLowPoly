@@ -26,8 +26,6 @@
         public const string WaveCompleted = "WAVE_COMPLETED";
         public const string WavePassed = "WAVE_PASSED";
         public const string LevelCompleted = "LEVEL_COMPLETED";
-        public const string InteractibleCollected = "INTERACTIBLE_COLLECTED";
-        public const string UpdateAmmoUi = "UPDATE_AMMO_UI";
     }
 
     // Weapon names
@@ -51,11 +49,9 @@
         public const string PoliceBat = "w_policebatton";
     }
 
-    public static class Grenade
+    public static class Granade
     {
-        public const int GrenadeDamage = 100;
-        public const int MaxGrenades = 5;
-        public const string GrenadePrefab = "Prefabs/Grenade"; 
+        public const int GranadeDamage = 100;
     }
 
     public static class WeaponTypes
@@ -82,20 +78,10 @@
         public const string FootSteps = "Sounds_Ingame/Steps/Ground_running";
         public const string Hits = "Sounds_Ingame/Hits";
         public const string Zombies = "Sounds_Ingame/Zombies";
-        public const string Grenade = "Sounds_Ingame/Using/ImpactGrenade";
-        public const string GrenadeThrow = "Sounds_Ingame/Using/ThrowGrenade";
-        public const string MeleeAttack = "Sounds_Ingame/Weapons/knife_attack";
     }
 
     public static class SceneNames
     {
         public const string Forest = "Playground";
-    }
-
-    public static class UI
-    {
-        public const string BulletUiSprite = "Prefabs/BulletSprite";
-        public const string MagazineUiSprite = "Prefabs/MagazineSprite";
-        public const string GrenadeUiSprite = "Prefabs/GrenadeSprite";
     }
 }

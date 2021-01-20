@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class WeaponBehaviour : MonoBehaviour
@@ -115,10 +115,6 @@ public class WeaponBehaviour : MonoBehaviour
 
     private void MeleeAttack()
     {
-        if(!SoundManagerRework.Instance.IsEffectPlaying())
-        {
-            SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.MeleeAttack) as AudioClip);
-        }
         meleeZone.SetActive(true);
         StartCoroutine(waitAndDisableMeleeZone());
         EventManager.TriggerEvent(Const.Events.MeleeAttack);
@@ -129,7 +125,6 @@ public class WeaponBehaviour : MonoBehaviour
             playerManager.anim.SetTrigger(ThrowAnimation);
             playerManager.grenades--;
             ammoUi.ReduceAmmoUi(Const.Tags.GrenadeSprite);
-            SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.GrenadeThrow) as AudioClip);
             EventManager.TriggerEvent(Const.Events.GrenadeThrown);
         }
     }
