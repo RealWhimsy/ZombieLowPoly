@@ -222,7 +222,6 @@ public class PlayerWeaponInteraction : MonoBehaviour
             case WeaponType.Sniper:
             case WeaponType.Lmg:
             case WeaponType.Smg:
-            case WeaponType.Shotgun:
                 playerManager.anim.SetBool(HasRifle, true);
                 break;
             case WeaponType.Rpg:
