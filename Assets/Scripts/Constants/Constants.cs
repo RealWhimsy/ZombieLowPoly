@@ -104,5 +104,6 @@
         public const string BulletUiSprite = "Prefabs/BulletSprite";
         public const string MagazineUiSprite = "Prefabs/MagazineSprite";
         public const string GrenadeUiSprite = "Prefabs/GrenadeSprite";
+        public const string HUDCanvas = "Prefabs/HUD";
     }
 }

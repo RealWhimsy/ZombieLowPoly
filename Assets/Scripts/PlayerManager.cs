@@ -44,6 +44,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
 
     private void setSpawnStats()
     {
+        eventFired = false;
         dead = false;
         anim.SetBool(IsDead, false);
         maxHealth = 200;
