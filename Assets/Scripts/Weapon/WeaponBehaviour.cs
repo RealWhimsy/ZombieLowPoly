@@ -6,7 +6,6 @@ public class WeaponBehaviour : MonoBehaviour
     private PlayerManager playerManager;
     private GameObject player;
     private GameObject meleeZone;
-    public SprayBar sprayBar;
 
     private AmmoUi ammoUi;
 
@@ -24,9 +23,7 @@ public class WeaponBehaviour : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerManager = player.GetComponent<PlayerManager>();
         meleeZone = player.transform.Find("MeleeArea").gameObject;
-        sprayBar = GameObject.Find("SprayBar").GetComponent<SprayBar>();
         weapon = playerManager.GetActiveWeapon();
-        sprayBar.SetMaxSpray(weapon.MaxBulletSpread);
 
         EventManager.StartListening(Const.Events.WeaponSwapped, HandleWeaponSwap);
 
@@ -65,7 +62,6 @@ public class WeaponBehaviour : MonoBehaviour
     private void HandleWeaponSwap()
     {
         weapon = playerManager.GetActiveWeapon();
-        sprayBar.SetMaxSpray(weapon.MaxBulletSpread);
 
     }
 

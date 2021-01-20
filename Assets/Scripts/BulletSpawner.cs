@@ -8,13 +8,11 @@ public class BulletSpawner : MonoBehaviour
     private PlayerManager playerManager;
     private Weapon weapon;
     private GameObject grenade;
-    public SprayBar sprayBar;
     private float spray;
     private float lastShot;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        sprayBar = GameObject.Find("SprayBar").GetComponent<SprayBar>();
         playerManager = player.GetComponent<PlayerManager>();
         weapon = playerManager.GetActiveWeapon();
         spray = 0;
@@ -35,7 +33,6 @@ public class BulletSpawner : MonoBehaviour
 
         if(1.0f < Time.time - lastShot && spray >= 0){
              spray -= 0.1f;
-             sprayBar.SetSpray(spray);
         }
         
     }
@@ -50,7 +47,6 @@ public class BulletSpawner : MonoBehaviour
         bulletScript.setDamage(weapon.Damage);
         if(spray < weapon.MaxBulletSpread){
             spray += weapon.MaxBulletSpread / 15;
-            sprayBar.SetSpray(spray);
         }
     }
 
