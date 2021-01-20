@@ -15,7 +15,7 @@ public class Weapon
     private String name;
 
     private float shotCooldown;
-    private float bulletSpread;
+    private float maxBulletSpread;
 
     private bool meleeWeapon;
     private WeaponType weaponType;
@@ -26,7 +26,7 @@ public class Weapon
     private AudioClip shellSound;
 
     public Weapon(String name, int magazines, int shotsInCurrentMag, float shotCooldown, GameObject bullet, int damage,
-        float bulletSpread, bool meleeWeapon, WeaponType weaponType, AudioClip shotSound, AudioClip reloadSound, AudioClip shellSound)
+        float maxBulletSpread, bool meleeWeapon, WeaponType weaponType, AudioClip shotSound, AudioClip reloadSound, AudioClip shellSound)
     {
         this.name = name;
         this.magazines = magazines;
@@ -36,7 +36,7 @@ public class Weapon
         this.shotCooldown = shotCooldown;
         this.bullet = bullet;
         this.damage = damage;
-        this.bulletSpread = bulletSpread;
+        this.maxBulletSpread = maxBulletSpread;
         this.meleeWeapon = meleeWeapon;
         this.weaponType = weaponType;
         
@@ -54,7 +54,7 @@ public class Weapon
         shotCooldown = weapon.shotCooldown;
         bullet = weapon.bullet;
         damage = weapon.damage;
-        bulletSpread = weapon.bulletSpread;
+        maxBulletSpread = weapon.maxBulletSpread;
         meleeWeapon = weapon.meleeWeapon;
         weaponType = weapon.weaponType;
         shotSound = weapon.shotSound;
@@ -121,10 +121,10 @@ public class Weapon
         set => meleeWeapon = value;
     }
 
-    public float BulletSpread
+    public float MaxBulletSpread
     {
-        get => bulletSpread;
-        set => bulletSpread = value;
+        get => maxBulletSpread;
+        set => maxBulletSpread = value;
     }
 
     public string Name
