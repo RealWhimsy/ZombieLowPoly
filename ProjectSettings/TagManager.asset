@@ -15,11 +15,11 @@ TagManager:
   - WaveUI
   - Enemy
   - Manager
-  - GranadeSprite
   - PlayerModel
   - PlayerSpawn
   - PlayerStatsUi
   - Healthbar
+  - GrenadeSprite
   layers:
   - Default
   - TransparentFX
