@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="afb9d93e-6c8e-48b9-95ef-cee07e037923" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Assets.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assets.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AnimatorControllers/PlayerAnimationControllerV2.controller" beforeDir="false" afterPath="$PROJECT_DIR$/AnimatorControllers/PlayerAnimationControllerV2.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Constants/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Constants/Constants.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/DontDestroyOnLoad.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/DontDestroyOnLoad.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Level/LevelLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Level/LevelLoader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/PlayerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/PlayerSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/PlayerSpawner.cs" afterDir="false" />
-    </list>
+    <list default="true" id="afb9d93e-6c8e-48b9-95ef-cee07e037923" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,7 +57,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1611164292635</updated>
-      <workItem from="1611164299940" duration="1807000" />
+      <workItem from="1611164299940" duration="2153000" />
     </task>
     <servers />
   </component>
