@@ -74,13 +74,4 @@ public class SoundManagerRework : MonoBehaviour
         EffectsSource.clip = clips[randomIndex];
         EffectsSource.Play();
     }
-
-    public bool IsEffectPlaying()
-    {
-        if(EffectsSource.isPlaying)
-        {
-            return true;
-        }
-        return false;
-    }
 }

@@ -18,8 +18,6 @@ TagManager:
   - GranadeSprite
   - PlayerModel
   - PlayerSpawn
-  - PlayerStatsUi
-  - Healthbar
   layers:
   - Default
   - TransparentFX
