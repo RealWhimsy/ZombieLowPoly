@@ -90,6 +90,11 @@
     public static class SceneNames
     {
         public const string Forest = "Playground";
+        public const string Desert = "Desert";
+        public const string PirateBay = "Pirate Bay";
+        public const string City = "CIty";
+        public const string CutsceneIntro = "CutsceneIntro";
+
     }
 
     public static class UI
