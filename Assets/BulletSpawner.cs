@@ -41,10 +41,10 @@ public class BulletSpawner : MonoBehaviour
     private IEnumerator ThrowGrenade()
     {
         yield return new WaitForSeconds(0.5f);
-        grenade = (GameObject) Resources.Load("Prefabs/Grenade", typeof(GameObject));
+        grenade = (GameObject) Resources.Load(Const.Grenade.GrenadePrefab, typeof(GameObject));
         Transform grenadePrefab = Instantiate(grenade.transform, transform.position, transform.rotation);
         Grenade grenadeScript = grenadePrefab.GetComponent<Grenade>();
-        grenadeScript.setDamage(Const.Granade.GranadeDamage);
+        grenadeScript.setDamage(Const.Grenade.GrenadeDamage);
     }
 
     private void Throw(){
