@@ -28,6 +28,8 @@
         public const string LevelCompleted = "LEVEL_COMPLETED";
         public const string InteractibleCollected = "INTERACTIBLE_COLLECTED";
         public const string UpdateAmmoUi = "UPDATE_AMMO_UI";
+        public const string PlayerDead = "PLAYER_DEAD";
+        public const string PlayerRespawned = "PLAYER_RESPAWNED";
     }
 
     // Weapon names

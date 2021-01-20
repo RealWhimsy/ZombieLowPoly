@@ -15,6 +15,8 @@ public class PlayerManager : MonoBehaviour, IDamageable
 
     int currentHealth;
     bool dead = false;
+
+    private bool eventFired = false;
     
     private Weapon[] weaponArray = new Weapon[Const.MaxNumWeapons];
     private Weapon activeWeapon;
@@ -33,13 +35,21 @@ public class PlayerManager : MonoBehaviour, IDamageable
     void Awake()
     {
         blood = Resources.Load("Prefabs/Blood") as GameObject;
+        anim = GameObject.FindGameObjectWithTag("PlayerModel").GetComponent<Animator>();
+        EventManager.StartListening(Const.Events.MeleeAttack, HandleMeleeAttack);
+        setSpawnStats();
+        FindHealthBar();
+
+    }
+
+    private void setSpawnStats()
+    {
+        dead = false;
+        anim.SetBool(IsDead, false);
         maxHealth = 200;
         currentHealth = maxHealth;
         armor = 5;
-        anim = GameObject.FindGameObjectWithTag("PlayerModel").GetComponent<Animator>();
         PrepareWeaponArray();
-        EventManager.StartListening(Const.Events.MeleeAttack, HandleMeleeAttack);
-        FindHealthBar();
     }
 
     private void OnEnable()
@@ -75,7 +85,20 @@ public class PlayerManager : MonoBehaviour, IDamageable
         {
             dead = true;
             anim.SetBool(IsDead, true);
+            if (!eventFired)
+            {
+                eventFired = true;
+                EventManager.TriggerEvent(Const.Events.PlayerDead);
+                StartCoroutine(Respawn());
+            }
+
         }
+    }
+
+    private IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(5);
+        setSpawnStats();
     }
 
     public void TakeDamage(IDamageDealer damageDealer)
@@ -94,8 +117,6 @@ public class PlayerManager : MonoBehaviour, IDamageable
         Instantiate(blood, transform.position, transform.rotation);
         currentHealth -= finalDamage;
         healthBar.SetHealth(currentHealth);
-
-        Debug.Log("Player took " + finalDamage + " damage. Current Health: " + currentHealth);
     }
 
     void HandleMeleeAttack()
