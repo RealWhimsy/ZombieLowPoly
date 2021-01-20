@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="afb9d93e-6c8e-48b9-95ef-cee07e037923" name="Default Changelist" comment="" />
+    <list default="true" id="afb9d93e-6c8e-48b9-95ef-cee07e037923" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Assets.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assets.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/Playground.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Playground.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Constants/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Constants/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/PlayerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/PlayerSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/PlayerSpawner.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,11 +36,11 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Scripts/Constants/Constants.cs" />
       <option value="$PROJECT_DIR$/Scripts/Level/LevelLoader.cs" />
       <option value="$PROJECT_DIR$/Scripts/DontDestroyOnLoad.cs" />
-      <option value="$PROJECT_DIR$/Scripts/PlayerSpawner.cs" />
       <option value="$PROJECT_DIR$/Scripts/PlayerManager.cs" />
+      <option value="$PROJECT_DIR$/Scripts/Constants/Constants.cs" />
+      <option value="$PROJECT_DIR$/Scripts/PlayerSpawner.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1nLLBlXeJ9BiLdtcuIE0y30wJ9O" />
@@ -57,7 +63,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1611164292635</updated>
-      <workItem from="1611164299940" duration="2153000" />
+      <workItem from="1611164299940" duration="3585000" />
     </task>
     <servers />
   </component>
