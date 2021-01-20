@@ -9,6 +9,7 @@ public class LevelLoader : MonoBehaviour
     void Start()
     {
         EventManager.StartListening(Const.Events.LevelCompleted, LoadNextLevel);
+        EventManager.StartListening(Const.Events.PlayerDead, ReloadLevel);
     }
 
 
@@ -32,6 +33,12 @@ public class LevelLoader : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene(sceneName);
+    }
+
+    private void ReloadLevel()
+    {
+        string activeScene = SceneManager.GetActiveScene().name;
+        StartCoroutine(LoadLevel(activeScene));
     }
 
     
