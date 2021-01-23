@@ -7,15 +7,12 @@ using UnityEngine.SceneManagement;
 public class PlayerManager : MonoBehaviour, IDamageable
 {
 
-    public int maxHealth = 200;
-    public int armor = 5;
-    public int grenades = 2;
-
-    public HealthBar healthBar;
-
+    public int maxHealth;
+    public int armor;
+    public int grenades;
     int currentHealth;
-    bool dead = false;
-
+    bool dead;
+    public HealthBar healthBar;
     private bool eventFired = false;
     
     private Weapon[] weaponArray = new Weapon[Const.MaxNumWeapons];
@@ -44,6 +41,8 @@ public class PlayerManager : MonoBehaviour, IDamageable
 
     private void setSpawnStats()
     {
+		grenades = 2;
+		armor = 5;
         eventFired = false;
         dead = false;
         anim.SetBool(IsDead, false);
@@ -99,7 +98,11 @@ public class PlayerManager : MonoBehaviour, IDamageable
     private IEnumerator Respawn()
     {
         yield return new WaitForSeconds(5);
+		if(currentlyEquippedWeapons > 1) {
+			weaponArray[Const.SecondWeaponIndex] = null;
+		}
         setSpawnStats();
+		EventManager.TriggerEvent(Const.Events.PlayerRespawned);
     }
 
     public void TakeDamage(IDamageDealer damageDealer)

@@ -23,6 +23,8 @@ public class PlayerWeaponInteraction : MonoBehaviour
         playerManager = player.GetComponent<PlayerManager>();
         weaponHand = GameObject.FindGameObjectWithTag("WeaponHand");
         RenderNewWeapon();
+
+        EventManager.StartListening(Const.Events.PlayerRespawned, SetRespawnState);
     }
 
     // Update is called once per frame
@@ -188,6 +190,12 @@ public class PlayerWeaponInteraction : MonoBehaviour
         {
             droppedGun.transform.name = droppedGun.transform.name.Replace("(Clone)", "").Trim();
         }
+    }
+
+    private void SetRespawnState()
+    {
+        SwitchWeapon();
+        RenderNewWeapon();
     }
 
     private void OnTriggerEnter(Collider collider)
