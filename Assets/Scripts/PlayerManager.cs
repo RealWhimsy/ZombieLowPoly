@@ -13,7 +13,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
     int currentHealth;
     bool dead;
     public HealthBar healthBar;
-    private bool eventFired = false;
+    private bool triggerPlayerDeadEvent = false;
     
     private Weapon[] weaponArray = new Weapon[Const.MaxNumWeapons];
     private Weapon activeWeapon;
@@ -43,7 +43,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
     {
 		grenades = 2;
 		armor = 5;
-        eventFired = false;
+        triggerPlayerDeadEvent = false;
         dead = false;
         anim.SetBool(IsDead, false);
         maxHealth = 200;
@@ -85,9 +85,9 @@ public class PlayerManager : MonoBehaviour, IDamageable
         {
             dead = true;
             anim.SetBool(IsDead, true);
-            if (!eventFired)
+            if (!triggerPlayerDeadEvent)
             {
-                eventFired = true;
+                triggerPlayerDeadEvent = true;
                 EventManager.TriggerEvent(Const.Events.PlayerDead);
                 StartCoroutine(Respawn());
             }
@@ -97,7 +97,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
 
     private IEnumerator Respawn()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(Const.Player.RespawnTime);
 		if(currentlyEquippedWeapons > 1) {
 			weaponArray[Const.SecondWeaponIndex] = null;
 		}
