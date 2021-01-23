@@ -28,6 +28,8 @@
         public const string LevelCompleted = "LEVEL_COMPLETED";
         public const string InteractibleCollected = "INTERACTIBLE_COLLECTED";
         public const string UpdateAmmoUi = "UPDATE_AMMO_UI";
+        public const string PlayerDead = "PLAYER_DEAD";
+        public const string PlayerRespawned = "PLAYER_RESPAWNED";
     }
 
     // Weapon names
@@ -102,5 +104,10 @@
         public const string BulletUiSprite = "Prefabs/BulletSprite";
         public const string MagazineUiSprite = "Prefabs/MagazineSprite";
         public const string GrenadeUiSprite = "Prefabs/GrenadeSprite";
+        public const string HUDCanvas = "Prefabs/HUD";
     }
+
+	public static class Player{
+		public const int RespawnTime = 5;
+	}
 }

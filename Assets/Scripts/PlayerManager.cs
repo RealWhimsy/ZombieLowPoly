@@ -7,14 +7,13 @@ using UnityEngine.SceneManagement;
 public class PlayerManager : MonoBehaviour, IDamageable
 {
 
-    public int maxHealth = 200;
-    public int armor = 5;
-    public int grenades = 2;
-
-    public HealthBar healthBar;
-
+    public int maxHealth;
+    public int armor;
+    public int grenades;
     int currentHealth;
-    bool dead = false;
+    bool dead;
+    public HealthBar healthBar;
+    private bool triggerPlayerDeadEvent = false;
     
     private Weapon[] weaponArray = new Weapon[Const.MaxNumWeapons];
     private Weapon activeWeapon;
@@ -33,13 +32,24 @@ public class PlayerManager : MonoBehaviour, IDamageable
     void Awake()
     {
         blood = Resources.Load("Prefabs/Blood") as GameObject;
+        anim = GameObject.FindGameObjectWithTag("PlayerModel").GetComponent<Animator>();
+        EventManager.StartListening(Const.Events.MeleeAttack, HandleMeleeAttack);
+        setSpawnStats();
+        FindHealthBar();
+
+    }
+
+    private void setSpawnStats()
+    {
+		grenades = 2;
+		armor = 5;
+        triggerPlayerDeadEvent = false;
+        dead = false;
+        anim.SetBool(IsDead, false);
         maxHealth = 200;
         currentHealth = maxHealth;
         armor = 5;
-        anim = GameObject.FindGameObjectWithTag("PlayerModel").GetComponent<Animator>();
         PrepareWeaponArray();
-        EventManager.StartListening(Const.Events.MeleeAttack, HandleMeleeAttack);
-        FindHealthBar();
     }
 
     private void OnEnable()
@@ -75,7 +85,24 @@ public class PlayerManager : MonoBehaviour, IDamageable
         {
             dead = true;
             anim.SetBool(IsDead, true);
+            if (!triggerPlayerDeadEvent)
+            {
+                triggerPlayerDeadEvent = true;
+                EventManager.TriggerEvent(Const.Events.PlayerDead);
+                StartCoroutine(Respawn());
+            }
+
         }
+    }
+
+    private IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(Const.Player.RespawnTime);
+		if(currentlyEquippedWeapons > 1) {
+			weaponArray[Const.SecondWeaponIndex] = null;
+		}
+        setSpawnStats();
+		EventManager.TriggerEvent(Const.Events.PlayerRespawned);
     }
 
     public void TakeDamage(IDamageDealer damageDealer)
@@ -94,8 +121,6 @@ public class PlayerManager : MonoBehaviour, IDamageable
         Instantiate(blood, transform.position, transform.rotation);
         currentHealth -= finalDamage;
         healthBar.SetHealth(currentHealth);
-
-        Debug.Log("Player took " + finalDamage + " damage. Current Health: " + currentHealth);
     }
 
     void HandleMeleeAttack()
