@@ -15,6 +15,10 @@ public class Crosshair : MonoBehaviour
         lineRenderer.endWidth = 0.025f;
         lineRenderer.useWorldSpace = false;
 		lineRenderer.positionCount = 2;
+		EventManager.StartListening(Const.Events.PlayerDead, DisableCrosshair);
+		EventManager.StartListening(Const.Events.PlayerRespawned, EnableCrosshair);
+		EventManager.StartListening(Const.Events.MeleeEquipped, DisableCrosshair);
+		EventManager.StartListening(Const.Events.GunEquipped, EnableCrosshair);
     }
 
     // Update is called once per frame
@@ -25,4 +29,14 @@ public class Crosshair : MonoBehaviour
         lineRenderer.SetPosition(0, pos);
 		lineRenderer.SetPosition(1, endPos);
     }
+
+	private void DisableCrosshair() {
+		if(lineRenderer.enabled)
+			lineRenderer.enabled = false;
+	}
+
+	private void EnableCrosshair() {
+		if(!lineRenderer.enabled)
+			lineRenderer.enabled = true;
+	}
 }
