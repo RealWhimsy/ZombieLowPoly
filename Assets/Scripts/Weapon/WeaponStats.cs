@@ -68,13 +68,13 @@ public static class WeaponStats
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell")),
 
         [Const.WeaponNames.TwoBarrel] = new Weapon("w_twobarrel", 5, 2, 0.3f,
-            Resources.Load("Prefabs/shotgun_shell") as GameObject, 60, 5, false, WeaponType.Shotgun,
+            Resources.Load("Prefabs/shotgun_shell") as GameObject, 150, 15, false, WeaponType.Shotgun,
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/twobarrel_shot"),
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Shotgun_reload"),
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Shotgun_shell")),
 
         [Const.WeaponNames.Spas] = new Weapon("w_spas", 2, 12, 0.6f,
-            Resources.Load("Prefabs/shotgun_shell") as GameObject, 50, 5, false, WeaponType.Shotgun,
+            Resources.Load("Prefabs/shotgun_shell") as GameObject, 150, 15, false, WeaponType.Shotgun,
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Spas_shot"),
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Shotgun_reload"),
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Shotgun_shell")),
