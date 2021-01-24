@@ -62,6 +62,14 @@ public class WeaponBehaviour : MonoBehaviour
     private void HandleWeaponSwap()
     {
         weapon = playerManager.GetActiveWeapon();
+        if (weapon.MeleeWeapon)
+        {
+            EventManager.TriggerEvent(Const.Events.MeleeEquipped);
+        }
+        else
+        {
+            EventManager.TriggerEvent(Const.Events.GunEquipped);
+        }
     }
 
     private void HandleLeftClick()
