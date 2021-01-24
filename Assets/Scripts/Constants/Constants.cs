@@ -58,12 +58,19 @@
         public const int GrenadeDamage = 100;
         public const int MaxGrenades = 5;
         public const string GrenadePrefab = "Prefabs/Grenade"; 
+    
+    }
+
+    public static class Shotgun 
+    {
+        public const int ShotgunSplinters = 6;
     }
 
     public static class WeaponTypes
     {
         public const string Pistol = "Pistol";
         public const string Rifle = "Rifle";
+        public const string Shotgun = "Shotgun";
         public const string Melee = "Melee";
         public const string Rpg = "Rpg";
     }
