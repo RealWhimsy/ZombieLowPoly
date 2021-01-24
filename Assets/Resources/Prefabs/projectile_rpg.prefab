@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4137256789528264355}
   - component: {fileID: 2352380606139378481}
   - component: {fileID: 5700793840470225965}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: projectile_rpg
   m_TagString: Explosion
   m_Icon: {fileID: 0}
