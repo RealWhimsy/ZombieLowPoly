@@ -18,6 +18,8 @@
         public const string WeaponSwapped = "WEAPON_SWAPPED";
         public const string WeaponPickedUp = "WEAPON_PICKED_UP";
         public const string MeleeAttack = "MELEE_ATTACK";
+		public const string MeleeEquipped = "MELEE_EUQIPPED";
+		public const string GunEquipped = "GUN_EUQIPPED";
 
         public const string ResumeSpawningZombies = "RESUME_SPAWNING_ZOMBIES";
         public const string StopSpawningZombies = "STOP_SPAWNING_ZOMBIES";
