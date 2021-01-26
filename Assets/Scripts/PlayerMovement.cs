@@ -60,13 +60,13 @@ public class PlayerMovement : MonoBehaviour
         moveDirection *= moveSpeed;
         controller.Move(moveDirection);
 
-        if (moveDirection != new Vector3(0, gravity, 0)  && !isMoving)
+        if (moveDirection.x != 0 || moveDirection.z !=0   && !isMoving)
         {
             isMoving = true;
             footSteps.Play();
             anim.SetBool(IsMoving, true);
         } 
-        else if (moveDirection == new Vector3(0, gravity, 0) && isMoving)
+        else if (moveDirection.x == 0 && moveDirection.z ==0 && isMoving)
         {
             isMoving = false;
             footSteps.Stop();
