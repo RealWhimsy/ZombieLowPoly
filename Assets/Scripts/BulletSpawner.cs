@@ -44,18 +44,18 @@ public class BulletSpawner : MonoBehaviour
 
     private void Shoot()
     {
-        if(spray < weapon.MaxBulletSpread){
-            spray += weapon.MaxBulletSpread / 15;
         if(weapon.WeaponType == WeaponType.Shotgun) {
             Shotgun();
         }
         else{
         lastShot = Time.time;
-         randSpread = Random.Range(-spray, spray);
+        randSpread = Random.Range(-spray, spray);
         var spread = Quaternion.Euler(0, 0 + randSpread, 0);
         Transform playerBullet = Instantiate(weapon.Bullet.transform, transform.position, transform.rotation * spread);
         Bullet bulletScript = playerBullet.GetComponent<Bullet>();
         bulletScript.setDamage(weapon.Damage);
+        if(spray < weapon.MaxBulletSpread){
+            spray += weapon.MaxBulletSpread / 15;
         }
     }
     }
@@ -63,7 +63,7 @@ public class BulletSpawner : MonoBehaviour
     private void Shotgun(){
 
         for(int i=0; i< Const.Shotgun.ShotgunSplinters; i++){
-        randSpread = Random.Range(-weapon.BulletSpread, weapon.BulletSpread);
+        randSpread = Random.Range(-weapon.MaxBulletSpread, weapon.MaxBulletSpread);
         playerBullet = Instantiate(weapon.Bullet.transform, transform.position, transform.rotation * Quaternion.Euler(0, randSpread, 0));
         bulletScript = playerBullet.GetComponent<Bullet>();
         bulletScript.setDamage(weapon.Damage / Const.Shotgun.ShotgunSplinters);
