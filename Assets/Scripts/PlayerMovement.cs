@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         moveDirection *= moveSpeed;
         controller.Move(moveDirection);
 
-        if (moveDirection.x != 0 || moveDirection.z !=0   && !isMoving)
+        if (moveDirection.x != 0 && moveDirection.z !=0   && !isMoving)
         {
             isMoving = true;
             footSteps.Play();
