@@ -18,6 +18,8 @@
         public const string WeaponSwapped = "WEAPON_SWAPPED";
         public const string WeaponPickedUp = "WEAPON_PICKED_UP";
         public const string MeleeAttack = "MELEE_ATTACK";
+		public const string MeleeEquipped = "MELEE_EUQIPPED";
+		public const string GunEquipped = "GUN_EUQIPPED";
 
         public const string ResumeSpawningZombies = "RESUME_SPAWNING_ZOMBIES";
         public const string StopSpawningZombies = "STOP_SPAWNING_ZOMBIES";
@@ -28,6 +30,8 @@
         public const string LevelCompleted = "LEVEL_COMPLETED";
         public const string InteractibleCollected = "INTERACTIBLE_COLLECTED";
         public const string UpdateAmmoUi = "UPDATE_AMMO_UI";
+        public const string PlayerDead = "PLAYER_DEAD";
+        public const string PlayerRespawned = "PLAYER_RESPAWNED";
     }
 
     // Weapon names
@@ -56,12 +60,19 @@
         public const int GrenadeDamage = 100;
         public const int MaxGrenades = 5;
         public const string GrenadePrefab = "Prefabs/Grenade"; 
+    
+    }
+
+    public static class Shotgun 
+    {
+        public const int ShotgunSplinters = 6;
     }
 
     public static class WeaponTypes
     {
         public const string Pistol = "Pistol";
         public const string Rifle = "Rifle";
+        public const string Shotgun = "Shotgun";
         public const string Melee = "Melee";
         public const string Rpg = "Rpg";
     }
@@ -102,5 +113,10 @@
         public const string BulletUiSprite = "Prefabs/BulletSprite";
         public const string MagazineUiSprite = "Prefabs/MagazineSprite";
         public const string GrenadeUiSprite = "Prefabs/GrenadeSprite";
+        public const string HUDCanvas = "Prefabs/HUD";
     }
+
+	public static class Player{
+		public const int RespawnTime = 5;
+	}
 }

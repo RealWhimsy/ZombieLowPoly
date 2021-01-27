@@ -2,57 +2,100 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="afb9d93e-6c8e-48b9-95ef-cee07e037923" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Scripts/LevelLoader.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Scripts/LevelLoader.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Terrain/Terrain_data.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mirza Beig/Particle Systems/Inferno VFX/Materials/Particles/Sprites.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mirza Beig/Particle Systems/Inferno VFX/Prefabs/Loop.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mirza Beig/Particle Systems/Inferno VFX/Scenes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mirza Beig/Particle Systems/Inferno VFX/Scenes/1 - Inferno VFX (Demo).meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mirza Beig/Particle Systems/_Common/Materials.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mirza Beig/Particle Systems/_Common/Materials/Demos.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mirza Beig/Particle Systems/_Common/Materials/Particles.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mirza Beig/Particle Systems/_Common/Post-Processing Profiles.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mirza Beig/Particle Systems/_Common/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mirza Beig/Particle Systems/_Common/Prefabs/Lights.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mirza Beig/Particle Systems/_Common/Scripts.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mirza Beig/Particle Systems/_Common/Scripts/_Demo.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mirza Beig/Particle Systems/_Common/Textures.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Desert.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Desert.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Assets.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assets.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Prefabs/HUD.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Prefabs/HUD.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scenes/CutsceneIntro.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/CutsceneIntro.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Scenes/Main Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Main Menu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Pirate Bay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Pirate Bay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Playground.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Playground.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scripts/Constants/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Constants/Constants.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/PlayerSpawner.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/ZombieWaveMechanism.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Scripts/AmmoUi.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/PlayerSpawner.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/UI/Crosshair.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/UI/UIManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/DestroyOnExit.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/BulletSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/DontDestroyOnLoad.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Event/EventManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Scripts/Level/LevelLoader.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/DontDestroyOnLoad.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Scripts/Constants/Constants.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/ZombieStatManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/ZombieSpawner.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Grenade.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/MeleeAttack.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/AmmoUi.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Weapon/WeaponBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Weapon/PlayerWeaponInteraction.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Weapon/WeaponStats.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Level/LevelLoader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Constants/Constants.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Weapon.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Scripts/Constants/Constants.cs" />
+      <option value="$PROJECT_DIR$/Scripts/DontDestroyOnLoad.cs" />
+      <option value="$PROJECT_DIR$/Scripts/PlayerSpawner.cs" />
+      <option value="$PROJECT_DIR$/Scripts/AmmoUi.cs" />
       <option value="$PROJECT_DIR$/Scripts/Level/LevelLoader.cs" />
+      <option value="$PROJECT_DIR$/Scripts/Weapon/WeaponBehaviour.cs" />
+      <option value="$PROJECT_DIR$/Scripts/Weapon/PlayerWeaponInteraction.cs" />
+      <option value="$PROJECT_DIR$/Scripts/PlayerManager.cs" />
+      <option value="$PROJECT_DIR$/Scripts/Constants/Constants.cs" />
+      <option value="$PROJECT_DIR$/Scripts/BulletSpawner.cs" />
+      <option value="$PROJECT_DIR$/Scripts/UI/Crosshair.cs" />
     </changedPaths>
   </component>
+  <component name="ProjectId" id="1nLLBlXeJ9BiLdtcuIE0y30wJ9O" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="afb9d93e-6c8e-48b9-95ef-cee07e037923" name="Default Changelist" comment="" />
+      <created>1611164292635</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611164292635</updated>
+      <workItem from="1611164299940" duration="3585000" />
+      <workItem from="1611420513379" duration="4823000" />
+      <workItem from="1611479837910" duration="4813000" />
+    </task>
     <servers />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
 </project>

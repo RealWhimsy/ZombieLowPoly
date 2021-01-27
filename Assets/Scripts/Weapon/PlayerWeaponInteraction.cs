@@ -23,6 +23,8 @@ public class PlayerWeaponInteraction : MonoBehaviour
         playerManager = player.GetComponent<PlayerManager>();
         weaponHand = GameObject.FindGameObjectWithTag("WeaponHand");
         RenderNewWeapon();
+
+        EventManager.StartListening(Const.Events.PlayerRespawned, SetRespawnState);
     }
 
     // Update is called once per frame
@@ -190,6 +192,12 @@ public class PlayerWeaponInteraction : MonoBehaviour
         }
     }
 
+    private void SetRespawnState()
+    {
+        SwitchWeapon();
+        RenderNewWeapon();
+    }
+
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag.Equals("weapon"))
@@ -222,6 +230,7 @@ public class PlayerWeaponInteraction : MonoBehaviour
             case WeaponType.Sniper:
             case WeaponType.Lmg:
             case WeaponType.Smg:
+            case WeaponType.Shotgun:
                 playerManager.anim.SetBool(HasRifle, true);
                 break;
             case WeaponType.Rpg:

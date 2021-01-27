@@ -32,6 +32,7 @@ public class AmmoUi : MonoBehaviour
         EventManager.StartListening(Const.Events.WeaponPickedUp, UpdateAmmoUi);
         EventManager.StartListening(Const.Events.WeaponSwapped, UpdateAmmoUi);
         EventManager.StartListening(Const.Events.UpdateAmmoUi, UpdateAmmoUi);
+        EventManager.StartListening(Const.Events.PlayerRespawned, UpdateAmmoUi);
     }
 
     public void UpdateAmmoUi()

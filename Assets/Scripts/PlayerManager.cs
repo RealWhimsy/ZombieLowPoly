@@ -7,14 +7,13 @@ using UnityEngine.SceneManagement;
 public class PlayerManager : MonoBehaviour, IDamageable
 {
 
-    public int maxHealth = 200;
-    public int armor = 5;
-    public int grenades = 2;
-
-    public HealthBar healthBar;
-
+    public int maxHealth;
+    public int armor;
+    public int grenades;
     int currentHealth;
-    bool dead = false;
+    bool dead;
+    public HealthBar healthBar;
+    private bool triggerPlayerDeadEvent = false;
     
     private Weapon[] weaponArray = new Weapon[Const.MaxNumWeapons];
     private Weapon activeWeapon;
@@ -33,14 +32,24 @@ public class PlayerManager : MonoBehaviour, IDamageable
     void Awake()
     {
         blood = Resources.Load("Prefabs/Blood") as GameObject;
+        anim = GameObject.FindGameObjectWithTag("PlayerModel").GetComponent<Animator>();
+        EventManager.StartListening(Const.Events.MeleeAttack, HandleMeleeAttack);
+        setSpawnStats();
+        FindHealthBar();
+
+    }
+
+    private void setSpawnStats()
+    {
+		grenades = 2;
+		armor = 5;
+        triggerPlayerDeadEvent = false;
+        dead = false;
+        anim.SetBool(IsDead, false);
         maxHealth = 200;
         currentHealth = maxHealth;
         armor = 5;
-        anim = GameObject.FindGameObjectWithTag("PlayerModel").GetComponent<Animator>();
         PrepareWeaponArray();
-        EventManager.StartListening(Const.Events.MeleeAttack, HandleMeleeAttack);
-        EventManager.StartListening(Const.Events.InteractibleCollected, AddSupplies);
-        FindHealthBar();
     }
 
     private void OnEnable()
@@ -67,43 +76,33 @@ public class PlayerManager : MonoBehaviour, IDamageable
         healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
         healthBar.SetMaxHealth(maxHealth);
     }
-
-    // Adds magazines, grenades and health to player if interactible box was collected
-    private void AddSupplies()
-    {
-        int pickUpMagazines = 1;
-        int pickUpGrenades = 1;
-        int pickUpHealth = maxHealth / 10;
-        if(GameAssets.i.GenerateRandomNumber(0,1) == 1)
-        {
-            pickUpMagazines = 2;
-            pickUpHealth = maxHealth / 5;
-        }
-
-        grenades += pickUpGrenades;
-        if (grenades >= Const.Grenade.MaxGrenades)
-        {
-            grenades = Const.Grenade.MaxGrenades;
-        }
-        currentHealth += pickUpHealth;
-        if(currentHealth >= maxHealth)
-        {
-            currentHealth = maxHealth;
-        }
-        healthBar.SetHealth(currentHealth);
-        GetActiveWeapon().Magazines += pickUpMagazines;
-        EventManager.TriggerEvent(Const.Events.UpdateAmmoUi);
-    }
     
 
     // Update is called once per frame
     void Update()
     {
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !dead)
         {
             dead = true;
             anim.SetBool(IsDead, true);
+            if (!triggerPlayerDeadEvent)
+            {
+                triggerPlayerDeadEvent = true;
+                EventManager.TriggerEvent(Const.Events.PlayerDead);
+                StartCoroutine(Respawn());
+            }
+
         }
+    }
+
+    private IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(Const.Player.RespawnTime);
+		if(currentlyEquippedWeapons > 1) {
+			weaponArray[Const.SecondWeaponIndex] = null;
+		}
+        setSpawnStats();
+		EventManager.TriggerEvent(Const.Events.PlayerRespawned);
     }
 
     public void TakeDamage(IDamageDealer damageDealer)
