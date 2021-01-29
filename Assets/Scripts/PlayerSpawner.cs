@@ -25,7 +25,7 @@ public class PlayerSpawner : MonoBehaviour
         }
 
         // Add all "combat scripts" to the player if the first combat scene is loaded
-        if (scene.name.Equals(Const.SceneNames.Forest) && !scriptsLoaded)
+        if (scene.name.Equals(Const.SceneNames.Tutorial) && !scriptsLoaded)
         {
             Instantiate(Resources.Load(Const.UI.HUDCanvas));
             playerManager = gameObject.AddComponent<PlayerManager>();

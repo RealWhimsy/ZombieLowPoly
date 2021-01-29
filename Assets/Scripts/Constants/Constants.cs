@@ -106,6 +106,7 @@
         public const string PirateBay = "Pirate Bay";
         public const string City = "CIty";
         public const string CutsceneIntro = "CutsceneIntro";
+		public const string Tutorial = "Tutorial";
 
     }
 
