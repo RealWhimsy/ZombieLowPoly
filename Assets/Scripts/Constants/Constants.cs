@@ -60,6 +60,7 @@
         public const int GrenadeDamage = 100;
         public const int MaxGrenades = 5;
         public const string GrenadePrefab = "Prefabs/Grenade"; 
+		public const string GrenadeExplosion = "Prefabs/grenade_explosion";
     
     }
 

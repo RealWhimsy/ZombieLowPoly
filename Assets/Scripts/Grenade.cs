@@ -45,7 +45,7 @@ public class Grenade : MonoBehaviour, IDamageDealer
         countdown -= Time.deltaTime;
         if (countdown <= 0 && !exploded)
         {
-            GameObject expl = (GameObject) Resources.Load("Prefabs/pf_vfx-inf_psys_demo_oneshot_comicExplosion3-x5",
+            GameObject expl = (GameObject) Resources.Load(Const.Grenade.GrenadeExplosion,
                 typeof(GameObject));
             SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.Explosion) as AudioClip);
             Instantiate(expl, gameObject.transform.position, Quaternion.identity);
