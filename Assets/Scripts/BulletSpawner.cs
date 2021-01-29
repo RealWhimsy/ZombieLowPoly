@@ -8,6 +8,9 @@ public class BulletSpawner : MonoBehaviour
     private PlayerManager playerManager;
     private Weapon weapon;
     private GameObject grenade;
+    private float spray;
+    private float lastShot;
+
     private Transform playerBullet;
     private Bullet bulletScript;
     private float randSpread;
@@ -17,6 +20,8 @@ public class BulletSpawner : MonoBehaviour
         playerManager = player.GetComponent<PlayerManager>();
         weapon = playerManager.GetActiveWeapon();
 
+        spray = 0;
+        lastShot = Time.time;
     }
 
     private void OnEnable()
@@ -30,6 +35,10 @@ public class BulletSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(1.0f < Time.time - lastShot && spray >= 0){
+             spray -= 0.1f;
+        }
         
     }
 
@@ -39,18 +48,22 @@ public class BulletSpawner : MonoBehaviour
             Shotgun();
         }
         else{
-            randSpread = Random.Range(-weapon.BulletSpread, weapon.BulletSpread);
-            var spread = Quaternion.Euler(0, 0 + randSpread, 0);
-            Transform playerBullet = Instantiate(weapon.Bullet.transform, transform.position, transform.rotation * spread);
-            Bullet bulletScript = playerBullet.GetComponent<Bullet>();
-            bulletScript.setDamage(weapon.Damage);
+        lastShot = Time.time;
+        randSpread = Random.Range(-spray, spray);
+        var spread = Quaternion.Euler(0, 0 + randSpread, 0);
+        Transform playerBullet = Instantiate(weapon.Bullet.transform, transform.position, transform.rotation * spread);
+        Bullet bulletScript = playerBullet.GetComponent<Bullet>();
+        bulletScript.setDamage(weapon.Damage);
+        if(spray < weapon.MaxBulletSpread){
+            spray += weapon.MaxBulletSpread / 15;
         }
+    }
     }
 
     private void Shotgun(){
 
         for(int i=0; i< Const.Shotgun.ShotgunSplinters; i++){
-        randSpread = Random.Range(-weapon.BulletSpread, weapon.BulletSpread);
+        randSpread = Random.Range(-weapon.MaxBulletSpread, weapon.MaxBulletSpread);
         playerBullet = Instantiate(weapon.Bullet.transform, transform.position, transform.rotation * Quaternion.Euler(0, randSpread, 0));
         bulletScript = playerBullet.GetComponent<Bullet>();
         bulletScript.setDamage(weapon.Damage / Const.Shotgun.ShotgunSplinters);

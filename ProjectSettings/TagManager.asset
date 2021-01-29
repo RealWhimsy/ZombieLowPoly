@@ -20,6 +20,7 @@ TagManager:
   - PlayerStatsUi
   - Healthbar
   - GrenadeSprite
+  - SprayBar
   layers:
   - Default
   - TransparentFX
