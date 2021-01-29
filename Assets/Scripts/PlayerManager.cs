@@ -34,6 +34,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
         blood = Resources.Load("Prefabs/Blood") as GameObject;
         anim = GameObject.FindGameObjectWithTag("PlayerModel").GetComponent<Animator>();
         EventManager.StartListening(Const.Events.MeleeAttack, HandleMeleeAttack);
+		EventManager.StartListening(Const.Events.InteractibleCollected, AddSupplies);
         setSpawnStats();
         FindHealthBar();
 
@@ -69,6 +70,33 @@ public class PlayerManager : MonoBehaviour, IDamageable
         weaponArray[Const.FirstWeaponIndex].Name = Const.WeaponNames.Deagle;
         activeWeaponIndex = Const.FirstWeaponIndex;
         currentlyEquippedWeapons = 1;
+    }
+
+    // Adds magazines, grenades and health to player if interactible box was collected
+    private void AddSupplies()
+    {
+        int pickUpMagazines = 1;
+        int pickUpGrenades = 1;
+        int pickUpHealth = maxHealth / 10;
+        if(GameAssets.i.GenerateRandomNumber(0,1) == 1)
+        {
+            pickUpMagazines = 2;
+            pickUpHealth = maxHealth / 5;
+        }
+
+        grenades += pickUpGrenades;
+        if (grenades >= Const.Grenade.MaxGrenades)
+        {
+            grenades = Const.Grenade.MaxGrenades;
+        }
+        currentHealth += pickUpHealth;
+        if(currentHealth >= maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        healthBar.SetHealth(currentHealth);
+        GetActiveWeapon().Magazines += pickUpMagazines;
+        EventManager.TriggerEvent(Const.Events.UpdateAmmoUi);
     }
 
     private void FindHealthBar()
