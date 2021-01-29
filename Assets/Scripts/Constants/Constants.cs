@@ -97,6 +97,7 @@
         public const string Grenade = "Sounds_Ingame/Using/ImpactGrenade";
         public const string GrenadeThrow = "Sounds_Ingame/Using/ThrowGrenade";
         public const string MeleeAttack = "Sounds_Ingame/Weapons/knife_attack";
+        public const string Wave = "Sounds_Ingame/Wave/wave";
     }
 
     public static class SceneNames
