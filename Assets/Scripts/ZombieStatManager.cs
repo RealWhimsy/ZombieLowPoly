@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,11 +11,13 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     public int damage = 10;
     public float damageFrequency = 0.3f;
     public System.Random ran = new System.Random();
+    public DamageType[] damagableByTypes;
     
     private GameObject blood;
     private AudioClip[] hitMarker;
     private AudioClip[] zombieSounds;
     private AudioSource zombieAudio;
+    private bool muted;
 
     float currentTriggerStayTime;
     Animator anim;
@@ -22,13 +25,13 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
 
     InteractiblesManager interactiblesManager;
     bool interactiblesTrigger;
-    bool isDeadTrigger;
+    bool isDead;
     bool playSound;
 
 
     int currentHealth;
 
-    private static readonly int IsDead = Animator.StringToHash("isDead");
+    private static readonly int IsDeadAnimation = Animator.StringToHash("isDead");
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +53,7 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     {
         if (currentHealth <= 0)
         {
-            anim.SetBool(IsDead, true);
+            anim.SetBool(IsDeadAnimation, true);
             agent.isStopped = true;
             zombieAudio.Stop();
 
@@ -62,15 +65,15 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
             }
 
             // Trigger for counting kills
-            if(isDeadTrigger == false)
+            if(isDead == false)
             {
+                isDead = true;
                 EventManager.TriggerEvent(Const.Events.ZombieKilled);
-                isDeadTrigger = true;
             }
 
         }
 
-        if(playSound == false)
+        if(playSound == false && !muted)
         {
             playSound = true;
             StartCoroutine(PlayIdleSounds());
@@ -127,6 +130,11 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
         {
             return;
         }
+
+        if (damagableByTypes.Length >= 1 && !damagableByTypes.Contains(damageDealer.damageType))
+        {
+            return;
+        }
         
         int finalDamage = damageDealer.damage - armor;
         if (finalDamage < 0)
@@ -149,5 +157,13 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     {
         get => DamageSource.Enemy;
         set {}
+    }
+
+    public bool IsDead => isDead;
+
+    public bool Muted
+    {
+        get => muted;
+        set => muted = value;
     }
 }

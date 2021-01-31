@@ -5,5 +5,8 @@ public enum DamageType
     Fire,
     Explosion,
     Electric,
-    Ice
+    Ice,
+    Grenade,
+    Bullet,
+    Melee
 }

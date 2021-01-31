@@ -64,17 +64,17 @@ public class Tutorial : MonoBehaviour
             tutorialText.text = shootingText;
         }
 
-        if (player.transform.position.x >= trigger4  && killCounter <= 7 && killCounter > 4)
+        if (player.transform.position.x >= trigger4)
         {
             tutorialText.text = grenadeText;
         }
         
-        if (player.transform.position.x >= trigger5 && killCounter <= 4)
+        if (player.transform.position.x >= trigger5)
         {
             tutorialText.text = meleeText;
         }
         
-        if (player.transform.position.x >= trigger6 && killCounter <= 3)
+        if (player.transform.position.x >= trigger6)
         {
             tutorialText.text = skillText;
         }

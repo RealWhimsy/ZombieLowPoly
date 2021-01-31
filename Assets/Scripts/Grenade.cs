@@ -15,13 +15,13 @@ public class Grenade : MonoBehaviour, IDamageDealer
 
     int IDamageDealer.damage
     {
-        get { return damage; }
+        get => damage;
         set { }
     }
 
     public DamageType damageType
     {
-        get => throw new System.NotImplementedException();
+        get => DamageType.Grenade;
         set => throw new System.NotImplementedException();
     }
 
