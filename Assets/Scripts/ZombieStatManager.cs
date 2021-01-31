@@ -17,6 +17,7 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     private AudioClip[] hitMarker;
     private AudioClip[] zombieSounds;
     private AudioSource zombieAudio;
+    private bool muted;
 
     float currentTriggerStayTime;
     Animator anim;
@@ -66,13 +67,13 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
             // Trigger for counting kills
             if(isDead == false)
             {
-                EventManager.TriggerEvent(Const.Events.ZombieKilled);
                 isDead = true;
+                EventManager.TriggerEvent(Const.Events.ZombieKilled);
             }
 
         }
 
-        if(playSound == false)
+        if(playSound == false && !muted)
         {
             playSound = true;
             StartCoroutine(PlayIdleSounds());
@@ -130,7 +131,7 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
             return;
         }
 
-        if (damagableByTypes != null && !damagableByTypes.Contains(damageDealer.damageType))
+        if (damagableByTypes.Length >= 1 && !damagableByTypes.Contains(damageDealer.damageType))
         {
             return;
         }
@@ -159,4 +160,10 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     }
 
     public bool IsDead => isDead;
+
+    public bool Muted
+    {
+        get => muted;
+        set => muted = value;
+    }
 }
