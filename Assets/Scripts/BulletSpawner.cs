@@ -35,9 +35,9 @@ public class BulletSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (1.0f < Time.time - lastShot && spray >= 0)
-        {
-            spray -= 0.1f;
+
+        if(1.0f < Time.time - lastShot && spray >= 0){
+             spray = 0f;
         }
     }
 
