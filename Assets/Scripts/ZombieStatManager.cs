@@ -24,13 +24,13 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
 
     InteractiblesManager interactiblesManager;
     bool interactiblesTrigger;
-    bool isDeadTrigger;
+    bool isDead;
     bool playSound;
 
 
     int currentHealth;
 
-    private static readonly int IsDead = Animator.StringToHash("isDead");
+    private static readonly int IsDeadAnimation = Animator.StringToHash("isDead");
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +52,7 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     {
         if (currentHealth <= 0)
         {
-            anim.SetBool(IsDead, true);
+            anim.SetBool(IsDeadAnimation, true);
             agent.isStopped = true;
             zombieAudio.Stop();
 
@@ -64,10 +64,10 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
             }
 
             // Trigger for counting kills
-            if(isDeadTrigger == false)
+            if(isDead == false)
             {
                 EventManager.TriggerEvent(Const.Events.ZombieKilled);
-                isDeadTrigger = true;
+                isDead = true;
             }
 
         }
@@ -157,4 +157,6 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
         get => DamageSource.Enemy;
         set {}
     }
+
+    public bool IsDead => isDead;
 }
