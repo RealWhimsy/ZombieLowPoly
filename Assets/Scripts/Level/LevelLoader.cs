@@ -17,6 +17,9 @@ public class LevelLoader : MonoBehaviour
     {
         switch (SceneManager.GetActiveScene().name)
         {
+            case Const.SceneNames.Tutorial:
+                StartCoroutine(LoadLevel(Const.SceneNames.Forest));
+                break;
             case Const.SceneNames.Forest:
                 StartCoroutine(LoadLevel(Const.SceneNames.Desert));
                 break;

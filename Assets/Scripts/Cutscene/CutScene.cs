@@ -6,6 +6,6 @@ public class CutScene : MonoBehaviour
 {
     public void StartGameButton()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Playground");
+        UnityEngine.SceneManagement.SceneManager.LoadScene(Const.SceneNames.Tutorial);
     }
 }

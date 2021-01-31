@@ -21,6 +21,8 @@ TagManager:
   - Healthbar
   - GrenadeSprite
   - SprayBar
+  - TutorialText
+  - Target
   layers:
   - Default
   - TransparentFX

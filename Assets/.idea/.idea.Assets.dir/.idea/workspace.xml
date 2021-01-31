@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="afb9d93e-6c8e-48b9-95ef-cee07e037923" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Assets.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Assets.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Prefabs/HUD.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Prefabs/HUD.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/CutsceneIntro.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/CutsceneIntro.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Scenes/Main Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Scenes/Main Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Constants/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Constants/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Cutscene/CutScene.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Cutscene/CutScene.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/Level/LevelLoader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/Level/LevelLoader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/PlayerSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/PlayerSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToonyTinyPeople/TT_Zombies/prefabs/zombie_male/TT_zombie_M_01.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/ToonyTinyPeople/TT_Zombies/prefabs/zombie_male/TT_zombie_M_01.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToonyTinyPeople/TT_demo/prefabs/DefaultEnemy.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ToonyTinyPeople/TT_demo/prefabs/DefaultEnemy.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,40 +21,51 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Scripts/ZombieWaveMechanism.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/DDA Algorithm/Tutorial.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/PlayerSpawner.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Scripts/UI/Crosshair.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Interactibles/InteractiblesManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/PlayerManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Scripts/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Scripts/UI/UIManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Interactibles/Interactible.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/DestroyOnExit.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/BulletSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/DontDestroyOnLoad.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Scripts/Event/EventManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/ZombieStatManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Scripts/ZombieSpawner.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Grenade.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Scripts/MeleeAttack.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Bullet.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/AmmoUi.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/HealthBar.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Level/LevelLoader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Weapon.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/ZombieWaveMechanism.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/PlayerMovement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/UI/UIManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Event/EventManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/ZombieSpawner.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/MeleeAttack.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Weapon/WeaponType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Weapon/WeaponBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Weapon/PlayerWeaponInteraction.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Scripts/Weapon/WeaponStats.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Scripts/Level/LevelLoader.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Weapon/WeaponStats.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/Cutscene/CutScene.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Scripts/Constants/Constants.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Scripts/Weapon.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Scripts/UI/Crosshair.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Scripts/DontDestroyOnLoad.cs" />
-      <option value="$PROJECT_DIR$/Scripts/PlayerSpawner.cs" />
       <option value="$PROJECT_DIR$/Scripts/AmmoUi.cs" />
-      <option value="$PROJECT_DIR$/Scripts/Level/LevelLoader.cs" />
       <option value="$PROJECT_DIR$/Scripts/Weapon/WeaponBehaviour.cs" />
       <option value="$PROJECT_DIR$/Scripts/Weapon/PlayerWeaponInteraction.cs" />
-      <option value="$PROJECT_DIR$/Scripts/PlayerManager.cs" />
-      <option value="$PROJECT_DIR$/Scripts/Constants/Constants.cs" />
       <option value="$PROJECT_DIR$/Scripts/BulletSpawner.cs" />
       <option value="$PROJECT_DIR$/Scripts/UI/Crosshair.cs" />
+      <option value="$PROJECT_DIR$/Scripts/Grenade.cs" />
+      <option value="$PROJECT_DIR$/Scripts/Bullet.cs" />
+      <option value="$PROJECT_DIR$/Scripts/Constants/Constants.cs" />
+      <option value="$PROJECT_DIR$/Scripts/PlayerSpawner.cs" />
+      <option value="$PROJECT_DIR$/Scripts/Cutscene/CutScene.cs" />
+      <option value="$PROJECT_DIR$/Scripts/PlayerManager.cs" />
+      <option value="$PROJECT_DIR$/Scripts/Level/LevelLoader.cs" />
+      <option value="$PROJECT_DIR$/Scripts/DDA Algorithm/Tutorial.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1nLLBlXeJ9BiLdtcuIE0y30wJ9O" />
@@ -75,6 +91,7 @@
       <workItem from="1611164299940" duration="3585000" />
       <workItem from="1611420513379" duration="4823000" />
       <workItem from="1611479837910" duration="4813000" />
+      <workItem from="1611917609309" duration="10684000" />
     </task>
     <servers />
   </component>

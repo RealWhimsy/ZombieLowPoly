@@ -26,12 +26,14 @@ public class UIManager : MonoBehaviour
     private void ShowCompleteText()
     {
         waveUI.text = waveCompletedText;
+		SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.Wave) as AudioClip);
         StartCoroutine(waitTime());    
     }
 
     private void ShowWaveText()
     {
         waveCountText = "Wave " + waveCounter;
+		SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.Wave) as AudioClip);
         waveUI.text = waveCountText;
         StartCoroutine(waitTime());
         waveCounter++;
@@ -40,6 +42,7 @@ public class UIManager : MonoBehaviour
     private void ShowLevelCompletedText()
     {
         waveUI.text = levelCompletedText;
+		SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.Wave) as AudioClip);
         StartCoroutine(waitTime());
     }
 
