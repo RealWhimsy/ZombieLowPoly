@@ -41,7 +41,7 @@ public class MeleeAttack : MonoBehaviour, IDamageDealer
         get => playerManager.GetActiveWeapon().Damage;
         set { }
     }
-    public DamageType damageType { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public DamageType damageType { get => DamageType.Melee; set => throw new System.NotImplementedException(); }
 
     public DamageSource damageSource
     {

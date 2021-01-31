@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour, IDamageDealer
         get { return damage; }
         set { }
     }
-    public DamageType damageType { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public DamageType damageType { get => DamageType.Bullet; set => throw new System.NotImplementedException(); }
 
     public DamageSource damageSource
     {

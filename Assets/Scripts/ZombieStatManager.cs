@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,6 +11,7 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     public int damage = 10;
     public float damageFrequency = 0.3f;
     public System.Random ran = new System.Random();
+    public DamageType[] damagableByTypes;
     
     private GameObject blood;
     private AudioClip[] hitMarker;
@@ -124,6 +126,11 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     {
         // Do not take damage if source is from another enemy (prevent friendly fire)
         if (damageDealer.damageSource == DamageSource.Enemy)
+        {
+            return;
+        }
+
+        if (damagableByTypes != null && !damagableByTypes.Contains(damageDealer.damageType))
         {
             return;
         }

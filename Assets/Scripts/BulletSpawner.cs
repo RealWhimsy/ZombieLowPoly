@@ -14,6 +14,7 @@ public class BulletSpawner : MonoBehaviour
     private Transform playerBullet;
     private Bullet bulletScript;
     private float randSpread;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -29,44 +30,48 @@ public class BulletSpawner : MonoBehaviour
         EventManager.StartListening(Const.Events.ShotFired, Shoot);
         EventManager.StartListening(Const.Events.GrenadeThrown, Throw);
         EventManager.StartListening(Const.Events.WeaponSwapped, HandleWeaponSwap);
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if(1.0f < Time.time - lastShot && spray >= 0){
-             spray -= 0.1f;
+        if (1.0f < Time.time - lastShot && spray >= 0)
+        {
+            spray -= 0.1f;
         }
-        
     }
 
     private void Shoot()
     {
-        if(weapon.WeaponType == WeaponType.Shotgun) {
+        if (weapon.WeaponType == WeaponType.Shotgun)
+        {
             Shotgun();
         }
-        else{
-        lastShot = Time.time;
-        randSpread = Random.Range(-spray, spray);
-        var spread = Quaternion.Euler(0, 0 + randSpread, 0);
-        Transform playerBullet = Instantiate(weapon.Bullet.transform, transform.position, transform.rotation * spread);
-        Bullet bulletScript = playerBullet.GetComponent<Bullet>();
-        bulletScript.setDamage(weapon.Damage);
-        if(spray < weapon.MaxBulletSpread){
-            spray += weapon.MaxBulletSpread / 15;
+        else
+        {
+            lastShot = Time.time;
+            randSpread = Random.Range(-spray, spray);
+            var spread = Quaternion.Euler(0, 0 + randSpread, 0);
+            Transform playerBullet =
+                Instantiate(weapon.Bullet.transform, transform.position, transform.rotation * spread);
+            Bullet bulletScript = playerBullet.GetComponent<Bullet>();
+            bulletScript.setDamage(weapon.Damage);
+            if (spray < weapon.MaxBulletSpread)
+            {
+                spray += weapon.MaxBulletSpread / 15;
+            }
         }
     }
-    }
 
-    private void Shotgun(){
-
-        for(int i=0; i< Const.Shotgun.ShotgunSplinters; i++){
-        randSpread = Random.Range(-weapon.MaxBulletSpread, weapon.MaxBulletSpread);
-        playerBullet = Instantiate(weapon.Bullet.transform, transform.position, transform.rotation * Quaternion.Euler(0, randSpread, 0));
-        bulletScript = playerBullet.GetComponent<Bullet>();
-        bulletScript.setDamage(weapon.Damage / Const.Shotgun.ShotgunSplinters);
+    private void Shotgun()
+    {
+        for (int i = 0; i < Const.Shotgun.ShotgunSplinters; i++)
+        {
+            randSpread = Random.Range(-weapon.MaxBulletSpread, weapon.MaxBulletSpread);
+            playerBullet = Instantiate(weapon.Bullet.transform, transform.position,
+                transform.rotation * Quaternion.Euler(0, randSpread, 0));
+            bulletScript = playerBullet.GetComponent<Bullet>();
+            bulletScript.setDamage(weapon.Damage / Const.Shotgun.ShotgunSplinters);
         }
     }
 
@@ -79,10 +84,11 @@ public class BulletSpawner : MonoBehaviour
         grenadeScript.setDamage(Const.Grenade.GrenadeDamage);
     }
 
-    private void Throw(){
+    private void Throw()
+    {
         StartCoroutine(ThrowGrenade());
     }
-    
+
     private void HandleWeaponSwap()
     {
         weapon = playerManager.GetActiveWeapon();
