@@ -44,7 +44,7 @@ public class PlayerSpawner : MonoBehaviour
 
     private void SetInitialScriptValues()
     {
-        playerMovement.moveSpeed = 0.04f;
+        playerMovement.moveSpeed = 5f;
         playerMovement.anim = GameObject.FindGameObjectWithTag("PlayerModel").GetComponent<Animator>();
     }
 }

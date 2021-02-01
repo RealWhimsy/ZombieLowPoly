@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         } 
 
         moveDirection = new Vector3(moveX, gravity, moveZ);
-        moveDirection *= moveSpeed;
+        moveDirection *= moveSpeed * Time.deltaTime;
         controller.Move(moveDirection);
 
         if ((moveDirection.x != 0 || moveDirection.z !=0)   && !isMoving)
