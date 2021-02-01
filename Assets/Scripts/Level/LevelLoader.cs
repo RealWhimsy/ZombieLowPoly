@@ -6,42 +6,71 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     // Start is called before the first frame update
+    private string nextScene = "";
     void Start()
     {
-        EventManager.StartListening(Const.Events.LevelCompleted, LoadNextLevel);
+        EventManager.StartListening(Const.Events.LevelCompleted, LoadLevelCompleted);
         EventManager.StartListening(Const.Events.PlayerDead, ReloadLevel);
+        EventManager.StartListening(Const.Events.DifficultySelected, LoadNextScene);
     }
 
 
-    private void LoadNextLevel()
+    private void LoadLevelCompleted()
     {
         switch (SceneManager.GetActiveScene().name)
         {
             case Const.SceneNames.Tutorial:
-                StartCoroutine(LoadLevel(Const.SceneNames.Forest));
+                StartCoroutine(LoadLevelWithDelay(Const.SceneNames.LevelCompletedScene));
+				nextScene = Const.SceneNames.Forest;
                 break;
             case Const.SceneNames.Forest:
-                StartCoroutine(LoadLevel(Const.SceneNames.Desert));
+                StartCoroutine(LoadLevelWithDelay(Const.SceneNames.LevelCompletedScene));
+                nextScene = Const.SceneNames.Desert;
                 break;
             case Const.SceneNames.Desert:
-                StartCoroutine(LoadLevel(Const.SceneNames.PirateBay));
+                StartCoroutine(LoadLevelWithDelay(Const.SceneNames.LevelCompletedScene));
+                nextScene = Const.SceneNames.PirateBay;
                 break;
             case Const.SceneNames.PirateBay:
-                StartCoroutine(LoadLevel(Const.SceneNames.City));
+                StartCoroutine(LoadLevelWithDelay(Const.SceneNames.LevelCompletedScene));
+                nextScene = Const.SceneNames.City;
                 break;
         }
     }
 
-    private IEnumerator LoadLevel(string sceneName)
+    private void LoadNextScene()
     {
-        yield return new WaitForSeconds(5);
+        switch (nextScene)
+        {
+			case Const.SceneNames.Forest:
+				LoadLevel(Const.SceneNames.Forest);
+				break;	
+            case Const.SceneNames.Desert:
+                LoadLevel(Const.SceneNames.Desert);
+                break;
+            case Const.SceneNames.PirateBay:
+                LoadLevel(Const.SceneNames.PirateBay);
+                break;
+            case Const.SceneNames.City:
+                LoadLevel(Const.SceneNames.City);
+                break;
+        }
+    }
+
+    private void LoadLevel(string sceneName)
+    {
         SceneManager.LoadScene(sceneName);
     }
+
+	private IEnumerator LoadLevelWithDelay(string sceneName) {
+		yield return new WaitForSeconds(4);
+		SceneManager.LoadScene(sceneName);
+	}
 
     private void ReloadLevel()
     {
         string activeScene = SceneManager.GetActiveScene().name;
-        StartCoroutine(LoadLevel(activeScene));
+        StartCoroutine(LoadLevelWithDelay(activeScene));
     }
 
     
