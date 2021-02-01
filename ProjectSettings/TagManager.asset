@@ -6,6 +6,23 @@ TagManager:
   tags:
   - ZombieSpawn
   - Canvas
+  - BulletSprite
+  - WeaponHand
+  - ReloadingStateSprite
+  - weapon
+  - Explosion
+  - MagazineSprite
+  - WaveUI
+  - Enemy
+  - Manager
+  - PlayerModel
+  - PlayerSpawn
+  - PlayerStatsUi
+  - Healthbar
+  - GrenadeSprite
+  - SprayBar
+  - TutorialText
+  - Target
   layers:
   - Default
   - TransparentFX
@@ -15,7 +32,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Bullet
   - 
   - 
   - 

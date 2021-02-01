@@ -36,7 +36,7 @@ public class ZombiePathfinding : MonoBehaviour
         if (!playerManager.isDead())
         {
             agent.SetDestination(target.position);
-            anim.SetBool("isMoving", checkIfTargetReached());
+            anim.SetBool("isMoving", !checkIfTargetReached());
         }
         else
         {
@@ -49,16 +49,17 @@ public class ZombiePathfinding : MonoBehaviour
     // returns false if navigation is finished
     bool checkIfTargetReached()
     {
-        if (!agent.pathPending)
+        if (Vector3.Distance (agent.gameObject.transform.position, target.position) <= agent.stoppingDistance)
         {
-            if (agent.remainingDistance <= agent.stoppingDistance)
-            {
-                if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
-                {
-                    return false;
-                }
-            }
+            return true;
         }
-        return true;
+        
+        return false;
+    }
+
+    public Transform Target
+    {
+        get => target;
+        set => target = value;
     }
 }

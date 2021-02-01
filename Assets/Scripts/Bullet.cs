@@ -19,13 +19,19 @@ public class Bullet : MonoBehaviour, IDamageDealer
         get { return damage; }
         set { }
     }
-    public DamageType damageType { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public DamageType damageType { get => DamageType.Bullet; set => throw new System.NotImplementedException(); }
+
+    public DamageSource damageSource
+    {
+        get => DamageSource.Friendly;
+        
+        set{}
+    }
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerManager = player.GetComponent<PlayerManager>();
-        damage = playerManager.damage;
         rb = GetComponent<Rigidbody>();
         rb.AddForce(new Vector3(0, bulletSpeed, 0));
     }
@@ -44,10 +50,25 @@ public class Bullet : MonoBehaviour, IDamageDealer
     void OnTriggerEnter (Collider collision)
     {
         IDamageable damageable = collision.gameObject.GetComponent(typeof(IDamageable)) as IDamageable;
-        if (damageable != null)
+        if (damageable != null && gameObject.tag != "Explosion")
         {
-            print(damage + " damage taken");
             damageable.TakeDamage(this);
+        }
+        if(gameObject.tag == "Explosion")
+        {
+            GameObject expl = (GameObject)Resources.Load(Const.Grenade.GrenadeExplosion, typeof(GameObject));
+            Instantiate(expl, gameObject.transform.position, Quaternion.identity);
+            SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.Explosion) as AudioClip);
+            Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 1.5f);
+            foreach (var hitCollider in hitColliders)
+            {
+                IDamageable damageItem = hitCollider.gameObject.GetComponent(typeof(IDamageable)) as IDamageable;
+                if (damageItem != null)
+                {
+                    print(damage + " damage done");
+                    damageItem.TakeDamage(this);
+                }
+            }
         }
         Destroy(this.gameObject);
 
