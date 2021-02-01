@@ -32,6 +32,8 @@
         public const string UpdateAmmoUi = "UPDATE_AMMO_UI";
         public const string PlayerDead = "PLAYER_DEAD";
         public const string PlayerRespawned = "PLAYER_RESPAWNED";
+
+        public const string DifficultySelected = "DIFFICULTY_SELECTED";
     }
 
     // Weapon names
@@ -108,6 +110,7 @@
         public const string City = "CIty";
         public const string CutsceneIntro = "CutsceneIntro";
 		public const string Tutorial = "Tutorial";
+        public const string LevelCompletedScene = "LevelCompleted";
 
     }
 
