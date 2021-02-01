@@ -56,6 +56,7 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
             anim.SetBool(IsDeadAnimation, true);
             agent.isStopped = true;
             zombieAudio.Stop();
+            Destroy(gameObject.GetComponent<BoxCollider>());
 
             // Trigger for spawning interactibles only one time
             if (interactiblesTrigger == false)
