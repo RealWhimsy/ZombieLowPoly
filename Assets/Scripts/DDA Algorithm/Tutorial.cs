@@ -8,7 +8,7 @@ public class Tutorial : MonoBehaviour
 
     private int killCounter;
 
-    private GameObject camera;
+    private GameObject followCamera;
     private GameObject player;
     private TextMeshPro tutorialText;
     private GameObject[] targets;
@@ -36,7 +36,7 @@ public class Tutorial : MonoBehaviour
     {
         killCounter = GameObject.FindGameObjectsWithTag("Enemy").Length;
         targets = GameObject.FindGameObjectsWithTag("Target");
-        camera = GameObject.FindGameObjectWithTag("MainCamera");
+        followCamera = GameObject.FindGameObjectWithTag("MainCamera");
         player = GameObject.FindGameObjectWithTag("Player");
         tutorialText =  GetComponent<TextMeshPro>();
         tutorialText.text = movementText;
@@ -45,8 +45,8 @@ public class Tutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        tutorialText.transform.position = new Vector3(camera.transform.position.x + 5, 3, camera.transform.position.z + 8);
-        tutorialText.transform.rotation = camera.transform.rotation;
+        tutorialText.transform.position = new Vector3(followCamera.transform.position.x + 5, 3, followCamera.transform.position.z + 8);
+        tutorialText.transform.rotation = followCamera.transform.rotation;
         setTextForPosition();
         killCounter = GameObject.FindGameObjectsWithTag("Enemy").Length;
     }

@@ -129,7 +129,6 @@ public class TutorialProgressManager : MonoBehaviour
 
     private void StopMovingZombies()
     {
-        NavMeshAgent currentAgent;
         foreach (var zombie in bulletZombiesPathfinding)
         {
             zombie.Target = zombie.gameObject.transform;

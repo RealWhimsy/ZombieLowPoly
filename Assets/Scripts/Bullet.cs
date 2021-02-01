@@ -52,7 +52,6 @@ public class Bullet : MonoBehaviour, IDamageDealer
         IDamageable damageable = collision.gameObject.GetComponent(typeof(IDamageable)) as IDamageable;
         if (damageable != null && gameObject.tag != "Explosion")
         {
-            print(damage + " damage taken");
             damageable.TakeDamage(this);
         }
         if(gameObject.tag == "Explosion")

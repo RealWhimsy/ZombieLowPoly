@@ -24,12 +24,10 @@ public class MeleeAttack : MonoBehaviour, IDamageDealer
 
     void OnTriggerEnter(Collider collision)
     {
-        Debug.Log(collision);
         IDamageable damageable = collision.gameObject.GetComponent(typeof(IDamageable)) as IDamageable;
 
         if (damageable != null && !alreadyHitUnits.Contains(collision))
         {
-            Debug.Log("DAMAGE" + collision);
             alreadyHitUnits.Add(collision);
             damageable.TakeDamage(this);
         }
