@@ -26,8 +26,8 @@
         public const string ZombieSpawned = "ZOMBIE_SPAWNED";
         public const string ZombieKilled = "ZOMBIE_KILLED";
         public const string WaveCompleted = "WAVE_COMPLETED";
-        public const string WavePassed = "WAVE_PASSED";
         public const string LevelCompleted = "LEVEL_COMPLETED";
+        public const string LevelLoaded = "LEVEL_LOADED";
         public const string InteractibleCollected = "INTERACTIBLE_COLLECTED";
         public const string UpdateAmmoUi = "UPDATE_AMMO_UI";
         public const string PlayerDead = "PLAYER_DEAD";
@@ -63,7 +63,8 @@
         public const int MaxGrenades = 5;
         public const string GrenadePrefab = "Prefabs/Grenade"; 
 		public const string GrenadeExplosion = "Prefabs/grenade_explosion";
-    
+        public const int StartGrenades = 2;
+
     }
 
     public static class Shotgun 
@@ -125,4 +126,9 @@
 	public static class Player{
 		public const int RespawnTime = 5;
 	}
+
+    public class Magazines
+    {
+        public const int MaxMagazines = 5;
+    }
 }

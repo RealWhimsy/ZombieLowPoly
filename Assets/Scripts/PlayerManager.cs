@@ -35,12 +35,15 @@ public class PlayerManager : MonoBehaviour, IDamageable
         anim = GameObject.FindGameObjectWithTag("PlayerModel").GetComponent<Animator>();
         EventManager.StartListening(Const.Events.MeleeAttack, HandleMeleeAttack);
 		EventManager.StartListening(Const.Events.InteractibleCollected, AddSupplies);
-        setSpawnStats();
+        EventManager.StartListening(Const.Events.LevelLoaded, SetSpawnStats);
+        EventManager.StartListening(Const.Events.LevelLoaded, ResetSupplies);
+        SetSpawnStats();
+        PrepareWeaponArray();
         FindHealthBar();
 
     }
 
-    private void setSpawnStats()
+    private void SetSpawnStats()
     {
 		grenades = 2;
 		armor = 5;
@@ -49,8 +52,6 @@ public class PlayerManager : MonoBehaviour, IDamageable
         anim.SetBool(IsDead, false);
         maxHealth = 200;
         currentHealth = maxHealth;
-        armor = 5;
-        PrepareWeaponArray();
     }
 
     private void OnEnable()
@@ -84,6 +85,11 @@ public class PlayerManager : MonoBehaviour, IDamageable
             pickUpHealth = maxHealth / 5;
         }
 
+        if (GetActiveWeapon().Magazines >= Const.Magazines.MaxMagazines)
+        {
+            GetActiveWeapon().Magazines = Const.Magazines.MaxMagazines;
+        }
+
         grenades += pickUpGrenades;
         if (grenades >= Const.Grenade.MaxGrenades)
         {
@@ -96,6 +102,13 @@ public class PlayerManager : MonoBehaviour, IDamageable
         }
         healthBar.SetHealth(currentHealth);
         GetActiveWeapon().Magazines += pickUpMagazines;
+        EventManager.TriggerEvent(Const.Events.UpdateAmmoUi);
+    }
+
+    private void ResetSupplies()
+    {
+        GetActiveWeapon().Magazines = GetActiveWeapon().MaxMagazines;
+        GetActiveWeapon().ShotsInCurrentMag = GetActiveWeapon().MaxMagazineSize;
         EventManager.TriggerEvent(Const.Events.UpdateAmmoUi);
     }
 
@@ -129,7 +142,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
 		if(currentlyEquippedWeapons > 1) {
 			weaponArray[Const.SecondWeaponIndex] = null;
 		}
-        setSpawnStats();
+        SetSpawnStats();
 		EventManager.TriggerEvent(Const.Events.PlayerRespawned);
     }
 
