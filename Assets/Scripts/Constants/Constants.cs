@@ -99,7 +99,7 @@
         public const string Zombies = "Sounds_Ingame/Zombies";
         public const string Grenade = "Sounds_Ingame/Using/ImpactGrenade";
         public const string GrenadeThrow = "Sounds_Ingame/Using/ThrowGrenade";
-        public const string MeleeAttack = "Sounds_Ingame/Weapons/knife_attack";
+        public const string MeleeAttack = "Sounds_Ingame/Weapons/melee";
         public const string Wave = "Sounds_Ingame/Wave/wave";
         public const string Death = "Sounds_Ingame/Death/SCREAM3";
     }
