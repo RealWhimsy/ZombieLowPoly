@@ -129,6 +129,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
             if (!triggerPlayerDeadEvent)
             {
                 triggerPlayerDeadEvent = true;
+                SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.Death) as AudioClip);
                 EventManager.TriggerEvent(Const.Events.PlayerDead);
                 StartCoroutine(Respawn());
             }
