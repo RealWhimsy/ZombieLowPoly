@@ -36,6 +36,7 @@ public class ZombieSpawner : MonoBehaviour
 
         EventManager.StartListening(Const.Events.StopSpawningZombies, StopSpawningZombies);
         EventManager.StartListening(Const.Events.ResumeSpawningZombies, ResumeSpawningZombies);
+        EventManager.StartListening(Const.Events.PlayerRespawned, ResumeSpawningZombies);
     }
 
     void Update()

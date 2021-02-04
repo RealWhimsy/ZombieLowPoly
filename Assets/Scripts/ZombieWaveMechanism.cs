@@ -23,6 +23,7 @@ public class ZombieWaveMechanism : MonoBehaviour
         killCounterForWave = 0;
         EventManager.StartListening(Const.Events.ZombieSpawned, CountZombies);
         EventManager.StartListening(Const.Events.ZombieKilled, CountKills);
+        EventManager.StartListening(Const.Events.PlayerRespawned, RestartLevel);
     }
 
     void Update()
@@ -47,6 +48,13 @@ public class ZombieWaveMechanism : MonoBehaviour
         totalSpawnedZombiesCounter = 0;
         waveCounter++;
         wavePassed = false;
+    }
+
+    // Completely restarts the level
+    private void RestartLevel()
+    {
+        waveCounter = 0;
+        ResetVariables();
     }
 
     // Counts killed zombies
