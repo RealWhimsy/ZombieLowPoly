@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -107,8 +107,11 @@ public class PlayerManager : MonoBehaviour, IDamageable
 
     private void ResetSupplies()
     {
-        GetActiveWeapon().Magazines = GetActiveWeapon().MaxMagazines;
-        GetActiveWeapon().ShotsInCurrentMag = GetActiveWeapon().MaxMagazineSize;
+        foreach (var weapon in weaponArray)
+        {
+            weapon.Magazines = weapon.MaxMagazines;
+            weapon.ShotsInCurrentMag = weapon.MaxMagazineSize;
+        }
         EventManager.TriggerEvent(Const.Events.UpdateAmmoUi);
     }
 
@@ -117,11 +120,34 @@ public class PlayerManager : MonoBehaviour, IDamageable
         healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
         healthBar.SetMaxHealth(maxHealth);
     }
+
+    private void CheckIfPlayerIsUnderWater()
+    {
+        if (!SceneManager.GetActiveScene().name.Equals(Const.SceneNames.PirateBay) ||
+            SceneManager.GetActiveScene().name.Equals(Const.SceneNames.Desert)) return;
+        
+        if (SceneManager.GetActiveScene().name.Equals(Const.SceneNames.Desert))
+        {
+            if (gameObject.transform.position.y <= 29)
+            {
+                currentHealth = -10;
+            }
+        }
+
+        if (SceneManager.GetActiveScene().name.Equals(Const.SceneNames.PirateBay))
+        {
+            if (gameObject.transform.position.y <= 22)
+            {
+                currentHealth = -10;
+            }
+        }
+    }
     
 
     // Update is called once per frame
     void Update()
     {
+        CheckIfPlayerIsUnderWater();
         if (currentHealth <= 0 && !dead)
         {
             dead = true;
