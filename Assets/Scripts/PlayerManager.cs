@@ -167,6 +167,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
     {
         yield return new WaitForSeconds(Const.Player.RespawnTime);
         SetSpawnStats();
+        healthBar.SetHealth(currentHealth);
         ResetSupplies();
 		EventManager.TriggerEvent(Const.Events.PlayerRespawned);
     }
