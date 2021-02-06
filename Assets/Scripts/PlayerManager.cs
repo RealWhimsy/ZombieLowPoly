@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,12 +35,15 @@ public class PlayerManager : MonoBehaviour, IDamageable
         anim = GameObject.FindGameObjectWithTag("PlayerModel").GetComponent<Animator>();
         EventManager.StartListening(Const.Events.MeleeAttack, HandleMeleeAttack);
 		EventManager.StartListening(Const.Events.InteractibleCollected, AddSupplies);
-        setSpawnStats();
+        EventManager.StartListening(Const.Events.LevelLoaded, SetSpawnStats);
+        EventManager.StartListening(Const.Events.LevelLoaded, ResetSupplies);
+        SetSpawnStats();
+        PrepareWeaponArray();
         FindHealthBar();
 
     }
 
-    private void setSpawnStats()
+    private void SetSpawnStats()
     {
 		grenades = 2;
 		armor = 5;
@@ -49,8 +52,6 @@ public class PlayerManager : MonoBehaviour, IDamageable
         anim.SetBool(IsDead, false);
         maxHealth = 200;
         currentHealth = maxHealth;
-        armor = 5;
-        PrepareWeaponArray();
     }
 
     private void OnEnable()
@@ -84,6 +85,11 @@ public class PlayerManager : MonoBehaviour, IDamageable
             pickUpHealth = maxHealth / 5;
         }
 
+        if (GetActiveWeapon().Magazines >= Const.Magazines.MaxMagazines)
+        {
+            GetActiveWeapon().Magazines = Const.Magazines.MaxMagazines;
+        }
+
         grenades += pickUpGrenades;
         if (grenades >= Const.Grenade.MaxGrenades)
         {
@@ -99,16 +105,49 @@ public class PlayerManager : MonoBehaviour, IDamageable
         EventManager.TriggerEvent(Const.Events.UpdateAmmoUi);
     }
 
+    private void ResetSupplies()
+    {
+        foreach (var weapon in weaponArray)
+        {
+            weapon.Magazines = weapon.MaxMagazines;
+            weapon.ShotsInCurrentMag = weapon.MaxMagazineSize;
+        }
+        EventManager.TriggerEvent(Const.Events.UpdateAmmoUi);
+    }
+
     private void FindHealthBar()
     {
         healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
         healthBar.SetMaxHealth(maxHealth);
+    }
+
+    private void CheckIfPlayerIsUnderWater()
+    {
+        if (!SceneManager.GetActiveScene().name.Equals(Const.SceneNames.PirateBay) ||
+            SceneManager.GetActiveScene().name.Equals(Const.SceneNames.Desert)) return;
+        
+        if (SceneManager.GetActiveScene().name.Equals(Const.SceneNames.Desert))
+        {
+            if (gameObject.transform.position.y <= 22)
+            {
+                currentHealth = -10;
+            }
+        }
+
+        if (SceneManager.GetActiveScene().name.Equals(Const.SceneNames.PirateBay))
+        {
+            if (gameObject.transform.position.y <= 36)
+            {
+                currentHealth = -10;
+            }
+        }
     }
     
 
     // Update is called once per frame
     void Update()
     {
+        CheckIfPlayerIsUnderWater();
         if (currentHealth <= 0 && !dead)
         {
             dead = true;
@@ -116,6 +155,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
             if (!triggerPlayerDeadEvent)
             {
                 triggerPlayerDeadEvent = true;
+                SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.Death) as AudioClip);
                 EventManager.TriggerEvent(Const.Events.PlayerDead);
                 StartCoroutine(Respawn());
             }
@@ -126,10 +166,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
     private IEnumerator Respawn()
     {
         yield return new WaitForSeconds(Const.Player.RespawnTime);
-		if(currentlyEquippedWeapons > 1) {
-			weaponArray[Const.SecondWeaponIndex] = null;
-		}
-        setSpawnStats();
+        SetSpawnStats();
 		EventManager.TriggerEvent(Const.Events.PlayerRespawned);
     }
 
@@ -153,7 +190,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
 
     void HandleMeleeAttack()
     {
-        anim.SetTrigger(Shoot);
+        anim.SetTrigger(Melee);
     }
 
     public bool isDead()

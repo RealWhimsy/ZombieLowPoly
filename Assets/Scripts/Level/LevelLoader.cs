@@ -40,6 +40,7 @@ public class LevelLoader : MonoBehaviour
 
     private void LoadNextScene()
     {
+        EventManager.TriggerEvent(Const.Events.LevelLoaded);
         switch (nextScene)
         {
 			case Const.SceneNames.Forest:

@@ -24,8 +24,8 @@ public class Crosshair : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		var pos = new Vector3(0, transform.position.y, -20);
-		var endPos = new Vector3(pos.x, pos.y, pos.z + 400);
+		var pos = new Vector3(0, 0, -20);
+		var endPos = new Vector3(pos.x, 0, pos.z + 400);
         lineRenderer.SetPosition(0, pos);
 		lineRenderer.SetPosition(1, endPos);
     }
