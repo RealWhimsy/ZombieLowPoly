@@ -193,7 +193,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
 
     void HandleMeleeAttack()
     {
-        anim.SetTrigger(Shoot);
+        anim.SetTrigger(Melee);
     }
 
     public bool isDead()
