@@ -128,7 +128,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
         
         if (SceneManager.GetActiveScene().name.Equals(Const.SceneNames.Desert))
         {
-            if (gameObject.transform.position.y <= 36)
+            if (gameObject.transform.position.y <= 22)
             {
                 currentHealth = -10;
             }
@@ -136,7 +136,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
 
         if (SceneManager.GetActiveScene().name.Equals(Const.SceneNames.PirateBay))
         {
-            if (gameObject.transform.position.y <= 22)
+            if (gameObject.transform.position.y <= 36)
             {
                 currentHealth = -10;
             }
@@ -166,9 +166,6 @@ public class PlayerManager : MonoBehaviour, IDamageable
     private IEnumerator Respawn()
     {
         yield return new WaitForSeconds(Const.Player.RespawnTime);
-		if(currentlyEquippedWeapons > 1) {
-			weaponArray[Const.SecondWeaponIndex] = null;
-		}
         SetSpawnStats();
 		EventManager.TriggerEvent(Const.Events.PlayerRespawned);
     }
