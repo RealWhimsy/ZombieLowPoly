@@ -57,6 +57,20 @@
         public const string PoliceBat = "w_policebatton";
     }
 
+    public static class Difficulties
+    {
+        public const string Dif1 = "DIFFICULTY_ONE";
+        public const string Dif2 = "DIFFICULTY_TWO";
+        public const string Dif3 = "DIFFICULTY_THREE";
+        public const string Dif4 = "DIFFICULTY_FOUR";
+        public const string Dif5 = "DIFFICULTY_FIVE";
+        public const string Dif6 = "DIFFICULTY_SIX";
+        public const string Dif7 = "DIFFICULTY_SEVEN";
+        public const string Dif8 = "DIFFICULTY_EIGHT";
+        public const string Dif9 = "DIFFICULTY_NINE";
+        public const string Dif10 = "DIFFICULTY_TEN";
+    }
+
     public static class Grenade
     {
         public const int GrenadeDamage = 100;
