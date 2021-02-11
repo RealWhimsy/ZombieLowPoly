@@ -49,10 +49,12 @@ public class Bullet : MonoBehaviour, IDamageDealer
 
     void OnTriggerEnter (Collider collision)
     {
+        bool hitDamagableTarget = false;
         IDamageable damageable = collision.gameObject.GetComponent(typeof(IDamageable)) as IDamageable;
         if (damageable != null && gameObject.tag != "Explosion")
         {
             damageable.TakeDamage(this);
+            hitDamagableTarget = true;
         }
         if(gameObject.tag == "Explosion")
         {
@@ -67,11 +69,16 @@ public class Bullet : MonoBehaviour, IDamageDealer
                 {
                     print(damage + " damage done");
                     damageItem.TakeDamage(this);
+                    hitDamagableTarget = true;
                 }
             }
         }
-        Destroy(this.gameObject);
 
+        // do not destroy bullets if they hit non-damagable objects such as interactibles
+        if (hitDamagableTarget)
+        {
+            Destroy(gameObject);
+        }
     }
 
     int getDamage()
