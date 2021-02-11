@@ -27,6 +27,13 @@ public class ZombiePathfinding : MonoBehaviour
         {
             target = player.transform;
         }
+
+        SetCurrentDifficultyStats();
+    }
+
+    private void SetCurrentDifficultyStats()
+    {
+        agent.speed = Difficulty.CurrentDifficulty.ZombieSpeed;
     }
 
     // Update is called once per frame
