@@ -4,33 +4,55 @@ using System;
 using System.Linq;
 using UnityEngine;
 
+/**
+ * Calculates the difficulty changes between waves.
+ * Uses the following metrics:
+ * 
+ * ShotScore: % of shots hit. A hit is counted if it hits a special hitbox on the zombies, which is bigger than the
+ *              normal damage hitbox. This means, that closely missed shots also count as a hit for the purpose of
+ *              calculating the difficulty. Shots that only hit the "special hitbox" do not deal damage.
+ *
+ * GrenadeScore: Grenades thrown vs zombies hit by grenades. The player gets a better score when their grenades hit many
+ *                  Zombies at once. Grenades that hit few zombies or no zombies at all lead to a worse score.
+ *
+ * DamageTakenScore: How much damage the player has taken in a single wave. Less damage taken means a better score.
+ *
+ * TimeScore: The time it took for the player to complete the wave. Less time taken means a better score.
+ *
+ * PlayerFeedbackScore: Applied once after the player chose an option in the level completed dialogue. Difficulty changes
+ *                      based on which button the player pressed.
+ */
 public class DDAManager : MonoBehaviour
 {
-
+    // ---- the fields below are carried over between levels and rounds ----
+    // ---- this is done to prevent radical difficulty changes if the player has a lucky/unlucky round ----
     private static int _shotsFired;
     private static int _shotsHit;
     private static int _grenadesThrown;
     private static int _grenadesHit;
+    // ---- end of carried over fields ---
+
+    // ---- the fields below are reset after each wave ----
     private static int _damageTaken;
-    private static float _timeTaken;
-    private static int _playerFeedbackDifficulty;
-    
     private static DateTime startTime;
     private static DateTime endTime;
+    // ---- end of fields that are reset after each wave ----
     
-    
+    private static int _playerFeedbackDifficulty; //chosen by the player in the "Level Completed" view via button press
+
+
     // Start is called before the first frame update
     void Start()
     {
-         EventManager.StartListening(Const.Events.ShotFired,() => _shotsFired++);
-         EventManager.StartListening(Const.Events.ShotHitDDAZone, () => _shotsHit++);
-         EventManager.StartListening(Const.Events.GrenadeThrown, () => _grenadesThrown++);
-         EventManager.StartListening(Const.Events.GrenadeHit, () => _grenadesHit++);
-         
-         EventManager.StartListening(Const.Events.WaveCompleted, AdjustDDA);
-         EventManager.StartListening(Const.Events.DifficultyChanged, HandleDifficultyChange);
-         EventManager.StartListening(Const.Events.WaveStarted, WaveStarted);
-         startTime = DateTime.Now;
+        EventManager.StartListening(Const.Events.ShotFired, () => _shotsFired++);
+        EventManager.StartListening(Const.Events.ShotHitDDAZone, () => _shotsHit++);
+        EventManager.StartListening(Const.Events.GrenadeThrown, () => _grenadesThrown++);
+        EventManager.StartListening(Const.Events.GrenadeHit, () => _grenadesHit++);
+
+        EventManager.StartListening(Const.Events.WaveCompleted, AdjustDDA);
+        EventManager.StartListening(Const.Events.DifficultyChanged, HandleDifficultyChange);
+        EventManager.StartListening(Const.Events.WaveStarted, WaveStarted);
+        startTime = DateTime.Now;
     }
 
     private void AdjustDDA()
@@ -46,7 +68,7 @@ public class DDAManager : MonoBehaviour
         var grenadeScore = CalculateGrenadeScore();
         var damageTakenScore = CalculateDamageTakenScore();
         var timeScore = CalculateTimeScore();
-        var difficultyChange = shotScore + grenadeScore + damageTakenScore + _playerFeedbackDifficulty;
+        var difficultyChange = shotScore + grenadeScore + damageTakenScore + timeScore + _playerFeedbackDifficulty;
 
         // set to maximum difficulty change allowed for one wave
         if (difficultyChange > Const.Difficulties.MaxDifficultyChangePerWave)
@@ -170,12 +192,12 @@ public class DDAManager : MonoBehaviour
 
         return -2;
     }
-    
+
     private void HandleDifficultyChange()
     {
         KeepDifficultyWithinBounds();
         ResetSingleWaveStats();
-        
+
         // get difficulty at index from Dictionary
         Difficulty.CurrentDifficulty = DifficultyStats.difficulties.ElementAt(Difficulty.CurrentDifficultyIndex).Value;
     }
@@ -191,6 +213,7 @@ public class DDAManager : MonoBehaviour
     private void ResetSingleWaveStats()
     {
         _damageTaken = 0;
+        _playerFeedbackDifficulty = 0; // only apply player feedback difficulty once, after the level completed dialogue
     }
 
     private void KeepDifficultyWithinBounds()
@@ -234,12 +257,6 @@ public class DDAManager : MonoBehaviour
     {
         get => _damageTaken;
         set => _damageTaken = value;
-    }
-
-    public static float TimeTaken
-    {
-        get => _timeTaken;
-        set => _timeTaken = value;
     }
 
     public static int PlayerFeedbackDifficulty
