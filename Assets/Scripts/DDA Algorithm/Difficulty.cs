@@ -10,8 +10,8 @@ public class Difficulty
     private float timeBetweenSpawns;
     private int stage;
 
-    private static Difficulty _currentDifficulty = DifficultyStats.difficulties[Const.Difficulties.Dif1];
-    private static int _currentDifficultyIndex;
+    private static Difficulty _currentDifficulty;
+    private static int _currentDifficultyIndex = 4;
 
     public Difficulty(int stage, int zombiesForWave, int zombieHealth, int zombieDamage, float zombieSpeed, float timeBetweenSpawns)
     {

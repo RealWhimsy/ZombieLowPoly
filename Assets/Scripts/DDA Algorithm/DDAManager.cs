@@ -52,6 +52,7 @@ public class DDAManager : MonoBehaviour
         EventManager.StartListening(Const.Events.WaveCompleted, AdjustDDA);
         EventManager.StartListening(Const.Events.DifficultyChanged, HandleDifficultyChange);
         EventManager.StartListening(Const.Events.WaveStarted, WaveStarted);
+        EventManager.StartListening(Const.Events.TutorialCompleted, AdjustDDA);
         startTime = DateTime.Now;
     }
 
@@ -60,6 +61,7 @@ public class DDAManager : MonoBehaviour
         var difficultyChange = CalculateTotalDifficultyChange();
 
         Difficulty.CurrentDifficultyIndex += difficultyChange;
+        Difficulty.CurrentDifficulty = DifficultyStats.difficulties.ElementAt(Difficulty.CurrentDifficultyIndex).Value;
     }
 
     private int CalculateTotalDifficultyChange()

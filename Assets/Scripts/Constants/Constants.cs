@@ -37,6 +37,7 @@
         public const string PlayerRespawned = "PLAYER_RESPAWNED";
 
         public const string DifficultySelected = "DIFFICULTY_SELECTED";
+        public const string TutorialCompleted = "TUTORIAL_COMPLETED";
 
         public const string
             DifficultyChanged = "DIFFICULTY_CHANGED"; // called when difficulty changes between waves via DDA
