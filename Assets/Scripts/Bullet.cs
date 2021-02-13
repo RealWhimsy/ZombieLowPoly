@@ -10,6 +10,8 @@ public class Bullet : MonoBehaviour, IDamageDealer
 
     private Vector3 playerPosition;
     private GameObject player;
+    private bool ddaCountedAsHit;
+
 
     PlayerManager playerManager;
     Rigidbody rb;
@@ -51,12 +53,12 @@ public class Bullet : MonoBehaviour, IDamageDealer
     {
         bool hitDamagableTarget = false;
         IDamageable damageable = collision.gameObject.GetComponent(typeof(IDamageable)) as IDamageable;
-        if (damageable != null && gameObject.tag != "Explosion")
+        if (damageable != null && !gameObject.CompareTag("Explosion"))
         {
             damageable.TakeDamage(this);
             hitDamagableTarget = true;
         }
-        if(gameObject.tag == "Explosion")
+        if(gameObject.CompareTag("Explosion"))
         {
             GameObject expl = (GameObject)Resources.Load(Const.Grenade.GrenadeExplosion, typeof(GameObject));
             Instantiate(expl, gameObject.transform.position, Quaternion.identity);
@@ -72,6 +74,13 @@ public class Bullet : MonoBehaviour, IDamageDealer
                     hitDamagableTarget = true;
                 }
             }
+        }
+
+        if (collision.gameObject.CompareTag("DDAZombieHitbox") && !ddaCountedAsHit)
+        {
+            // one bullet can only count as one hit for the DDA calculation
+            ddaCountedAsHit = true;
+            EventManager.TriggerEvent(Const.Events.ShotHitDDAZone);
         }
 
         // do not destroy bullets if they hit non-damagable objects such as interactibles

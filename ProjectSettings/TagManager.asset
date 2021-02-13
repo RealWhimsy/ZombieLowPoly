@@ -23,6 +23,7 @@ TagManager:
   - SprayBar
   - TutorialText
   - Target
+  - DDAZombieHitbox
   layers:
   - Default
   - TransparentFX

@@ -187,6 +187,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
         Instantiate(blood, transform.position, transform.rotation);
         currentHealth -= finalDamage;
         healthBar.SetHealth(currentHealth);
+        DDAManager.DamageTaken += finalDamage;
     }
 
     void HandleMeleeAttack()

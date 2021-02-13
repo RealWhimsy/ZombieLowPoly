@@ -23,6 +23,7 @@ public class ZombieWaveMechanism : MonoBehaviour
         killCounterForWave = 0;
         EventManager.StartListening(Const.Events.ZombieSpawned, CountZombies);
         EventManager.StartListening(Const.Events.ZombieKilled, CountKills);
+        EventManager.TriggerEvent(Const.Events.WaveStarted);
         SetCurrentDifficultyStats();
     }
 
@@ -85,6 +86,7 @@ public class ZombieWaveMechanism : MonoBehaviour
     {
         yield return new WaitForSeconds(timeBetweenWaves);
         EventManager.TriggerEvent(Const.Events.ResumeSpawningZombies);
+        EventManager.TriggerEvent(Const.Events.WaveStarted);
         ResetVariables();
     }
 

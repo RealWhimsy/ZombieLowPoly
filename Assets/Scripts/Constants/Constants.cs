@@ -14,7 +14,9 @@
     public static class Events
     {
         public const string ShotFired = "SHOT_FIRED";
+        public const string ShotHitDDAZone = "SHOT_HIT_DDA_ZONE";
         public const string GrenadeThrown = "GRENADE_THROWN";
+        public const string GrenadeHit = "GRENADE_HIT";
         public const string WeaponSwapped = "WEAPON_SWAPPED";
         public const string WeaponPickedUp = "WEAPON_PICKED_UP";
         public const string MeleeAttack = "MELEE_ATTACK";
@@ -26,6 +28,7 @@
         public const string ZombieSpawned = "ZOMBIE_SPAWNED";
         public const string ZombieKilled = "ZOMBIE_KILLED";
         public const string WaveCompleted = "WAVE_COMPLETED";
+        public const string WaveStarted = "WAVE_STARTED";
         public const string LevelCompleted = "LEVEL_COMPLETED";
         public const string LevelLoaded = "LEVEL_LOADED";
         public const string InteractibleCollected = "INTERACTIBLE_COLLECTED";
@@ -74,6 +77,7 @@
         public const string Dif10 = "DIFFICULTY_TEN";
         public const int MinDifficultyIndex = 0;
         public const int MaxDifficultyIndex = 9;
+        public const int MaxDifficultyChangePerWave = 4;
     }
 
     public static class Grenade
