@@ -4,32 +4,9 @@ using UnityEngine;
 
 public class LevelCompletedMenu : MonoBehaviour
 {
-    void Start()
+    public void ButtonSelected(int difficultyAdjustment)
     {
-    }
-
-    public void TooEasyButton()
-    {
-        EventManager.TriggerEvent(Const.Events.DifficultySelected);
-    }
-
-    public void EasyButton()
-    {
-        EventManager.TriggerEvent(Const.Events.DifficultySelected);
-    }
-
-    public void MediumButton()
-    {
-        EventManager.TriggerEvent(Const.Events.DifficultySelected);
-    }
-
-    public void HardButton()
-    {
-        EventManager.TriggerEvent(Const.Events.DifficultySelected);
-    }
-    
-    public void TooHardButton()
-    {
+        DDAManager.PlayerFeedbackDifficulty = difficultyAdjustment;
         EventManager.TriggerEvent(Const.Events.DifficultySelected);
     }
 }

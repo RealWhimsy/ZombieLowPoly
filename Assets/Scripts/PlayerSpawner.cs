@@ -7,11 +7,13 @@ public class PlayerSpawner : MonoBehaviour
 {
     private PlayerManager playerManager;
     private PlayerMovement playerMovement;
+    private CharacterController controller;
 
     private bool scriptsLoaded = false;
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
+        controller = GetComponent<CharacterController>();
     }
     
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -20,8 +22,10 @@ public class PlayerSpawner : MonoBehaviour
 
         if (playerSpawn != null)
         {
+            controller.enabled = false;
             transform.position = playerSpawn.transform.position;
             transform.rotation = playerSpawn.transform.rotation;
+            controller.enabled = true;
         }
 
         // Add all "combat scripts" to the player if the first combat scene is loaded

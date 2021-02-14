@@ -21,9 +21,8 @@ public class PlayerManager : MonoBehaviour, IDamageable
     private int currentlyEquippedWeapons;
     private GameObject blood;
 
-    private static readonly int Melee = Animator.StringToHash("melee");
-
     public Animator anim;
+    private static readonly int Melee = Animator.StringToHash("melee");
     private static readonly int Shoot = Animator.StringToHash("shoot");
     private static readonly int IsDead = Animator.StringToHash("isDead");
     private static readonly int HasPistol = Animator.StringToHash("hasPistol");
@@ -188,6 +187,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
         Instantiate(blood, transform.position, transform.rotation);
         currentHealth -= finalDamage;
         healthBar.SetHealth(currentHealth);
+        DDAManager.DamageTaken += finalDamage;
     }
 
     void HandleMeleeAttack()

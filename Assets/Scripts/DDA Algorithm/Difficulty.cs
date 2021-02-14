@@ -6,11 +6,14 @@ public class Difficulty
     private int zombiesForWave;
     private int zombieHealth;
     private int zombieDamage;
-    private double zombieSpeed;
-    private double timeBetweenSpawns;
+    private float zombieSpeed;
+    private float timeBetweenSpawns;
     private int stage;
 
-    public Difficulty(int stage, int zombiesForWave, int zombieHealth, int zombieDamage, double zombieSpeed, double timeBetweenSpawns)
+    private static Difficulty _currentDifficulty;
+    private static int _currentDifficultyIndex = 4;
+
+    public Difficulty(int stage, int zombiesForWave, int zombieHealth, int zombieDamage, float zombieSpeed, float timeBetweenSpawns)
     {
         this.stage = stage;
         this.zombiesForWave = zombiesForWave;
@@ -24,5 +27,35 @@ public class Difficulty
     {
         get => stage;
         set => stage = value;
+    }
+
+    public int ZombiesForWave => zombiesForWave;
+
+    public int ZombieHealth => zombieHealth;
+
+    public int ZombieDamage => zombieDamage;
+
+    public float ZombieSpeed => zombieSpeed;
+
+    public float TimeBetweenSpawns => timeBetweenSpawns;
+
+    public static Difficulty CurrentDifficulty
+    {
+        get => _currentDifficulty;
+        set => _currentDifficulty = value;
+    }
+
+    public static int CurrentDifficultyIndex
+    {
+        get => _currentDifficultyIndex;
+        set
+        {
+            if (value > Const.Difficulties.MaxDifficultyIndex)
+            {
+                value = Const.Difficulties.MaxDifficultyIndex;
+            }
+            _currentDifficultyIndex = value;
+        }
+        
     }
 }

@@ -44,6 +44,7 @@ public class LevelLoader : MonoBehaviour
         switch (nextScene)
         {
 			case Const.SceneNames.Forest:
+                EventManager.TriggerEvent(Const.Events.TutorialCompleted);
 				LoadLevel(Const.SceneNames.Forest);
 				break;	
             case Const.SceneNames.Desert:

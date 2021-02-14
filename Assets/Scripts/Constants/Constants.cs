@@ -14,18 +14,21 @@
     public static class Events
     {
         public const string ShotFired = "SHOT_FIRED";
+        public const string ShotHitDDAZone = "SHOT_HIT_DDA_ZONE";
         public const string GrenadeThrown = "GRENADE_THROWN";
+        public const string GrenadeHit = "GRENADE_HIT";
         public const string WeaponSwapped = "WEAPON_SWAPPED";
         public const string WeaponPickedUp = "WEAPON_PICKED_UP";
         public const string MeleeAttack = "MELEE_ATTACK";
-		public const string MeleeEquipped = "MELEE_EUQIPPED";
-		public const string GunEquipped = "GUN_EUQIPPED";
+        public const string MeleeEquipped = "MELEE_EUQIPPED";
+        public const string GunEquipped = "GUN_EUQIPPED";
 
         public const string ResumeSpawningZombies = "RESUME_SPAWNING_ZOMBIES";
         public const string StopSpawningZombies = "STOP_SPAWNING_ZOMBIES";
         public const string ZombieSpawned = "ZOMBIE_SPAWNED";
         public const string ZombieKilled = "ZOMBIE_KILLED";
         public const string WaveCompleted = "WAVE_COMPLETED";
+        public const string WaveStarted = "WAVE_STARTED";
         public const string LevelCompleted = "LEVEL_COMPLETED";
         public const string LevelLoaded = "LEVEL_LOADED";
         public const string InteractibleCollected = "INTERACTIBLE_COLLECTED";
@@ -34,6 +37,10 @@
         public const string PlayerRespawned = "PLAYER_RESPAWNED";
 
         public const string DifficultySelected = "DIFFICULTY_SELECTED";
+        public const string TutorialCompleted = "TUTORIAL_COMPLETED";
+
+        public const string
+            DifficultyChanged = "DIFFICULTY_CHANGED"; // called when difficulty changes between waves via DDA
     }
 
     // Weapon names
@@ -69,19 +76,21 @@
         public const string Dif8 = "DIFFICULTY_EIGHT";
         public const string Dif9 = "DIFFICULTY_NINE";
         public const string Dif10 = "DIFFICULTY_TEN";
+        public const int MinDifficultyIndex = 0;
+        public const int MaxDifficultyIndex = 9;
+        public const int MaxDifficultyChangePerWave = 4;
     }
 
     public static class Grenade
     {
         public const int GrenadeDamage = 100;
         public const int MaxGrenades = 5;
-        public const string GrenadePrefab = "Prefabs/Grenade"; 
-		public const string GrenadeExplosion = "Prefabs/grenade_explosion";
+        public const string GrenadePrefab = "Prefabs/Grenade";
+        public const string GrenadeExplosion = "Prefabs/grenade_explosion";
         public const int StartGrenades = 2;
-
     }
 
-    public static class Shotgun 
+    public static class Shotgun
     {
         public const int ShotgunSplinters = 6;
     }
@@ -125,9 +134,8 @@
         public const string PirateBay = "Pirate Bay";
         public const string City = "CIty";
         public const string CutsceneIntro = "CutsceneIntro";
-		public const string Tutorial = "Tutorial";
+        public const string Tutorial = "Tutorial";
         public const string LevelCompletedScene = "LevelCompleted";
-
     }
 
     public static class UI
@@ -138,9 +146,10 @@
         public const string HUDCanvas = "Prefabs/HUD";
     }
 
-	public static class Player{
-		public const int RespawnTime = 5;
-	}
+    public static class Player
+    {
+        public const int RespawnTime = 5;
+    }
 
     public class Magazines
     {
