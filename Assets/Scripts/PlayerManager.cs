@@ -84,10 +84,16 @@ public class PlayerManager : MonoBehaviour, IDamageable
             pickUpHealth = maxHealth / 5;
         }
 
-        if (GetActiveWeapon().Magazines >= Const.Magazines.MaxMagazines)
+        weaponArray[0].Magazines += pickUpMagazines;
+        weaponArray[1].Magazines += pickUpMagazines;
+        for (int i = 0; i < weaponArray.Length; i++)
         {
-            GetActiveWeapon().Magazines = Const.Magazines.MaxMagazines;
+            if (weaponArray[i].Magazines >= Const.Magazines.MaxMagazines)
+            {
+                weaponArray[i].Magazines = Const.Magazines.MaxMagazines;
+            }
         }
+        
 
         grenades += pickUpGrenades;
         if (grenades >= Const.Grenade.MaxGrenades)
@@ -100,7 +106,6 @@ public class PlayerManager : MonoBehaviour, IDamageable
             currentHealth = maxHealth;
         }
         healthBar.SetHealth(currentHealth);
-        GetActiveWeapon().Magazines += pickUpMagazines;
         EventManager.TriggerEvent(Const.Events.UpdateAmmoUi);
     }
 
