@@ -17,6 +17,7 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
     private AudioClip[] hitMarker;
     private AudioClip[] zombieSounds;
     private AudioSource zombieAudio;
+    private PlayerManager playerManager;
     private bool muted;
 
     float currentTriggerStayTime;
@@ -46,6 +47,15 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
         agent = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
         currentTriggerStayTime = damageFrequency;
+        
+        EventManager.StartListening(Const.Events.DifficultyChanged, SetCurrentDifficultyStats);
+        SetCurrentDifficultyStats();
+    }
+
+    private void SetCurrentDifficultyStats()
+    {
+        maxHealth = Difficulty.CurrentDifficulty.ZombieHealth;
+        damage = Difficulty.CurrentDifficulty.ZombieDamage;
     }
 
     // Update is called once per frame

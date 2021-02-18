@@ -194,8 +194,8 @@ public class PlayerWeaponInteraction : MonoBehaviour
 
     private void SetRespawnState()
     {
-        SwitchWeapon();
-        RenderNewWeapon();
+        /*SwitchWeapon();
+        RenderNewWeapon();*/
     }
 
     private void OnTriggerEnter(Collider collider)

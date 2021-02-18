@@ -41,6 +41,10 @@ public class PlayerMovement : MonoBehaviour
             BaseMovement();
             MouseMovement();
         }
+        else
+        {
+            footSteps.Stop();
+        }
     }
 
     private void BaseMovement()

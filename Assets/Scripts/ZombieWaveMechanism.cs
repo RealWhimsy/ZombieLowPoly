@@ -24,6 +24,8 @@ public class ZombieWaveMechanism : MonoBehaviour
         EventManager.StartListening(Const.Events.ZombieSpawned, CountZombies);
         EventManager.StartListening(Const.Events.ZombieKilled, CountKills);
         EventManager.StartListening(Const.Events.PlayerRespawned, RestartLevel);
+        EventManager.TriggerEvent(Const.Events.WaveStarted);
+        SetCurrentDifficultyStats();
     }
 
     void Update()
@@ -32,6 +34,9 @@ public class ZombieWaveMechanism : MonoBehaviour
         {
             WavePassed();
             wavePassed = true;
+            
+            EventManager.TriggerEvent(Const.Events.DifficultyChanged);
+            SetCurrentDifficultyStats();
         }
     }
 
@@ -89,7 +94,13 @@ public class ZombieWaveMechanism : MonoBehaviour
     {
         yield return new WaitForSeconds(timeBetweenWaves);
         EventManager.TriggerEvent(Const.Events.ResumeSpawningZombies);
+        EventManager.TriggerEvent(Const.Events.WaveStarted);
         ResetVariables();
+    }
+
+    private void SetCurrentDifficultyStats()
+    {
+        zombiesPerWave = Difficulty.CurrentDifficulty.ZombiesForWave;
     }
 
     public int TotalSpawnedZombiesCounter => totalSpawnedZombiesCounter;

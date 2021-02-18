@@ -6,7 +6,7 @@ public class InteractiblesManager : MonoBehaviour
 
     public static void SpawnInteractible(Vector3 position, Quaternion rotation)
     {
-        if(GameAssets.i.GenerateRandomNumber(0,3) == 2)
+        if(GameAssets.i.GenerateRandomNumber(0,2) == 2)
         {
             Instantiate(SelectInteractible(), position, rotation);
         }
@@ -15,7 +15,6 @@ public class InteractiblesManager : MonoBehaviour
 
     private static GameObject SelectInteractible()
     {
-        //interactible = new GameObject();
         switch (GameAssets.i.GenerateRandomNumber(0,2))
         {
             case 0:

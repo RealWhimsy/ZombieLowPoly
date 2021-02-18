@@ -38842,7 +38842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 284f55b99d122e24a9ab45153d9ec2dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves: 1
+  waves: 5
   zombiesPerWave: 3
   timeBetweenWaves: 10
 --- !u!114 &1663837660

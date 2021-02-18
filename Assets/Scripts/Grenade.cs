@@ -56,6 +56,7 @@ public class Grenade : MonoBehaviour, IDamageDealer
                 if (damageItem != null)
                 {
                     damageItem.TakeDamage(this);
+                    EventManager.TriggerEvent(Const.Events.GrenadeHit);
                 }
             }
 

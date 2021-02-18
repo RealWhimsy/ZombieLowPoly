@@ -26,6 +26,8 @@ public class ZombieSpawner : MonoBehaviour
     void Start()
     {
         zombieSpawners = GameObject.FindGameObjectsWithTag("ZombieSpawn");
+        
+        SetCurrentDifficultyStats();
 
         InvokeRepeating("SpawnZombie", initialSpawnDelay, timeBetweenRespawns);
 
@@ -37,6 +39,11 @@ public class ZombieSpawner : MonoBehaviour
         EventManager.StartListening(Const.Events.StopSpawningZombies, StopSpawningZombies);
         EventManager.StartListening(Const.Events.ResumeSpawningZombies, ResumeSpawningZombies);
         EventManager.StartListening(Const.Events.PlayerRespawned, ResumeSpawningZombies);
+    }
+
+    private void SetCurrentDifficultyStats()
+    {
+        timeBetweenRespawns = Difficulty.CurrentDifficulty.TimeBetweenSpawns;
     }
 
     void Update()
