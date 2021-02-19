@@ -18,6 +18,8 @@ public class ZombiePathfinding : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        
+        EventManager.StartListening(Const.Events.PlayerRespawned, HandlePlayerRespawn);
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerManager = player.GetComponent<PlayerManager>();
@@ -62,6 +64,12 @@ public class ZombiePathfinding : MonoBehaviour
         }
         
         return false;
+    }
+
+    private void HandlePlayerRespawn()
+    {
+        // Re-enable pathfinding after player respawned
+        agent.isStopped = false;
     }
 
     public Transform Target
