@@ -63,6 +63,9 @@
         public const string RamboKnife = "w_rambo_knife";
         public const string PoliceBat = "w_policebatton";
         public const string UMP45 = "w_ump45";
+        public const string Barret = "w_barret";
+        public const string MP5 = "w_mp5_sil";
+        public const string G36K = "w_g36k";
     }
 
     public static class Difficulties
