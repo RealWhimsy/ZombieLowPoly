@@ -62,6 +62,7 @@
         public const string Rpg = "w_rpg";
         public const string RamboKnife = "w_rambo_knife";
         public const string PoliceBat = "w_policebatton";
+        public const string UMP45 = "w_ump45";
     }
 
     public static class Difficulties

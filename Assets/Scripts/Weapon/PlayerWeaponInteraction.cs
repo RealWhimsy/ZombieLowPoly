@@ -61,6 +61,10 @@ public class PlayerWeaponInteraction : MonoBehaviour
                 case Const.WeaponNames.P90:
                     PickUpWeapon(Const.WeaponNames.P90);
                     break;
+                
+                case Const.WeaponNames.UMP45:
+                    PickUpWeapon(Const.WeaponNames.UMP45);
+                    break;
 
                 case Const.WeaponNames.Scar:
                     PickUpWeapon(Const.WeaponNames.Scar);

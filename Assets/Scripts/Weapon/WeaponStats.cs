@@ -102,5 +102,11 @@ public static class WeaponStats
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/AK47_shot"),
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Rifle_reload_1"),
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell")),
+        
+        [Const.WeaponNames.UMP45] = new Weapon("w_ump45", 3, 25, 0.17f,
+            Resources.Load("Prefabs/rifle_shell") as GameObject, 20, 15, false, WeaponType.Smg,
+            (AudioClip) Resources.Load("Sounds_Ingame/Weapons/P90_shot"),
+            (AudioClip) Resources.Load("Sounds_Ingame/Weapons/SMG_reload"),
+            (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Pistol_shell")),
     };
 }
