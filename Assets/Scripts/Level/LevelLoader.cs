@@ -40,6 +40,7 @@ public class LevelLoader : MonoBehaviour
 
     private void LoadNextScene()
     {
+        Time.timeScale = 1;
         EventManager.TriggerEvent(Const.Events.LevelLoaded);
         switch (nextScene)
         {
@@ -65,7 +66,7 @@ public class LevelLoader : MonoBehaviour
     }
 
 	private IEnumerator LoadLevelWithDelay(string sceneName) {
-		yield return new WaitForSeconds(4);
+		yield return new WaitForSeconds(3);
 		SceneManager.LoadScene(sceneName);
 	}
 

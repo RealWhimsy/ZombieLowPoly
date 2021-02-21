@@ -6446,7 +6446,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1540101492}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1540101497
 Camera:
   m_ObjectHideFlags: 0
@@ -7393,7 +7393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 284f55b99d122e24a9ab45153d9ec2dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves: 5
+  waves: 1
   zombiesPerWave: 3
   timeBetweenWaves: 10
 --- !u!114 &1848499790

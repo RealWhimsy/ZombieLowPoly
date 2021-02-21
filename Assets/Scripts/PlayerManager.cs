@@ -132,8 +132,9 @@ public class PlayerManager : MonoBehaviour, IDamageable
         
         if (SceneManager.GetActiveScene().name.Equals(Const.SceneNames.Desert))
         {
-            if (gameObject.transform.position.y <= 22)
+            if (gameObject.transform.position.y <= 31)
             {
+                Debug.Log("under 29");
                 currentHealth = -10;
             }
         }
