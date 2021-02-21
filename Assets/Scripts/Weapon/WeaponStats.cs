@@ -20,7 +20,7 @@ public static class WeaponStats
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell")),
 
         [Const.WeaponNames.Python] = new Weapon("w_python", 3, 6, 0.6f,
-            Resources.Load("Prefabs/rifle_shell") as GameObject, 50, 5, false, WeaponType.Pistol,
+            Resources.Load("Prefabs/rifle_shell") as GameObject, 110, 5, false, WeaponType.Pistol,
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Revolver_shot"),
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Revolver_reload"),
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Pistol_shell")),
@@ -38,7 +38,7 @@ public static class WeaponStats
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Pistol_shell")),
 
         [Const.WeaponNames.Aug] = new Weapon("w_aug", 2, 30, 0.17f,
-            Resources.Load("Prefabs/rifle_shell") as GameObject, 25, 5, false, WeaponType.Rifle,
+            Resources.Load("Prefabs/rifle_shell") as GameObject, 30, 5, false, WeaponType.Rifle,
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/AUG_shot"),
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Rifle_reload_1"),
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell")),
@@ -104,7 +104,7 @@ public static class WeaponStats
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell")),
         
         [Const.WeaponNames.UMP45] = new Weapon("w_ump45", 3, 25, 0.17f,
-            Resources.Load("Prefabs/rifle_shell") as GameObject, 20, 15, false, WeaponType.Smg,
+            Resources.Load("Prefabs/rifle_shell") as GameObject, 27, 15, false, WeaponType.Smg,
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/P90_shot"),
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/SMG_reload"),
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Pistol_shell")),
