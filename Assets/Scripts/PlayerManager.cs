@@ -127,13 +127,12 @@ public class PlayerManager : MonoBehaviour, IDamageable
 
     private void CheckIfPlayerIsUnderWater()
     {
-        if (!SceneManager.GetActiveScene().name.Equals(Const.SceneNames.PirateBay) ||
-            SceneManager.GetActiveScene().name.Equals(Const.SceneNames.Desert)) return;
-        
+
         if (SceneManager.GetActiveScene().name.Equals(Const.SceneNames.Desert))
         {
-            if (gameObject.transform.position.y <= 22)
+            if (gameObject.transform.position.y <= 29)
             {
+                Debug.Log("under 29");
                 currentHealth = -10;
             }
         }
