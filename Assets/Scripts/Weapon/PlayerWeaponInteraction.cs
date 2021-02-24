@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerWeaponInteraction : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class PlayerWeaponInteraction : MonoBehaviour
         playerManager = player.GetComponent<PlayerManager>();
         weaponHand = GameObject.FindGameObjectWithTag("WeaponHand");
         RenderNewWeapon();
+
+        SceneManager.sceneLoaded += ResetWeaponsOnGround;
 
         EventManager.StartListening(Const.Events.PlayerRespawned, SetRespawnState);
     }
@@ -221,8 +224,6 @@ public class PlayerWeaponInteraction : MonoBehaviour
         GameObject droppedGun = Instantiate(weaponPrefab, player.transform.position + new Vector3(0f, 0.4f, 0f),
             Quaternion.identity * Quaternion.Euler(0f, 0f, -90f));
 
-        droppedGun.GetComponent<BulletContainer>()
-            .SetValues(true, weapon.ShotsInCurrentMag, weapon.Magazines);
         if (droppedGun.transform.name.Contains("(Clone)"))
         {
             droppedGun.transform.name = droppedGun.transform.name.Replace("(Clone)", "").Trim();
@@ -233,6 +234,15 @@ public class PlayerWeaponInteraction : MonoBehaviour
     {
         /*SwitchWeapon();
         RenderNewWeapon();*/
+    }
+
+    private void ResetWeaponsOnGround(Scene scene, LoadSceneMode mode)
+    {
+        foreach (var weapon in WeaponStats.weaponStatDict.Values)
+        {
+            weapon.ShotsInCurrentMag = weapon.MaxMagazineSize;
+            weapon.Magazines = weapon.MaxMagazines;
+        }
     }
 
     private void OnTriggerEnter(Collider collider)

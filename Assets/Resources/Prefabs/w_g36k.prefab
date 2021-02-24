@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8590473175610809632}
   - component: {fileID: 8590473175611776992}
   - component: {fileID: 1762534389445263862}
-  - component: {fileID: 4289702365039928917}
   m_Layer: 0
   m_Name: w_g36k
   m_TagString: weapon
@@ -94,15 +93,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.56155324, y: 0.12534785, z: 1.2032846}
   m_Center: {x: -0.0033113218, y: 0.0000012703243, z: 0.29400522}
---- !u!114 &4289702365039928917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8590473175613964576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ef942c5eb7c804b972944df8aa3890, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3298473977442830380}
   - component: {fileID: 8048254654470752137}
   - component: {fileID: 7243717779670185637}
-  - component: {fileID: 8114428815073664726}
   - component: {fileID: 3975484127544934558}
   m_Layer: 0
   m_Name: w_ump45
@@ -81,18 +80,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4408323106813165576}
   m_Mesh: {fileID: 4300002, guid: 74f62a0a1b845a94880ff3460a73d1a3, type: 3}
---- !u!114 &8114428815073664726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4408323106813165576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ef942c5eb7c804b972944df8aa3890, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &3975484127544934558
 BoxCollider:
   m_ObjectHideFlags: 0
