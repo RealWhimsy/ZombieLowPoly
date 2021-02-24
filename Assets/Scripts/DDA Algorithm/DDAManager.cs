@@ -55,7 +55,7 @@ public class DDAManager : MonoBehaviour
         EventManager.StartListening(Const.Events.GrenadeThrown, () => _grenadesThrown++);
         EventManager.StartListening(Const.Events.GrenadeHit, () => _grenadesHit++);
         EventManager.StartListening(Const.Events.ZombieKilled, () => _zombiesKilled++);
-        EventManager.StartListening(Const.Events.PlayerDead, () => _playerDeaths++);
+        EventManager.StartListening(Const.Events.PlayerDead, HandlePlayerDeath);
 
         EventManager.StartListening(Const.Events.WaveCompleted, AdjustDDA);
         EventManager.StartListening(Const.Events.DifficultyChanged, HandleDifficultyChange);
@@ -83,7 +83,7 @@ public class DDAManager : MonoBehaviour
         var difficultyChange = CalculateTotalDifficultyChange();
 
         Difficulty.CurrentDifficultyIndex += difficultyChange;
-        Difficulty.CurrentDifficulty = DifficultyStats.difficulties.ElementAt(Difficulty.CurrentDifficultyIndex).Value;
+        Difficulty.ApplyDifficultyChange();
     }
 
     private int CalculateTotalDifficultyChange()
@@ -106,6 +106,19 @@ public class DDAManager : MonoBehaviour
         }
 
         return difficultyChange;
+    }
+
+    private void HandlePlayerDeath()
+    {
+        _playerDeaths++;
+
+        // every other death lower difficulty by one
+        if (_playerDeaths % 2 == 0)
+        {
+            Difficulty.CurrentDifficultyIndex--;
+            Difficulty.ApplyDifficultyChange();
+        }
+
     }
 
     private int CalculateTimeScore()

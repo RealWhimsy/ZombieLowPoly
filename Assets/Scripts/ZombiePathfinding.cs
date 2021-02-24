@@ -73,7 +73,11 @@ public class ZombiePathfinding : MonoBehaviour
 
     private void HandlePlayerRespawn()
     {
-        // Re-enable pathfinding after player respawned
+        // Re-enable pathfinding after player respawned (except in tutorial)
+        if (SceneManager.GetActiveScene().name.Equals(Const.SceneNames.Tutorial))
+        {
+            return;
+        }
         agent.isStopped = false;
     }
 
