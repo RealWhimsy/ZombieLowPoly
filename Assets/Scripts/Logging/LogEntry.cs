@@ -5,6 +5,7 @@ using UnityEngine;
 public class LogEntry
 {
     private string tag;
+    private string message;
     private int shotsFired;
     private int shotsHit;
     private int damageTaken;
@@ -14,9 +15,14 @@ public class LogEntry
     private int deathCount;
     private int interactiblesCollected;
     private int meleeAttacks;
+    private int difficultyIndex;
+    private int triesForThisLevel;
 
-    public LogEntry(string tag, int shotsFired, int shotsHit, int damageTaken, int grenadesThrown, int grenadesHit, double timeSpentInSeconds, int deathCount, int interactiblesCollected, int meleeAttacks)
+    public LogEntry(string message, string tag, int shotsFired, int shotsHit, int damageTaken, int grenadesThrown, int grenadesHit,
+        double timeSpentInSeconds, int deathCount, int interactiblesCollected, int meleeAttacks, int difficultyIndex,
+        int triesForThisLevel)
     {
+        this.message = message;
         this.tag = tag;
         this.shotsFired = shotsFired;
         this.shotsHit = shotsHit;
@@ -27,11 +33,14 @@ public class LogEntry
         this.deathCount = deathCount;
         this.interactiblesCollected = interactiblesCollected;
         this.meleeAttacks = meleeAttacks;
+        this.difficultyIndex = difficultyIndex;
+        this.triesForThisLevel = triesForThisLevel;
     }
 
     public override string ToString()
     {
-        return tag + "," +
+        return message + "," +
+               tag + "," +
                shotsFired + "," +
                shotsHit + "," +
                damageTaken + "," +
@@ -40,11 +49,14 @@ public class LogEntry
                timeSpentInSeconds + "," +
                deathCount + "," +
                interactiblesCollected + "," +
-               meleeAttacks;
+               meleeAttacks + "," +
+               difficultyIndex + "," +
+               triesForThisLevel;
     }
 
     public static string HeaderRow()
     {
-        return "tag,shots,shotsHit,damageTaken,grenadesThrown,grenadesHit,timeSpent,deaths,interactiblesCollected,meleeAttacks";
+        return
+            "message,tag,shots,shotsHit,damageTaken,grenadesThrown,grenadesHit,timeSpent,deaths,interactiblesCollected,meleeAttacks,difficultyIndex,triesForThisLevel";
     }
 }

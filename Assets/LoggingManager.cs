@@ -9,6 +9,9 @@ using UnityEngine.SceneManagement;
 public class LoggingManager : MonoBehaviour
 {
     private const string FilePath = "./logs/";
+    private const string WaveCompletedMessage = "WaveCompleted";
+    private const string LevelCompletedMessage = "LevelCompleted";
+    private const string PlayerDiedMessage = "PlayerDied";
     private StreamWriter writer;
 
     private int waveNumber = 1;
@@ -32,6 +35,8 @@ public class LoggingManager : MonoBehaviour
     private int deathsInCurrentWave;
     private int interactiblesCollectedInCurrentWave;
     private int meleeAttacksInCurrentWave;
+    private int waveDifficultyIndex;
+    private int triesForThisLevel = 1;
 
     private static int _shotsTotal;
     private static int _hitsTotal;
@@ -80,6 +85,10 @@ public class LoggingManager : MonoBehaviour
         {
             deathsInCurrentWave++;
             _deathsTotal++;
+            waveNumber = 1;
+            triesForThisLevel++;
+            LogWaveStats(PlayerDiedMessage);
+            ResetPerWaveStats();
         });
 
         EventManager.StartListening(Const.Events.InteractibleCollected, () =>
@@ -98,13 +107,14 @@ public class LoggingManager : MonoBehaviour
         EventManager.StartListening(Const.Events.LevelCompleted, HandleLevelCompleted);
         EventManager.StartListening(Const.Events.WaveStarted, HandleWaveStarted);
     }
-    
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // set start time of the new level
         // if-statement is needed so stats don't reset if the player dies and respawns (same scene is loaded again)
         if (!scene.name.Equals(currentSceneName))
         {
+            waveNumber = 1;
             levelStartTime = DateTime.Now;
             currentSceneName = scene.name;
         }
@@ -120,13 +130,14 @@ public class LoggingManager : MonoBehaviour
     {
         SetWaveTag();
         waveNumber++;
-        LogWaveStats();
+        LogWaveStats(WaveCompletedMessage);
         ResetPerWaveStats();
     }
 
     private void HandleWaveStarted()
     {
         waveStartTime = DateTime.Now;
+        waveDifficultyIndex = Difficulty.CurrentDifficultyIndex;
     }
 
     private void SetWaveTag()
@@ -141,6 +152,7 @@ public class LoggingManager : MonoBehaviour
 
         // reset the stats from the last wave of the level as well
         ResetPerWaveStats();
+        triesForThisLevel = 1;
     }
 
     private void SetLevelTag()
@@ -155,29 +167,30 @@ public class LoggingManager : MonoBehaviour
         double seconds = timeSpan.TotalSeconds;
         seconds = Math.Round(seconds);
 
-        LogEntry entry = new LogEntry(levelTag, _shotsTotal, _hitsTotal, _damageTakenTotal, _grenadesThrownTotal,
-            _grenadesHitTotal, seconds, _deathsTotal, _interactiblesCollectedTotal, _meleeAttacksTotal);
+        LogEntry entry = new LogEntry(LevelCompletedMessage, levelTag, _shotsTotal, _hitsTotal, _damageTakenTotal, _grenadesThrownTotal,
+            _grenadesHitTotal, seconds, _deathsTotal, _interactiblesCollectedTotal, _meleeAttacksTotal,
+            waveDifficultyIndex, triesForThisLevel);
 
         writer.WriteLine(entry + "\n");
         writer.Flush();
     }
 
-    private void LogWaveStats()
+    private void LogWaveStats(String message)
     {
         waveEndTime = DateTime.Now;
         TimeSpan timeSpan = waveEndTime - waveStartTime;
         double seconds = timeSpan.TotalSeconds;
         seconds = Math.Round(seconds); // round to the nearest integer for easier to read data
 
-        LogEntry entry = new LogEntry(waveTag, shotsInCurrentWave, hitsInCurrentWave, _damageTakenInCurrentWave,
+        LogEntry entry = new LogEntry(message, waveTag, shotsInCurrentWave, hitsInCurrentWave, _damageTakenInCurrentWave,
             grenadesThrownInCurrentWave,
             grenadesHitInCurrentWave, seconds, deathsInCurrentWave, interactiblesCollectedInCurrentWave,
-            meleeAttacksInCurrentWave);
+            meleeAttacksInCurrentWave, waveDifficultyIndex, triesForThisLevel);
 
         writer.WriteLine(entry + "\n");
         writer.Flush();
     }
-    
+
 
     private void ResetPerWaveStats()
     {
