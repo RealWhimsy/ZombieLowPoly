@@ -197,6 +197,8 @@ public class PlayerManager : MonoBehaviour, IDamageable
         currentHealth -= finalDamage;
         healthBar.SetHealth(currentHealth);
         DDAManager.DamageTaken += finalDamage;
+        LoggingManager.DamageTakenTotal += finalDamage;
+        LoggingManager.DamageTakenInCurrentWave += finalDamage;
     }
 
     void HandleMeleeAttack()
