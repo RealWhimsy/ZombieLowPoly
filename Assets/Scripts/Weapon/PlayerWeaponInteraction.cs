@@ -155,6 +155,27 @@ public class PlayerWeaponInteraction : MonoBehaviour
     private void PickUpWeapon(string weaponName)
     {
         SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.WeaponPickup) as AudioClip);
+
+        // if the player "picks up" a weapon they already have, the ammo gets refilled
+        foreach (var weapon in playerManager.WeaponArray)
+        {
+            if (weapon == null)
+            {
+                continue;
+            }
+            
+            if (weapon.Name.Equals(weaponName))
+            {
+                weapon.Magazines++;
+                weapon.ShotsInCurrentMag = weapon.MaxMagazineSize;
+                
+                // Destroy weapon on the ground
+                Destroy(weaponPickup);
+                return;
+            }
+        }
+
+
         for (int i = 0; i <= Const.MaxWeaponIndex; i++)
         {
             if (playerManager.WeaponArray[i] is null)
