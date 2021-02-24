@@ -75,6 +75,12 @@ public class WeaponBehaviour : MonoBehaviour
 
     private void HandleLeftClick()
     {
+        // send no action if the player is dead
+        if (playerManager.isDead())
+        {
+            return;
+        }
+        
         if (playerManager.GetActiveWeapon().MeleeWeapon)
         {
             MeleeAttack();
