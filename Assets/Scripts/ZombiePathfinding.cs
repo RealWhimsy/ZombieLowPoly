@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class ZombiePathfinding : MonoBehaviour
 {
@@ -35,6 +36,10 @@ public class ZombiePathfinding : MonoBehaviour
 
     private void SetCurrentDifficultyStats()
     {
+        if (SceneManager.GetActiveScene().name.Equals(Const.SceneNames.Tutorial))
+        {
+            return;
+        }
         agent.speed = Difficulty.CurrentDifficulty.ZombieSpeed;
     }
 
