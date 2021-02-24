@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /**
  * Calculates the difficulty changes between waves.
@@ -38,6 +39,11 @@ public class DDAManager : MonoBehaviour
     private static DateTime endTime;
     // ---- end of fields that are reset after each wave ----
     
+    // ---- the fields below are reset for each completed level, but not between waves ----
+    private static int _zombiesKilled;
+    private static int _playerDeaths;
+    // ---- end of level specific stats ----
+    
     private static int _playerFeedbackDifficulty; //chosen by the player in the "Level Completed" view via button press
 
 
@@ -48,12 +54,28 @@ public class DDAManager : MonoBehaviour
         EventManager.StartListening(Const.Events.ShotHitDDAZone, () => _shotsHit++);
         EventManager.StartListening(Const.Events.GrenadeThrown, () => _grenadesThrown++);
         EventManager.StartListening(Const.Events.GrenadeHit, () => _grenadesHit++);
+        EventManager.StartListening(Const.Events.ZombieKilled, () => _zombiesKilled++);
+        EventManager.StartListening(Const.Events.PlayerDead, () => _playerDeaths++);
 
         EventManager.StartListening(Const.Events.WaveCompleted, AdjustDDA);
         EventManager.StartListening(Const.Events.DifficultyChanged, HandleDifficultyChange);
         EventManager.StartListening(Const.Events.WaveStarted, WaveStarted);
         EventManager.StartListening(Const.Events.TutorialCompleted, AdjustDDA);
+        
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        
         startTime = DateTime.Now;
+    }
+    
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        ResetLevelSpecificStats();
+    }
+
+    private void ResetLevelSpecificStats()
+    {
+        _playerDeaths = 0;
+        _zombiesKilled = 0;
     }
 
     private void AdjustDDA()
@@ -265,5 +287,17 @@ public class DDAManager : MonoBehaviour
     {
         get => _playerFeedbackDifficulty;
         set => _playerFeedbackDifficulty = value;
+    }
+
+    public static int ZombiesKilled
+    {
+        get => _zombiesKilled;
+        set => _zombiesKilled = value;
+    }
+
+    public static int PlayerDeaths
+    {
+        get => _playerDeaths;
+        set => _playerDeaths = value;
     }
 }
