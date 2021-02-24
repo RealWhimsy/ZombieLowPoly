@@ -72,7 +72,7 @@ public class DDAManager : MonoBehaviour
     {
         // reset level specific stats when a new scene is loaded
         // this statement is needed so stats don't reset if the player dies and respawns (same scene is loaded again)
-        if (scene.name.Equals(_currentSceneName))
+        if (!scene.name.Equals(_currentSceneName))
         {
             ResetLevelSpecificStats();
             _currentSceneName = scene.name;
