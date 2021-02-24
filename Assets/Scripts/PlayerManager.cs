@@ -113,6 +113,11 @@ public class PlayerManager : MonoBehaviour, IDamageable
     {
         foreach (var weapon in weaponArray)
         {
+            if (weapon == null)
+            {
+                continue;
+            }
+            
             weapon.Magazines = weapon.MaxMagazines;
             weapon.ShotsInCurrentMag = weapon.MaxMagazineSize;
         }
