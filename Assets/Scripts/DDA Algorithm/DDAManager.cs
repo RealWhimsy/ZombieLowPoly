@@ -46,6 +46,7 @@ public class DDAManager : MonoBehaviour
     
     private static int _playerFeedbackDifficulty; //chosen by the player in the "Level Completed" view via button press
 
+    private static string _currentSceneName = "";
 
     // Start is called before the first frame update
     void Start()
@@ -69,7 +70,13 @@ public class DDAManager : MonoBehaviour
     
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        ResetLevelSpecificStats();
+        // reset level specific stats when a new scene is loaded
+        // this statement is needed so stats don't reset if the player dies and respawns (same scene is loaded again)
+        if (scene.name.Equals(_currentSceneName))
+        {
+            ResetLevelSpecificStats();
+            _currentSceneName = scene.name;
+        }
     }
 
     private void ResetLevelSpecificStats()
