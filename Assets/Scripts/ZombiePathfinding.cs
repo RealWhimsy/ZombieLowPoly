@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class ZombiePathfinding : MonoBehaviour
 {
@@ -35,6 +36,10 @@ public class ZombiePathfinding : MonoBehaviour
 
     private void SetCurrentDifficultyStats()
     {
+        if (SceneManager.GetActiveScene().name.Equals(Const.SceneNames.Tutorial))
+        {
+            return;
+        }
         agent.speed = Difficulty.CurrentDifficulty.ZombieSpeed;
     }
 
@@ -68,7 +73,11 @@ public class ZombiePathfinding : MonoBehaviour
 
     private void HandlePlayerRespawn()
     {
-        // Re-enable pathfinding after player respawned
+        // Re-enable pathfinding after player respawned (except in tutorial)
+        if (SceneManager.GetActiveScene().name.Equals(Const.SceneNames.Tutorial))
+        {
+            return;
+        }
         agent.isStopped = false;
     }
 

@@ -113,6 +113,11 @@ public class PlayerManager : MonoBehaviour, IDamageable
     {
         foreach (var weapon in weaponArray)
         {
+            if (weapon == null)
+            {
+                continue;
+            }
+            
             weapon.Magazines = weapon.MaxMagazines;
             weapon.ShotsInCurrentMag = weapon.MaxMagazineSize;
         }
@@ -192,6 +197,8 @@ public class PlayerManager : MonoBehaviour, IDamageable
         currentHealth -= finalDamage;
         healthBar.SetHealth(currentHealth);
         DDAManager.DamageTaken += finalDamage;
+        LoggingManager.DamageTakenTotal += finalDamage;
+        LoggingManager.DamageTakenInCurrentWave += finalDamage;
     }
 
     void HandleMeleeAttack()

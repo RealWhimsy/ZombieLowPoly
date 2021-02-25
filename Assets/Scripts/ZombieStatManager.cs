@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
 {
@@ -54,6 +55,10 @@ public class ZombieStatManager : MonoBehaviour, IDamageable, IDamageDealer
 
     private void SetCurrentDifficultyStats()
     {
+        if (SceneManager.GetActiveScene().name.Equals(Const.SceneNames.Tutorial))
+        {
+            return;
+        }
         maxHealth = Difficulty.CurrentDifficulty.ZombieHealth;
         damage = Difficulty.CurrentDifficulty.ZombieDamage;
     }

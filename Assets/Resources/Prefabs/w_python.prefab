@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 967804674870976937}
   - component: {fileID: 967804674871976809}
   - component: {fileID: 967804674148430084}
-  - component: {fileID: 868480812321881150}
   m_Layer: 0
   m_Name: w_python
   m_TagString: weapon
@@ -94,18 +93,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: -0.02810523, y: -0.0000026039786, z: 0.25492758}
---- !u!114 &868480812321881150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 967804674869984681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ef942c5eb7c804b972944df8aa3890, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  usedGun: 0
-  magazines: 0
-  magazineSize: 0

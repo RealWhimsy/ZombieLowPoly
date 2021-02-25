@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Linq;
 
 public class Difficulty
 {
@@ -21,6 +22,34 @@ public class Difficulty
         this.zombieDamage = zombieDamage;
         this.zombieSpeed = zombieSpeed;
         this.timeBetweenSpawns = timeBetweenSpawns;
+    }
+
+    public static void SetDifficultyToIndex(int index)
+    {
+        if (index > Const.Difficulties.MaxDifficultyIndex)
+        {
+            index = Const.Difficulties.MaxDifficultyIndex;
+        } 
+        else if (index < Const.Difficulties.MinDifficultyIndex)
+        {
+            index = Const.Difficulties.MinDifficultyIndex;
+        }
+        
+        CurrentDifficulty = DifficultyStats.difficulties.ElementAt(index).Value;
+    }
+    
+    public static void ApplyDifficultyChange()
+    {
+        if (_currentDifficultyIndex > Const.Difficulties.MaxDifficultyIndex)
+        {
+            _currentDifficultyIndex = Const.Difficulties.MaxDifficultyIndex;
+        } 
+        else if (_currentDifficultyIndex < Const.Difficulties.MinDifficultyIndex)
+        {
+            _currentDifficultyIndex = Const.Difficulties.MinDifficultyIndex;
+        }
+        
+        CurrentDifficulty = DifficultyStats.difficulties.ElementAt(_currentDifficultyIndex).Value;
     }
 
     public int Stage

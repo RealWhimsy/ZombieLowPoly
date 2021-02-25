@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /**
  * Calculates the difficulty changes between waves.
@@ -38,8 +39,14 @@ public class DDAManager : MonoBehaviour
     private static DateTime endTime;
     // ---- end of fields that are reset after each wave ----
     
+    // ---- the fields below are reset for each completed level, but not between waves ----
+    private static int _zombiesKilled;
+    private static int _playerDeaths;
+    // ---- end of level specific stats ----
+    
     private static int _playerFeedbackDifficulty; //chosen by the player in the "Level Completed" view via button press
 
+    private static string _currentSceneName = "";
 
     // Start is called before the first frame update
     void Start()
@@ -48,12 +55,34 @@ public class DDAManager : MonoBehaviour
         EventManager.StartListening(Const.Events.ShotHitDDAZone, () => _shotsHit++);
         EventManager.StartListening(Const.Events.GrenadeThrown, () => _grenadesThrown++);
         EventManager.StartListening(Const.Events.GrenadeHit, () => _grenadesHit++);
+        EventManager.StartListening(Const.Events.ZombieKilled, () => _zombiesKilled++);
+        EventManager.StartListening(Const.Events.PlayerDead, HandlePlayerDeath);
 
         EventManager.StartListening(Const.Events.WaveCompleted, AdjustDDA);
         EventManager.StartListening(Const.Events.DifficultyChanged, HandleDifficultyChange);
         EventManager.StartListening(Const.Events.WaveStarted, WaveStarted);
         EventManager.StartListening(Const.Events.TutorialCompleted, AdjustDDA);
+        
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        
         startTime = DateTime.Now;
+    }
+    
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // reset level specific stats when a new scene is loaded
+        // this statement is needed so stats don't reset if the player dies and respawns (same scene is loaded again)
+        if (!scene.name.Equals(_currentSceneName))
+        {
+            ResetLevelSpecificStats();
+            _currentSceneName = scene.name;
+        }
+    }
+
+    private void ResetLevelSpecificStats()
+    {
+        _playerDeaths = 0;
+        _zombiesKilled = 0;
     }
 
     private void AdjustDDA()
@@ -61,7 +90,7 @@ public class DDAManager : MonoBehaviour
         var difficultyChange = CalculateTotalDifficultyChange();
 
         Difficulty.CurrentDifficultyIndex += difficultyChange;
-        Difficulty.CurrentDifficulty = DifficultyStats.difficulties.ElementAt(Difficulty.CurrentDifficultyIndex).Value;
+        Difficulty.ApplyDifficultyChange();
     }
 
     private int CalculateTotalDifficultyChange()
@@ -84,6 +113,19 @@ public class DDAManager : MonoBehaviour
         }
 
         return difficultyChange;
+    }
+
+    private void HandlePlayerDeath()
+    {
+        _playerDeaths++;
+
+        // every other death lower difficulty by one
+        if (_playerDeaths % 2 == 0)
+        {
+            Difficulty.CurrentDifficultyIndex--;
+            Difficulty.ApplyDifficultyChange();
+        }
+
     }
 
     private int CalculateTimeScore()
@@ -265,5 +307,17 @@ public class DDAManager : MonoBehaviour
     {
         get => _playerFeedbackDifficulty;
         set => _playerFeedbackDifficulty = value;
+    }
+
+    public static int ZombiesKilled
+    {
+        get => _zombiesKilled;
+        set => _zombiesKilled = value;
+    }
+
+    public static int PlayerDeaths
+    {
+        get => _playerDeaths;
+        set => _playerDeaths = value;
     }
 }
