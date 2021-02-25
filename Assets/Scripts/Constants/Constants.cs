@@ -140,6 +140,7 @@
         public const string CutsceneIntro = "CutsceneIntro";
         public const string Tutorial = "Tutorial";
         public const string LevelCompletedScene = "LevelCompleted";
+        public const string EndScene = "EndScene";
     }
 
     public static class UI

@@ -35,6 +35,10 @@ public class LevelLoader : MonoBehaviour
                 StartCoroutine(LoadLevelWithDelay(Const.SceneNames.LevelCompletedScene));
                 nextScene = Const.SceneNames.City;
                 break;
+            case Const.SceneNames.City:
+                StartCoroutine(LoadLevelWithDelay(Const.SceneNames.LevelCompletedScene));
+                nextScene = Const.SceneNames.EndScene;
+                break;
         }
     }
 
@@ -56,6 +60,9 @@ public class LevelLoader : MonoBehaviour
                 break;
             case Const.SceneNames.City:
                 LoadLevel(Const.SceneNames.City);
+                break;
+            case Const.SceneNames.EndScene:
+                LoadLevel(Const.SceneNames.EndScene);
                 break;
         }
     }
