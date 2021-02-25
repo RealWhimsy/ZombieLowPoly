@@ -12,6 +12,7 @@ public class LoggingManager : MonoBehaviour
     private const string WaveCompletedMessage = "WaveCompleted";
     private const string LevelCompletedMessage = "LevelCompleted";
     private const string PlayerDiedMessage = "PlayerDied";
+    private static string _playerId = Guid.NewGuid().ToString();
     private StreamWriter writer;
 
     private int waveNumber = 1;
@@ -50,7 +51,7 @@ public class LoggingManager : MonoBehaviour
 
     void Start()
     {
-        string fileName = Guid.NewGuid() + ".csv";
+        string fileName = _playerId + ".csv";
         writer = new StreamWriter(FilePath + fileName);
         WriteCsvHeader();
 
@@ -214,4 +215,6 @@ public class LoggingManager : MonoBehaviour
         get => _damageTakenTotal;
         set => _damageTakenTotal = value;
     }
+    
+    public static string PlayerId => _playerId;
 }
