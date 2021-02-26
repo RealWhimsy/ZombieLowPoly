@@ -27,6 +27,7 @@ public class TutorialProgressManager : MonoBehaviour
     private bool bulletZombiesDead;
     private bool grenadeZombiesDead;
     private bool meleeZombiesDead;
+    private bool movingZombiesDead;
     private static readonly int IsMoving = Animator.StringToHash("isMoving");
 
 
@@ -93,6 +94,15 @@ public class TutorialProgressManager : MonoBehaviour
                 meleeZombiesDead = true;
                 UnlockWall(meleeZombieProgressionWall);
                 EnableMovingZombiesPathfinding();
+            }
+        }
+        
+        else if (!movingZombiesDead)
+        {
+            if (CheckIfZombiesAreDead(movingZombiesStatManager))
+            {
+                movingZombiesDead = true;
+                EventManager.TriggerEvent(Const.Events.LevelCompleted);
             }
         }
     }
