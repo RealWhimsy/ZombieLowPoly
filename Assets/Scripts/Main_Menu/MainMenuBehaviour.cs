@@ -7,6 +7,7 @@ public class MainMenuBehaviour : MonoBehaviour
     public GameObject MainMenu;
     public GameObject PlayerSelectionMenu;
     public GameObject ControlsMenu;
+    public GameObject SettingsMenu;
     public GameObject CreditsMenu;
     public GameObject[] playerModels;
     
@@ -32,6 +33,7 @@ public class MainMenuBehaviour : MonoBehaviour
         PlayerSelectionMenu.SetActive(false);
         ControlsMenu.SetActive(false);
         CreditsMenu.SetActive(false);
+        SettingsMenu.SetActive(false);
     }
 
     public void ControlsMenuButton()
@@ -49,6 +51,15 @@ public class MainMenuBehaviour : MonoBehaviour
         ControlsMenu.SetActive(false);
         CreditsMenu.SetActive(true);
     }
+    public void SettingsMenuButton()
+    {
+        MainMenu.SetActive(false);
+        PlayerSelectionMenu.SetActive(false);
+        ControlsMenu.SetActive(false);
+        CreditsMenu.SetActive(false);
+        SettingsMenu.SetActive(true);
+    }
+    
 
     public void QuitButton()
     {
