@@ -9,6 +9,7 @@
     public const int SecondWeaponIndex = 1;
     public const int MaxWeaponIndex = 1;
     public const int MaxNumWeapons = MaxWeaponIndex + 1;
+    public const string VideoAssetsPath = "./Assets/VideoPlayer/";
 
     // Event names
     public static class Events

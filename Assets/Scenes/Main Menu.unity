@@ -541,7 +541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f64b16cb0d3d5184291de987ed207258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 
 --- !u!114 &323644233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,7 +782,6 @@ MonoBehaviour:
   - {fileID: 641426664}
   - {fileID: 2016838323}
   - {fileID: 2090271740}
-  playerParent: {fileID: 0}
 --- !u!1 &397079566
 GameObject:
   m_ObjectHideFlags: 0
@@ -3125,10 +3123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2e29dc70aeeab42a89ef0bbf895855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerManager: {fileID: 0}
-  playerMovement: {fileID: 0}
-  controller: {fileID: 0}
-  scriptsLoaded: 0
 --- !u!82 &1243186355
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3822,6 +3816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1377980267}
   - component: {fileID: 1377980268}
+  - component: {fileID: 1377980269}
   m_Layer: 5
   m_Name: Video Player
   m_TagString: Untagged
@@ -3866,7 +3861,7 @@ VideoPlayer:
   m_TargetMaterialProperty: _MainTex
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources: []
@@ -3880,6 +3875,18 @@ VideoPlayer:
   m_Looping: 1
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
+--- !u!114 &1377980269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377980266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5def40bb69de001458363bf7ec33f3a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1410224768
 GameObject:
   m_ObjectHideFlags: 0
@@ -3926,7 +3933,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96aaed5ee8642054299483ae0f4949b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 0}
 --- !u!23 &1410224772
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4877,9 +4883,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 017b4965416444043afdb26d977d3dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  playerManager: {fileID: 0}
-  alreadyHitUnits: []
 --- !u!65 &1860864925
 BoxCollider:
   m_ObjectHideFlags: 0
