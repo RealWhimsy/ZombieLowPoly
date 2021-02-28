@@ -6,16 +6,23 @@ public class InteractiblesManager : MonoBehaviour
 
     public static void SpawnInteractible(Vector3 position, Quaternion rotation)
     {
-        if(GameAssets.i.GenerateRandomNumber(0,2) == 2)
+        if (GameAssets.i.GenerateRandomNumber(0, 2) == 2)
         {
             Instantiate(SelectInteractible(), position, rotation);
         }
-        
+    }
+
+    public static GameObject SpawnGuaranteedInteractible(Vector3 position, Quaternion rotation)
+    {
+        GameObject interactible = Instantiate(SelectInteractible(), position, rotation);
+        interactible.GetComponent<DestroyGameObject>().enabled = false;
+
+        return interactible;
     }
 
     private static GameObject SelectInteractible()
     {
-        switch (GameAssets.i.GenerateRandomNumber(0,2))
+        switch (GameAssets.i.GenerateRandomNumber(0, 2))
         {
             case 0:
                 _interactible = Resources.Load("Prefabs/box_ammo") as GameObject;
@@ -27,8 +34,7 @@ public class InteractiblesManager : MonoBehaviour
                 _interactible = Resources.Load("Prefabs/box_supply") as GameObject;
                 break;
         }
+
         return _interactible;
     }
-
-    
 }

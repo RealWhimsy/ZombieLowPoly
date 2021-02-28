@@ -1,4 +1,6 @@
-﻿public static class Const
+﻿using UnityEngine;
+
+public static class Const
 {
     /******************************************************************
      * Constants in C# are named in PascalCase, not in SCREAMING_CAPS *
@@ -180,5 +182,12 @@
         public const string MeleeAttacks = "meleeAttacks";
         public const string DifficultyIndex = "difficultyIndex";
         public const string TriesForLevel = "triesForLevel";
+    }
+
+    public static class Tutorial
+    {
+        public static readonly Vector3 GrenadeBoxOneVector = new Vector3(47.938255f, 0.17f, 19.60897f);
+        public static readonly Vector3 GrenadeBoxTwoVector = new Vector3(47.938255f, 0.17f, 22.01942f);
+        public static readonly Vector3 GrenadeBoxThreeVector = new Vector3(47.938255f, 0.17f, 16.93942f);
     }
 }

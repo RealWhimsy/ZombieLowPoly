@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class TutorialProgressManager : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class TutorialProgressManager : MonoBehaviour
     public GameObject[] grenadeZombies;
     public GameObject[] meleeZombies;
     public GameObject[] movingZombies;
+
+    public GameObject[] grenadeInteractibles;
+    private Vector3[] grenadeInteractiblePositions;
+    
 
     public GameObject bulletZombieProgressionWall;
     public GameObject grenadeZombieProgressionWall;
@@ -35,6 +40,7 @@ public class TutorialProgressManager : MonoBehaviour
     private void Start()
     {
         EventManager.StartListening(Const.Events.ZombieKilled, CheckForProgressionUnlock);
+        EventManager.StartListening(Const.Events.InteractibleCollected, StartRefillGrenadeCoroutine);
         AssignCachedVariables();
         MuteZombies();
         StopMovingZombies();
@@ -47,24 +53,29 @@ public class TutorialProgressManager : MonoBehaviour
             bulletZombiesStatManager.Add(zombie.GetComponent<ZombieStatManager>());
             bulletZombiesPathfinding.Add(zombie.GetComponent<ZombiePathfinding>());
         }
-        
+
         foreach (var zombie in grenadeZombies)
         {
             grenadeZombiesStatManager.Add(zombie.GetComponent<ZombieStatManager>());
             grenadeZombiesPathfinding.Add(zombie.GetComponent<ZombiePathfinding>());
         }
-        
+
         foreach (var zombie in meleeZombies)
         {
             meleeZombiesStatManager.Add(zombie.GetComponent<ZombieStatManager>());
             meleeZombiesPathfinding.Add(zombie.GetComponent<ZombiePathfinding>());
         }
-        
+
         foreach (var zombie in movingZombies)
         {
             movingZombiesStatManager.Add(zombie.GetComponent<ZombieStatManager>());
             movingZombiesPathfinding.Add(zombie.GetComponent<ZombiePathfinding>());
         }
+
+        grenadeInteractiblePositions = new Vector3[3];
+        grenadeInteractiblePositions[0] = Const.Tutorial.GrenadeBoxOneVector;
+        grenadeInteractiblePositions[1] = Const.Tutorial.GrenadeBoxTwoVector;
+        grenadeInteractiblePositions[2] = Const.Tutorial.GrenadeBoxThreeVector;
     }
 
     private void CheckForProgressionUnlock()
@@ -77,7 +88,7 @@ public class TutorialProgressManager : MonoBehaviour
                 UnlockWall(bulletZombieProgressionWall);
             }
         }
-        
+
         else if (!grenadeZombiesDead)
         {
             if (CheckIfZombiesAreDead(grenadeZombiesStatManager))
@@ -85,8 +96,8 @@ public class TutorialProgressManager : MonoBehaviour
                 grenadeZombiesDead = true;
                 UnlockWall(grenadeZombieProgressionWall);
             }
-        } 
-        
+        }
+
         else if (!meleeZombiesDead)
         {
             if (CheckIfZombiesAreDead(meleeZombiesStatManager))
@@ -96,7 +107,7 @@ public class TutorialProgressManager : MonoBehaviour
                 EnableMovingZombiesPathfinding();
             }
         }
-        
+
         else if (!movingZombiesDead)
         {
             if (CheckIfZombiesAreDead(movingZombiesStatManager))
@@ -118,6 +129,24 @@ public class TutorialProgressManager : MonoBehaviour
         }
 
         return true;
+    }
+
+    private void StartRefillGrenadeCoroutine()
+    {
+        StartCoroutine(InstantiateGrenadeInteractible());
+    }
+
+    private IEnumerator InstantiateGrenadeInteractible()
+    {
+        yield return new WaitForSeconds(5);
+        for (int i = 0; i < grenadeInteractibles.Length; i++)
+        {
+            if (!grenadeInteractibles[i])
+            {
+                grenadeInteractibles[i] = InteractiblesManager.SpawnGuaranteedInteractible(
+                    grenadeInteractiblePositions[i], new Quaternion(0f, 0f, 0f, 0f));
+            }
+        }
     }
 
     private void UnlockWall(GameObject wall)
@@ -143,17 +172,17 @@ public class TutorialProgressManager : MonoBehaviour
         {
             zombie.Target = zombie.gameObject.transform;
         }
-        
+
         foreach (var zombie in grenadeZombiesPathfinding)
         {
             zombie.Target = zombie.gameObject.transform;
         }
-        
+
         foreach (var zombie in meleeZombiesPathfinding)
         {
             zombie.Target = zombie.gameObject.transform;
         }
-        
+
         foreach (var zombie in movingZombies)
         {
             zombie.GetComponent<NavMeshAgent>().isStopped = true;
@@ -167,12 +196,12 @@ public class TutorialProgressManager : MonoBehaviour
         {
             zombie.Muted = true;
         }
-        
+
         foreach (var zombie in grenadeZombiesStatManager)
         {
             zombie.Muted = true;
         }
-        
+
         foreach (var zombie in meleeZombiesStatManager)
         {
             zombie.Muted = true;
