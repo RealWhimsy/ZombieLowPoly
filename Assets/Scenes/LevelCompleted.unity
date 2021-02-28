@@ -427,7 +427,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: HOW WAS THE DIFFICULTY
+  m_Text: Rate the difficulty to continue
 --- !u!222 &431567738
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2245,9 +2245,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Precisely
-
-'
+  m_Text: Just right
 --- !u!222 &1880065203
 CanvasRenderer:
   m_ObjectHideFlags: 0

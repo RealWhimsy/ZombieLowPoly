@@ -182,6 +182,7 @@ public static class Const
         public const string MeleeAttacks = "meleeAttacks";
         public const string DifficultyIndex = "difficultyIndex";
         public const string TriesForLevel = "triesForLevel";
+        public const string SelectedDifficulty = "selectedDifficulty";
     }
 
     public static class Tutorial

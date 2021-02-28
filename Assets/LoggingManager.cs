@@ -106,6 +106,7 @@ public class LoggingManager : MonoBehaviour
         EventManager.StartListening(Const.Events.WaveCompleted, HandleWaveCompleted);
         EventManager.StartListening(Const.Events.LevelCompleted, HandleLevelCompleted);
         EventManager.StartListening(Const.Events.WaveStarted, HandleWaveStarted);
+        EventManager.StartListening(Const.Events.DifficultySelected, LogDifficultyFeedback);
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -212,6 +213,33 @@ public class LoggingManager : MonoBehaviour
         form.AddField(Const.PhpVariables.TriesForLevel, triesForThisLevel);
 
         StartCoroutine(logDataToFile(form));
+    }
+
+    private void LogDifficultyFeedback()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField(Const.PhpVariables.Id, _playerId);
+        form.AddField(Const.PhpVariables.Tag, levelTag);
+        form.AddField(Const.PhpVariables.SelectedDifficulty, LevelCompletedMenu.SelectedDifficulty);
+
+        StartCoroutine(LogDifficultyFeedbackToFile(form));
+    }
+
+    private static IEnumerator LogDifficultyFeedbackToFile(WWWForm form)
+    {
+        using (UnityWebRequest www = UnityWebRequest.Post(Const.ServerURL + "php/difficulty-logger.php", form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log("Form upload successful!");
+            }
+        }
     }
 
     IEnumerator logDataToFile(WWWForm form)
