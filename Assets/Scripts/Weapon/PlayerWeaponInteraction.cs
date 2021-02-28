@@ -33,6 +33,11 @@ public class PlayerWeaponInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenuLogic.Paused)
+        {
+            return;
+        }
+        
         if (Input.GetKeyDown(KeyCode.E) && isOnWeapon)
         {
             // TODO Trigger event for sound

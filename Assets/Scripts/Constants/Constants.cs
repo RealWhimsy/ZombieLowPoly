@@ -10,6 +10,7 @@
     public const int MaxWeaponIndex = 1;
     public const int MaxNumWeapons = MaxWeaponIndex + 1;
     public const string VideoAssetsPath = "./Assets/VideoPlayer/";
+    public const string ServerURL = "http://s715714060.online.de/";
 
     // Event names
     public static class Events
@@ -160,5 +161,24 @@
     public class Magazines
     {
         public const int MaxMagazines = 5;
+    }
+
+    public static class PhpVariables
+    {
+        public const string IsFirstLogCall = "isFirstLogCall";
+        public const string Id = "id";
+        public const string Message = "message";
+        public const string Tag = "tag";
+        public const string ShotsFired = "shotsFired";
+        public const string ShotsHit = "shotsHit";
+        public const string DamageTaken = "damageTaken";
+        public const string GrenadesThrown = "grenadesThrown";
+        public const string GrenadesHit = "grenadesHit";
+        public const string TimeSpent = "timeSpent";
+        public const string DeathCount = "deathCount";
+        public const string InteractiblesCollected = "interactiblesCollected";
+        public const string MeleeAttacks = "meleeAttacks";
+        public const string DifficultyIndex = "difficultyIndex";
+        public const string TriesForLevel = "triesForLevel";
     }
 }

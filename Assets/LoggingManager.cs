@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
 public class LoggingManager : MonoBehaviour
@@ -49,12 +50,10 @@ public class LoggingManager : MonoBehaviour
     private static int _interactiblesCollectedTotal;
     private static int _meleeAttacksTotal;
 
+    private static string _isFirstLogCall = "true";
+
     void Start()
     {
-        string fileName = _playerId + ".csv";
-        writer = new StreamWriter(FilePath + fileName);
-        WriteCsvHeader();
-
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         EventManager.StartListening(Const.Events.ShotFired, () =>
@@ -167,13 +166,25 @@ public class LoggingManager : MonoBehaviour
         TimeSpan timeSpan = levelEndTime - levelStartTime;
         double seconds = timeSpan.TotalSeconds;
         seconds = Math.Round(seconds);
+        
+        WWWForm form = new WWWForm();
+        form.AddField(Const.PhpVariables.IsFirstLogCall, _isFirstLogCall);
+        form.AddField(Const.PhpVariables.Id, _playerId);
+        form.AddField(Const.PhpVariables.Message, LevelCompletedMessage);
+        form.AddField(Const.PhpVariables.Tag, levelTag);
+        form.AddField(Const.PhpVariables.ShotsFired, _shotsTotal);
+        form.AddField(Const.PhpVariables.ShotsHit, _hitsTotal);
+        form.AddField(Const.PhpVariables.DamageTaken, _damageTakenTotal);
+        form.AddField(Const.PhpVariables.GrenadesThrown, _grenadesThrownTotal);
+        form.AddField(Const.PhpVariables.GrenadesHit, _grenadesHitTotal);
+        form.AddField(Const.PhpVariables.TimeSpent, (int) seconds);
+        form.AddField(Const.PhpVariables.DeathCount, _deathsTotal);
+        form.AddField(Const.PhpVariables.InteractiblesCollected, _interactiblesCollectedTotal);
+        form.AddField(Const.PhpVariables.MeleeAttacks, _meleeAttacksTotal);
+        form.AddField(Const.PhpVariables.DifficultyIndex, waveDifficultyIndex);
+        form.AddField(Const.PhpVariables.TriesForLevel, triesForThisLevel);
 
-        LogEntry entry = new LogEntry(LevelCompletedMessage, levelTag, _shotsTotal, _hitsTotal, _damageTakenTotal, _grenadesThrownTotal,
-            _grenadesHitTotal, seconds, _deathsTotal, _interactiblesCollectedTotal, _meleeAttacksTotal,
-            waveDifficultyIndex, triesForThisLevel);
-
-        writer.WriteLine(entry + "\n");
-        writer.Flush();
+        StartCoroutine(logDataToFile(form));
     }
 
     private void LogWaveStats(String message)
@@ -183,13 +194,43 @@ public class LoggingManager : MonoBehaviour
         double seconds = timeSpan.TotalSeconds;
         seconds = Math.Round(seconds); // round to the nearest integer for easier to read data
 
-        LogEntry entry = new LogEntry(message, waveTag, shotsInCurrentWave, hitsInCurrentWave, _damageTakenInCurrentWave,
-            grenadesThrownInCurrentWave,
-            grenadesHitInCurrentWave, seconds, deathsInCurrentWave, interactiblesCollectedInCurrentWave,
-            meleeAttacksInCurrentWave, waveDifficultyIndex, triesForThisLevel);
+        WWWForm form = new WWWForm();
+        form.AddField(Const.PhpVariables.IsFirstLogCall, _isFirstLogCall);
+        form.AddField(Const.PhpVariables.Id, _playerId);
+        form.AddField(Const.PhpVariables.Message, message);
+        form.AddField(Const.PhpVariables.Tag, waveTag);
+        form.AddField(Const.PhpVariables.ShotsFired, shotsInCurrentWave);
+        form.AddField(Const.PhpVariables.ShotsHit, hitsInCurrentWave);
+        form.AddField(Const.PhpVariables.DamageTaken, _damageTakenInCurrentWave);
+        form.AddField(Const.PhpVariables.GrenadesThrown, grenadesThrownInCurrentWave);
+        form.AddField(Const.PhpVariables.GrenadesHit, grenadesHitInCurrentWave);
+        form.AddField(Const.PhpVariables.TimeSpent, (int) seconds);
+        form.AddField(Const.PhpVariables.DeathCount, deathsInCurrentWave);
+        form.AddField(Const.PhpVariables.InteractiblesCollected, interactiblesCollectedInCurrentWave);
+        form.AddField(Const.PhpVariables.MeleeAttacks, meleeAttacksInCurrentWave);
+        form.AddField(Const.PhpVariables.DifficultyIndex, waveDifficultyIndex);
+        form.AddField(Const.PhpVariables.TriesForLevel, triesForThisLevel);
 
-        writer.WriteLine(entry + "\n");
-        writer.Flush();
+        StartCoroutine(logDataToFile(form));
+    }
+
+    IEnumerator logDataToFile(WWWForm form)
+    {
+        _isFirstLogCall = "false";
+
+        using (UnityWebRequest www = UnityWebRequest.Post(Const.ServerURL + "php/webgl-logger.php", form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log("Form upload successful!");
+            }
+        }
     }
 
 

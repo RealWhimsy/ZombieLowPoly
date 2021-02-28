@@ -36,6 +36,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenuLogic.Paused)
+        {
+            isMoving = false;
+            footSteps.Stop();
+            return;
+        }
+        
         if (!playerManager.isDead())
         {
             BaseMovement();

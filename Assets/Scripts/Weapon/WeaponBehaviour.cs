@@ -32,6 +32,11 @@ public class WeaponBehaviour : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenuLogic.Paused)
+        {
+            return;
+        }
+        
         if (Input.GetMouseButton(0))
         {
             HandleLeftClick();
