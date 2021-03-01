@@ -71,7 +71,12 @@ public class Grenade : MonoBehaviour, IDamageDealer
             Camera.main.transform.position.y - transform.position.y));
         float distance = Vector3.Distance(player.transform.position, mousePos);
 
-        return distance * 2;
+        if (distance > 14)
+        {
+            distance = 14;
+        }
+
+        return distance * 3.5f;
     }
 
     public void setDamage(int damage)

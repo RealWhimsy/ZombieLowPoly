@@ -1,4 +1,6 @@
-﻿public static class Const
+﻿using UnityEngine;
+
+public static class Const
 {
     /******************************************************************
      * Constants in C# are named in PascalCase, not in SCREAMING_CAPS *
@@ -9,6 +11,8 @@
     public const int SecondWeaponIndex = 1;
     public const int MaxWeaponIndex = 1;
     public const int MaxNumWeapons = MaxWeaponIndex + 1;
+    public const string VideoAssetsPath = "./Assets/VideoPlayer/";
+    public const string ServerURL = "http://s715714060.online.de/";
 
     // Event names
     public static class Events
@@ -159,5 +163,32 @@
     public class Magazines
     {
         public const int MaxMagazines = 5;
+    }
+
+    public static class PhpVariables
+    {
+        public const string IsFirstLogCall = "isFirstLogCall";
+        public const string Id = "id";
+        public const string Message = "message";
+        public const string Tag = "tag";
+        public const string ShotsFired = "shotsFired";
+        public const string ShotsHit = "shotsHit";
+        public const string DamageTaken = "damageTaken";
+        public const string GrenadesThrown = "grenadesThrown";
+        public const string GrenadesHit = "grenadesHit";
+        public const string TimeSpent = "timeSpent";
+        public const string DeathCount = "deathCount";
+        public const string InteractiblesCollected = "interactiblesCollected";
+        public const string MeleeAttacks = "meleeAttacks";
+        public const string DifficultyIndex = "difficultyIndex";
+        public const string TriesForLevel = "triesForLevel";
+        public const string SelectedDifficulty = "selectedDifficulty";
+    }
+
+    public static class Tutorial
+    {
+        public static readonly Vector3 GrenadeBoxOneVector = new Vector3(47.938255f, 0.17f, 19.60897f);
+        public static readonly Vector3 GrenadeBoxTwoVector = new Vector3(47.938255f, 0.17f, 22.01942f);
+        public static readonly Vector3 GrenadeBoxThreeVector = new Vector3(47.938255f, 0.17f, 16.93942f);
     }
 }

@@ -78,12 +78,5 @@ public class Tutorial : MonoBehaviour
         {
             tutorialText.text = skillText;
         }
-
-        if (killCounter <= 0 && !loading && player.transform.position.x >= endTrigger)
-        {
-            loading = true;
-            targets[1].SetActive(false);
-            EventManager.TriggerEvent(Const.Events.LevelCompleted);
-        }
     }
 }

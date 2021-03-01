@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class LevelCompletedMenu : MonoBehaviour
 {
+    private static int _selectedDifficulty;
     private GameObject statsValues;
     private string values = DDAManager.ZombiesKilled +
                             "\n" +
@@ -24,6 +25,9 @@ public class LevelCompletedMenu : MonoBehaviour
     public void ButtonSelected(int difficultyAdjustment)
     {
         DDAManager.PlayerFeedbackDifficulty = difficultyAdjustment;
+        _selectedDifficulty = difficultyAdjustment;
         EventManager.TriggerEvent(Const.Events.DifficultySelected);
     }
+
+    public static int SelectedDifficulty => _selectedDifficulty;
 }
