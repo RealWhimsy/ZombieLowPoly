@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class ZombiePathfinding : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class ZombiePathfinding : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
+        
+        EventManager.StartListening(Const.Events.PlayerRespawned, HandlePlayerRespawn);
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerManager = player.GetComponent<PlayerManager>();
@@ -27,6 +30,17 @@ public class ZombiePathfinding : MonoBehaviour
         {
             target = player.transform;
         }
+
+        SetCurrentDifficultyStats();
+    }
+
+    private void SetCurrentDifficultyStats()
+    {
+        if (SceneManager.GetActiveScene().name.Equals(Const.SceneNames.Tutorial))
+        {
+            return;
+        }
+        agent.speed = Difficulty.CurrentDifficulty.ZombieSpeed;
     }
 
     // Update is called once per frame
@@ -55,6 +69,16 @@ public class ZombiePathfinding : MonoBehaviour
         }
         
         return false;
+    }
+
+    private void HandlePlayerRespawn()
+    {
+        // Re-enable pathfinding after player respawned (except in tutorial)
+        if (SceneManager.GetActiveScene().name.Equals(Const.SceneNames.Tutorial))
+        {
+            return;
+        }
+        agent.isStopped = false;
     }
 
     public Transform Target

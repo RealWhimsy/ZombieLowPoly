@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 29448271442950401}
   - component: {fileID: 29448271441853377}
   - component: {fileID: 7664656505815090221}
-  - component: {fileID: -7925587278973775365}
   m_Layer: 0
   m_Name: w_rambo_knife
   m_TagString: weapon
@@ -94,18 +93,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.84057283, y: 0.09263833, z: 0.22613421}
   m_Center: {x: -0.16469593, y: -0.015900318, z: -0.001453314}
---- !u!114 &-7925587278973775365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 29448271443846401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ef942c5eb7c804b972944df8aa3890, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  usedGun: 0
-  magazines: 0
-  magazineSize: 0

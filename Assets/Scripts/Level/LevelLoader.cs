@@ -35,14 +35,21 @@ public class LevelLoader : MonoBehaviour
                 StartCoroutine(LoadLevelWithDelay(Const.SceneNames.LevelCompletedScene));
                 nextScene = Const.SceneNames.City;
                 break;
+            case Const.SceneNames.City:
+                StartCoroutine(LoadLevelWithDelay(Const.SceneNames.LevelCompletedScene));
+                nextScene = Const.SceneNames.EndScene;
+                break;
         }
     }
 
     private void LoadNextScene()
     {
+        Time.timeScale = 1;
+        EventManager.TriggerEvent(Const.Events.LevelLoaded);
         switch (nextScene)
         {
 			case Const.SceneNames.Forest:
+                EventManager.TriggerEvent(Const.Events.TutorialCompleted);
 				LoadLevel(Const.SceneNames.Forest);
 				break;	
             case Const.SceneNames.Desert:
@@ -54,6 +61,9 @@ public class LevelLoader : MonoBehaviour
             case Const.SceneNames.City:
                 LoadLevel(Const.SceneNames.City);
                 break;
+            case Const.SceneNames.EndScene:
+                LoadLevel(Const.SceneNames.EndScene);
+                break;
         }
     }
 
@@ -63,7 +73,7 @@ public class LevelLoader : MonoBehaviour
     }
 
 	private IEnumerator LoadLevelWithDelay(string sceneName) {
-		yield return new WaitForSeconds(4);
+		yield return new WaitForSeconds(3);
 		SceneManager.LoadScene(sceneName);
 	}
 

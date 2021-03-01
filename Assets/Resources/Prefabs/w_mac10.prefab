@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1404592640839486769}
   - component: {fileID: 1404592640838389745}
   - component: {fileID: 8556306892176825177}
-  - component: {fileID: 3548038235059073807}
   m_Layer: 0
   m_Name: w_mac10
   m_TagString: weapon
@@ -94,18 +93,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5621952, y: 0.13429815, z: 0.5662214}
   m_Center: {x: 0.014380563, y: 0.0006119201, z: 0.08373472}
---- !u!114 &3548038235059073807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1404592640840585521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ef942c5eb7c804b972944df8aa3890, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  usedGun: 0
-  magazines: 0
-  magazineSize: 0

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3695304101903383056}
   - component: {fileID: 3695304101902416080}
   - component: {fileID: 1531440631289361814}
-  - component: {fileID: 1538722767472283479}
   m_Layer: 0
   m_Name: w_policebatton
   m_TagString: weapon
@@ -94,18 +93,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.51689374, y: 0.11835858, z: 0.6560555}
   m_Center: {x: 0.15151268, y: -0.0040176297, z: -0.093603365}
---- !u!114 &1538722767472283479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3695304101900150288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ef942c5eb7c804b972944df8aa3890, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  usedGun: 0
-  magazines: 0
-  magazineSize: 0

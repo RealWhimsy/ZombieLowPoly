@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5912539839217733758}
   - component: {fileID: 5912539839218733758}
   - component: {fileID: 677222668412977527}
-  - component: {fileID: -8207858803856122445}
   m_Layer: 0
   m_Name: w_twobarrel
   m_TagString: weapon
@@ -94,18 +93,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.30684566, y: 0.17931262, z: 1.0081491}
   m_Center: {x: -0.06155042, y: 0.001553737, z: 0.18242195}
---- !u!114 &-8207858803856122445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5912539839216536702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ef942c5eb7c804b972944df8aa3890, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  usedGun: 0
-  magazines: 0
-  magazineSize: 0

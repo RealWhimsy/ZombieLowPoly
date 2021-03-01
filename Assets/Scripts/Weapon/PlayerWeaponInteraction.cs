@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerWeaponInteraction : MonoBehaviour
 {
@@ -24,12 +25,19 @@ public class PlayerWeaponInteraction : MonoBehaviour
         weaponHand = GameObject.FindGameObjectWithTag("WeaponHand");
         RenderNewWeapon();
 
+        SceneManager.sceneLoaded += ResetWeaponsOnGround;
+
         EventManager.StartListening(Const.Events.PlayerRespawned, SetRespawnState);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenuLogic.Paused)
+        {
+            return;
+        }
+        
         if (Input.GetKeyDown(KeyCode.E) && isOnWeapon)
         {
             // TODO Trigger event for sound
@@ -60,6 +68,22 @@ public class PlayerWeaponInteraction : MonoBehaviour
 
                 case Const.WeaponNames.P90:
                     PickUpWeapon(Const.WeaponNames.P90);
+                    break;
+                
+                case Const.WeaponNames.UMP45:
+                    PickUpWeapon(Const.WeaponNames.UMP45);
+                    break;
+                
+                case Const.WeaponNames.Barret:
+                    PickUpWeapon(Const.WeaponNames.Barret);
+                    break;
+                
+                case Const.WeaponNames.G36K:
+                    PickUpWeapon(Const.WeaponNames.G36K);
+                    break;
+                
+                case Const.WeaponNames.MP5:
+                    PickUpWeapon(Const.WeaponNames.MP5);
                     break;
 
                 case Const.WeaponNames.Scar:
@@ -139,6 +163,27 @@ public class PlayerWeaponInteraction : MonoBehaviour
     private void PickUpWeapon(string weaponName)
     {
         SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.WeaponPickup) as AudioClip);
+
+        // if the player "picks up" a weapon they already have, the ammo gets refilled
+        foreach (var weapon in playerManager.WeaponArray)
+        {
+            if (weapon == null)
+            {
+                continue;
+            }
+            
+            if (weapon.Name.Equals(weaponName))
+            {
+                weapon.Magazines++;
+                weapon.ShotsInCurrentMag = weapon.MaxMagazineSize;
+                
+                // Destroy weapon on the ground
+                Destroy(weaponPickup);
+                return;
+            }
+        }
+
+
         for (int i = 0; i <= Const.MaxWeaponIndex; i++)
         {
             if (playerManager.WeaponArray[i] is null)
@@ -184,8 +229,6 @@ public class PlayerWeaponInteraction : MonoBehaviour
         GameObject droppedGun = Instantiate(weaponPrefab, player.transform.position + new Vector3(0f, 0.4f, 0f),
             Quaternion.identity * Quaternion.Euler(0f, 0f, -90f));
 
-        droppedGun.GetComponent<BulletContainer>()
-            .SetValues(true, weapon.ShotsInCurrentMag, weapon.Magazines);
         if (droppedGun.transform.name.Contains("(Clone)"))
         {
             droppedGun.transform.name = droppedGun.transform.name.Replace("(Clone)", "").Trim();
@@ -194,8 +237,17 @@ public class PlayerWeaponInteraction : MonoBehaviour
 
     private void SetRespawnState()
     {
-        SwitchWeapon();
-        RenderNewWeapon();
+        /*SwitchWeapon();
+        RenderNewWeapon();*/
+    }
+
+    private void ResetWeaponsOnGround(Scene scene, LoadSceneMode mode)
+    {
+        foreach (var weapon in WeaponStats.weaponStatDict.Values)
+        {
+            weapon.ShotsInCurrentMag = weapon.MaxMagazineSize;
+            weapon.Magazines = weapon.MaxMagazines;
+        }
     }
 
     private void OnTriggerEnter(Collider collider)

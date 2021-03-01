@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1443349143632052683}
   - component: {fileID: 1443349143633052427}
   - component: {fileID: 1443349143237477031}
-  - component: {fileID: -9153451206909324021}
   m_Layer: 0
   m_Name: w_rpg
   m_TagString: weapon
@@ -94,18 +93,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 3}
   m_Center: {x: -0.09445755, y: -0.000001266599, z: 0.07988906}
---- !u!114 &-9153451206909324021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443349143635254731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ef942c5eb7c804b972944df8aa3890, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  usedGun: 0
-  magazines: 0
-  magazineSize: 0

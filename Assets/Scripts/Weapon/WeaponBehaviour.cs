@@ -32,6 +32,11 @@ public class WeaponBehaviour : MonoBehaviour
 
     private void Update()
     {
+        if (PauseMenuLogic.Paused)
+        {
+            return;
+        }
+        
         if (Input.GetMouseButton(0))
         {
             HandleLeftClick();
@@ -75,6 +80,12 @@ public class WeaponBehaviour : MonoBehaviour
 
     private void HandleLeftClick()
     {
+        // send no action if the player is dead
+        if (playerManager.isDead())
+        {
+            return;
+        }
+        
         if (playerManager.GetActiveWeapon().MeleeWeapon)
         {
             MeleeAttack();

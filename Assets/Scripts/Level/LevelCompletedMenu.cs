@@ -1,35 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelCompletedMenu : MonoBehaviour
 {
-    void Start()
+    private static int _selectedDifficulty;
+    private GameObject statsValues;
+    private string values = DDAManager.ZombiesKilled +
+                            "\n" +
+                            DDAManager.PlayerDeaths +
+                            "\n" +
+                            DDAManager.ShotsFired + 
+                            "\n" +
+                            DDAManager.GrenadesThrown; // TODO: add dda score
+    public void Start()
     {
+        Time.timeScale = 0;
+        statsValues = GameObject.Find("StatsValues");
+        statsValues.GetComponent<Text>().text = values;
     }
 
-    public void TooEasyButton()
+    public void ButtonSelected(int difficultyAdjustment)
     {
+        DDAManager.PlayerFeedbackDifficulty = difficultyAdjustment;
+        _selectedDifficulty = difficultyAdjustment;
         EventManager.TriggerEvent(Const.Events.DifficultySelected);
     }
 
-    public void EasyButton()
-    {
-        EventManager.TriggerEvent(Const.Events.DifficultySelected);
-    }
-
-    public void MediumButton()
-    {
-        EventManager.TriggerEvent(Const.Events.DifficultySelected);
-    }
-
-    public void HardButton()
-    {
-        EventManager.TriggerEvent(Const.Events.DifficultySelected);
-    }
-    
-    public void TooHardButton()
-    {
-        EventManager.TriggerEvent(Const.Events.DifficultySelected);
-    }
+    public static int SelectedDifficulty => _selectedDifficulty;
 }

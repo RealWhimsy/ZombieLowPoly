@@ -14,6 +14,11 @@ public class SoundManagerRework : MonoBehaviour
     public float HighPitchRange = 1.05f;
     
     public static SoundManagerRework Instance = null;
+    
+    // Volume Slider Values
+    public static float _masterVolFloat = 0.75f;
+    public static float _musicVolFloat = 0.75f;
+    public static float _effectsVolFloat = 0.75f;
 
     void Awake()
     {

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 357502634661697583}
   - component: {fileID: 357502634662796015}
   - component: {fileID: 357502635848528454}
-  - component: {fileID: -339360300608989708}
   m_Layer: 0
   m_Name: w_ak47
   m_TagString: weapon
@@ -94,15 +93,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.9561364, y: 0.71943325, z: 1.0567889}
   m_Center: {x: -0.18004647, y: -0.031057477, z: 0.23511624}
---- !u!114 &-339360300608989708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357502634664723503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ef942c5eb7c804b972944df8aa3890, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

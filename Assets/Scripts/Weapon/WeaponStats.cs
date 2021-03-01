@@ -20,7 +20,7 @@ public static class WeaponStats
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell")),
 
         [Const.WeaponNames.Python] = new Weapon("w_python", 3, 6, 0.6f,
-            Resources.Load("Prefabs/rifle_shell") as GameObject, 50, 5, false, WeaponType.Pistol,
+            Resources.Load("Prefabs/rifle_shell") as GameObject, 110, 5, false, WeaponType.Pistol,
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Revolver_shot"),
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Revolver_reload"),
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Pistol_shell")),
@@ -38,7 +38,7 @@ public static class WeaponStats
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Pistol_shell")),
 
         [Const.WeaponNames.Aug] = new Weapon("w_aug", 2, 30, 0.17f,
-            Resources.Load("Prefabs/rifle_shell") as GameObject, 25, 5, false, WeaponType.Rifle,
+            Resources.Load("Prefabs/rifle_shell") as GameObject, 30, 5, false, WeaponType.Rifle,
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/AUG_shot"),
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Rifle_reload_1"),
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell")),
@@ -54,11 +54,23 @@ public static class WeaponStats
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/M4_shot"),
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Rifle_reload_1"),
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell")),
+        
+        [Const.WeaponNames.G36K] = new Weapon("w_g36k", 2, 30, 0.13f,
+            Resources.Load("Prefabs/rifle_shell") as GameObject, 25, 14, false, WeaponType.Rifle,
+            (AudioClip) Resources.Load("Sounds_Ingame/Weapons/g36k_shot"),
+            (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Rifle_reload_1"),
+            (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell")),
 
         [Const.WeaponNames.Awp] = new Weapon("w_awp", 2, 10, 0.9f,
             Resources.Load("Prefabs/rifle_shell") as GameObject, 100, 2, false, WeaponType.Sniper,
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/AWP_shot"),
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Sniper_reload"),
+            (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell")),
+        
+        [Const.WeaponNames.Barret] = new Weapon("w_barret", 2, 10, 1.0f,
+            Resources.Load("Prefabs/rifle_shell") as GameObject, 110, 2, false, WeaponType.Sniper,
+            (AudioClip) Resources.Load("Sounds_Ingame/Weapons/barret_shot"),
+            (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Rifle_reload_2"),
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell")),
 
         [Const.WeaponNames.Svd] = new Weapon("w_svd", 2, 10, 0.4f,
@@ -102,5 +114,17 @@ public static class WeaponStats
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/AK47_shot"),
             (AudioClip) Resources.Load("Sounds_Ingame/Weapons/Rifle_reload_1"),
             (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Rifle_shell")),
+        
+        [Const.WeaponNames.UMP45] = new Weapon("w_ump45", 3, 25, 0.17f,
+            Resources.Load("Prefabs/rifle_shell") as GameObject, 27, 15, false, WeaponType.Smg,
+            (AudioClip) Resources.Load("Sounds_Ingame/Weapons/P90_shot"),
+            (AudioClip) Resources.Load("Sounds_Ingame/Weapons/SMG_reload"),
+            (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Pistol_shell")),
+        
+        [Const.WeaponNames.MP5] = new Weapon("w_mp5_sil", 3, 30, 0.14f,
+            Resources.Load("Prefabs/rifle_shell") as GameObject, 23, 17, false, WeaponType.Smg,
+            (AudioClip) Resources.Load("Sounds_Ingame/Weapons/mp5_shot"),
+            (AudioClip) Resources.Load("Sounds_Ingame/Weapons/SMG_reload"),
+            (AudioClip) Resources.Load("Sounds_Ingame/Bullets/Pistol_shell")),
     };
 }

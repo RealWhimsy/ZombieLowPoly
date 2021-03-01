@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4151090584849429664}
   - component: {fileID: 4151090584850429536}
   - component: {fileID: 6697802969423730209}
-  - component: {fileID: 8060844220122209053}
   m_Layer: 0
   m_Name: w_aug
   m_TagString: weapon
@@ -94,15 +93,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5893335, y: 0.12172466, z: 1.0722566}
   m_Center: {x: -0.009298744, y: 0.00000052154076, z: 0.20388338}
---- !u!114 &8060844220122209053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4151090584848230560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ef942c5eb7c804b972944df8aa3890, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

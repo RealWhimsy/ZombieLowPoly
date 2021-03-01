@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2129291664232921742}
   - component: {fileID: 2129291664233920590}
   - component: {fileID: 7067330358556222894}
-  - component: {fileID: 4451808916803212681}
   m_Layer: 0
   m_Name: w_p90
   m_TagString: weapon
@@ -94,18 +93,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4546033, y: 0.15189058, z: 0.7552825}
   m_Center: {x: -0.051197898, y: 0.00000043585908, z: 0.12470792}
---- !u!114 &4451808916803212681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2129291664236111502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13ef942c5eb7c804b972944df8aa3890, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  usedGun: 0
-  magazines: 0
-  magazineSize: 0
