@@ -11,7 +11,6 @@ public class Tutorial : MonoBehaviour
     private GameObject followCamera;
     private GameObject player;
     private TextMeshPro tutorialText;
-    private GameObject[] targets;
 
     private string movementText = "Move around using 'WASD'";
 
@@ -35,7 +34,6 @@ public class Tutorial : MonoBehaviour
     void Start()
     {
         killCounter = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        targets = GameObject.FindGameObjectsWithTag("Target");
         followCamera = GameObject.FindGameObjectWithTag("MainCamera");
         player = GameObject.FindGameObjectWithTag("Player");
         tutorialText =  GetComponent<TextMeshPro>();
@@ -56,7 +54,6 @@ public class Tutorial : MonoBehaviour
         if (player.transform.position.x >= trigger2)
         {
             tutorialText.text = pickUpText;
-            targets[0].SetActive(false);
         }
         
         if (player.transform.position.x >= trigger3)
