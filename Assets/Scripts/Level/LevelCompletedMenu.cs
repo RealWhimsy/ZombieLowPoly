@@ -19,7 +19,7 @@ public class LevelCompletedMenu : MonoBehaviour
     {
         Time.timeScale = 0;
         statsValues = GameObject.Find("StatsValues");
-        statsValues.GetComponent<Text>().text = values + "\n0";
+        statsValues.GetComponent<Text>().text = values;
     }
 
     public void ButtonSelected(int difficultyAdjustment)
