@@ -113,6 +113,7 @@ public class LoggingManager : MonoBehaviour
     {
         // set start time of the new level
         // if-statement is needed so stats don't reset if the player dies and respawns (same scene is loaded again)
+        SetWaveTag();
         if (!scene.name.Equals(currentSceneName))
         {
             waveNumber = 1;
