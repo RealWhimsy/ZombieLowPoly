@@ -12,6 +12,8 @@ public class WeaponBehaviour : MonoBehaviour
     private Weapon weapon;
     private bool meleeAttackInProgress;
 
+    private AudioClip noAmmoSound;
+
     private float shotTime;
     private static readonly int ShootAnimation = Animator.StringToHash("shoot");
     private static readonly int ReloadAnimation = Animator.StringToHash("reload");
@@ -25,6 +27,7 @@ public class WeaponBehaviour : MonoBehaviour
         playerManager = player.GetComponent<PlayerManager>();
         meleeZone = player.transform.Find("MeleeArea").gameObject;
         weapon = playerManager.GetActiveWeapon();
+        noAmmoSound = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/no_ammo");
 
         EventManager.StartListening(Const.Events.WeaponSwapped, HandleWeaponSwap);
 
@@ -102,6 +105,11 @@ public class WeaponBehaviour : MonoBehaviour
                 playerManager.anim.SetTrigger(ShootAnimation);
                 Shoot();
                 
+                shotTime = Time.time;
+            } 
+            else if (weapon.ShotsInCurrentMag <= 0 && Time.time - shotTime > weapon.ShotCooldown)
+            {
+                SoundManagerRework.Instance.PlayEffectOneShot(noAmmoSound);
                 shotTime = Time.time;
             }
             if(weapon.MeleeWeapon)
