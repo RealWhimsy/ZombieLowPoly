@@ -132,6 +132,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_fence_stand_small (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
       value: 42
@@ -860,6 +864,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_fence_stand_small (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
       value: 35
@@ -1107,7 +1115,7 @@ GameObject:
   - component: {fileID: 408256026}
   m_Layer: 0
   m_Name: Plane (3)
-  m_TagString: Untagged
+  m_TagString: EnvironmentBlocker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1292,6 +1300,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_fence_stand_small (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
       value: 34
@@ -1366,6 +1378,10 @@ PrefabInstance:
     - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_Name
       value: SM_fence_stand_small (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
@@ -2053,6 +2069,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_fence_stand_small (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
       value: 36
@@ -2127,6 +2147,10 @@ PrefabInstance:
     - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_Name
       value: SM_fence_stand_small (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
@@ -2361,6 +2385,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_fence_stand_small (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
       value: 38
@@ -2435,6 +2463,10 @@ PrefabInstance:
     - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_Name
       value: SM_fence_stand_small (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
@@ -2813,6 +2845,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_fence_stand_small (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
       value: 40
@@ -3076,6 +3112,10 @@ PrefabInstance:
     - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_Name
       value: SM_fence_stand_small (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
@@ -3364,6 +3404,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_fence_stand_small (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
       value: 47
@@ -3598,7 +3642,7 @@ GameObject:
   - component: {fileID: 1193729908}
   m_Layer: 0
   m_Name: Plane (1)
-  m_TagString: Untagged
+  m_TagString: EnvironmentBlocker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3688,6 +3732,10 @@ PrefabInstance:
     - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_Name
       value: SM_fence_stand_small (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
@@ -3891,6 +3939,10 @@ PrefabInstance:
     - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_Name
       value: SM_fence_stand_small (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
@@ -4337,6 +4389,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_fence_stand_small (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -4411,6 +4467,10 @@ PrefabInstance:
     - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_Name
       value: SM_fence_stand_small (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
@@ -4656,6 +4716,10 @@ PrefabInstance:
     - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_Name
       value: SM_fence_stand_small (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
@@ -5064,7 +5128,7 @@ GameObject:
   - component: {fileID: 1678531993}
   m_Layer: 0
   m_Name: Plane (2)
-  m_TagString: Untagged
+  m_TagString: EnvironmentBlocker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5487,6 +5551,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_fence_stand_small (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
       value: 49
@@ -5561,6 +5629,10 @@ PrefabInstance:
     - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_Name
       value: SM_fence_stand_small (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
@@ -5704,6 +5776,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_fence_stand_small (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
       value: 43
@@ -5778,6 +5854,10 @@ PrefabInstance:
     - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_Name
       value: SM_fence_stand_small (31)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
@@ -5947,6 +6027,10 @@ PrefabInstance:
     - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_Name
       value: SM_fence_stand_small (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
@@ -6121,6 +6205,10 @@ PrefabInstance:
     - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_Name
       value: SM_fence_stand_small (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
@@ -6595,6 +6683,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_fence_stand_small (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -6904,6 +6996,10 @@ PrefabInstance:
     - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_Name
       value: SM_fence_stand_small (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1726663252537666, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 4699360296288084, guid: 21bd80f4ed903334f8265e141cc4f164, type: 3}
       propertyPath: m_RootOrder

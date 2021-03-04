@@ -1257,6 +1257,10 @@ PrefabInstance:
       value: sptp_building_03
       objectReference: {fileID: 0}
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -1328,6 +1332,10 @@ PrefabInstance:
     - target: {fileID: 117022, guid: 7ad2e20841a11954f8a84f88e5175cf2, type: 3}
       propertyPath: m_Name
       value: sptp_building_14
+      objectReference: {fileID: 0}
+    - target: {fileID: 117022, guid: 7ad2e20841a11954f8a84f88e5175cf2, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 117022, guid: 7ad2e20841a11954f8a84f88e5175cf2, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2720,6 +2728,10 @@ PrefabInstance:
       value: sptp_building_14 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 117022, guid: 7ad2e20841a11954f8a84f88e5175cf2, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 117022, guid: 7ad2e20841a11954f8a84f88e5175cf2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -2970,6 +2982,10 @@ PrefabInstance:
       value: Car_3_Green
       objectReference: {fileID: 0}
     - target: {fileID: 129146, guid: c0b5a1ab38a43044a91864eb9b9fbede, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 129146, guid: c0b5a1ab38a43044a91864eb9b9fbede, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -3085,6 +3101,10 @@ PrefabInstance:
       value: sptp_building_04 (9)
       objectReference: {fileID: 0}
     - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -3146,6 +3166,10 @@ PrefabInstance:
       value: sptp_building_19
       objectReference: {fileID: 0}
     - target: {fileID: 191624, guid: b31bfd856a422204b9e585c888f2cc4f, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 191624, guid: b31bfd856a422204b9e585c888f2cc4f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -3205,6 +3229,10 @@ PrefabInstance:
     - target: {fileID: 135208, guid: a9b79d749ced56c4e8b559a4f12d0a69, type: 3}
       propertyPath: m_Name
       value: sptp_building_16 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 135208, guid: a9b79d749ced56c4e8b559a4f12d0a69, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 135208, guid: a9b79d749ced56c4e8b559a4f12d0a69, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3461,6 +3489,10 @@ PrefabInstance:
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_Name
       value: sptp_building_03 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3885,6 +3917,10 @@ PrefabInstance:
       value: sptp_building_16
       objectReference: {fileID: 0}
     - target: {fileID: 135208, guid: a9b79d749ced56c4e8b559a4f12d0a69, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 135208, guid: a9b79d749ced56c4e8b559a4f12d0a69, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -3944,6 +3980,10 @@ PrefabInstance:
     - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
       propertyPath: m_Name
       value: sptp_building_13 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4072,6 +4112,10 @@ PrefabInstance:
     - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
       propertyPath: m_Name
       value: sptp_building_10 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4506,6 +4550,10 @@ PrefabInstance:
       value: sptp_building_13 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -4565,6 +4613,10 @@ PrefabInstance:
     - target: {fileID: 148152, guid: c578b4309ba7d374a81ecb4ead9452b4, type: 3}
       propertyPath: m_Name
       value: sptp_building_17 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 148152, guid: c578b4309ba7d374a81ecb4ead9452b4, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 148152, guid: c578b4309ba7d374a81ecb4ead9452b4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4711,6 +4763,10 @@ PrefabInstance:
     - target: {fileID: 148152, guid: c578b4309ba7d374a81ecb4ead9452b4, type: 3}
       propertyPath: m_Name
       value: sptp_building_17 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 148152, guid: c578b4309ba7d374a81ecb4ead9452b4, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 148152, guid: c578b4309ba7d374a81ecb4ead9452b4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5040,6 +5096,10 @@ PrefabInstance:
       value: Police Car v3 3 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: 33ebbf53759c84c4795793bc6f9d4218, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 33ebbf53759c84c4795793bc6f9d4218, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -5205,6 +5265,10 @@ PrefabInstance:
       value: sptp_building_03 (4)
       objectReference: {fileID: 0}
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -5327,6 +5391,10 @@ PrefabInstance:
       value: sptp_building_01 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 113294, guid: 85c5ecd5a01f542499944cbfe9dd1cf8, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 113294, guid: 85c5ecd5a01f542499944cbfe9dd1cf8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -5386,6 +5454,10 @@ PrefabInstance:
     - target: {fileID: 178132, guid: a03a9df0edb623a4095e3b307f481082, type: 3}
       propertyPath: m_Name
       value: sptp_building_18
+      objectReference: {fileID: 0}
+    - target: {fileID: 178132, guid: a03a9df0edb623a4095e3b307f481082, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 178132, guid: a03a9df0edb623a4095e3b307f481082, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5459,6 +5531,10 @@ PrefabInstance:
     - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
       propertyPath: m_Name
       value: sptp_building_10 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5579,6 +5655,10 @@ PrefabInstance:
       value: sptp_building_14 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 117022, guid: 7ad2e20841a11954f8a84f88e5175cf2, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 117022, guid: 7ad2e20841a11954f8a84f88e5175cf2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -5654,6 +5734,10 @@ PrefabInstance:
     - target: {fileID: 160038, guid: 8e6432cafa5803946a9c3011999db1f7, type: 3}
       propertyPath: m_Name
       value: Car_2_Red (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 160038, guid: 8e6432cafa5803946a9c3011999db1f7, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 160038, guid: 8e6432cafa5803946a9c3011999db1f7, type: 3}
       propertyPath: m_NavMeshLayer
@@ -5998,6 +6082,10 @@ PrefabInstance:
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_Name
       value: sptp_building_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6648,6 +6736,10 @@ PrefabInstance:
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_Name
       value: sptp_building_03 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7517,6 +7609,10 @@ PrefabInstance:
       value: sptp_building_10
       objectReference: {fileID: 0}
     - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -7584,6 +7680,10 @@ PrefabInstance:
       value: sptp_building_20
       objectReference: {fileID: 0}
     - target: {fileID: 174002, guid: 21d87f071ff58334bafd1d0529a95433, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 174002, guid: 21d87f071ff58334bafd1d0529a95433, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -7643,6 +7743,10 @@ PrefabInstance:
     - target: {fileID: 116448, guid: eebeaf026736b6546909968c8b4080b2, type: 3}
       propertyPath: m_Name
       value: Car_1_Silver
+      objectReference: {fileID: 0}
+    - target: {fileID: 116448, guid: eebeaf026736b6546909968c8b4080b2, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 116448, guid: eebeaf026736b6546909968c8b4080b2, type: 3}
       propertyPath: m_NavMeshLayer
@@ -7764,6 +7868,10 @@ PrefabInstance:
     - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
       propertyPath: m_Name
       value: sptp_building_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8140,6 +8248,10 @@ PrefabInstance:
       value: sptp_building_03 (15)
       objectReference: {fileID: 0}
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -8276,6 +8388,10 @@ PrefabInstance:
     - target: {fileID: 140570, guid: 6a76d3dcd348f084685cb525458806e1, type: 3}
       propertyPath: m_Name
       value: Car_4_Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 140570, guid: 6a76d3dcd348f084685cb525458806e1, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 140570, guid: 6a76d3dcd348f084685cb525458806e1, type: 3}
       propertyPath: m_NavMeshLayer
@@ -8588,6 +8704,10 @@ PrefabInstance:
     - target: {fileID: 193646, guid: 798591b2838b0844c90eeed933a85d3d, type: 3}
       propertyPath: m_Name
       value: Car_6_Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 193646, guid: 798591b2838b0844c90eeed933a85d3d, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 193646, guid: 798591b2838b0844c90eeed933a85d3d, type: 3}
       propertyPath: m_NavMeshLayer
@@ -9007,6 +9127,10 @@ PrefabInstance:
       value: sptp_building_11 (5)
       objectReference: {fileID: 0}
     - target: {fileID: 162376, guid: edfc85d2272c60b49beb757027f79980, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 162376, guid: edfc85d2272c60b49beb757027f79980, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -9066,6 +9190,10 @@ PrefabInstance:
     - target: {fileID: 134200, guid: d9c2a6cb99ea45945b24d88f8b8e88ff, type: 3}
       propertyPath: m_Name
       value: sptp_building_24
+      objectReference: {fileID: 0}
+    - target: {fileID: 134200, guid: d9c2a6cb99ea45945b24d88f8b8e88ff, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 134200, guid: d9c2a6cb99ea45945b24d88f8b8e88ff, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9995,6 +10123,10 @@ PrefabInstance:
       value: sptp_building_17 (6)
       objectReference: {fileID: 0}
     - target: {fileID: 148152, guid: c578b4309ba7d374a81ecb4ead9452b4, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 148152, guid: c578b4309ba7d374a81ecb4ead9452b4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -10158,6 +10290,10 @@ PrefabInstance:
     - target: {fileID: 112316, guid: 7538a3c85f736c74ea56d203349fde92, type: 3}
       propertyPath: m_Name
       value: sptp_building_25
+      objectReference: {fileID: 0}
+    - target: {fileID: 112316, guid: 7538a3c85f736c74ea56d203349fde92, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 112316, guid: 7538a3c85f736c74ea56d203349fde92, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10381,6 +10517,10 @@ PrefabInstance:
       value: Car_3_Yellow
       objectReference: {fileID: 0}
     - target: {fileID: 129146, guid: 610632f6f09812d4aa5ce111a109eb86, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 129146, guid: 610632f6f09812d4aa5ce111a109eb86, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -10561,6 +10701,10 @@ PrefabInstance:
     - target: {fileID: 129146, guid: c0b5a1ab38a43044a91864eb9b9fbede, type: 3}
       propertyPath: m_Name
       value: Car_3_Green (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 129146, guid: c0b5a1ab38a43044a91864eb9b9fbede, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 129146, guid: c0b5a1ab38a43044a91864eb9b9fbede, type: 3}
       propertyPath: m_NavMeshLayer
@@ -11608,6 +11752,10 @@ PrefabInstance:
       value: sptp_building_16 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 135208, guid: a9b79d749ced56c4e8b559a4f12d0a69, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 135208, guid: a9b79d749ced56c4e8b559a4f12d0a69, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -12322,6 +12470,10 @@ PrefabInstance:
       value: sptp_building_12 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -12381,6 +12533,10 @@ PrefabInstance:
     - target: {fileID: 146160, guid: 376c64c4248da1c478df047404ec6663, type: 3}
       propertyPath: m_Name
       value: sptp_building_05 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 146160, guid: 376c64c4248da1c478df047404ec6663, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 146160, guid: 376c64c4248da1c478df047404ec6663, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12503,6 +12659,10 @@ PrefabInstance:
     - target: {fileID: 165554, guid: f7b79bbc99e117943ab5fb1dd6330136, type: 3}
       propertyPath: m_Name
       value: sptp_building_09 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 165554, guid: f7b79bbc99e117943ab5fb1dd6330136, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 165554, guid: f7b79bbc99e117943ab5fb1dd6330136, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12677,6 +12837,10 @@ PrefabInstance:
     - target: {fileID: 165554, guid: f7b79bbc99e117943ab5fb1dd6330136, type: 3}
       propertyPath: m_Name
       value: sptp_building_09 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 165554, guid: f7b79bbc99e117943ab5fb1dd6330136, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 165554, guid: f7b79bbc99e117943ab5fb1dd6330136, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13188,6 +13352,10 @@ PrefabInstance:
       value: Swat Car 3 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: 7103cd98e4b964d41b2205926caaf6e6, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 7103cd98e4b964d41b2205926caaf6e6, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -13273,6 +13441,10 @@ PrefabInstance:
       value: sptp_building_15 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 136468, guid: 73121aa02ef2a1b42915f5842503a4fc, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 136468, guid: 73121aa02ef2a1b42915f5842503a4fc, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -13334,6 +13506,10 @@ PrefabInstance:
       value: sptp_building_13 (7)
       objectReference: {fileID: 0}
     - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -13393,6 +13569,10 @@ PrefabInstance:
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_Name
       value: sptp_building_03 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -13553,6 +13733,10 @@ PrefabInstance:
     - target: {fileID: 100010, guid: 7103cd98e4b964d41b2205926caaf6e6, type: 3}
       propertyPath: m_Name
       value: Swat Car 3 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 7103cd98e4b964d41b2205926caaf6e6, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: 7103cd98e4b964d41b2205926caaf6e6, type: 3}
       propertyPath: m_NavMeshLayer
@@ -13943,6 +14127,10 @@ PrefabInstance:
     - target: {fileID: 162376, guid: edfc85d2272c60b49beb757027f79980, type: 3}
       propertyPath: m_Name
       value: sptp_building_11
+      objectReference: {fileID: 0}
+    - target: {fileID: 162376, guid: edfc85d2272c60b49beb757027f79980, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 162376, guid: edfc85d2272c60b49beb757027f79980, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -14773,6 +14961,10 @@ PrefabInstance:
       value: sptp_building_35
       objectReference: {fileID: 0}
     - target: {fileID: 129820, guid: eae796383f4a9a840ba3676f3b03efbf, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 129820, guid: eae796383f4a9a840ba3676f3b03efbf, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -14999,6 +15191,10 @@ PrefabInstance:
     - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
       propertyPath: m_Name
       value: sptp_building_12 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -15279,6 +15475,10 @@ PrefabInstance:
     - target: {fileID: 162266, guid: bbbf9fb7447ddf442a86dd23695ed184, type: 3}
       propertyPath: m_Name
       value: Car_5_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 162266, guid: bbbf9fb7447ddf442a86dd23695ed184, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 162266, guid: bbbf9fb7447ddf442a86dd23695ed184, type: 3}
       propertyPath: m_NavMeshLayer
@@ -15863,6 +16063,10 @@ PrefabInstance:
       value: sptp_building_23 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 180958, guid: 8c61acc35acbd6d489977c81317f86f3, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 180958, guid: 8c61acc35acbd6d489977c81317f86f3, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -16063,6 +16267,10 @@ PrefabInstance:
     - target: {fileID: 117022, guid: 7ad2e20841a11954f8a84f88e5175cf2, type: 3}
       propertyPath: m_Name
       value: sptp_building_14 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 117022, guid: 7ad2e20841a11954f8a84f88e5175cf2, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 117022, guid: 7ad2e20841a11954f8a84f88e5175cf2, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -16345,6 +16553,10 @@ PrefabInstance:
     - target: {fileID: 160038, guid: 4d4a5328e032911409d8d973eee79df4, type: 3}
       propertyPath: m_Name
       value: Car_2_Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 160038, guid: 4d4a5328e032911409d8d973eee79df4, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 160038, guid: 4d4a5328e032911409d8d973eee79df4, type: 3}
       propertyPath: m_NavMeshLayer
@@ -16632,6 +16844,10 @@ PrefabInstance:
       value: sptp_building_04 (4)
       objectReference: {fileID: 0}
     - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -16697,6 +16913,10 @@ PrefabInstance:
     - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
       propertyPath: m_Name
       value: sptp_building_12 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -16832,6 +17052,10 @@ PrefabInstance:
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_Name
       value: sptp_building_03 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -17197,6 +17421,10 @@ PrefabInstance:
     - target: {fileID: 129442, guid: e3e68252ae8afc94a82589696a7c236c, type: 3}
       propertyPath: m_Name
       value: sptp_building_32
+      objectReference: {fileID: 0}
+    - target: {fileID: 129442, guid: e3e68252ae8afc94a82589696a7c236c, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 129442, guid: e3e68252ae8afc94a82589696a7c236c, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -17955,6 +18183,10 @@ PrefabInstance:
       value: sptp_building_13
       objectReference: {fileID: 0}
     - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -18445,6 +18677,10 @@ PrefabInstance:
       value: sptp_building_07 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 155844, guid: 4de73b6418e85f643bcd3c2edb0dfe0c, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 155844, guid: 4de73b6418e85f643bcd3c2edb0dfe0c, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -18680,6 +18916,10 @@ PrefabInstance:
     - target: {fileID: 100010, guid: 7103cd98e4b964d41b2205926caaf6e6, type: 3}
       propertyPath: m_Name
       value: Swat Car 3 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 7103cd98e4b964d41b2205926caaf6e6, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: 7103cd98e4b964d41b2205926caaf6e6, type: 3}
       propertyPath: m_NavMeshLayer
@@ -19572,6 +19812,10 @@ PrefabInstance:
       value: Car_5_Purple
       objectReference: {fileID: 0}
     - target: {fileID: 162266, guid: eee6dff50f7483b44a4ea8b631baf73e, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 162266, guid: eee6dff50f7483b44a4ea8b631baf73e, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -19683,6 +19927,10 @@ PrefabInstance:
     - target: {fileID: 142012, guid: b0c1f1679136b9a47960b48b5e0f5b52, type: 3}
       propertyPath: m_Name
       value: sptp_building_29 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 142012, guid: b0c1f1679136b9a47960b48b5e0f5b52, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 142012, guid: b0c1f1679136b9a47960b48b5e0f5b52, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -19817,6 +20065,10 @@ PrefabInstance:
     - target: {fileID: 100986, guid: d626666846aaa4740be705007a456295, type: 3}
       propertyPath: m_Name
       value: sptp_building_06 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100986, guid: d626666846aaa4740be705007a456295, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 100986, guid: d626666846aaa4740be705007a456295, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -20081,6 +20333,10 @@ PrefabInstance:
       value: sptp_building_07
       objectReference: {fileID: 0}
     - target: {fileID: 155844, guid: 4de73b6418e85f643bcd3c2edb0dfe0c, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 155844, guid: 4de73b6418e85f643bcd3c2edb0dfe0c, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -20209,6 +20465,10 @@ PrefabInstance:
     - target: {fileID: 162376, guid: edfc85d2272c60b49beb757027f79980, type: 3}
       propertyPath: m_Name
       value: sptp_building_11 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 162376, guid: edfc85d2272c60b49beb757027f79980, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 162376, guid: edfc85d2272c60b49beb757027f79980, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -20349,6 +20609,10 @@ PrefabInstance:
       value: sptp_building_11 (4)
       objectReference: {fileID: 0}
     - target: {fileID: 162376, guid: edfc85d2272c60b49beb757027f79980, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 162376, guid: edfc85d2272c60b49beb757027f79980, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -20414,6 +20678,10 @@ PrefabInstance:
     - target: {fileID: 129146, guid: 610632f6f09812d4aa5ce111a109eb86, type: 3}
       propertyPath: m_Name
       value: Car_3_Yellow (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 129146, guid: 610632f6f09812d4aa5ce111a109eb86, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 129146, guid: 610632f6f09812d4aa5ce111a109eb86, type: 3}
       propertyPath: m_NavMeshLayer
@@ -20535,6 +20803,10 @@ PrefabInstance:
     - target: {fileID: 136468, guid: 73121aa02ef2a1b42915f5842503a4fc, type: 3}
       propertyPath: m_Name
       value: sptp_building_15 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 136468, guid: 73121aa02ef2a1b42915f5842503a4fc, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 136468, guid: 73121aa02ef2a1b42915f5842503a4fc, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -20958,6 +21230,10 @@ PrefabInstance:
       value: sptp_building_27
       objectReference: {fileID: 0}
     - target: {fileID: 184996, guid: 3efdc64e734336845816936e77dbf6b3, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 184996, guid: 3efdc64e734336845816936e77dbf6b3, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -21167,6 +21443,10 @@ PrefabInstance:
       value: Truck_1_Silver
       objectReference: {fileID: 0}
     - target: {fileID: 154144, guid: 6a85d95f92dc8954082a8474282c9dca, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 154144, guid: 6a85d95f92dc8954082a8474282c9dca, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -21347,6 +21627,10 @@ PrefabInstance:
     - target: {fileID: 160400, guid: 30e2a587c4604ce43802c7a63b6638ed, type: 3}
       propertyPath: m_Name
       value: sptp_building_08
+      objectReference: {fileID: 0}
+    - target: {fileID: 160400, guid: 30e2a587c4604ce43802c7a63b6638ed, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 160400, guid: 30e2a587c4604ce43802c7a63b6638ed, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -21808,6 +22092,10 @@ PrefabInstance:
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_Name
       value: sptp_building_03 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -22303,6 +22591,10 @@ PrefabInstance:
       value: Car_3_Purple
       objectReference: {fileID: 0}
     - target: {fileID: 129146, guid: 8f0fb4627eb4aed4f9ac1c0ec62fb2ff, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 129146, guid: 8f0fb4627eb4aed4f9ac1c0ec62fb2ff, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -22653,6 +22945,10 @@ PrefabInstance:
       value: sptp_building_01 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 113294, guid: 85c5ecd5a01f542499944cbfe9dd1cf8, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 113294, guid: 85c5ecd5a01f542499944cbfe9dd1cf8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -22806,6 +23102,10 @@ PrefabInstance:
     - target: {fileID: 100986, guid: d626666846aaa4740be705007a456295, type: 3}
       propertyPath: m_Name
       value: sptp_building_06
+      objectReference: {fileID: 0}
+    - target: {fileID: 100986, guid: d626666846aaa4740be705007a456295, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 100986, guid: d626666846aaa4740be705007a456295, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -23366,6 +23666,10 @@ PrefabInstance:
       value: sptp_building_13 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -23734,6 +24038,10 @@ PrefabInstance:
     - target: {fileID: 100010, guid: 33ebbf53759c84c4795793bc6f9d4218, type: 3}
       propertyPath: m_Name
       value: Police Car v3 3 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 33ebbf53759c84c4795793bc6f9d4218, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: 33ebbf53759c84c4795793bc6f9d4218, type: 3}
       propertyPath: m_NavMeshLayer
@@ -24529,6 +24837,10 @@ PrefabInstance:
       value: Swat Car 3
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: 7103cd98e4b964d41b2205926caaf6e6, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 7103cd98e4b964d41b2205926caaf6e6, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -24665,6 +24977,10 @@ PrefabInstance:
       value: sptp_building_17 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 148152, guid: c578b4309ba7d374a81ecb4ead9452b4, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 148152, guid: c578b4309ba7d374a81ecb4ead9452b4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -24791,6 +25107,10 @@ PrefabInstance:
       value: sptp_building_29 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 142012, guid: b0c1f1679136b9a47960b48b5e0f5b52, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 142012, guid: b0c1f1679136b9a47960b48b5e0f5b52, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -24850,6 +25170,10 @@ PrefabInstance:
     - target: {fileID: 113294, guid: 85c5ecd5a01f542499944cbfe9dd1cf8, type: 3}
       propertyPath: m_Name
       value: sptp_building_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 113294, guid: 85c5ecd5a01f542499944cbfe9dd1cf8, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 113294, guid: 85c5ecd5a01f542499944cbfe9dd1cf8, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -25176,6 +25500,10 @@ PrefabInstance:
       value: Car_1_Green
       objectReference: {fileID: 0}
     - target: {fileID: 116448, guid: 039320a8f4b60c445acfae631ac0214f, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 116448, guid: 039320a8f4b60c445acfae631ac0214f, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -25311,6 +25639,10 @@ PrefabInstance:
     - target: {fileID: 160038, guid: f7cb15c5a7c4bdd498370bd90d1d77bd, type: 3}
       propertyPath: m_Name
       value: Car_2_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 160038, guid: f7cb15c5a7c4bdd498370bd90d1d77bd, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 160038, guid: f7cb15c5a7c4bdd498370bd90d1d77bd, type: 3}
       propertyPath: m_NavMeshLayer
@@ -25587,6 +25919,10 @@ PrefabInstance:
     - target: {fileID: 148152, guid: c578b4309ba7d374a81ecb4ead9452b4, type: 3}
       propertyPath: m_Name
       value: sptp_building_17
+      objectReference: {fileID: 0}
+    - target: {fileID: 148152, guid: c578b4309ba7d374a81ecb4ead9452b4, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 148152, guid: c578b4309ba7d374a81ecb4ead9452b4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -26023,6 +26359,10 @@ PrefabInstance:
       value: sptp_building_03 (14)
       objectReference: {fileID: 0}
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -26327,6 +26667,10 @@ PrefabInstance:
       value: Swat Car 3 (6)
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: 7103cd98e4b964d41b2205926caaf6e6, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 7103cd98e4b964d41b2205926caaf6e6, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -26544,6 +26888,10 @@ PrefabInstance:
     - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
       propertyPath: m_Name
       value: sptp_building_04 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -26791,6 +27139,10 @@ PrefabInstance:
     - target: {fileID: 100010, guid: 33ebbf53759c84c4795793bc6f9d4218, type: 3}
       propertyPath: m_Name
       value: Police Car v3 3 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 33ebbf53759c84c4795793bc6f9d4218, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: 33ebbf53759c84c4795793bc6f9d4218, type: 3}
       propertyPath: m_NavMeshLayer
@@ -27069,6 +27421,10 @@ PrefabInstance:
       value: sptp_building_04 (5)
       objectReference: {fileID: 0}
     - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -27323,6 +27679,10 @@ PrefabInstance:
       value: sptp_building_12 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -27443,6 +27803,10 @@ PrefabInstance:
     - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
       propertyPath: m_Name
       value: sptp_building_12 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -27970,6 +28334,10 @@ PrefabInstance:
       value: Truck_1_Purple
       objectReference: {fileID: 0}
     - target: {fileID: 154144, guid: e5588eee4212a57479969d0bbe7c7216, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 154144, guid: e5588eee4212a57479969d0bbe7c7216, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -28067,6 +28435,10 @@ PrefabInstance:
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_Name
       value: sptp_building_03 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -28422,6 +28794,10 @@ PrefabInstance:
     - target: {fileID: 165554, guid: f7b79bbc99e117943ab5fb1dd6330136, type: 3}
       propertyPath: m_Name
       value: sptp_building_09
+      objectReference: {fileID: 0}
+    - target: {fileID: 165554, guid: f7b79bbc99e117943ab5fb1dd6330136, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 165554, guid: f7b79bbc99e117943ab5fb1dd6330136, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -28839,6 +29215,10 @@ PrefabInstance:
     - target: {fileID: 142012, guid: b0c1f1679136b9a47960b48b5e0f5b52, type: 3}
       propertyPath: m_Name
       value: sptp_building_29
+      objectReference: {fileID: 0}
+    - target: {fileID: 142012, guid: b0c1f1679136b9a47960b48b5e0f5b52, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 142012, guid: b0c1f1679136b9a47960b48b5e0f5b52, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -29390,6 +29770,10 @@ PrefabInstance:
       value: sptp_building_05 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 146160, guid: 376c64c4248da1c478df047404ec6663, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 146160, guid: 376c64c4248da1c478df047404ec6663, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -29465,6 +29849,10 @@ PrefabInstance:
     - target: {fileID: 160038, guid: 812e3f763be51a143bb1d937f48c31f2, type: 3}
       propertyPath: m_Name
       value: Car_2_Silver
+      objectReference: {fileID: 0}
+    - target: {fileID: 160038, guid: 812e3f763be51a143bb1d937f48c31f2, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 160038, guid: 812e3f763be51a143bb1d937f48c31f2, type: 3}
       propertyPath: m_NavMeshLayer
@@ -29592,6 +29980,10 @@ PrefabInstance:
       value: Swat Car 3 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: 7103cd98e4b964d41b2205926caaf6e6, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 7103cd98e4b964d41b2205926caaf6e6, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -29663,6 +30055,10 @@ PrefabInstance:
     - target: {fileID: 121598, guid: 0876618a1528b3c439a2dfb8aa96f9bb, type: 3}
       propertyPath: m_Name
       value: sptp_building_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 121598, guid: 0876618a1528b3c439a2dfb8aa96f9bb, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 121598, guid: 0876618a1528b3c439a2dfb8aa96f9bb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -30544,6 +30940,10 @@ PrefabInstance:
       value: Car_2_Red
       objectReference: {fileID: 0}
     - target: {fileID: 160038, guid: 8e6432cafa5803946a9c3011999db1f7, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 160038, guid: 8e6432cafa5803946a9c3011999db1f7, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -30712,6 +31112,10 @@ PrefabInstance:
       value: sptp_building_05
       objectReference: {fileID: 0}
     - target: {fileID: 146160, guid: 376c64c4248da1c478df047404ec6663, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 146160, guid: 376c64c4248da1c478df047404ec6663, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -30777,6 +31181,10 @@ PrefabInstance:
     - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
       propertyPath: m_Name
       value: sptp_building_04 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -31518,6 +31926,10 @@ PrefabInstance:
     - target: {fileID: 136468, guid: 73121aa02ef2a1b42915f5842503a4fc, type: 3}
       propertyPath: m_Name
       value: sptp_building_15
+      objectReference: {fileID: 0}
+    - target: {fileID: 136468, guid: 73121aa02ef2a1b42915f5842503a4fc, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 136468, guid: 73121aa02ef2a1b42915f5842503a4fc, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -32464,6 +32876,10 @@ PrefabInstance:
       value: sptp_building_10 (6)
       objectReference: {fileID: 0}
     - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -33313,6 +33729,10 @@ PrefabInstance:
       value: sptp_building_13 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -33677,6 +34097,10 @@ PrefabInstance:
       value: sptp_building_03 (13)
       objectReference: {fileID: 0}
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -33898,6 +34322,10 @@ PrefabInstance:
       value: sptp_building_10 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -33957,6 +34385,10 @@ PrefabInstance:
     - target: {fileID: 165554, guid: f7b79bbc99e117943ab5fb1dd6330136, type: 3}
       propertyPath: m_Name
       value: sptp_building_09 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 165554, guid: f7b79bbc99e117943ab5fb1dd6330136, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 165554, guid: f7b79bbc99e117943ab5fb1dd6330136, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -34024,6 +34456,10 @@ PrefabInstance:
     - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
       propertyPath: m_Name
       value: sptp_building_10 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -34264,6 +34700,10 @@ PrefabInstance:
     - target: {fileID: 166816, guid: 219b2a76565a01240a8f893539b9309a, type: 3}
       propertyPath: m_Name
       value: sptp_building_31
+      objectReference: {fileID: 0}
+    - target: {fileID: 166816, guid: 219b2a76565a01240a8f893539b9309a, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 166816, guid: 219b2a76565a01240a8f893539b9309a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -34797,6 +35237,10 @@ PrefabInstance:
       value: sptp_building_17 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 148152, guid: c578b4309ba7d374a81ecb4ead9452b4, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 148152, guid: c578b4309ba7d374a81ecb4ead9452b4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -35201,6 +35645,10 @@ PrefabInstance:
       value: sptp_building_10 (5)
       objectReference: {fileID: 0}
     - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -35467,6 +35915,10 @@ PrefabInstance:
     - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
       propertyPath: m_Name
       value: sptp_building_13 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -36058,6 +36510,10 @@ PrefabInstance:
       value: Police Car v1 1
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: c242e8f877bfdcd41baf7688f8257e61, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: c242e8f877bfdcd41baf7688f8257e61, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -36141,6 +36597,10 @@ PrefabInstance:
     - target: {fileID: 129146, guid: 610632f6f09812d4aa5ce111a109eb86, type: 3}
       propertyPath: m_Name
       value: Car_3_Yellow (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 129146, guid: 610632f6f09812d4aa5ce111a109eb86, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 129146, guid: 610632f6f09812d4aa5ce111a109eb86, type: 3}
       propertyPath: m_NavMeshLayer
@@ -36468,6 +36928,10 @@ PrefabInstance:
       value: sptp_building_17 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 148152, guid: c578b4309ba7d374a81ecb4ead9452b4, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 148152, guid: c578b4309ba7d374a81ecb4ead9452b4, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -36588,6 +37052,10 @@ PrefabInstance:
     - target: {fileID: 113294, guid: 85c5ecd5a01f542499944cbfe9dd1cf8, type: 3}
       propertyPath: m_Name
       value: sptp_building_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 113294, guid: 85c5ecd5a01f542499944cbfe9dd1cf8, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 113294, guid: 85c5ecd5a01f542499944cbfe9dd1cf8, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -36844,6 +37312,10 @@ PrefabInstance:
       value: sptp_building_05 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 146160, guid: 376c64c4248da1c478df047404ec6663, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 146160, guid: 376c64c4248da1c478df047404ec6663, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -36970,6 +37442,10 @@ PrefabInstance:
     - target: {fileID: 134348, guid: 09676f1ba84ec5d48912d47723cefe7e, type: 3}
       propertyPath: m_Name
       value: sptp_building_28 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 134348, guid: 09676f1ba84ec5d48912d47723cefe7e, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 134348, guid: 09676f1ba84ec5d48912d47723cefe7e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -37118,6 +37594,10 @@ PrefabInstance:
       value: sptp_building_12
       objectReference: {fileID: 0}
     - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -37256,6 +37736,10 @@ PrefabInstance:
     - target: {fileID: 146160, guid: 376c64c4248da1c478df047404ec6663, type: 3}
       propertyPath: m_Name
       value: sptp_building_05 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 146160, guid: 376c64c4248da1c478df047404ec6663, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 146160, guid: 376c64c4248da1c478df047404ec6663, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -37607,6 +38091,10 @@ PrefabInstance:
     - target: {fileID: 136468, guid: 73121aa02ef2a1b42915f5842503a4fc, type: 3}
       propertyPath: m_Name
       value: sptp_building_15 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 136468, guid: 73121aa02ef2a1b42915f5842503a4fc, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 136468, guid: 73121aa02ef2a1b42915f5842503a4fc, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -37977,6 +38465,10 @@ PrefabInstance:
       value: sptp_building_21
       objectReference: {fileID: 0}
     - target: {fileID: 131638, guid: 8ff373953893b2c44968fbf1e5c2d186, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 131638, guid: 8ff373953893b2c44968fbf1e5c2d186, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -38155,6 +38647,10 @@ PrefabInstance:
     - target: {fileID: 193646, guid: c69b567067453614686658c6390e4d95, type: 3}
       propertyPath: m_Name
       value: Car_6_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 193646, guid: c69b567067453614686658c6390e4d95, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 193646, guid: c69b567067453614686658c6390e4d95, type: 3}
       propertyPath: m_NavMeshLayer
@@ -38745,6 +39241,10 @@ PrefabInstance:
       value: sptp_building_26
       objectReference: {fileID: 0}
     - target: {fileID: 180206, guid: 12e574493ffa82e478d1852f78156fd3, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 180206, guid: 12e574493ffa82e478d1852f78156fd3, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -38804,6 +39304,10 @@ PrefabInstance:
     - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
       propertyPath: m_Name
       value: sptp_building_12 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -38877,6 +39381,10 @@ PrefabInstance:
     - target: {fileID: 174002, guid: 21d87f071ff58334bafd1d0529a95433, type: 3}
       propertyPath: m_Name
       value: sptp_building_20 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 174002, guid: 21d87f071ff58334bafd1d0529a95433, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 174002, guid: 21d87f071ff58334bafd1d0529a95433, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -39009,6 +39517,10 @@ PrefabInstance:
       value: sptp_building_03 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -39076,6 +39588,10 @@ PrefabInstance:
       value: sptp_building_23
       objectReference: {fileID: 0}
     - target: {fileID: 180958, guid: 8c61acc35acbd6d489977c81317f86f3, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 180958, guid: 8c61acc35acbd6d489977c81317f86f3, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -39135,6 +39651,10 @@ PrefabInstance:
     - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
       propertyPath: m_Name
       value: sptp_building_12 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 142486, guid: fa1f7e3bec326074c8e0ba873be41681, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -39961,6 +40481,10 @@ PrefabInstance:
       value: sptp_building_06 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 100986, guid: d626666846aaa4740be705007a456295, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 100986, guid: d626666846aaa4740be705007a456295, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -40250,6 +40774,10 @@ PrefabInstance:
     - target: {fileID: 162376, guid: edfc85d2272c60b49beb757027f79980, type: 3}
       propertyPath: m_Name
       value: sptp_building_11 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 162376, guid: edfc85d2272c60b49beb757027f79980, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 162376, guid: edfc85d2272c60b49beb757027f79980, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -40788,6 +41316,10 @@ PrefabInstance:
       value: Swat Car 3 (5)
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: 7103cd98e4b964d41b2205926caaf6e6, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 7103cd98e4b964d41b2205926caaf6e6, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -40899,6 +41431,10 @@ PrefabInstance:
       value: Police Car v3 3 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: 33ebbf53759c84c4795793bc6f9d4218, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 33ebbf53759c84c4795793bc6f9d4218, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -40970,6 +41506,10 @@ PrefabInstance:
     - target: {fileID: 165554, guid: f7b79bbc99e117943ab5fb1dd6330136, type: 3}
       propertyPath: m_Name
       value: sptp_building_09 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 165554, guid: f7b79bbc99e117943ab5fb1dd6330136, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 165554, guid: f7b79bbc99e117943ab5fb1dd6330136, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -41378,6 +41918,10 @@ PrefabInstance:
       value: sptp_building_01 (4)
       objectReference: {fileID: 0}
     - target: {fileID: 113294, guid: 85c5ecd5a01f542499944cbfe9dd1cf8, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 113294, guid: 85c5ecd5a01f542499944cbfe9dd1cf8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -41597,6 +42141,10 @@ PrefabInstance:
     - target: {fileID: 129820, guid: eae796383f4a9a840ba3676f3b03efbf, type: 3}
       propertyPath: m_Name
       value: sptp_building_35 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 129820, guid: eae796383f4a9a840ba3676f3b03efbf, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 129820, guid: eae796383f4a9a840ba3676f3b03efbf, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -41943,6 +42491,10 @@ PrefabInstance:
       value: sptp_building_07 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 155844, guid: 4de73b6418e85f643bcd3c2edb0dfe0c, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 155844, guid: 4de73b6418e85f643bcd3c2edb0dfe0c, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -42095,6 +42647,10 @@ PrefabInstance:
     - target: {fileID: 160400, guid: 30e2a587c4604ce43802c7a63b6638ed, type: 3}
       propertyPath: m_Name
       value: sptp_building_08 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 160400, guid: 30e2a587c4604ce43802c7a63b6638ed, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 160400, guid: 30e2a587c4604ce43802c7a63b6638ed, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -43025,6 +43581,10 @@ PrefabInstance:
     - target: {fileID: 162376, guid: edfc85d2272c60b49beb757027f79980, type: 3}
       propertyPath: m_Name
       value: sptp_building_11 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 162376, guid: edfc85d2272c60b49beb757027f79980, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 162376, guid: edfc85d2272c60b49beb757027f79980, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -44135,6 +44695,10 @@ PrefabInstance:
       value: sptp_building_13 (4)
       objectReference: {fileID: 0}
     - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -44304,6 +44868,10 @@ PrefabInstance:
     - target: {fileID: 160038, guid: 812e3f763be51a143bb1d937f48c31f2, type: 3}
       propertyPath: m_Name
       value: Car_2_Silver (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 160038, guid: 812e3f763be51a143bb1d937f48c31f2, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 160038, guid: 812e3f763be51a143bb1d937f48c31f2, type: 3}
       propertyPath: m_NavMeshLayer
@@ -44722,6 +45290,10 @@ PrefabInstance:
     - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
       propertyPath: m_Name
       value: sptp_building_10 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 197962, guid: 6d7985f8534d19e4b8c5bc52a92a075a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -45389,6 +45961,10 @@ PrefabInstance:
       value: sptp_building_33
       objectReference: {fileID: 0}
     - target: {fileID: 165264, guid: d8772bbb1824d4648bb0c706baaceb74, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 165264, guid: d8772bbb1824d4648bb0c706baaceb74, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -45448,6 +46024,10 @@ PrefabInstance:
     - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
       propertyPath: m_Name
       value: sptp_building_04 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -45750,6 +46330,10 @@ PrefabInstance:
     - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
       propertyPath: m_Name
       value: sptp_building_13 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -46072,6 +46656,10 @@ PrefabInstance:
     - target: {fileID: 100010, guid: 33ebbf53759c84c4795793bc6f9d4218, type: 3}
       propertyPath: m_Name
       value: Police Car v3 3 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 33ebbf53759c84c4795793bc6f9d4218, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: 33ebbf53759c84c4795793bc6f9d4218, type: 3}
       propertyPath: m_NavMeshLayer
@@ -47274,6 +47862,10 @@ PrefabInstance:
       value: Car_5_Red
       objectReference: {fileID: 0}
     - target: {fileID: 162266, guid: 17683e3ffcde346458c0fa5f35c39b9c, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 162266, guid: 17683e3ffcde346458c0fa5f35c39b9c, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -47582,6 +48174,10 @@ PrefabInstance:
       value: sptp_building_04 (10)
       objectReference: {fileID: 0}
     - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -47769,6 +48365,10 @@ PrefabInstance:
     - target: {fileID: 121598, guid: 0876618a1528b3c439a2dfb8aa96f9bb, type: 3}
       propertyPath: m_Name
       value: sptp_building_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 121598, guid: 0876618a1528b3c439a2dfb8aa96f9bb, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 121598, guid: 0876618a1528b3c439a2dfb8aa96f9bb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -48037,6 +48637,10 @@ PrefabInstance:
       value: Car_5_Yellow
       objectReference: {fileID: 0}
     - target: {fileID: 162266, guid: f07b089f2dede914a900c8e34e599f38, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 162266, guid: f07b089f2dede914a900c8e34e599f38, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -48302,6 +48906,10 @@ PrefabInstance:
       value: Police Car v3 3
       objectReference: {fileID: 0}
     - target: {fileID: 100010, guid: 33ebbf53759c84c4795793bc6f9d4218, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 33ebbf53759c84c4795793bc6f9d4218, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -48430,6 +49038,10 @@ PrefabInstance:
     - target: {fileID: 136468, guid: 73121aa02ef2a1b42915f5842503a4fc, type: 3}
       propertyPath: m_Name
       value: sptp_building_15 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 136468, guid: 73121aa02ef2a1b42915f5842503a4fc, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 136468, guid: 73121aa02ef2a1b42915f5842503a4fc, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -48588,6 +49200,10 @@ PrefabInstance:
       value: sptp_building_03 (11)
       objectReference: {fileID: 0}
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -48716,6 +49332,10 @@ PrefabInstance:
     - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
       propertyPath: m_Name
       value: sptp_building_13 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 181362, guid: 7af3e402376047a46842073f130d347e, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -49271,6 +49891,10 @@ PrefabInstance:
       value: sptp_building_14 (4)
       objectReference: {fileID: 0}
     - target: {fileID: 117022, guid: 7ad2e20841a11954f8a84f88e5175cf2, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 117022, guid: 7ad2e20841a11954f8a84f88e5175cf2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -49336,6 +49960,10 @@ PrefabInstance:
     - target: {fileID: 155844, guid: 4de73b6418e85f643bcd3c2edb0dfe0c, type: 3}
       propertyPath: m_Name
       value: sptp_building_07 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 155844, guid: 4de73b6418e85f643bcd3c2edb0dfe0c, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 155844, guid: 4de73b6418e85f643bcd3c2edb0dfe0c, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -49767,6 +50395,10 @@ PrefabInstance:
       value: sptp_building_04 (2)
       objectReference: {fileID: 0}
     - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -49832,6 +50464,10 @@ PrefabInstance:
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_Name
       value: sptp_building_03 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -50444,6 +51080,10 @@ PrefabInstance:
       value: sptp_building_03 (6)
       objectReference: {fileID: 0}
     - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 151952, guid: 3247a876b9df76e4187d8ddffa5028cb, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 40
       objectReference: {fileID: 0}
@@ -50559,6 +51199,10 @@ PrefabInstance:
     - target: {fileID: 157538, guid: effd6c573175d114bacfddf1faa1d4a7, type: 3}
       propertyPath: m_Name
       value: Truck_2_Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 157538, guid: effd6c573175d114bacfddf1faa1d4a7, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 157538, guid: effd6c573175d114bacfddf1faa1d4a7, type: 3}
       propertyPath: m_NavMeshLayer
@@ -51102,6 +51746,10 @@ PrefabInstance:
     - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
       propertyPath: m_Name
       value: sptp_building_04 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 146384, guid: 0d41f7c400e70b14784c7dc6996384f2, type: 3}
       propertyPath: m_StaticEditorFlags
