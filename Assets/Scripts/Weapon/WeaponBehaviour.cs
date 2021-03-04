@@ -10,6 +10,7 @@ public class WeaponBehaviour : MonoBehaviour
     private AmmoUi ammoUi;
 
     private Weapon weapon;
+    private bool meleeAttackInProgress;
 
     private float shotTime;
     private static readonly int ShootAnimation = Animator.StringToHash("shoot");
@@ -80,8 +81,8 @@ public class WeaponBehaviour : MonoBehaviour
 
     private void HandleLeftClick()
     {
-        // send no action if the player is dead
-        if (playerManager.isDead())
+        // send no action if the player is dead OR the player is currently melee attacking
+        if (playerManager.isDead() || meleeAttackInProgress)
         {
             return;
         }
@@ -135,10 +136,14 @@ public class WeaponBehaviour : MonoBehaviour
 
     private void MeleeAttack()
     {
-        if(!SoundManagerRework.Instance.IsEffectPlaying())
+        // do nothing if the player is already melee attacking
+        if (meleeAttackInProgress)
         {
-            SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.MeleeAttack) as AudioClip);
+            return;
         }
+        
+        SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.MeleeAttack) as AudioClip);
+        
         meleeZone.SetActive(true);
         StartCoroutine(waitAndDisableMeleeZone());
         EventManager.TriggerEvent(Const.Events.MeleeAttack);
@@ -156,7 +161,9 @@ public class WeaponBehaviour : MonoBehaviour
 
     IEnumerator waitAndDisableMeleeZone()
     {
+        meleeAttackInProgress = true;
         yield return new WaitForSeconds(1);
+        meleeAttackInProgress = false;
         meleeZone.SetActive(false);
     }
     
