@@ -58,7 +58,7 @@ public class Bullet : MonoBehaviour, IDamageDealer
             damageable.TakeDamage(this);
             hitDamagableTarget = true;
         }
-        if(gameObject.CompareTag("Explosion"))
+        if(gameObject.CompareTag("Explosion") && collision.gameObject.CompareTag("Enemy"))
         {
             GameObject expl = (GameObject)Resources.Load(Const.Grenade.GrenadeExplosion, typeof(GameObject));
             Instantiate(expl, gameObject.transform.position, Quaternion.identity);
