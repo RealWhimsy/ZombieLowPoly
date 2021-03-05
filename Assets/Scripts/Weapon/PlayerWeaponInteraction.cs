@@ -40,10 +40,6 @@ public class PlayerWeaponInteraction : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.E) && isOnWeapon)
         {
-            // TODO Trigger event for sound
-            
-            
-
             switch (weaponPickup.name)
             {
                 case Const.WeaponNames.Deagle:

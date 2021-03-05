@@ -10,6 +10,9 @@ public class WeaponBehaviour : MonoBehaviour
     private AmmoUi ammoUi;
 
     private Weapon weapon;
+    private bool meleeAttackInProgress;
+
+    private AudioClip noAmmoSound;
 
     private float shotTime;
     private static readonly int ShootAnimation = Animator.StringToHash("shoot");
@@ -24,6 +27,7 @@ public class WeaponBehaviour : MonoBehaviour
         playerManager = player.GetComponent<PlayerManager>();
         meleeZone = player.transform.Find("MeleeArea").gameObject;
         weapon = playerManager.GetActiveWeapon();
+        noAmmoSound = (AudioClip) Resources.Load("Sounds_Ingame/Weapons/no_ammo");
 
         EventManager.StartListening(Const.Events.WeaponSwapped, HandleWeaponSwap);
 
@@ -80,8 +84,8 @@ public class WeaponBehaviour : MonoBehaviour
 
     private void HandleLeftClick()
     {
-        // send no action if the player is dead
-        if (playerManager.isDead())
+        // send no action if the player is dead OR the player is currently melee attacking
+        if (playerManager.isDead() || meleeAttackInProgress)
         {
             return;
         }
@@ -101,6 +105,11 @@ public class WeaponBehaviour : MonoBehaviour
                 playerManager.anim.SetTrigger(ShootAnimation);
                 Shoot();
                 
+                shotTime = Time.time;
+            } 
+            else if (weapon.ShotsInCurrentMag <= 0 && Time.time - shotTime > weapon.ShotCooldown)
+            {
+                SoundManagerRework.Instance.PlayEffectOneShot(noAmmoSound);
                 shotTime = Time.time;
             }
             if(weapon.MeleeWeapon)
@@ -135,10 +144,14 @@ public class WeaponBehaviour : MonoBehaviour
 
     private void MeleeAttack()
     {
-        if(!SoundManagerRework.Instance.IsEffectPlaying())
+        // do nothing if the player is already melee attacking
+        if (meleeAttackInProgress)
         {
-            SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.MeleeAttack) as AudioClip);
+            return;
         }
+        
+        SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.MeleeAttack) as AudioClip);
+        
         meleeZone.SetActive(true);
         StartCoroutine(waitAndDisableMeleeZone());
         EventManager.TriggerEvent(Const.Events.MeleeAttack);
@@ -156,7 +169,9 @@ public class WeaponBehaviour : MonoBehaviour
 
     IEnumerator waitAndDisableMeleeZone()
     {
+        meleeAttackInProgress = true;
         yield return new WaitForSeconds(1);
+        meleeAttackInProgress = false;
         meleeZone.SetActive(false);
     }
     

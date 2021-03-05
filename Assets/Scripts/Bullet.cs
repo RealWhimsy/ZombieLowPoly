@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public class Bullet : MonoBehaviour, IDamageDealer
     private Vector3 playerPosition;
     private GameObject player;
     private bool ddaCountedAsHit;
+    private bool hitDamageableTarget;
 
 
     PlayerManager playerManager;
@@ -51,29 +53,15 @@ public class Bullet : MonoBehaviour, IDamageDealer
 
     void OnTriggerEnter (Collider collision)
     {
-        bool hitDamagableTarget = false;
         IDamageable damageable = collision.gameObject.GetComponent(typeof(IDamageable)) as IDamageable;
         if (damageable != null && !gameObject.CompareTag("Explosion"))
         {
             damageable.TakeDamage(this);
-            hitDamagableTarget = true;
+            hitDamageableTarget = true;
         }
-        if(gameObject.CompareTag("Explosion"))
+        if(gameObject.CompareTag("Explosion") && collision.gameObject.CompareTag("Enemy"))
         {
-            GameObject expl = (GameObject)Resources.Load(Const.Grenade.GrenadeExplosion, typeof(GameObject));
-            Instantiate(expl, gameObject.transform.position, Quaternion.identity);
-            SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.Explosion) as AudioClip);
-            Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 1.5f);
-            foreach (var hitCollider in hitColliders)
-            {
-                IDamageable damageItem = hitCollider.gameObject.GetComponent(typeof(IDamageable)) as IDamageable;
-                if (damageItem != null)
-                {
-                    print(damage + " damage done");
-                    damageItem.TakeDamage(this);
-                    hitDamagableTarget = true;
-                }
-            }
+            Explode();
         }
 
         if (collision.gameObject.CompareTag("DDAZombieHitbox") && !ddaCountedAsHit)
@@ -84,10 +72,73 @@ public class Bullet : MonoBehaviour, IDamageDealer
         }
 
         // do not destroy bullets if they hit non-damagable objects such as interactibles
-        if (hitDamagableTarget)
+        if (hitDamageableTarget)
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        CheckForEnvironmentCollision(other);
+    }
+
+    /**
+     * Check if the bullet collides with any impassable environment terrain
+     * If yes, destroys the bullet
+     */
+    private void CheckForEnvironmentCollision(Collision other)
+    {
+        // check for collision with EnvironmentBlocker tagged game object
+        if (other.gameObject.CompareTag("EnvironmentBlocker"))
+        {
+            HandleEnvironmentCollision();
+        }
+        
+        
+        // check all parents of the other GameObject for the EnvironmentBlocker tag
+        Transform otherTransform = other.transform;
+
+        while (otherTransform.parent != null)
+        {
+            if (otherTransform.parent.CompareTag("EnvironmentBlocker"))
+            {
+                HandleEnvironmentCollision();
+                return;
+            }
+
+            otherTransform = otherTransform.parent.transform;
+        }
+    }
+
+    private void HandleEnvironmentCollision()
+    {
+        if (gameObject.CompareTag("Explosion"))
+        {
+            Explode();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Explode()
+    {
+        GameObject expl = (GameObject)Resources.Load(Const.Grenade.GrenadeExplosion, typeof(GameObject));
+        Instantiate(expl, gameObject.transform.position, Quaternion.identity);
+        SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.Explosion) as AudioClip);
+        Collider[] hitColliders = Physics.OverlapSphere(gameObject.transform.position, 1.5f);
+        foreach (var hitCollider in hitColliders)
+        {
+            IDamageable damageItem = hitCollider.gameObject.GetComponent(typeof(IDamageable)) as IDamageable;
+            if (damageItem != null)
+            {
+                print(damage + " damage done");
+                damageItem.TakeDamage(this);
+            }
+        }
+        Destroy(gameObject);
     }
 
     int getDamage()

@@ -1037,6 +1037,10 @@ PrefabInstance:
       value: DesertCastle_Blue (11)
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -1237,6 +1241,10 @@ PrefabInstance:
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_Name
       value: DesertCastle_Blue (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
@@ -1671,6 +1679,10 @@ PrefabInstance:
       value: DesertCastle_Blue (13)
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -1822,6 +1834,10 @@ PrefabInstance:
       value: DesertCastle_Blue (14)
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -1925,6 +1941,10 @@ PrefabInstance:
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_Name
       value: DesertCastle_Blue (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
@@ -3324,6 +3344,10 @@ PrefabInstance:
       value: DesertCastle_Blue (5)
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -3494,6 +3518,10 @@ PrefabInstance:
       value: DesertCastle_Blue (3)
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -3603,6 +3631,10 @@ PrefabInstance:
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_Name
       value: DesertCastle_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
@@ -4147,6 +4179,10 @@ PrefabInstance:
       value: DesertCastle_Blue (10)
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -4552,6 +4588,10 @@ PrefabInstance:
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_Name
       value: DesertCastle_Blue (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
@@ -4980,7 +5020,7 @@ GameObject:
   - component: {fileID: 673434526}
   m_Layer: 0
   m_Name: GameObject (8)
-  m_TagString: Untagged
+  m_TagString: EnvironmentBlocker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11866,6 +11906,10 @@ PrefabInstance:
       value: DesertCastle_Blue (6)
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -12098,7 +12142,7 @@ GameObject:
   - component: {fileID: 1093200344}
   m_Layer: 0
   m_Name: GameObject (4)
-  m_TagString: Untagged
+  m_TagString: EnvironmentBlocker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12143,7 +12187,7 @@ GameObject:
   - component: {fileID: 1104334459}
   m_Layer: 0
   m_Name: GameObject (7)
-  m_TagString: Untagged
+  m_TagString: EnvironmentBlocker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13119,6 +13163,10 @@ PrefabInstance:
       value: DesertCastle_Blue (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -13728,6 +13776,10 @@ PrefabInstance:
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_Name
       value: DesertCastle_Blue (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
@@ -14586,6 +14638,10 @@ PrefabInstance:
       value: DesertCastle_Blue (9)
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -14918,7 +14974,7 @@ GameObject:
   - component: {fileID: 1458894416}
   m_Layer: 0
   m_Name: GameObject (3)
-  m_TagString: Untagged
+  m_TagString: EnvironmentBlocker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15159,6 +15215,10 @@ PrefabInstance:
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_Name
       value: DesertCastle_Blue (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
@@ -15492,6 +15552,10 @@ PrefabInstance:
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_Name
       value: DesertCastle_Blue (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
@@ -15864,7 +15928,7 @@ GameObject:
   - component: {fileID: 1625380772}
   m_Layer: 0
   m_Name: GameObject (1)
-  m_TagString: Untagged
+  m_TagString: EnvironmentBlocker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20169,7 +20233,7 @@ GameObject:
   - component: {fileID: 1700794972}
   m_Layer: 0
   m_Name: GameObject (2)
-  m_TagString: Untagged
+  m_TagString: EnvironmentBlocker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20314,6 +20378,10 @@ PrefabInstance:
       value: DesertCastle_Blue (18)
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -20437,6 +20505,10 @@ PrefabInstance:
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_Name
       value: DesertCastle_Blue (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
@@ -20650,7 +20722,7 @@ GameObject:
   - component: {fileID: 1738108765}
   m_Layer: 0
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: EnvironmentBlocker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20872,7 +20944,7 @@ GameObject:
   - component: {fileID: 1760386723}
   m_Layer: 0
   m_Name: GameObject (6)
-  m_TagString: Untagged
+  m_TagString: EnvironmentBlocker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21791,6 +21863,10 @@ PrefabInstance:
       value: DesertCastle_Blue (15)
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
       objectReference: {fileID: 0}
@@ -22012,6 +22088,10 @@ PrefabInstance:
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_Name
       value: DesertCastle_Blue (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
+      propertyPath: m_TagString
+      value: EnvironmentBlocker
       objectReference: {fileID: 0}
     - target: {fileID: 1615805322119754, guid: 699289c87c215de47a357b833d76a431, type: 3}
       propertyPath: m_NavMeshLayer
@@ -22859,7 +22939,7 @@ GameObject:
   - component: {fileID: 2028103312}
   m_Layer: 0
   m_Name: GameObject (5)
-  m_TagString: Untagged
+  m_TagString: EnvironmentBlocker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

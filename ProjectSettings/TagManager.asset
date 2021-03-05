@@ -24,6 +24,7 @@ TagManager:
   - TutorialText
   - Target
   - DDAZombieHitbox
+  - EnvironmentBlocker
   layers:
   - Default
   - TransparentFX
