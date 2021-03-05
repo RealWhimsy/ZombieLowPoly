@@ -89,25 +89,25 @@ public class Bullet : MonoBehaviour, IDamageDealer
      */
     private void CheckForEnvironmentCollision(Collision other)
     {
-        // check for collision with EnvironmentBlocker tagged game object
-        if (other.gameObject.CompareTag("EnvironmentBlocker"))
-        {
-            HandleEnvironmentCollision();
-        }
-        
+        bool bulletShouldBeDestroyed = !(other.gameObject.CompareTag("InteractiblePickup") || other.gameObject.CompareTag("weapon"));
         
         // check all parents of the other GameObject for the EnvironmentBlocker tag
         Transform otherTransform = other.transform;
 
         while (otherTransform.parent != null)
         {
-            if (otherTransform.parent.CompareTag("EnvironmentBlocker"))
+            if (other.gameObject.CompareTag("InteractiblePickup") || other.gameObject.CompareTag("weapon"))
             {
-                HandleEnvironmentCollision();
-                return;
+                bulletShouldBeDestroyed = false;
+                break;
             }
 
             otherTransform = otherTransform.parent.transform;
+        }
+
+        if (bulletShouldBeDestroyed)
+        {
+            HandleEnvironmentCollision();
         }
     }
 

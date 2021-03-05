@@ -96,6 +96,7 @@ public static class Const
         public const string GrenadePrefab = "Prefabs/Grenade";
         public const string GrenadeExplosion = "Prefabs/grenade_explosion";
         public const int StartGrenades = 2;
+        public const float GrenadeCooldown = .9f;
     }
 
     public static class Shotgun

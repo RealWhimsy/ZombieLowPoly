@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 7547310874803626062}
   m_Layer: 0
   m_Name: box_med
-  m_TagString: Untagged
+  m_TagString: InteractiblePickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -15,6 +15,7 @@ public class WeaponBehaviour : MonoBehaviour
     private AudioClip noAmmoSound;
 
     private float shotTime;
+    private float grenadeTime;
     private static readonly int ShootAnimation = Animator.StringToHash("shoot");
     private static readonly int ReloadAnimation = Animator.StringToHash("reload");
     private static readonly int ThrowAnimation = Animator.StringToHash("throw");
@@ -32,6 +33,7 @@ public class WeaponBehaviour : MonoBehaviour
         EventManager.StartListening(Const.Events.WeaponSwapped, HandleWeaponSwap);
 
         shotTime = Time.time;
+        grenadeTime = Time.time;
     }
 
     private void Update()
@@ -158,12 +160,14 @@ public class WeaponBehaviour : MonoBehaviour
     }
 
     private void ThrowGrenade(){
-        if(playerManager.grenades != 0){
+        if(playerManager.grenades != 0 && Time.time - grenadeTime > Const.Grenade.GrenadeCooldown)
+        {
             playerManager.anim.SetTrigger(ThrowAnimation);
             playerManager.grenades--;
             ammoUi.ReduceAmmoUi(Const.Tags.GrenadeSprite);
             SoundManagerRework.Instance.PlayEffectOneShot(Resources.Load(Const.SFX.GrenadeThrow) as AudioClip);
             EventManager.TriggerEvent(Const.Events.GrenadeThrown);
+            grenadeTime = Time.time;
         }
     }
 

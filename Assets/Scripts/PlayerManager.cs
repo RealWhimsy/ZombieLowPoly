@@ -83,11 +83,16 @@ public class PlayerManager : MonoBehaviour, IDamageable
             pickUpMagazines = 2;
             pickUpHealth = maxHealth / 5;
         }
-
-        weaponArray[0].Magazines += pickUpMagazines;
-        weaponArray[1].Magazines += pickUpMagazines;
+        
         for (int i = 0; i < weaponArray.Length; i++)
         {
+            if (weaponArray[i] == null)
+            {
+                continue;
+            }
+
+            weaponArray[i].Magazines += pickUpMagazines;
+            
             if (weaponArray[i].Magazines >= Const.Magazines.MaxMagazines)
             {
                 weaponArray[i].Magazines = Const.Magazines.MaxMagazines;
