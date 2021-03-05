@@ -25,6 +25,7 @@ TagManager:
   - Target
   - DDAZombieHitbox
   - EnvironmentBlocker
+  - InteractiblePickup
   layers:
   - Default
   - TransparentFX
