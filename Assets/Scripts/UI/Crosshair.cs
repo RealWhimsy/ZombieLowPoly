@@ -19,6 +19,8 @@ public class Crosshair : MonoBehaviour
 		EventManager.StartListening(Const.Events.PlayerRespawned, EnableCrosshair);
 		EventManager.StartListening(Const.Events.MeleeEquipped, DisableCrosshair);
 		EventManager.StartListening(Const.Events.GunEquipped, EnableCrosshair);
+		EventManager.StartListening(Const.Events.InCutScene, DisableCrosshair);
+		EventManager.StartListening(Const.Events.CutSceneCompleted, EnableCrosshair);
     }
 
     // Update is called once per frame

@@ -2398,12 +2398,15 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\nThe world has fallen! A deadly virus has infected thousands of humans.
-    \nPrevent it from infecting even more. Kill all zombies!  Watchout they are coming
-    in waves!\nNow get in that f****ing helicopter, we don't have all day!"
+  m_Text: '
+
+    The world has fallen! A deadly virus has infected thousands of humans.
+    Your mission is to kill all remaining zombies! Watch out: they are coming in
+    waves. After five waves the helicopter brings you to the next zombie hot-spot.
+    But first lets begin by teaching you the basics!'
 --- !u!222 &1136787580
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3053,7 +3056,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.22263788, g: 0.2735849, b: 0.089044146, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3392,14 +3395,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.58930844, b: 0.24056602, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.15447211, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: a18ff73f60a652a44b516c33a31cfdda, type: 3}
     m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
@@ -3411,7 +3414,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Captain:'
+  m_Text: Captain
 --- !u!222 &1433187155
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -188,7 +188,7 @@ public class WeaponBehaviour : MonoBehaviour
 
         if (weapon.ShotsInCurrentMag <= 0 && weapon.Magazines > 0)
         {
-            ammoUi.ReloadText();
+            HandleReload();
         }
     }
 }
