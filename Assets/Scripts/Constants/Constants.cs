@@ -42,6 +42,9 @@ public static class Const
 
         public const string DifficultySelected = "DIFFICULTY_SELECTED";
         public const string TutorialCompleted = "TUTORIAL_COMPLETED";
+        public const string InCutScene = "IN_CUTSCENE";
+        public const string CutSceneCompleted = "CUTSCENE_COMPLETED";
+        
 
         public const string
             DifficultyChanged = "DIFFICULTY_CHANGED"; // called when difficulty changes between waves via DDA
