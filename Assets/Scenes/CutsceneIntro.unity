@@ -2398,15 +2398,13 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '
-
-    The world has fallen! A deadly virus has infected thousands of humans.
-    Your mission is to kill all remaining zombies! Watch out: they are coming in
-    waves. After five waves the helicopter brings you to the next zombie hot-spot.
-    But first lets begin by teaching you the basics!'
+  m_Text: "\nThe world has fallen! A deadly virus has infected thousands of humans.
+    \nYour mission is to kill all remaining zombies!\nWatch out: they are coming
+    in waves. After five waves the helicopter brings you to the next zombie hot-spot.\nBut
+    first lets begin by teaching you the basics!"
 --- !u!222 &1136787580
 CanvasRenderer:
   m_ObjectHideFlags: 0
