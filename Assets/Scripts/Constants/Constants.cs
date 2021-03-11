@@ -12,7 +12,7 @@ public static class Const
     public const int MaxWeaponIndex = 1;
     public const int MaxNumWeapons = MaxWeaponIndex + 1;
     public const string VideoAssetsPath = "./Assets/VideoPlayer/";
-    public const string ServerURL = "http://s715714060.online.de/";
+    public const string ServerURL = "https://homepages.uni-regensburg.de/~jal60541/";
 
     // Event names
     public static class Events
