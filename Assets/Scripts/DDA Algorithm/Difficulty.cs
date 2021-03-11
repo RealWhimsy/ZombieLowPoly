@@ -34,7 +34,8 @@ public class Difficulty
         {
             index = Const.Difficulties.MinDifficultyIndex;
         }
-        
+
+        _currentDifficultyIndex = index;
         CurrentDifficulty = DifficultyStats.difficulties.ElementAt(index).Value;
     }
     
