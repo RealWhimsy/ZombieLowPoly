@@ -56,13 +56,9 @@ public class DDAManager : MonoBehaviour
         EventManager.StartListening(Const.Events.GrenadeThrown, () => _grenadesThrown++);
         EventManager.StartListening(Const.Events.GrenadeHit, () => _grenadesHit++);
         EventManager.StartListening(Const.Events.ZombieKilled, () => _zombiesKilled++);
-        EventManager.StartListening(Const.Events.PlayerDead, HandlePlayerDeath);
 
-        EventManager.StartListening(Const.Events.WaveCompleted, AdjustDDA);
-        EventManager.StartListening(Const.Events.DifficultyChanged, HandleDifficultyChange);
         EventManager.StartListening(Const.Events.WaveStarted, WaveStarted);
-        EventManager.StartListening(Const.Events.TutorialCompleted, AdjustDDA);
-        
+
         SceneManager.sceneLoaded += OnSceneLoaded;
         
         startTime = DateTime.Now;
@@ -85,13 +81,13 @@ public class DDAManager : MonoBehaviour
         _zombiesKilled = 0;
     }
 
-    private void AdjustDDA()
-    {
-        var difficultyChange = CalculateTotalDifficultyChange();
-
-        Difficulty.CurrentDifficultyIndex += difficultyChange;
-        Difficulty.ApplyDifficultyChange();
-    }
+    // private void AdjustDDA()
+    // {
+    //     var difficultyChange = CalculateTotalDifficultyChange();
+    //
+    //     Difficulty.CurrentDifficultyIndex += difficultyChange;
+    //     Difficulty.ApplyDifficultyChange();
+    // }
 
     private int CalculateTotalDifficultyChange()
     {
@@ -248,6 +244,7 @@ public class DDAManager : MonoBehaviour
 
     private void WaveStarted()
     {
+        ResetSingleWaveStats();
         startTime = DateTime.Now;
     }
 

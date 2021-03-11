@@ -51,6 +51,9 @@ public class LoggingManager : MonoBehaviour
     private static int _meleeAttacksTotal;
 
     private static string _isFirstLogCall = "true";
+    
+    private PlayerManager playerManager;
+    private GameObject player;
 
     void Start()
     {
@@ -58,8 +61,16 @@ public class LoggingManager : MonoBehaviour
 
         EventManager.StartListening(Const.Events.ShotFired, () =>
         {
-            shotsInCurrentWave++;
-            _shotsTotal++;
+            if (playerManager.GetActiveWeapon().WeaponType == WeaponType.Shotgun)
+            {
+                shotsInCurrentWave += Const.Shotgun.ShotgunSplinters;
+                _shotsTotal += Const.Shotgun.ShotgunSplinters;
+            }
+            else
+            {
+                shotsInCurrentWave++;
+                _shotsTotal++;
+            }
         });
 
         EventManager.StartListening(Const.Events.ShotHitDDAZone, () =>
@@ -119,6 +130,12 @@ public class LoggingManager : MonoBehaviour
             waveNumber = 1;
             levelStartTime = DateTime.Now;
             currentSceneName = scene.name;
+        }
+
+        if (scene.name.Equals(Const.SceneNames.Tutorial))
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            playerManager = player.GetComponent<PlayerManager>();
         }
     }
 
