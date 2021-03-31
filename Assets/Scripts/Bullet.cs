@@ -20,10 +20,10 @@ public class Bullet : MonoBehaviour, IDamageDealer
 
     int IDamageDealer.damage
     {
-        get { return damage; }
+        get => PlayerManager.oneShotMode ? 99999 : damage;
         set { }
     }
-    public DamageType damageType { get => DamageType.Bullet; set => throw new System.NotImplementedException(); }
+    public DamageType damageType { get => DamageType.Bullet; set => throw new NotImplementedException(); }
 
     public DamageSource damageSource
     {

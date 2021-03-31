@@ -11,5 +11,15 @@ public class CheatManager : MonoBehaviour
         {
             EventManager.TriggerEvent(Const.Events.LevelCompleted);
         }
+        
+        if (Input.GetKeyDown(KeyCode.F4))
+        {
+            PlayerManager.godMode = !PlayerManager.godMode;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            PlayerManager.oneShotMode = !PlayerManager.oneShotMode;
+        }
     }
 }

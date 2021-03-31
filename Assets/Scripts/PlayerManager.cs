@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour, IDamageable
 {
-
+    public static bool godMode;
+    public static bool oneShotMode;
     public int maxHealth;
     public int armor;
     public int grenades;
@@ -189,6 +190,12 @@ public class PlayerManager : MonoBehaviour, IDamageable
     {
         // Do not take damage if source is from the player (prevent friendly fire)
         if (damageDealer.damageSource == DamageSource.Friendly)
+        {
+            return;
+        }
+
+        // Do not take damage if God Mode is enabled
+        if (godMode)
         {
             return;
         }
